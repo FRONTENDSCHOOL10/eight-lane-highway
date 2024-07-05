@@ -1,18 +1,25 @@
 @import "variables";
 @import "mixins";
 
-input {
-  &.default {
-    @include input($gray-300, transparent);
+.input {
+  &--small {
+    width: 333px;
+    min-height: 44px;
+    padding: 0 20px;
+  }
+  &__default {
+    &__text {
+      @include input($gray-300, transparent);
+    }
+  }
+}
 
-    &__small {
-      &[type="text"],
-      &[type="password"],
-      &[type="email"] {
-        width: 333px;
-        min-height: 44px;
-        padding: 0 20px;
-      }
+label {
+  &.label {
+    &--medium {
+      width: 139px;
+      font-size: 1rem;
+      font-weight: 600;
     }
   }
 }
