@@ -1,10 +1,17 @@
 @mixin input($bd-color, $bg) {
-    border: 1px solid $bd-color;
-    background-color: $bg;
+  border: 1px solid $bd-color;
+  background-color: $bg;
 }
 
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin flexAll($fd, $jc, $at) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $at;
+}
+
+@mixin flexColumn($ai) {
+  display: flex;
+  flex-direction: column;
+  align-items: $ai;
 }
