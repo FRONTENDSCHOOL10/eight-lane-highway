@@ -1,9 +1,154 @@
-.header {
-  background-color: #0e2536;
+$primary-color: #5f0080;
+$text-color: #333;
+$after-color: #d9d9d9;
 
-  &__logo {
+@mixin mixin-with-args($num) {
+  #{$props}: $num;
+}
+
+.header {
+  width: 1050px;
+  margin: 0 auto;
+  padding-top: 64px;
+  position: relative;
+
+  &__container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+  }
+  &__logo {
+  }
+  &__user-auth {
+    display: flex;
+    position: absolute;
+    gap: 1.5rem;
+    top: 12px;
+    right: 0;
+    font-size: 12px;
+
+    li {
+      color: $text-color;
+      position: relative;
+    }
+
+    .user-auth__singup {
+      color: $primary-color;
+    }
+    .user-auth__singup::after,
+    .user-auth__login::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: -10px;
+      width: 1px;
+      height: 13px;
+      background-color: $after-color;
+    }
+
+    .user-auth__customer-service a::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: -10px;
+      width: 10px;
+      height: 10px;
+      // background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+      // border: 1px solid red;
+    }
+
+    .user-auth__notice-box {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      width: 130px;
+      padding: 3px 9px;
+      border: 1px solid rgb(221, 221, 221);
+      background-color: #fff;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 12px;
+      }
+    }
+
+    .user-auth__notice-box.show {
+      display: block;
+    }
+  }
+  &__page {
+    display: flex;
+
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 21.328px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .page-market button {
+      position: relative;
+      color: $primary-color;
+    }
+
+    .page-market button::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 0px;
+      width: 1px;
+      height: 14px;
+      background-color: $after-color;
+    }
+
+    .page-beauty button {
+      color: $text-color;
+    }
+  }
+  &__search {
+    display: flex;
+    width: 400px;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    overflow: auto;
+    padding: 12px 20px;
+
+    .search__input {
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .search__button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      margin-left: auto;
+    }
+  }
+  &__user-service {
+    display: flex;
+    gap: 20px;
+
+    .user-service__address-box {
+      &:focus {
+        border: 2px solid #333;
+        border-radius: 4px;
+      }
+    }
+
+    .user-service__address-modal {
+      display: none;
+    }
+  }
+  &__product {
+    border: 1px solid purple;
+    display: none;
   }
 }
