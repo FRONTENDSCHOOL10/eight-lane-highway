@@ -1,0 +1,45 @@
+@mixin flexAll($fd, $jc, $at) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $at;
+}
+
+body {
+  width: 100%;
+}
+
+.login-container {
+  text-align: center;
+  margin: 80px 0;
+
+  h2 {
+    font-family: Pretendard;
+    font-size: 21.328px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  .login-form {
+    @include flexAll(column, center, center);
+    margin-top: 44px;
+    gap: 12px;
+
+    button {
+      order: 1;
+      margin-top: 16px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .search-container {
+    @include flexAll(row, center, center);
+    gap: 4px;
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
