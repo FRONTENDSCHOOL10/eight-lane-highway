@@ -1,12 +1,12 @@
 form {
-    fieldset {
-        display: flex;
-        padding: 20px 0;
-        gap: 8px;
-        
-        label {
-            @include flex-center;
-            padding: 8px;
-        }
+  fieldset {
+    display: flex;
+    padding: 20px 0;
+    gap: 8px;
+
+    label {
+      @include flexAll(row, center, center);
+      padding: 8px;
     }
+  }
 }
