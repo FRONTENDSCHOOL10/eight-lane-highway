@@ -1,5 +1,9 @@
-@import '../component/assets/variables';
-@import '../component/assets/mixins';
-@import '../component/assets/forms';
-@import '../component/assets/inputs';
-@import '../component/assets/buttons';
+@import "../component/assets/variables";
+@import "../component/assets/mixins";
+@import "../component/assets/layout";
+@import "../component/assets/forms";
+@import "../component/assets/inputs";
+
+body {
+  font-size: 16px;
+}
