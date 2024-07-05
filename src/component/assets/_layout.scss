@@ -1,0 +1,11 @@
+@import "mixins";
+
+section {
+  &.signup-container {
+    @include flexColumn(center);
+
+    form {
+      width: 640px;
+    }
+  }
+}
