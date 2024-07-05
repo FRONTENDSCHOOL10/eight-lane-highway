@@ -2,7 +2,7 @@ const app = document.querySelector("#app");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
-<style>@import url(./header.css);</style>
+<style>@import url(./header.scss);</style>
 <header class="header">
 <nav>
   <div>

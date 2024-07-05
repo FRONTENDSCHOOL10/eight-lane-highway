@@ -1,0 +1,9 @@
+.header {
+  background-color: #0e2536;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
