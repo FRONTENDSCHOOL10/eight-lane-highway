@@ -1,5 +1,5 @@
-$primary-color: #3498db;
-
-body {
-  background-color: $primary-color;
-}
+@import '../component/assets/variables';
+@import '../component/assets/mixins';
+@import '../component/assets/forms';
+@import '../component/assets/inputs';
+@import '../component/assets/buttons';
