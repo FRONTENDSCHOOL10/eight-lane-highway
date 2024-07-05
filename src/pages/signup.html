@@ -4,80 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/style.scss">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.scss" />
   </head>
   <body>
-    <section class="sign-up">
+    <section class="signup-container">
       <h1>회원가입</h1>
       <form action="">
         <fieldset>
-          <label>아이디</label>
-          <input class="default__small" type="text" placeholder="아이디를 입력해주세요 "/>
+          <label class="label__register label--medium">아이디</label>
+          <input
+            class="input--small input__default__text"
+            type="text"
+            placeholder="아이디를 입력해주세요 "
+          />
           <button type="button">중복확인</button>
         </fieldset>
         <fieldset>
-          <label>비밀번호</label>
-          <input class="default__small" type="password" />
+          <label class="label__register label--medium">비밀번호</label>
+          <input class="input--small input__default__text" type="password" />
         </fieldset>
         <fieldset>
-          <label>이름</label>
-          <input class="default__small" type="text" />
+          <label class="label__register label--medium">이름</label>
+          <input class="input--small input__default__text" type="text" />
         </fieldset>
         <fieldset>
-          <label>이메일</label>
-          <input class="default__small" type="email" />
+          <label class="label__register label--medium">이메일</label>
+          <input class="input--small input__default__text" type="email" />
         </fieldset>
         <fieldset>
-          <legend>휴대폰</legend>
-          <input class="default__small" type="number" />
-        <fieldset>
-          <legend>주소</legend>
-          <button class="default__small" type="button">주소 검색</button>
+          <label class="label__register label--medium">휴대폰</label>
+          <input class="input--small input__default__text" type="number" />
         </fieldset>
         <fieldset>
-          <legend>성별</legend>
-          <input class="default__small" type="radio" />
+          <label class="label__register label--medium">주소</label>
+          <button type="button">주소 검색</button>
+        </fieldset>
+        <fieldset>
+          <label class="label__register label--medium">성별</label>
+          <input type="radio" />
           <label>남자</label>
-          <input class="default__small" type="radio" />
+          <input type="radio" />
           <label>여자</label>
-          <input class="default__small" type="radio" />
+          <input type="radio" />
           <label for="">선택안함</label>
         </fieldset>
         <fieldset>
-          <legend>생년월일</legend>
-          <input type="date" />
+          <label class="label__register label--medium">생년월일</label>
+          <input class="input--small input__default__text" type="date" />
         </fieldset>
         <fieldset>
-          <legend>추가입력 사항</legend>
+          <label class="label__register label--medium">추가입력 사항</label>
           <input type="radio" />
           <label for="">친구초대 추천인 아이디</label>
           <input type="radio" />
           <label for="">참여 이벤트명</label>
         </fieldset>
         <fieldset>
-          <legend>이용약관동의</legend>
+          <label class="label__register label--medium">이용약관동의</label>
           <input type="checkbox" name="" id="" />
           <label for="">
             <span>전체 동의합니다.</span>
-            <p>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
+            <p>
+              선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를
+              이용할 수 있습니다.
+            </p>
           </label>
-          <div>
-            <input type="checkbox" name="" id="" />
-            <label for="">이용약관 동의 (필수)</label>
-          </div>
-          <div>
-            <input type="checkbox" name="" id="" />
-            <label for="">개인정보 수집・이용 동의 (필수)</label>
-          </div>
-          <div>
-            <input type="checkbox" name="" id="" />
-            <label for="">무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)</label>
-          </div>
-          <div>
-            <input type="checkbox" name="" id="" />
-            <label for="">본인은 만 14세 이상입니다. (필수)</label>
-          </div>
+        </fieldset>
+        <fieldset>
+          <input type="checkbox" name="" id="" />
+          <label for="">이용약관 동의 (필수)</label>
+          <input type="checkbox" name="" id="" />
+          <label for="">개인정보 수집・이용 동의 (필수)</label>
+        </fieldset>
+        <fieldset>
+          <input type="checkbox" name="" id="" />
+          <label for="">무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)</label>
+        </fieldset>
+        <fieldset>
+          <input type="checkbox" name="" id="" />
+          <label for="">본인은 만 14세 이상입니다. (필수)</label>
         </fieldset>
         <button type="submit">가입하기</button>
       </form>
