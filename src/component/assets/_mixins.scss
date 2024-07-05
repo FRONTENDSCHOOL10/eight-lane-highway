@@ -1,0 +1,10 @@
+@mixin input($bd-color, $bg) {
+    border: 1px solid $bd-color;
+    background-color: $bg;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
