@@ -19,6 +19,7 @@
             id="idField"
             class="login-form__inner__input"
             placeholder="아이디를 이메일 형식으로 입력해주세요"
+            required
           />
         </div>
         <div>
@@ -28,9 +29,10 @@
             id="pwField"
             class="login-form__inner__input"
             placeholder="비밀번호를 입력해주세요"
+            required
           />
         </div>
-        <button type="submit" class="login-form__content__button">
+        <button type="submit" class="button__stroke button__large">
           로그인
         </button>
         <article>
@@ -39,15 +41,17 @@
             aria-labelledby="findUserInfo"
             class="search-container"
           >
-            <li class="search-container__item"><a href="#">아이디 찾기</a></li>
+            <li id="findUserInfo" class="search-container__item">
+              <a href="#">아이디 찾기</a>
+            </li>
             <li class="search-container__item" aria-hidden="true">|</li>
-            <li class="search-container__item">
+            <li id="findUserInfo" class="search-container__item">
               <a href="#">비밀번호 찾기</a>
             </li>
           </ul>
         </article>
       </form>
-      <a href="#" class="button--large__normal__fill">회원가입</a>
+      <a href="#" class="button__fill button__large">회원가입</a>
     </section>
   </body>
 </html>
