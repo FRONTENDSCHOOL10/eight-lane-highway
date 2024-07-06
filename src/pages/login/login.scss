@@ -1,3 +1,5 @@
+@import url("../../component/assets/buttons.scss");
+
 @mixin flexAll($fd, $jc, $at) {
   display: flex;
   flex-direction: $fd;
@@ -29,7 +31,7 @@ body {
     button {
       order: 1;
       margin-top: 16px;
-      margin-bottom: 12px;
+      // margin-bottom: 12px;
     }
   }
 
@@ -41,5 +43,11 @@ body {
       display: flex;
       flex-direction: row;
     }
+  }
+
+  .button__a {
+    display: inline-block;
+    align-content: center;
+    margin-top: 12px;
   }
 }
