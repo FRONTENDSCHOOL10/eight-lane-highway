@@ -1,5 +1,13 @@
-@mixin input($bd-color, $bg) {
-  border: 1px solid $bd-color;
+@mixin input($bd-px, $wd, $ht) {
+  border: $bd-px solid $gray-300;
+  width: $wd;
+  inline-size: $wd;
+  height: $ht;
+  block-size: $ht;
+}
+
+@mixin input-color($bc, $bg) {
+  border-color: $bc;
   background-color: $bg;
 }
 
