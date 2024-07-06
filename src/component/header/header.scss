@@ -2,41 +2,42 @@ $primary-color: #5f0080;
 $text-color: #333;
 $after-color: #d9d9d9;
 
-@mixin mixin-with-args($num) {
-  #{$props}: $num;
-}
+$font-small: 0.75rem;
+$font-medium: 1rem;
+$font-large: 1.25rem;
 
 .header {
   width: 1050px;
+  max-width: 1050px;
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 50px;
   position: relative;
 
   &__container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
   &__logo {
+    margin-right: 12px;
   }
-  &__user-auth {
+  &__user-auth-list {
     display: flex;
     position: absolute;
-    gap: 1.5rem;
-    top: 12px;
-    right: 0;
-    font-size: 12px;
+    top: 8px;
+    right: 13px;
+    font-size: $font-small;
 
-    li {
+    .header__user-auth-item {
       color: $text-color;
       position: relative;
+      margin-left: 1.5rem;
     }
 
-    .user-auth__singup {
+    .header__user-auth-item-signup {
       color: $primary-color;
     }
-    .user-auth__singup::after,
-    .user-auth__login::after {
+    .header__user-auth-item-signup::after,
+    .header__user-auth-item-login::after {
       content: "";
       position: absolute;
       top: 5px;
@@ -46,78 +47,90 @@ $after-color: #d9d9d9;
       background-color: $after-color;
     }
 
-    .user-auth__customer-service a::after {
+    .header__user-auth-item-customer-service a::after {
       content: "";
       position: absolute;
       top: 5px;
       right: -10px;
-      width: 10px;
-      height: 10px;
-      // background: url(<path-to-image>) lightgray 50% / cover no-repeat;
-      // border: 1px solid red;
+      width: 8px;
+      height: 5px;
+      background: url(https://res.kurly.com/pc/ico/1908/ico_down_16x10.png)
+        center / cover no-repeat;
+    }
+    .header__user-auth-item-notice {
+      display: none;
+      margin-left: 0;
+
+      &.active {
+        display: block;
+      }
     }
 
-    .user-auth__notice-box {
-      display: none;
+    .header__user-auth-item-notice-list {
       position: absolute;
       top: 30px;
-      right: 0;
+      right: -15px;
       width: 130px;
       padding: 3px 9px;
       border: 1px solid rgb(221, 221, 221);
       background-color: #fff;
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        font-size: 12px;
+      .header__user-auth-notice-item {
+        margin: 0.5rem 0;
+        font-size: $font-small;
       }
     }
-
-    .user-auth__notice-box.show {
-      display: block;
-    }
   }
-  &__page {
+  &__page-list {
     display: flex;
 
     button {
       background-color: transparent;
       border: none;
-      font-size: 21.328px;
+      font-size: $font-large;
       font-style: normal;
       font-weight: 600;
+      cursor: pointer;
     }
 
-    .page-market button {
+    .header__page-item-market {
+      & button {
+        position: relative;
+        color: $primary-color;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 10px;
+          right: 0px;
+          width: 1px;
+          height: 14px;
+          background-color: $after-color;
+        }
+      }
+    }
+
+    .header__page-item-beauty {
       position: relative;
-      color: $primary-color;
-    }
-
-    .page-market button::after {
-      content: "";
-      position: absolute;
-      top: 10px;
-      right: 0px;
-      width: 1px;
-      height: 14px;
-      background-color: $after-color;
-    }
-
-    .page-beauty button {
-      color: $text-color;
+      margin-right: 50px;
+      & button {
+        color: $text-color;
+      }
+      span {
+        position: absolute;
+        top: -18px;
+        right: 2px;
+      }
     }
   }
-  &__search {
+  &__search-box {
     display: flex;
     width: 400px;
     border: 1px solid $primary-color;
     border-radius: 4px;
-    overflow: auto;
     padding: 12px 20px;
 
-    .search__input {
+    .header__search-input {
       border: none;
 
       &:focus {
@@ -125,30 +138,94 @@ $after-color: #d9d9d9;
       }
     }
 
-    .search__button {
+    .header__search__button {
       border: none;
       background-color: transparent;
       cursor: pointer;
       margin-left: auto;
     }
   }
-  &__user-service {
+  &__user-service-list {
     display: flex;
     gap: 20px;
+    margin-left: auto;
 
-    .user-service__address-box {
+    .header__user-service-item-address {
+      position: relative;
+      z-index: -1;
       &:focus {
         border: 2px solid #333;
         border-radius: 4px;
       }
-    }
 
-    .user-service__address-modal {
-      display: none;
+      .header__user-service-item-address-modal {
+        display: none;
+        position: absolute;
+        padding: 1rem;
+        border: 1px solid $after-color;
+        width: 250px;
+        left: -50px;
+        top: 50px;
+        p {
+          margin-bottom: 16px;
+        }
+        span {
+          color: $primary-color;
+        }
+
+        button {
+          border: none;
+          border-radius: 4px;
+          padding: 0.5rem 2rem;
+        }
+
+        .header__user-service-item-address-modal-login {
+          border: 1px solid $primary-color;
+          background-color: #fff;
+        }
+        .header__user-service-item-address-modal-search-address {
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
     }
   }
-  &__product {
-    border: 1px solid purple;
-    display: none;
+  &__product-list {
+    margin-top: 20px;
+    display: flex;
+
+    .header__product-item {
+      color: $text-color;
+      font-size: $font-medium;
+      font-weight: 500;
+
+      &:hover:not(.header__product-item-delivery) {
+        border-bottom: 1px solid $primary-color;
+        padding-bottom: 1px;
+        color: $primary-color;
+      }
+    }
+
+    .header__product-item-category {
+      margin-right: auto;
+    }
+    .header__product-item-delivery {
+      border: 1px solid $after-color;
+      border-radius: 16px;
+      margin-left: auto;
+      margin-top: -3px;
+      padding: 4px 8px;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    .header__product-item-new,
+    .header__product-item-best,
+    .header__product-item-shopping,
+    .header__product-item-benefits {
+      margin: 0 3rem;
+    }
   }
 }
