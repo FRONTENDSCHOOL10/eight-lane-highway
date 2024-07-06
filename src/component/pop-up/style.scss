@@ -1,0 +1,35 @@
+.pop-up-container {
+  width: 440px;
+  height: 672px;
+  border: 1px solid black;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-flow: nowrap row;
+  padding: 0;
+
+  .quick-link {
+    position: absolute;
+    width: 440px;
+    height: 586px;
+    top: 0;
+    left: 0;
+  }
+
+  .close-hide-btn {
+    width: 440px;
+    height: 86px;
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+  #hidePopup,
+  #closePopup {
+    width: 220px;
+    height: 86px;
+    padding: 0;
+    margin: 0;
+  }
+}
