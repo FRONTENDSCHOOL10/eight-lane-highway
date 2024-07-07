@@ -1,0 +1,15 @@
+section {
+  &.signup-container {
+    @include flexColumn(center);
+
+    form {
+      width: 640px;
+    }
+  }
+}
+
+p {
+  &.text--right {
+    text-align: right;
+  }
+}
