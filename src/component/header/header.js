@@ -6,7 +6,7 @@ import heart from "./assets/heart.svg";
 import newSvg from "./assets/new.svg";
 import category from "./assets/category.svg";
 
-const headerContainer = document.querySelector("#header");
+const header = document.querySelector("#header");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
@@ -48,8 +48,8 @@ headerTemplate.innerHTML = `
         </li>
       </ul>
       <ul class="nav__page-list">
-        <li class="nav__page-item market">
-          <button type="button">마켓칼리</button>
+        <li class="nav__page-item market ">
+          <button type="button" class="active">마켓칼리</button>
         </li>
         <li class="nav__page-item beauty">
           <button type="button">뷰티칼리</button>
@@ -131,31 +131,78 @@ export class Header extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
-    // this.nav = this.shadowRoot.querySelector("nav");
-    // this.headerContainer = this.nav.querySelector(".nav__container");
-    // this.userAuth = this.headerContainer.querySelector(
-    //   ".nav__user-auth-list"
-    // );
-    // this.customerService = this.userAuth.querySelector(
-    //   ".nav__user-auth-item-customer-service"
-    // );
-    // this.noticeList = this.userAuth.querySelector(
-    //   ".nav__user-auth-item-notice"
-    // );
+    this.nav = this.shadowRoot.querySelector(".nav__container1");
+
+    this.customerService = this.nav.querySelector(".customer-service");
+    this.noticeList = this.nav.querySelector(".nav__user-auth-notice-list");
+    this.address = this.nav.querySelector(".nav__user-service-item-address");
+    this.addressModal = this.nav.querySelector(
+      ".nav__user-service-item-address-modal"
+    );
+    this.pageList = this.nav.querySelector(".nav__page-list");
   }
   connectedCallback() {
     console.log("makeHeader.js 연결");
 
-    // this.customerService.addEventListener("mouseover", () => {
-    //   this.noticeList.classList.add("active");
-    // });
-    // this.customerService.addEventListener("mouseleave", () => {
-    //   this.noticeList.classList.remove("active");
-    // });
+    this.customerService.addEventListener("mouseover", () => {
+      this.add(this.noticeList, "active");
+    });
+    this.customerService.addEventListener("mouseleave", () => {
+      this.remove(this.noticeList, "active");
+    });
+
+    this.address.addEventListener("mouseover", () => {
+      this.add(this.addressModal, "active");
+    });
+    this.address.addEventListener("mouseleave", () => {
+      this.remove(this.addressModal, "active");
+    });
+
+    this.pageList.addEventListener("click", (e) => {
+      const liList = e.currentTarget.children;
+      [...liList].forEach((li) => {
+        const button = li.querySelector("button");
+        button.classList.remove("active");
+      });
+      this.add(e.target, "active");
+      // location.href = "../../../index.html";
+    });
+  }
+  add(node, className) {
+    if (typeof node === "string") node = document.querySelector(node);
+
+    if (!className) {
+      node.className = "";
+      return;
+    }
+
+    if (typeof className !== "string") {
+      throw new TypeError(
+        "removeClass 함수의 두 번째 인수는 문자 타입 이어야 합니다."
+      );
+    }
+
+    node.classList.add(className);
+  }
+  remove(node, className) {
+    if (typeof node === "string") node = document.querySelector(node);
+
+    if (!className) {
+      node.className = "";
+      return;
+    }
+
+    if (typeof className !== "string") {
+      throw new TypeError(
+        "removeClass 함수의 두 번째 인수는 문자 타입 이어야 합니다."
+      );
+    }
+
+    node.classList.remove(className);
   }
 }
 
 customElements.define("c-header", Header);
-const header = document.createElement("c-header");
+const cHeader = document.createElement("c-header");
 
-headerContainer.append(header);
+header.append(cHeader);

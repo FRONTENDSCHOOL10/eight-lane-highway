@@ -53,6 +53,7 @@ $font-large: 1.25rem;
 
     .customer-service {
       position: relative;
+      padding-bottom: 15px;
 
       &::after {
         content: "";
@@ -76,9 +77,9 @@ $font-large: 1.25rem;
         border: 1px solid $after-color;
         background-color: #fff;
 
-        // &.active {
-        //   display: block;
-        // }
+        &.active {
+          display: block;
+        }
 
         .nav__user-auth-notice-item {
           margin: 0.5rem 0;
@@ -99,14 +100,18 @@ $font-large: 1.25rem;
       border: none;
       font-size: $font-large;
       font-style: normal;
-      font-weight: 600;
       cursor: pointer;
+      color: #b5b5b5;
+    }
+
+    button.active {
+      font-weight: 600;
+      color: $primary-color;
     }
 
     .market {
       & button {
         position: relative;
-        color: $primary-color;
 
         &::after {
           content: "";
@@ -123,9 +128,7 @@ $font-large: 1.25rem;
     .beauty {
       position: relative;
       margin-right: 50px;
-      & button {
-        color: $text-color;
-      }
+
       img {
         position: absolute;
         top: -10px;
@@ -172,6 +175,7 @@ $font-large: 1.25rem;
 
     .nav__user-service-item-address {
       position: relative;
+      padding-bottom: 10px;
 
       &:focus {
         border: 2px solid #333;
@@ -181,7 +185,7 @@ $font-large: 1.25rem;
       .nav__user-service-item-address-modal {
         display: none;
         position: absolute;
-        padding: 1rem;
+        padding: 2rem;
         border: 1px solid $after-color;
         width: 250px;
         top: 50px;
@@ -200,6 +204,7 @@ $font-large: 1.25rem;
           border: none;
           border-radius: 4px;
           padding: 0.5rem 2rem;
+          cursor: pointer;
         }
 
         .modal-login {
@@ -210,6 +215,10 @@ $font-large: 1.25rem;
           background-color: $primary-color;
           color: #fff;
         }
+      }
+
+      .nav__user-service-item-address-modal.active {
+        display: block;
       }
     }
   }
@@ -242,9 +251,11 @@ $font-large: 1.25rem;
       margin-left: auto;
       margin-top: -3px;
       padding: 4px 8px;
+      font-size: 13px;
 
       span {
         color: $primary-color;
+        font-weight: bold;
       }
     }
 
