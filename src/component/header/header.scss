@@ -1,4 +1,4 @@
-$primary-color: #5f0080;
+$primaryColor: #5f0080;
 $text-color: #333;
 $after-color: #d9d9d9;
 
@@ -37,7 +37,7 @@ $font-large: 1.25rem;
     }
 
     .signup {
-      color: $primary-color;
+      color: $primaryColor;
     }
 
     .signup::after,
@@ -106,7 +106,7 @@ $font-large: 1.25rem;
 
     button.active {
       font-weight: 600;
-      color: $primary-color;
+      color: $primaryColor;
     }
 
     .market {
@@ -142,7 +142,7 @@ $font-large: 1.25rem;
   &__search-box {
     display: flex;
     width: 400px;
-    border: 1px solid $primary-color; // 변수 사용 예시
+    border: 1px solid $primaryColor; // 변수 사용 예시
     border-radius: 4px;
     padding: 12px 20px;
 
@@ -197,7 +197,7 @@ $font-large: 1.25rem;
           margin-bottom: 16px;
         }
         span {
-          color: $primary-color;
+          color: $primaryColor;
         }
 
         button {
@@ -208,11 +208,11 @@ $font-large: 1.25rem;
         }
 
         .modal-login {
-          border: 1px solid $primary-color;
+          border: 1px solid $primaryColor;
           background-color: #fff;
         }
         .modal-search-address {
-          background-color: $primary-color;
+          background-color: $primaryColor;
           color: #fff;
         }
       }
@@ -236,9 +236,9 @@ $font-large: 1.25rem;
       font-weight: 500;
 
       &:hover:not(.delivery) {
-        border-bottom: 1px solid $primary-color;
+        border-bottom: 1px solid $primaryColor;
         padding-bottom: 1px;
-        color: $primary-color;
+        color: $primaryColor;
       }
     }
 
@@ -254,7 +254,7 @@ $font-large: 1.25rem;
       font-size: 13px;
 
       span {
-        color: $primary-color;
+        color: $primaryColor;
         font-weight: bold;
       }
     }
