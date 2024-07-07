@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/src/styles/reset.css" />
     <link rel="stylesheet" href="/src/styles/style.scss" />
     <link rel="stylesheet" href="/src/pages/login/login.scss" />
+    <script type="module" src="/src/pages/login/login.js"></script>
     <title>로그인</title>
   </head>
   <body>
@@ -33,7 +34,12 @@
             required
           />
         </div>
-        <button type="submit" class="button__fill button__large">로그인</button>
+        <button
+          type="submit"
+          class="button__fill button__large login-form__button"
+        >
+          로그인
+        </button>
         <article class="search-containers">
           <ul
             role="group"
