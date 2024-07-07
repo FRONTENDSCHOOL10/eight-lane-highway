@@ -1,0 +1,57 @@
+body {
+  width: 100%;
+}
+
+.login-container {
+  text-align: center;
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 80px;
+
+  h2 {
+    font-family: Pretendard;
+    font-size: 21.328px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  .login-form {
+    @include flexAll(column, center, center);
+    margin-top: 44px;
+    gap: 12px;
+
+    button {
+      order: 1;
+      margin-top: 16px;
+      // margin-bottom: 12px;
+    }
+  }
+
+  .search-containers {
+    @include flexAll(row, right, center);
+    width: 100%;
+  }
+
+  .search-container {
+    @include flexAll(row, center, center);
+    gap: 4px;
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      color: $dark-black;
+      font-family: Pretendard;
+      font-size: 12.003px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+
+  .button__a {
+    display: inline-block;
+    align-content: center;
+    margin-top: 12px;
+  }
+}
