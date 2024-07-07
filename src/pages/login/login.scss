@@ -13,7 +13,9 @@ body {
 
 .login-container {
   text-align: center;
-  margin: 80px 0;
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 80px;
 
   h2 {
     font-family: Pretendard;
@@ -35,6 +37,11 @@ body {
     }
   }
 
+  .search-containers {
+    @include flexAll(row, right, center);
+    width: 100%;
+  }
+
   .search-container {
     @include flexAll(row, center, center);
     gap: 4px;
@@ -42,6 +49,12 @@ body {
     &__item {
       display: flex;
       flex-direction: row;
+      color: #000;
+      font-family: Pretendard;
+      font-size: 12.003px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
     }
   }
 
