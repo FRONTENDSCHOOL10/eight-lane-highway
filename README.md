@@ -71,5 +71,6 @@ src/component/pop-up/style.scss : popup 스타일링 추가
 src/component/pop-up/index.html: 클래스명 수정
 src/component/pop-up/style.scss: 스타일링 수정
 src/component/pop-up/main.js: 기능 수정
+src/component/pop-up/style.scss: 폰트 단위수정
 
 > > > > > > > 116a30dbbbbaeb1aaca43b11b6fe3fe5268db696
