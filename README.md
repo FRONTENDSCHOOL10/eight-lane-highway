@@ -1,4 +1,3 @@
-# eight-lane-highway
 
 ## 멋쟁이사자처럼 테킷 프론트엔드 스쿨 10기 8조 바닐라 프로젝트 저장소
 
@@ -18,6 +17,11 @@ sr-only.css: label 요소 보이지 않게 하기 위한 sr-only 파일 작성
 - layout.scss(layout 컴포넌트 scss 생성)
 
 ---
+2024-07-06 12:31 이희재 
+
+- header.js[바로가기](./src/component/header/header.js) (pages 클릭시 클래스 토글)
+- header.scss[바로가기](./src/component/header/header.scc) (header.scss 전반적인 수정)
+
 
 2024-07-06 11:56 오성훈
 
@@ -36,3 +40,4 @@ component/assets/buttons.scss: 버튼 컴포넌트 스타일 작성
 - style.scss(character 컴포넌트 import)
 - layout.scss(p 요소 스타일 지정)
 - signup.html(이슈 사항 수정)
+
