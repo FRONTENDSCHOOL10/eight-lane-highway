@@ -1,0 +1,13 @@
+form {
+  fieldset {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    gap: 8px;
+
+    label {
+      @include flexAll(row, center, center);
+      padding: 8px;
+    }
+  }
+}

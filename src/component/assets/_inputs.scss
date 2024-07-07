@@ -1,0 +1,73 @@
+input {
+  &[type="text"] {
+    @include input(1px, 333px, 44px);
+    @include input-color($gray-300, transparent);
+    padding: 0 20px;
+  }
+  &.input {
+    &__radio {
+      @include input(1px, 24px, 24px);
+      appearance: none;
+      border-radius: 50%;
+      margin: 0;
+
+      &:checked {
+        background-color: $gray-200;
+        border: 7px solid $primary-color;
+      }
+    }
+    &__checkbox {
+      @include input(1px, 24px, 24px);
+      @include input-color($gray-200, transparent);
+      appearance: none;
+      border-radius: 50%;
+      background-image: url("/Users/hanwoolkim/techit-school/eight-lane-highway/src/component/assets/img/input-vector.svg");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      margin: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 24px;
+      }
+
+      &:checked {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+label {
+  &.label {
+    position: relative;
+
+    &--medium {
+      width: 139px;
+      font-size: 1rem;
+      font-weight: 600;
+
+      &::after {
+        content: "*";
+        position: relative;
+        top: -6px;
+        color: $error-color;
+      }
+    }
+    &--small {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $gray-500;
+
+      &::after {
+        content: "*";
+        position: relative;
+        top: -6px;
+        color: $error-color;
+      }
+    }
+  }
+}

@@ -1,5 +1,10 @@
-$primary-color: #3498db;
+@import "../component/assets/variables";
+@import "../component/assets/mixins";
+@import "../component/assets/character";
+@import "../component/assets/layout";
+@import "../component/assets/forms";
+@import "../component/assets/inputs";
 
 body {
-  background-color: $primary-color;
+  font-size: 16px;
 }
