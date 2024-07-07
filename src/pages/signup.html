@@ -71,12 +71,14 @@
           <button type="button">주소 검색</button>
         </fieldset>
         <fieldset>
-          <label class="label__register label--medium">성별</label>
-          <input type="radio" />
+          <label class="label__register label--medium" for="radioGender"
+            >성별</label
+          >
+          <input class="input__radio" type="radio" name="radioGender" />
           <label>남자</label>
-          <input type="radio" />
+          <input class="input__radio" type="radio" name="radioGender" />
           <label>여자</label>
-          <input type="radio" />
+          <input class="input__radio" type="radio" name="radioGender" />
           <label for="">선택안함</label>
         </fieldset>
         <fieldset>
@@ -90,14 +92,14 @@
         </fieldset>
         <fieldset>
           <label class="label__register label--medium">추가입력 사항</label>
-          <input type="radio" />
-          <label for="">친구초대 추천인 아이디</label>
-          <input type="radio" />
-          <label for="">참여 이벤트명</label>
+          <input class="input__radio" type="radio" name="radioAddInput" />
+          <label for="radioAddInput">친구초대 추천인 아이디</label>
+          <input class="input__radio" type="radio" name="radioAddInput" />
+          <label for="radioAddInput">참여 이벤트명</label>
         </fieldset>
         <fieldset>
           <label class="label__register label--medium">이용약관동의</label>
-          <input type="checkbox" name="" id="" />
+          <input class="input__checkbox" type="checkbox" name="" id="" />
           <label for="">
             <span>전체 동의합니다.</span>
             <p>
@@ -107,17 +109,35 @@
           </label>
         </fieldset>
         <fieldset>
-          <input type="checkbox" name="" id="" required />
+          <input
+            class="input__checkbox"
+            type="checkbox"
+            name=""
+            id=""
+            required
+          />
           <label for="">이용약관 동의 (필수)</label>
-          <input type="checkbox" name="" id="" required />
+          <input
+            class="input__checkbox"
+            type="checkbox"
+            name=""
+            id=""
+            required
+          />
           <label for="">개인정보 수집・이용 동의 (필수)</label>
         </fieldset>
         <fieldset>
-          <input type="checkbox" name="" id="" />
+          <input class="input__checkbox" type="checkbox" name="" id="" />
           <label for="">무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)</label>
         </fieldset>
         <fieldset>
-          <input type="checkbox" name="" id="" required />
+          <input
+            class="input__checkbox"
+            type="checkbox"
+            name=""
+            id=""
+            required
+          />
           <label for="">본인은 만 14세 이상입니다. (필수)</label>
         </fieldset>
         <button type="submit">가입하기</button>
