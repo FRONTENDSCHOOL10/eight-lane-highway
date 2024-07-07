@@ -1,12 +1,25 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
 .pop-up-container {
   width: 440px;
   height: 672px;
-  border: 1px solid black;
+  // border: 1px solid black;
   border-radius: 16px;
   position: relative;
   display: flex;
   flex-flow: nowrap row;
   padding: 0;
+  background-image: url("./assets/kurly-popup.png");
 
   .quick-link {
     position: absolute;
@@ -16,7 +29,7 @@
     left: 0;
   }
 
-  .close-hide-btn {
+  .button-container {
     width: 440px;
     height: 86px;
     position: absolute;
@@ -31,5 +44,10 @@
     height: 86px;
     padding: 0;
     margin: 0;
+    font-size: 16px;
+    border: none;
+  }
+  #hidePopup {
+    border-right: 1px solid gray;
   }
 }

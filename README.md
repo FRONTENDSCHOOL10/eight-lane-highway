@@ -14,3 +14,7 @@ src/component/pop-up/main.js : `main.js` 생성 및 팝업 닫기, 오늘 하루
 src/component/pop-up/main.js : `div`에서 `dialog`로 기능 수정
 src/component/pop-up/index.html : `div`에서 `dialog`로 마크업 수정
 src/component/pop-up/style.scss : popup 기본 스타일링
+
+2024-07-07 16:00 최소현
+src/component/pop-up/index.html : 클래스명 수정
+src/component/pop-up/style.scss : popup 스타일링 추가
