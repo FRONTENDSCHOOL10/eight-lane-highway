@@ -12,5 +12,8 @@
     "sass": "^1.69.5",
     "vite": "^5.0.8",
     "vite-plugin-style-import": "^2.0.0"
+  },
+  "dependencies": {
+    "pocketbase": "^0.21.3"
   }
 }
