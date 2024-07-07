@@ -149,4 +149,9 @@ hr {
 input,
 select {
   vertical-align: middle;
+  padding: 0;
+}
+input[type="text" i] {
+  padding-block: 0;
+  padding-inline: 0;
 }
