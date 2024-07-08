@@ -3,7 +3,12 @@
   height: 672px;
   border-radius: 16px;
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
   padding: 0;
+  &.is__hide {
+    display: none;
+  }
 
   .quick-link {
     position: absolute;
