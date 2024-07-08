@@ -23,3 +23,40 @@
   flex-direction: column;
   align-items: $ai;
 }
+
+@mixin absolute($t: auto, $l: auto, $r: auto, $b: auto) {
+  position: absolute;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}
+
+@mixin width($w: auto) {
+  width: $w;
+  inline-size: $w;
+}
+
+@mixin height($h: auto) {
+  height: $h;
+  block-size: $h;
+}
+
+// 버튼 스타일 믹스인
+@mixin buttonStyle($color, $bgColor, $borderColor) {
+  color: $color;
+  background-color: $bgColor;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin buttonSize($width, $height) {
+  width: $width;
+  height: $height;
+  padding: 0;
+}

@@ -1,12 +1,3 @@
-@import url("../../component/assets/buttons.scss");
-
-@mixin flexAll($fd, $jc, $at) {
-  display: flex;
-  flex-direction: $fd;
-  justify-content: $jc;
-  align-items: $at;
-}
-
 body {
   width: 100%;
 }
@@ -49,7 +40,7 @@ body {
     &__item {
       display: flex;
       flex-direction: row;
-      color: #000;
+      color: $dark-black;
       font-family: Pretendard;
       font-size: 12.003px;
       font-style: normal;
