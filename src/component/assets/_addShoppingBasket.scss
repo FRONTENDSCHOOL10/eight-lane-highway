@@ -1,0 +1,5 @@
+.basket-container {
+  @include size(356px, auto);
+  border: 1px solid black;
+  border-radius: 16px;
+}
