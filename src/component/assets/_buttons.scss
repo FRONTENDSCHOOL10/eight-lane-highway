@@ -1,0 +1,14 @@
+.button {
+  &__stroke {
+    @include buttonStyle($primary-color, $white, $primary-color);
+  }
+  &__fill {
+    @include buttonStyle($white, $primary-color, $black);
+  }
+  &__small {
+    @include buttonSize(143px, 44px);
+  }
+  &__large {
+    @include buttonSize(340px, 54px);
+  }
+}
