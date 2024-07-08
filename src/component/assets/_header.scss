@@ -21,7 +21,7 @@
   &__user-auth {
     @include flexAll(row, flex-start, stretch);
     @include absolute($t: -30px, $r: 13px);
-    font-size: $font-small;
+    font-size: $fontSmall;
 
     &__item {
       position: relative;
@@ -69,7 +69,7 @@
 
       &__item {
         margin: 8px 0;
-        font-size: $font-small;
+        font-size: $fontSmall;
       }
     }
   }
@@ -83,7 +83,7 @@
     &__item > button {
       background-color: transparent;
       border: none;
-      font-size: $font-large;
+      font-size: $fontLarge;
       font-style: normal;
       cursor: pointer;
       color: #b5b5b5;
@@ -176,7 +176,7 @@
 
         p {
           margin-bottom: 16px;
-          font-size: $font-medium;
+          font-size: $fontMedium;
         }
         span {
           color: $primaryColor;
@@ -190,11 +190,11 @@
         }
 
         .modal-login {
-          border: 1px solid $primary-color;
+          border: 1px solid $primaryColor;
           background-color: $white;
         }
         .modal-search-address {
-          background-color: $primary-color;
+          background-color: $primaryColor;
           color: $white;
         }
       }
@@ -209,7 +209,7 @@
 
     &__list {
       color: $black;
-      font-size: $font-medium;
+      font-size: $fontMedium;
       font-weight: 500;
       margin-right: auto;
       padding: 12px 0 12px 30px;
@@ -352,7 +352,7 @@
     .shopping > a:hover,
     .benefits > a:hover {
       padding-bottom: 1px;
-      color: $primary-color;
+      color: $primaryColor;
     }
   }
   // product-list (e)
