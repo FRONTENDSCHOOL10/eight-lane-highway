@@ -219,18 +219,17 @@
         display: none;
         border: 1px solid $black;
         max-height: 500px;
-        overflow-y: scroll;
-        padding: 6px;
+        overflow-x: hidden;
 
         &.is__show {
           display: block;
         }
 
         &__item {
-          padding: 2px 0px;
           > a {
             position: relative;
             display: inline-block;
+            padding: 8px;
             @include size($w: 100%);
             &:hover {
               color: $primaryColor;
@@ -242,8 +241,17 @@
             background-image: url("../component/header/assets/menuImg.svg");
             background-repeat: no-repeat;
             background-size: 30px;
-            background-position: -2px -1px;
+            background-position: -3px -1px;
             @include size($w: 24px, $h: 24px);
+          }
+
+          > a:hover::before {
+            content: "";
+            mask-image: url("../component/header/assets/menuImg.svg");
+            mask-repeat: no-repeat;
+            mask-size: 30px;
+            mask-position: -3px -1px;
+            background-color: $primaryColor;
           }
 
           &:nth-child(2) a::before {
@@ -253,7 +261,7 @@
             background-position-y: -402px;
           }
           &:nth-child(4) a::before {
-            background-position-y: -528px;
+            background-position-y: -529px;
           }
           &:nth-child(5) a::before {
             background-position-y: -75px;
@@ -309,6 +317,70 @@
           &:nth-child(22) a::before {
             background-position-y: -478px;
           }
+
+          &:nth-child(2) a:hover::before {
+            mask-position: -3px -227px;
+          }
+          &:nth-child(3) a:hover::before {
+            mask-position: -3px -402px;
+          }
+          &:nth-child(4) a:hover::before {
+            mask-position: -3px -529px;
+          }
+          &:nth-child(5) a:hover::before {
+            mask-position: -3px -75px;
+          }
+          &:nth-child(6) a:hover::before {
+            mask-position: -3px -177px;
+          }
+          &:nth-child(7) a:hover::before {
+            mask-position: -3px -351px;
+          }
+          &:nth-child(8) a:hover::before {
+            mask-position: -3px -251px;
+          }
+          &:nth-child(9) a:hover::before {
+            mask-position: -3px -128px;
+          }
+          &:nth-child(10) a:hover::before {
+            mask-position: -3px -302px;
+          }
+          &:nth-child(11) a:hover::before {
+            mask-position: -3px -51px;
+          }
+          &:nth-child(12) a:hover::before {
+            mask-position: -3px -503px;
+          }
+          &:nth-child(13) a:hover::before {
+            mask-position: -3px -454px;
+          }
+          &:nth-child(14) a:hover::before {
+            mask-position: -3px -27px;
+          }
+          &:nth-child(15) a:hover::before {
+            mask-position: -3px -201px;
+          }
+          &:nth-child(16) a:hover::before {
+            mask-position: -3px -151px;
+          }
+          &:nth-child(17) a:hover::before {
+            mask-position: -3px -428px;
+          }
+          &:nth-child(18) a:hover::before {
+            mask-position: -3px -103px;
+          }
+          &:nth-child(19) a:hover::before {
+            mask-position: -3px -278px;
+          }
+          &:nth-child(20) a:hover::before {
+            mask-position: -3px -327px;
+          }
+          &:nth-child(21) a:hover::before {
+            mask-position: -3px -378px;
+          }
+          &:nth-child(22) a:hover::before {
+            mask-position: -3px -478px;
+          }
         }
       }
     }
@@ -322,6 +394,15 @@
         background-image: url("../component/header/assets/category.svg");
         background-repeat: no-repeat;
       }
+    }
+
+    .category > a:hover::before {
+      @include absolute($t: 3px, $l: -24px);
+      @include size($w: 16px, $h: 14px);
+      content: "";
+      mask-image: url("../component/header/assets/category.svg");
+      mask-repeat: no-repeat;
+      background-color: $primaryColor;
     }
 
     .delivery {
