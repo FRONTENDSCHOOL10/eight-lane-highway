@@ -1,5 +1,5 @@
 @mixin input($bd-px, $wd, $ht) {
-  border: $bd-px solid $gray-300;
+  border: $bd-px solid $gray300;
   width: $wd;
   inline-size: $wd;
   height: $ht;
