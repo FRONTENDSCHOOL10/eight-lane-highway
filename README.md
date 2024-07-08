@@ -78,4 +78,10 @@
 - component/assets/variables.scss : variables 변수 추가
 - styles/style.scss : header.scss import
 - component/header/header.css : 불필요한 css 파일 삭제
--
+
+## 2024-07-08
+
+**이희재**
+
+- component/header/header.js : 클래스 네이밍 수정
+- component/header/header.scss : 선택자 수정
