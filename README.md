@@ -30,7 +30,7 @@
 
 **이희재**
 
-- component/header/header.js: pages 클릭시 클래스 토글)
+- component/header/header.js: pages 클릭시 클래스 토글
 - component/header/header.scss: header.scss 전반적인 수정
 
 **최소현**
@@ -78,6 +78,15 @@
 - component/assets/variables.scss : variables 변수 추가
 - styles/style.scss : header.scss import
 - component/header/header.css : 불필요한 css 파일 삭제
+
+  **오성훈**
+
+- component/assets/buttons.scss : 파일 명 변경
+- component/assets/login.scss :
+  - 파일 명 변경
+  - 아이디 찾기와 비번 찾기 링크 모음 스타일링
+- component/assets/mixins.scss : button요소 믹스인 추가
+- component/assets/variables.scss : 색 변수 추가
 
 ## 2024-07-08
 

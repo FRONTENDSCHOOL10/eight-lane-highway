@@ -23,21 +23,3 @@
   flex-direction: column;
   align-items: $ai;
 }
-
-@mixin absolute($t: auto, $l: auto, $r: auto, $b: auto) {
-  position: absolute;
-  top: $t;
-  left: $l;
-  right: $r;
-  bottom: $b;
-}
-
-@mixin width($w: auto) {
-  width: $w;
-  inline-size: $w;
-}
-
-@mixin height($h: auto) {
-  height: $h;
-  block-size: $h;
-}
