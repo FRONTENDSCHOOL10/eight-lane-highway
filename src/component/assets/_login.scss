@@ -4,7 +4,7 @@ body {
 
 .login-container {
   text-align: center;
-  width: 400px;
+  width: 360px;
   margin: 0 auto;
   margin-top: 80px;
 
@@ -21,6 +21,10 @@ body {
     margin-top: 44px;
     gap: 12px;
 
+    input {
+      @include input(1px, 300px, 26px);
+    }
+
     button {
       order: 1;
       margin-top: 16px;
@@ -31,6 +35,7 @@ body {
   .search-containers {
     @include flexAll(row, right, center);
     width: 100%;
+    margin-right: 0.8rem;
   }
 
   .search-container {
