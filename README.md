@@ -110,6 +110,10 @@
 
 **최소현**
 
+- component/recent-product/index.html: 마크업 수정
+- component/recent-product/main.js: 기능 구현중
+- component/assets/\_recentproduct.scss: 스타일링 수정
+
 **오성훈**
 
 **김한울**

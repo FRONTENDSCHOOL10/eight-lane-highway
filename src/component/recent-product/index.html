@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../styles/style.scss" />
-    <script src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
   </head>
   <body>
-    <div class="recent-product-container">
+    <aside class="recent-product-container">
       <button type="button" class="recent-product__button upper-arrow">
         <img src="./assets/upper.svg" alt="" />
       </button>
       <p>최근 본 상품</p>
-      <div class="recent-product-item-container"></div>
-      <button class="recent-product__button below-arrow">
+      <div class="recent-product-item-container">
+        <div class="addedProduct"></div>
+      </div>
+      <button type="button" class="recent-product__button below-arrow">
         <img src="./assets/below.svg" alt="" />
       </button>
-    </div>
+    </aside>
 
-    <div>
-      <a id="product1" href="">라면</a>
-      <a href="product2">세제</a>
-      <a href="product3">파운데이션</a>
-    </div>
+    <div id="product1" href="">라면</div>
   </body>
 </html>
