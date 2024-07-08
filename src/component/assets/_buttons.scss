@@ -1,9 +1,9 @@
 .button {
   &__stroke {
-    @include buttonStyle($primary-color, $white, $primary-color);
+    @include buttonStyle($primaryColor, $white, $primaryColor);
   }
   &__fill {
-    @include buttonStyle($white, $primary-color, $black);
+    @include buttonStyle($white, $primaryColor, $black);
   }
   &__small {
     @include buttonSize(143px, 44px);
