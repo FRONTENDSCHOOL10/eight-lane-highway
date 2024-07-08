@@ -32,12 +32,9 @@
   bottom: $b;
 }
 
-@mixin width($w: auto) {
+@mixin size($w: auto, $h: auto) {
   width: $w;
   inline-size: $w;
-}
-
-@mixin height($h: auto) {
   height: $h;
   block-size: $h;
 }
