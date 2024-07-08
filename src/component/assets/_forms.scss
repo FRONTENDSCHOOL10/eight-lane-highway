@@ -5,8 +5,17 @@ form {
     padding: 20px 0;
     gap: 8px;
 
+    &.form {
+      &__underline {
+        border-bottom: 1px solid $black;
+      }
+      &__agreement {
+        &__row {
+          padding: 0;
+        }
+      }
+    }
     label {
-      @include flexAll(row, center, center);
       padding: 8px;
     }
   }

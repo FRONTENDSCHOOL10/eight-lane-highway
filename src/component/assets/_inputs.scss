@@ -1,8 +1,14 @@
 input {
-  &[type="text"] {
-    @include input(1px, 333px, 44px);
-    @include input-color($gray-300, transparent);
-    padding: 0 20px;
+  &:not([type="radio"], [type="checkbox"]) {
+    @include input(1px, 333px, auto);
+    @include input-color($gray300, transparent);
+    border-radius: 4px;
+    padding: 12px 20px;
+    line-height: 18px;
+
+    &:focus-visible {
+      outline-color: $black;
+    }
   }
   &.input {
     &__radio {
@@ -12,13 +18,13 @@ input {
       margin: 0;
 
       &:checked {
-        background-color: $gray-200;
-        border: 7px solid $primary-color;
+        background-color: $gray200;
+        border: 7px solid $primaryColor;
       }
     }
     &__checkbox {
       @include input(1px, 24px, 24px);
-      @include input-color($gray-200, transparent);
+      @include input-color($gray200, transparent);
       appearance: none;
       border-radius: 50%;
       background-image: url("/Users/hanwoolkim/techit-school/eight-lane-highway/src/component/assets/img/input-vector.svg");
@@ -35,7 +41,63 @@ input {
       }
 
       &:checked {
-        background-color: $primary-color;
+        background-color: $primaryColor;
+        border: 0;
+      }
+    }
+    &__search {
+      @include input(1px, 400px, auto);
+      @include input-color($primaryColor, transparent);
+      position: relative;
+      border-radius: 4px;
+      padding: 12px 20px;
+
+      &:hover {
+        border-color: $blue500;
+      }
+
+      &:focus-visible {
+        outline-color: $primaryColor;
+      }
+      + .button__transparent {
+        position: relative;
+        top: -1px;
+        left: -3rem;
+      }
+    }
+    &__date {
+      position: relative;
+      text-align: center;
+      color: transparent;
+
+      &:valid {
+        color: $gray500;
+      }
+
+      &::before {
+        content: attr(placeholder);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $gray500;
+      }
+      &:valid::before {
+        display: none; // 유효값이 입력된 경우 before에 있는 것을 사라지게 한다. 즉, placeholder를 사라지게 한다.
+      }
+      &::-webkit-calendar-picker-indicator {
+        position: absolute; // 이를 설정하기 위해 사전에 relative를 설정한 것이다.
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent; // 배경은 투명하게,
+        color: transparent; // 글자도 투명하게! 이 두 설정을 통해 캘린더 아이콘을 사라지게 만든다.
+        cursor: pointer;
       }
     }
   }
@@ -45,8 +107,8 @@ label {
   &.label {
     position: relative;
 
-    &--medium {
-      width: 139px;
+    &__medium {
+      min-width: 139px;
       font-size: 1rem;
       font-weight: 600;
 
@@ -54,19 +116,19 @@ label {
         content: "*";
         position: relative;
         top: -6px;
-        color: $error-color;
+        color: $errorColor;
       }
     }
-    &--small {
+    &__small {
       font-size: 0.75rem;
       font-weight: 600;
-      color: $gray-500;
+      color: $gray500;
 
       &::after {
         content: "*";
         position: relative;
         top: -6px;
-        color: $error-color;
+        color: $errorColor;
       }
     }
   }
