@@ -10,6 +10,12 @@ async function getLocalItems(key) {
   }
 }
 
+async function setLocalItem(key, value) {
+  if (typeof key === "string") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+}
+
 function handleLogin(e) {
   e.preventDefault(e);
 
@@ -20,16 +26,13 @@ function handleLogin(e) {
     .authWithPassword(userId, userPw)
     .then(
       async () => {
-        const { model, token } = await JSON.parse(
-          localStorage.getItem("pocketbase_auth")
-        );
+        const { model, token } = await getLocalItems("pocketbase_auth");
 
-        console.log(model, token);
-
-        localStorage.setItem(
-          "auth",
-          JSON.stringify({ model: model, token: token })
-        );
+        setLocalItem("auth", {
+          isLogin: model ? true : false,
+          userInfo: model,
+          token,
+        });
 
         alert("🎉로그인에 성공하셨습니다🎉");
         // location.href = "/";
