@@ -163,19 +163,19 @@ headerTemplate.innerHTML = `
            </li>
          </ul>
        </li>
-       <li class="nav__product-list new">
+       <li class="nav__product__list new">
          <a href="/">신상품</a>
        </li>
-       <li class="nav__product-list best">
+       <li class="nav__product__list best">
          <a href="/">베스트</a>
        </li>
-       <li class="nav__product-list shopping">
+       <li class="nav__product__list shopping">
          <a href="/">알뜰쇼핑</a>
        </li>
-       <li class="nav__product-list benefits">
+       <li class="nav__product__list benefits">
          <a href="/">특가/혜택</a>
        </li>
-       <li class="nav__product-item delivery">
+       <li class="nav__product__list delivery">
          <a href="/"><span>샛별·하루</span> 배송안내</a>
        </li>
      </ul>
@@ -189,9 +189,9 @@ export class Header extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
 
-    // 위쪽 nav
+    // nav first
     this.navFirst = this.shadowRoot.querySelector(".nav__container-first");
-    // 아래쪽 nav
+    // nav second
     this.navSecond = this.shadowRoot.querySelector(".nav__container-second");
     // 사용자 서비스 리스트(회원가입, 로그인, 고객센터)
     this.customerService = this.navFirst.querySelector(".customer-service");
