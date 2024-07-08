@@ -11,4 +11,7 @@
   &__large {
     @include buttonSize(340px, 54px);
   }
+  &__icon {
+    @include buttonSize(45px, 45px);
+  }
 }
