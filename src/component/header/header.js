@@ -13,7 +13,7 @@ const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
 <style>@import url(../../styles/reset.css); @import url(../../styles/style.scss);</style>
-     <nav class="nav nav__container1">
+     <nav class="nav nav__container-first">
      <h1 class="nav__logo">
        <a href="/">
          <img src="${logo}" alt="로고 이미지" />
@@ -90,7 +90,7 @@ headerTemplate.innerHTML = `
        </li>
      </ul>
    </nav>
-   <nav class="nav nav__container2">
+   <nav class="nav nav__container-second">
      <ul class="nav__product">
        <li class="nav__product__list category">
          <a href="/">카테고리</a>
@@ -190,27 +190,27 @@ export class Header extends HTMLElement {
     this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
 
     // 위쪽 nav
-    this.nav1 = this.shadowRoot.querySelector(".nav__container1");
+    this.navFirst = this.shadowRoot.querySelector(".nav__container-first");
     // 아래쪽 nav
-    this.nav2 = this.shadowRoot.querySelector(".nav__container2");
+    this.navSecond = this.shadowRoot.querySelector(".nav__container-second");
     // 사용자 서비스 리스트(회원가입, 로그인, 고객센터)
-    this.customerService = this.nav1.querySelector(".customer-service");
+    this.customerService = this.navFirst.querySelector(".customer-service");
     // 사용자 서비스 리스트 호버시 나올 모달창
-    this.noticeList = this.nav1.querySelector(".nav__user-auth__notice");
+    this.noticeList = this.navFirst.querySelector(".nav__user-auth__notice");
     // 마켓칼리, 뷰티칼리 페이지 버튼
-    this.pageList = this.nav1.querySelector(".nav__page");
+    this.pageList = this.navFirst.querySelector(".nav__page");
 
     // 주소표시 svg
-    this.address = this.nav1.querySelector(".address");
+    this.address = this.navFirst.querySelector(".address");
     // 주소표시 svg 호버시 나올 모달창
-    this.addressModal = this.nav1.querySelector(
+    this.addressModal = this.navFirst.querySelector(
       ".nav__user-service__item__address-modal"
     );
 
     // 카테고리 메뉴
-    this.productItem = this.nav2.querySelector(".nav__product__list");
+    this.productItem = this.navSecond.querySelector(".nav__product__list");
     // 카테고리 하단 메뉴
-    this.categoryList = this.nav2.querySelector(
+    this.categoryList = this.navSecond.querySelector(
       ".nav__product__list__category"
     );
   }
