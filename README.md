@@ -66,6 +66,7 @@
 
 - component/pop-up/index.html : 클래스명 수정
 - component/pop-up/style.scss : popup 스타일링 추가
+- component/pop-up/index.html : scss 경로 수정
 
 **이희재**
 
