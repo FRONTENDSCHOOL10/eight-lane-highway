@@ -99,3 +99,7 @@
 - component/header/header.scss : absolute,width,height mixin 사용
 - component/header/header.js : img alt 수정
 - lib추가
+
+**최소현**
+
+- component/assets/\_popup.scss : 파일명 수정
