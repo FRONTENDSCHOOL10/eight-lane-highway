@@ -104,3 +104,11 @@
 
 - component/assets/\_popup.scss : 파일명 수정
 - component/pop-up/main.js : 인라인 스타일에서 클래스 토글로 수정
+
+**오성훈**
+
+**김한울**
+
+- feature: 회원가입 마크업 및 스크립트 작업
+- feature: product 컴포넌트 생성
+- refactor: input width 값 수정
