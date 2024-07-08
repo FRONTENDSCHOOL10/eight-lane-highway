@@ -98,3 +98,4 @@
 - component/assets/mixins.scss : absolute,width,height mixin 생성
 - component/header/header.scss : absolute,width,height mixin 사용
 - component/header/header.js : img alt 수정
+- lib추가
