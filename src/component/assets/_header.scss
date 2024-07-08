@@ -6,8 +6,7 @@
 
   // contaier (s)
   &__container1 {
-    display: flex;
-    align-items: center;
+    @include flexAll(row, flex-start, center);
   }
   &__container2 {
     border-bottom: 1px solid $black;
@@ -20,10 +19,8 @@
   // logo (e)
   // user-auth-list (s)
   &__user-auth {
-    display: flex;
-    position: absolute;
-    top: -30px;
-    right: 13px;
+    @include flexAll(row, flex-start, stretch);
+    @include absolute($t: -30px, $r: 13px);
     font-size: $font-small;
 
     &__item {
@@ -39,12 +36,10 @@
     .signup::after,
     .login::after {
       content: "";
-      position: absolute;
-      top: 2px;
-      right: -10px;
-      width: 1px;
-      height: 13px;
-      background-color: $after-color;
+      @include absolute($t: 2px, $r: -10px);
+      @include width(1px);
+      @include height(13px);
+      background-color: #d9d9d9;
     }
 
     .customer-service {
@@ -53,11 +48,9 @@
 
       &::after {
         content: "";
-        position: absolute;
-        top: 5px;
-        right: -10px;
-        width: 8px;
-        height: 5px;
+        @include absolute($t: 5px, $r: -10px);
+        @include width(8px);
+        @include height(5px);
         background: url("../component/header/assets/ico_down.webp") center /
           cover no-repeat;
       }
@@ -65,16 +58,14 @@
 
     &__notice {
       display: none;
-      position: absolute;
-      top: 30px;
-      right: -15px;
+      @include absolute($t: 30px, $r: -15px);
+      @include width(130px);
       z-index: 1;
-      width: 130px;
       padding: 3px 9px;
-      border: 1px solid $after-color;
+      border: 1px solid #d9d9d9;
       background-color: #fff;
 
-      &.is__active {
+      &.is__show {
         display: block;
       }
 
@@ -116,7 +107,7 @@
           right: 0px;
           width: 1px;
           height: 13px;
-          background-color: $after-color;
+          background-color: #d9d9d9;
         }
       }
     }
@@ -136,8 +127,8 @@
   // page-list (s)
   // search-box (s)
   &__search-box {
-    display: flex;
-    width: 400px;
+    @include width(400px);
+    @include flexAll(row, flex-start, stretch);
     border: 1px solid $primary-color;
     border-radius: 4px;
     padding-right: 18px;
@@ -181,14 +172,14 @@
         display: none;
         position: absolute;
         padding: 2rem;
-        border: 1px solid $after-color;
+        border: 1px solid #d9d9d9;
         width: 250px;
         top: 40px;
         left: -50px;
         background-color: #fff;
         z-index: 1;
 
-        &.is__active {
+        &.is__show {
           display: block;
         }
 
@@ -230,7 +221,6 @@
       color: $black;
       font-size: $font-medium;
       font-weight: 500;
-      padding: 12px 0;
       margin-right: auto;
       padding: 12px 0 12px 30px;
 
@@ -268,7 +258,7 @@
         overflow-y: scroll;
         padding: 8px 12px;
 
-        &.is__active {
+        &.is__show {
           display: block;
         }
 
@@ -362,7 +352,7 @@
     }
 
     .delivery {
-      border: 1px solid $after-color;
+      border: 1px solid #d9d9d9;
       border-radius: 16px;
       height: 19px;
       margin-left: auto;

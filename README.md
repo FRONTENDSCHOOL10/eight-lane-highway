@@ -85,3 +85,6 @@
 
 - component/header/header.js : 클래스 네이밍 수정
 - component/header/header.scss : 선택자 수정
+- component/assets/mixins.scss : absolute,width,height mixin 생성
+- component/header/header.scss : absolute,width,height mixin 사용
+- component/header/header.js : img alt 수정

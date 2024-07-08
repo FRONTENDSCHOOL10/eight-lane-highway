@@ -63,14 +63,14 @@ headerTemplate.innerHTML = `
          class="nav__search-box__input"
          placeholder="검색어를 입력해주세요" />
        <button type="button" class="nav__search-box__button">
-         <img src="${readingGlasses}" alt="검색 돋보기 이미지" />
+         <img src="${readingGlasses}" alt="검색 돋보기" />
        </button>
      </fieldset>
      <ul class="nav__user-service">
        <li
          tabindex="0"
          class="nav__user-service__item address">
-         <img src="${address}" alt="위치이미지" />
+         <img src="${address}" alt="주소" />
          <dialog class="nav__user-service__item__address-modal">
            <p>
              <span>배송지를 등록하고</span><br />구매 가능한 상품을
@@ -83,10 +83,10 @@ headerTemplate.innerHTML = `
          </dialog>
        </li>
        <li class="nav__user-service__item heart">
-         <a href=""> <img src="${heart}" alt="돋보기이미지" /></a>
+         <a href=""> <img src="${heart}" alt="찜" /></a>
        </li>
        <li class="nav__user-service__item cart">
-         <a href=""> <img src="${cart}" alt="카드 이미지" /></a>
+         <a href=""> <img src="${cart}" alt="카트" /></a>
        </li>
      </ul>
    </nav>
@@ -217,15 +217,15 @@ export class Header extends HTMLElement {
   connectedCallback() {
     // customerService modal 마우스이벤트
     this.customerService.addEventListener("mouseover", () => {
-      addClass(this.noticeList, "is__active");
+      addClass(this.noticeList, "is__show");
     });
     this.customerService.addEventListener("mouseleave", () => {
-      removeClass(this.noticeList, "is__active");
+      removeClass(this.noticeList, "is__show");
     });
     // customerService modal 키보드이벤트
     this.customerService.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
-        toggleClass(this.noticeList, "is__active");
+        toggleClass(this.noticeList, "is__show");
       }
     });
     // page 이벤트
@@ -247,29 +247,29 @@ export class Header extends HTMLElement {
 
     // address modal 마우스이벤트
     this.address.addEventListener("mouseover", () => {
-      addClass(this.addressModal, "is__active");
+      addClass(this.addressModal, "is__show");
     });
     this.address.addEventListener("mouseleave", () => {
-      removeClass(this.addressModal, "is__active");
+      removeClass(this.addressModal, "is__show");
     });
     // address modal 키보드이벤트
 
     this.address.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
-        toggleClass(this.addressModal, "is__active");
+        toggleClass(this.addressModal, "is__show");
       }
     });
 
     // productItem 마우스 이벤트
     this.productItem.addEventListener("mouseover", () => {
-      addClass(this.categoryList, "is__active");
+      addClass(this.categoryList, "is__show");
     });
     this.productItem.addEventListener("mouseleave", () => {
-      removeClass(this.categoryList, "is__active");
+      removeClass(this.categoryList, "is__show");
     });
     this.productItem.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
-        toggleClass(this.categoryList, "is__active");
+        toggleClass(this.categoryList, "is__show");
       }
     });
   }
