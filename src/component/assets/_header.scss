@@ -30,7 +30,7 @@
     }
 
     .signup {
-      color: $primary-color;
+      color: $primaryColor;
     }
 
     .signup::after,
@@ -90,7 +90,7 @@
 
       &.is__active {
         font-weight: 600;
-        color: $primary-color;
+        color: $primaryColor;
       }
     }
 
@@ -122,7 +122,7 @@
   &__search-box {
     @include size($w: 400px);
     @include flexAll(row, flex-start, stretch);
-    border: 1px solid $primary-color;
+    border: 1px solid $primaryColor;
     border-radius: 4px;
     padding-right: 18px;
 
@@ -179,7 +179,7 @@
           font-size: $font-medium;
         }
         span {
-          color: $primary-color;
+          color: $primaryColor;
         }
 
         .modal-button {
@@ -233,7 +233,7 @@
             display: inline-block;
             @include size($w: 100%);
             &:hover {
-              color: $primary-color;
+              color: $primaryColor;
             }
           }
           > a::before {
@@ -334,7 +334,7 @@
       font-size: 0.8125rem;
 
       span {
-        color: $primary-color;
+        color: $primaryColor;
         font-weight: bold;
       }
     }
