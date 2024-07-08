@@ -35,7 +35,7 @@ function handleLogin(e) {
         });
 
         alert("🎉로그인에 성공하셨습니다🎉");
-        // location.href = "/";
+        location.href = "/";
       },
       () => {
         alert("잘못된 로그인 또는 비밀번호 정보입니다!");
