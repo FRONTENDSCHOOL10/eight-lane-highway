@@ -110,6 +110,9 @@
 
 **최소현**
 
+- component/assets/\_popup.scss : 파일명 수정
+- component/pop-up/main.js : 인라인 스타일에서 클래스 토글로 수정
+
 **오성훈**
 
 **김한울**
