@@ -1,0 +1,377 @@
+.nav {
+  width: 1050px;
+  max-width: 1050px;
+  margin: 50px auto 0px;
+  position: relative;
+
+  // contaier (s)
+  &__container1 {
+    @include flexAll(row, flex-start, center);
+  }
+  &__container2 {
+    border-bottom: 1px solid $black;
+  }
+  // contaier (e)
+  // logo (s)
+  &__logo {
+    margin-right: 12px;
+  }
+  // logo (e)
+  // user-auth-list (s)
+  &__user-auth {
+    @include flexAll(row, flex-start, stretch);
+    @include absolute($t: -30px, $r: 13px);
+    font-size: $font-small;
+
+    &__item {
+      color: $black;
+      position: relative;
+      margin-left: 1.5rem;
+    }
+
+    .signup {
+      color: $primary-color;
+    }
+
+    .signup::after,
+    .login::after {
+      content: "";
+      @include absolute($t: 2px, $r: -10px);
+      @include width(1px);
+      @include height(13px);
+      background-color: #d9d9d9;
+    }
+
+    .customer-service {
+      position: relative;
+      padding-bottom: 15px;
+
+      &::after {
+        content: "";
+        @include absolute($t: 5px, $r: -10px);
+        @include width(8px);
+        @include height(5px);
+        background: url("../component/header/assets/ico_down.webp") center /
+          cover no-repeat;
+      }
+    }
+
+    &__notice {
+      display: none;
+      @include absolute($t: 30px, $r: -15px);
+      @include width(130px);
+      z-index: 1;
+      padding: 3px 9px;
+      border: 1px solid #d9d9d9;
+      background-color: #fff;
+
+      &.is__show {
+        display: block;
+      }
+
+      &__item {
+        margin: 0.5rem 0;
+        font-size: $font-small;
+      }
+    }
+  }
+
+  // user-auth-list (e)
+  // page-list (s)
+
+  &__page {
+    display: flex;
+
+    &__item > button {
+      background-color: transparent;
+      border: none;
+      font-size: $font-large;
+      font-style: normal;
+      cursor: pointer;
+      color: #b5b5b5;
+
+      &.is__active {
+        font-weight: 600;
+        color: $primary-color;
+      }
+    }
+
+    .market {
+      & button {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 10px;
+          right: 0px;
+          width: 1px;
+          height: 13px;
+          background-color: #d9d9d9;
+        }
+      }
+    }
+
+    .beauty {
+      position: relative;
+      margin-right: 50px;
+
+      img {
+        position: absolute;
+        top: -10px;
+        right: 2px;
+      }
+    }
+  }
+
+  // page-list (s)
+  // search-box (s)
+  &__search-box {
+    @include width(400px);
+    @include flexAll(row, flex-start, stretch);
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    padding-right: 18px;
+
+    &__label {
+      display: none;
+    }
+
+    #headerSearchInput {
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      margin-left: auto;
+    }
+  }
+  // search-box (e)
+  // user-service-list (s)
+
+  &__user-service {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+
+    &__item {
+      position: relative;
+
+      &:focus {
+        border: 2px solid #333;
+        border-radius: 4px;
+      }
+
+      &__address-modal {
+        display: none;
+        position: absolute;
+        padding: 2rem;
+        border: 1px solid #d9d9d9;
+        width: 250px;
+        top: 40px;
+        left: -50px;
+        background-color: #fff;
+        z-index: 1;
+
+        &.is__show {
+          display: block;
+        }
+
+        p {
+          margin-bottom: 16px;
+          font-size: $font-medium;
+        }
+        span {
+          color: $primary-color;
+        }
+
+        .modal-button {
+          border: none;
+          border-radius: 4px;
+          padding: 0.5rem 2rem;
+          cursor: pointer;
+        }
+
+        .modal-login {
+          border: 1px solid $primary-color;
+          background-color: #fff;
+        }
+        .modal-search-address {
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  // user-service-list (e)
+  // product-list (s)
+
+  &__product {
+    display: flex;
+    align-items: center;
+
+    &__list {
+      color: $black;
+      font-size: $font-medium;
+      font-weight: 500;
+      margin-right: auto;
+      padding: 12px 0 12px 30px;
+
+      & > a:hover:not(.delivery) {
+        padding-bottom: 1px;
+        color: $primary-color;
+      }
+
+      & > a:hover:not(.delivery),
+      & > a:hover:not(.category) {
+        border: none;
+      }
+
+      > a {
+        position: relative;
+      }
+      > a::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: -24px;
+        background-image: url("../component/header/assets/category.svg");
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 14px;
+      }
+
+      &__category {
+        display: none;
+        border: 1px solid $black;
+        position: absolute;
+        left: 0px;
+        top: 45px;
+        max-height: 500px;
+        overflow-y: scroll;
+        padding: 8px 12px;
+
+        &.is__show {
+          display: block;
+        }
+
+        &__item {
+          padding: 2px 0px;
+          > a {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+          > a::before {
+            content: "";
+            display: inline-block;
+            background-image: url("../component/header/assets/menuImg.svg");
+            background-repeat: no-repeat;
+            background-size: 30px;
+            background-position: -2px -1px;
+            width: 24px;
+            height: 24px;
+          }
+
+          &:nth-child(2) a::before {
+            background-position-y: -227px;
+          }
+          &:nth-child(3) a::before {
+            background-position-y: -402px;
+          }
+          &:nth-child(4) a::before {
+            background-position-y: -528px;
+          }
+          &:nth-child(5) a::before {
+            background-position-y: -75px;
+          }
+          &:nth-child(6) a::before {
+            background-position-y: -177px;
+          }
+          &:nth-child(7) a::before {
+            background-position-y: -351px;
+          }
+          &:nth-child(8) a::before {
+            background-position-y: -251px;
+          }
+          &:nth-child(9) a::before {
+            background-position-y: -128px;
+          }
+          &:nth-child(10) a::before {
+            background-position-y: -302px;
+          }
+          &:nth-child(11) a::before {
+            background-position-y: -51px;
+          }
+          &:nth-child(12) a::before {
+            background-position-y: -503px;
+          }
+          &:nth-child(13) a::before {
+            background-position-y: -454px;
+          }
+          &:nth-child(14) a::before {
+            background-position-y: -27px;
+          }
+          &:nth-child(15) a::before {
+            background-position-y: -201px;
+          }
+          &:nth-child(16) a::before {
+            background-position-y: -151px;
+          }
+          &:nth-child(17) a::before {
+            background-position-y: -428px;
+          }
+          &:nth-child(18) a::before {
+            background-position-y: -103px;
+          }
+          &:nth-child(19) a::before {
+            background-position-y: -278px;
+          }
+          &:nth-child(20) a::before {
+            background-position-y: -327px;
+          }
+          &:nth-child(21) a::before {
+            background-position-y: -378px;
+          }
+          &:nth-child(22) a::before {
+            background-position-y: -478px;
+          }
+        }
+      }
+    }
+
+    .delivery {
+      border: 1px solid #d9d9d9;
+      border-radius: 16px;
+      height: 19px;
+      margin-left: auto;
+      margin-top: -3px;
+      padding: 4px 8px;
+      font-size: 0.8125rem;
+
+      span {
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+
+    .new,
+    .best,
+    .shopping,
+    .benefits {
+      margin: 0 3rem;
+    }
+  }
+  // product-list (e)
+}

@@ -30,7 +30,7 @@
 
 **이희재**
 
-- component/header/header.js: pages 클릭시 클래스 토글)
+- component/header/header.js: pages 클릭시 클래스 토글
 - component/header/header.scss: header.scss 전반적인 수정
 
 **최소현**
@@ -67,7 +67,19 @@
 - component/pop-up/index.html : 클래스명 수정
 - component/pop-up/style.scss : popup 스타일링 추가
 
-**오성훈**
+**이희재**
+
+- component/header/header.js : pages 클릭시 클래스 토글 코드 수정
+- component/header/header.js : category 메뉴 추가 및 클래스 토글 코드 구현
+- component/header/assets : category svg 파일 추가
+- component/header/assets/index.js : assets img들을 export 하기 위해 index.js로 담아서 export
+- component/assets/header.scss : scss 경로변경
+- component/assets/header.scss : category 메뉴 디자인
+- component/assets/variables.scss : variables 변수 추가
+- styles/style.scss : header.scss import
+- component/header/header.css : 불필요한 css 파일 삭제
+
+  **오성훈**
 
 - component/assets/buttons.scss : 파일 명 변경
 - component/assets/login.scss :
@@ -75,3 +87,13 @@
   - 아이디 찾기와 비번 찾기 링크 모음 스타일링
 - component/assets/mixins.scss : button요소 믹스인 추가
 - component/assets/variables.scss : 색 변수 추가
+
+## 2024-07-08
+
+**이희재**
+
+- component/header/header.js : 클래스 네이밍 수정
+- component/header/header.scss : 선택자 수정
+- component/assets/mixins.scss : absolute,width,height mixin 생성
+- component/header/header.scss : absolute,width,height mixin 사용
+- component/header/header.js : img alt 수정
