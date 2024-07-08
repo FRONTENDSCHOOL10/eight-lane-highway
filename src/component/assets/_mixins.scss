@@ -23,6 +23,7 @@
   flex-direction: column;
   align-items: $ai;
 }
+
 @mixin absolute($t: auto, $l: auto, $r: auto, $b: auto) {
   position: absolute;
   top: $t;
@@ -40,3 +41,4 @@
   height: $h;
   block-size: $h;
 }
+
