@@ -1,0 +1,33 @@
+
+.recent-product-container {
+  width: 74px;
+  border: 1px solid $gray200;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 8px;
+  padding: 8px;
+  margin: 0;
+
+
+  .recent-product__button {
+    appearance: none;
+    background-color: inherit;
+    border: none;
+    &upper-arrow,
+    &below-arrow {
+      margin: 0 auto;
+      padding: 0;
+      height: 18px;
+    }
+  }
+
+  p {
+    font-size: 0.71875rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  .recent-product-item-container {
+    max-height: 129px;
+  }
+}
