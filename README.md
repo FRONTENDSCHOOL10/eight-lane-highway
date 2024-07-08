@@ -99,3 +99,13 @@
 - component/header/header.scss : absolute,width,height mixin 사용
 - component/header/header.js : img alt 수정
 - lib추가
+
+**최소현**
+
+**오성훈**
+
+**김한울**
+
+- feature: 회원가입 마크업 및 스크립트 작업
+- feature: product 컴포넌트 생성
+- refactor: input width 값 수정

@@ -1,6 +1,6 @@
 input {
   &:not([type="radio"], [type="checkbox"]) {
-    @include input(1px, 333px, auto);
+    @include input(1px, auto, auto);
     @include input-color($gray300, transparent);
     border-radius: 4px;
     padding: 12px 20px;
