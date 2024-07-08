@@ -1,17 +1,17 @@
 .nav {
-  width: 1050px;
+  @include size(1050px);
   max-width: 1050px;
   margin: 50px auto 0px;
   position: relative;
 
-  // contaier (s)
+  // container (s)
   &__container-first {
     @include flexAll(row, flex-start, center);
   }
   &__container-second {
     border-bottom: 1px solid $black;
   }
-  // contaier (e)
+  // container (e)
   // logo (s)
   &__logo {
     margin-right: 12px;
@@ -24,9 +24,9 @@
     font-size: $font-small;
 
     &__item {
-      color: $black;
       position: relative;
-      margin-left: 1.5rem;
+      color: $black;
+      margin-left: 24px;
     }
 
     .signup {
@@ -37,8 +37,7 @@
     .login::after {
       content: "";
       @include absolute($t: 2px, $r: -10px);
-      @include width(1px);
-      @include height(13px);
+      @include size($w: 1px, $h: 13px);
       background-color: #d9d9d9;
     }
 
@@ -49,8 +48,7 @@
       &::after {
         content: "";
         @include absolute($t: 5px, $r: -10px);
-        @include width(8px);
-        @include height(5px);
+        @include size($w: 8px, $h: 5px);
         background: url("../component/header/assets/ico_down.webp") center /
           cover no-repeat;
       }
@@ -59,18 +57,18 @@
     &__notice {
       display: none;
       @include absolute($t: 30px, $r: -15px);
-      @include width(130px);
+      @include size($w: 130px);
       z-index: 1;
       padding: 3px 9px;
       border: 1px solid #d9d9d9;
-      background-color: #fff;
+      background-color: $white;
 
       &.is__show {
         display: block;
       }
 
       &__item {
-        margin: 0.5rem 0;
+        margin: 8px 0;
         font-size: $font-small;
       }
     }
@@ -102,12 +100,8 @@
 
         &::after {
           content: "";
-          position: absolute;
-          top: 10px;
-          right: 0px;
           @include absolute($t: 10px, $r: 0);
-          width: 1px;
-          height: 13px;
+          @include size($w: 1px, $h: 13px);
           background-color: #d9d9d9;
         }
       }
@@ -118,9 +112,7 @@
       margin-right: 50px;
 
       img {
-        position: absolute;
-        top: -10px;
-        right: 2px;
+        @include absolute($t: -10px, $r: -2px);
       }
     }
   }
@@ -128,7 +120,7 @@
   // page-list (s)
   // search-box (s)
   &__search-box {
-    @include width(400px);
+    @include size($w: 400px);
     @include flexAll(row, flex-start, stretch);
     border: 1px solid $primaryColor;
     border-radius: 4px;
@@ -157,7 +149,7 @@
   // user-service-list (s)
 
   &__user-service {
-    display: flex;
+    @include flexAll(row, flex-start, stretch);
     gap: 20px;
     margin-left: auto;
 
@@ -170,14 +162,12 @@
       }
 
       &__address-modal {
+        @include absolute($t: 40px, $l: -50px);
+        @include size($w: 250px);
         display: none;
-        position: absolute;
-        padding: 2rem;
+        padding: 32px;
         border: 1px solid #d9d9d9;
-        width: 250px;
-        top: 40px;
-        left: -50px;
-        background-color: #fff;
+        background-color: $white;
         z-index: 1;
 
         &.is__show {
@@ -195,17 +185,17 @@
         .modal-button {
           border: none;
           border-radius: 4px;
-          padding: 0.5rem 2rem;
+          padding: 8px 32px;
           cursor: pointer;
         }
 
         .modal-login {
-          border: 1px solid $primaryColor;
-          background-color: #fff;
+          border: 1px solid $primary-color;
+          background-color: $white;
         }
         .modal-search-address {
-          background-color: $primaryColor;
-          color: #fff;
+          background-color: $primary-color;
+          color: $white;
         }
       }
     }
@@ -215,8 +205,7 @@
   // product-list (s)
 
   &__product {
-    display: flex;
-    align-items: center;
+    @include flexAll(row, flex-start, center);
 
     &__list {
       color: $black;
@@ -225,39 +214,13 @@
       margin-right: auto;
       padding: 12px 0 12px 30px;
 
-      & > a:hover:not(.delivery) {
-        padding-bottom: 1px;
-        color: $primaryColor;
-      }
-
-      & > a:hover:not(.delivery),
-      & > a:hover:not(.category) {
-        border: none;
-      }
-
-      > a {
-        position: relative;
-      }
-      > a::before {
-        content: "";
-        position: absolute;
-        top: 3px;
-        left: -24px;
-        background-image: url("../component/header/assets/category.svg");
-        background-repeat: no-repeat;
-        width: 16px;
-        height: 14px;
-      }
-
       &__category {
+        @include absolute($t: 45px, $l: 0px);
         display: none;
         border: 1px solid $black;
-        position: absolute;
-        left: 0px;
-        top: 45px;
         max-height: 500px;
         overflow-y: scroll;
-        padding: 8px 12px;
+        padding: 6px;
 
         &.is__show {
           display: block;
@@ -268,8 +231,7 @@
           > a {
             position: relative;
             display: inline-block;
-            width: 100%;
-
+            @include size($w: 100%);
             &:hover {
               color: $primaryColor;
             }
@@ -281,8 +243,7 @@
             background-repeat: no-repeat;
             background-size: 30px;
             background-position: -2px -1px;
-            width: 24px;
-            height: 24px;
+            @include size($w: 24px, $h: 24px);
           }
 
           &:nth-child(2) a::before {
@@ -351,11 +312,22 @@
         }
       }
     }
+    .category > a {
+      position: relative;
+
+      &::before {
+        @include absolute($t: 3px, $l: -24px);
+        @include size($w: 16px, $h: 14px);
+        content: "";
+        background-image: url("../component/header/assets/category.svg");
+        background-repeat: no-repeat;
+      }
+    }
 
     .delivery {
       border: 1px solid #d9d9d9;
       border-radius: 16px;
-      height: 19px;
+      @include size($h: 19px);
       margin-left: auto;
       margin-top: -3px;
       padding: 4px 8px;
@@ -372,6 +344,15 @@
     .shopping,
     .benefits {
       margin: 0 3rem;
+    }
+
+    .category > a:hover,
+    .new > a:hover,
+    .best > a:hover,
+    .shopping > a:hover,
+    .benefits > a:hover {
+      padding-bottom: 1px;
+      color: $primary-color;
     }
   }
   // product-list (e)
