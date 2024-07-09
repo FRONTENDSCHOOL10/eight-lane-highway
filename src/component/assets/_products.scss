@@ -63,8 +63,17 @@
           border-top: 1px solid $gray100;
           border-bottom: 1px solid $gray100;
 
+          li {
+            margin-left: 10px;
+            line-height: 150%;
+          }
+
           p {
             margin: 0;
+          }
+          .product__count {
+            border: 1px solid $gray100;
+            padding: 12px 16px;
           }
         }
       }
