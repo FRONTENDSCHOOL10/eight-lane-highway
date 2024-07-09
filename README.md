@@ -155,6 +155,8 @@
 - component/assets/\_recentproduct.scss: 클래스명 수정
 - api/getPbImageURL.js: getPbImageURL API 생성
 - api/pocketbase.js: pocketbase api 생성
+- component/recent-product/main.js: 로컬스토리지 저장 및 데이터 불러오기 구현
+- component/recent-product/index.html: 태그 속성 수정
 
 **오성훈**
 
