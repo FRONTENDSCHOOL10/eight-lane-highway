@@ -20,8 +20,47 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+
       .info__sale__price {
         color: $accentColor;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    width: 1050px;
+
+    .product__img__container {
+      max-width: 400px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    main {
+      max-width: 560px;
+      table {
+        border-collapse: collapse;
+        th {
+          width: 128px;
+          text-align: left;
+          vertical-align: text-top;
+          padding: 4px;
+          font-size: 0.75rem;
+          border-top: 1px solid $gray100;
+          border-bottom: 1px solid $gray100;
+        }
+        td {
+          font-size: 0.75rem;
+          border-top: 1px solid $gray100;
+          border-bottom: 1px solid $gray100;
+
+          p {
+            margin: 0;
+          }
+        }
       }
     }
   }
