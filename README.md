@@ -175,3 +175,5 @@
 - src/pages/signup/checkAll.js -> src/pages/register/checkAll.js: 배포 빌드 내용 수정
 - src/pages/signup/index.html -> src/pages/register/index.html: 배포 빌드 내용 수정
 - src/pages/signup/signup.js -> src/pages/register/register.js: 배포 빌드 내용 수정
+- .github/workflows/main/yml: 배포 관련 yml 작성
+- vite.config.js: 배포 관련 베이스 설정
