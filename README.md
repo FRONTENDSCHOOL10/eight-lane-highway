@@ -147,6 +147,9 @@
 
 - component/recent-product/main.js: 데이터 받아오기 구현
 - component/recent-product/index.html: 마크업 일부 수정
+- component/recent-product/main.js: 클래스명 수정
+- component/recent-product/index.html: 클래스명 수정
+- component/assets/\_recentproduct.scss: 클래스명 수정
 
 **오성훈**
 

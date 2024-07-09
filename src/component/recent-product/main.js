@@ -8,7 +8,7 @@ const url = "https://eight-lane-highway.pockethost.io";
 const upperArrow = getNode(".upper-arrow");
 const belowArrow = getNode(".below-arrow");
 const product1 = getNode("#product1");
-const itemContainer = getNode(".recent-product-item-container");
+const itemContainer = getNode(".added-item-container");
 
 // function handleAddProduct() {
 //   let item = document.createElement("div");
@@ -41,7 +41,7 @@ async function setData() {
     <img src="${getPbImageURL(data)}" alt="" />
   </div>`;
 
-  insertLast(".recent-product-item-container", template);
+  insertLast(itemContainer, template);
 
   console.log(getPbImageURL(data));
 }
