@@ -150,6 +150,8 @@
 - component/recent-product/main.js: 클래스명 수정
 - component/recent-product/index.html: 클래스명 수정
 - component/assets/\_recentproduct.scss: 클래스명 수정
+- api/getPbImageURL.js: getPbImageURL API 생성
+- api/pocketbase.js: pocketbase api 생성
 
 **오성훈**
 
