@@ -2,4 +2,49 @@
   @include size(356px, auto);
   border: 1px solid black;
   border-radius: 16px;
+  padding: 24px 20px;
+  @include flexAll($fd: column, $gap: 28px);
+
+  &__product__num__container {
+    width: 100%;
+
+    p {
+      color: $black;
+
+      font-family: Pretendard;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    &__box {
+      @include flexAll($jc: space-between, $at: center);
+      span {
+        color: $black;
+
+        font-family: Pretendard;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+  }
+}
+
+.price_counter {
+  @include flexAll($jc: space-between, $at: center);
+  width: 84px;
+  border: 1px solid $gray200;
+
+  button {
+    @include size(30px, 30px);
+    background-color: $white;
+    border: none;
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
 }

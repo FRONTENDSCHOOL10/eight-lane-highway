@@ -11,7 +11,7 @@
   background-color: $bg;
 }
 
-@mixin flexAll($fd: column, $jc: left, $at: left, $gap: 0) {
+@mixin flexAll($fd: row, $jc: left, $at: baseline, $gap: 0) {
   display: flex;
   flex-direction: $fd;
   justify-content: $jc;
