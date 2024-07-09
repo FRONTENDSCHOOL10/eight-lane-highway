@@ -45,7 +45,7 @@
       span {
         color: $darkBlack;
         font-family: Pretendard;
-        font-size: 16px;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 600;
         line-height: 150%;
@@ -63,6 +63,13 @@
       @include flexAll($jc: right);
       span {
         text-align: right;
+        color: #000;
+
+        font-family: Pretendard;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
       }
     }
   }
