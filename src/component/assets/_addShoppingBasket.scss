@@ -5,11 +5,14 @@
   box-shadow: 0px 8px 36px 0px rgba(0, 0, 0, 0.2);
   padding: 24px 20px;
 
+  // 상품 숫자 입력 영역
+
   &__product__num__container {
     width: 100%;
 
     p {
       color: $black;
+      margin-bottom: 12px;
 
       font-family: Pretendard;
       font-size: 1rem;
@@ -31,6 +34,40 @@
       }
     }
   }
+
+  // 가격 영역
+
+  &__price__container {
+    width: 100%;
+    &__sum {
+      @include flexAll($jc: space-between);
+      margin-bottom: 2px;
+      span {
+        color: $darkBlack;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+      #total {
+        color: $darkBlack;
+        font-family: Pretendard;
+        font-size: 28.43px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+      }
+    }
+    &__bonus {
+      @include flexAll($jc: right);
+      span {
+        text-align: right;
+      }
+    }
+  }
+
+  // 버튼 모음 영역
 
   &__btn_container {
     @include flexAll($jc: space-between, $gap: 8px);
