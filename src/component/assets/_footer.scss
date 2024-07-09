@@ -144,12 +144,25 @@
   }
 
   &__disclaimer {
-    border: 1px solid red;
-    @include flexAll(row, center, stretch);
-    gap: 40px;
+    @include size($w: 1050px);
+    @include flexAll(row, space-between, stretch);
+    margin: 0 auto;
 
-    p {
-      border: 1px solid green;
+    figure {
+      @include flexAll(row, center, center);
+
+      img {
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      figcaption {
+        font-family: Pretendard;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+      }
     }
   }
 }
