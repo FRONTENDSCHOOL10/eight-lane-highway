@@ -1,6 +1,5 @@
 const footer = document.querySelector("#footer");
 const footerTemplate = document.createElement("template");
-// const addressTemplate = document.createElement("template");
 
 footerTemplate.innerHTML = `
 <style>
