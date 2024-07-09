@@ -69,9 +69,6 @@
 - component/recent-product/index.html: 최근 본 상품 마크업
 - component/recent-product/main.js: 최근 본 상품 스크립트 생성
 - component/assets/\_recentproduct.scss: 최근 본 상품 기본 스타일링
-
-## 2024-07-08
-
 - component/recent-product/index.html: `span`태그 `button`태그로 변경
 - component/header/header.css: 불필요한 파일 삭제
 - component/pop-up/index.html : scss 경로 수정
