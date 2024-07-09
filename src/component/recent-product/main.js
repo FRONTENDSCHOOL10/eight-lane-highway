@@ -34,7 +34,7 @@ async function setData(itemId) {
   const data = await pb.collection("products").getOne(itemId);
   const { name, subtitle, price, seller, packaging, unit, photo } = data;
 
-  const template = `<div class="addedProduct">
+  const template = `<div class="added-product">
     <img src="${getPbImageURL(data)}" alt="" />
   </div>`;
   insertLast(itemContainer, template);
@@ -49,13 +49,13 @@ async function getData() {
 // getData();
 
 function mola(productId, productName, productImage) {
-  const recentProducts = [];
-  const addItem = recentProducts.unshift({
-    id: productId,
-    name: productName,
-    image: productImage,
-  });
-  console.log(setStorage(additem));
+  if (getStorage(recentProducts))
+    // const addItem = recentProducts.unshift({
+    //   id: productId,
+    //   name: productName,
+    //   image: productImage,
+    // });
+    console.log(setStorage(additem));
 }
 
 mola("apple", "사과", "dddk.jpg");
