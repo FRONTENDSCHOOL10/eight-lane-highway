@@ -107,6 +107,9 @@
 
 **최소현**
 
+- component/recent-product/index.html: 마크업 수정
+- component/recent-product/main.js: 기능 구현중
+- component/assets/\_recentproduct.scss: 스타일링 수정
 - component/assets/\_popup.scss : 파일명 수정
 - component/pop-up/main.js : 인라인 스타일에서 클래스 토글로 수정
 
@@ -142,6 +145,11 @@
 
 **최소현**
 
+- component/recent-product/main.js: 데이터 받아오기 구현
+- component/recent-product/index.html: 마크업 일부 수정
+- component/recent-product/main.js: 클래스명 수정
+- component/recent-product/index.html: 클래스명 수정
+- component/assets/\_recentproduct.scss: 클래스명 수정
 - api/getPbImageURL.js: getPbImageURL API 생성
 - api/pocketbase.js: pocketbase api 생성
 
