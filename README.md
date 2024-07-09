@@ -138,3 +138,10 @@
 - component/assets/products.scss: products 스타일링
 - component/assets/variables.scss: 강조 컬러, 그레이100 추가
 - product/product.html: 마크업 작업 및 포켓베이스 이미지 연결
+
+## 2024-07-09
+
+**이희재**
+
+- component/header/header.js : 마크업 및 이벤트 추가
+- component/header/header.scss : 그리드 레이아웃 구현
