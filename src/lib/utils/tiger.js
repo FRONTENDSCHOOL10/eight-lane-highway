@@ -1,11 +1,11 @@
-const ENDPOINT = 'https://jsonplaceholder.typicode.com/users';
+const ENDPOINT = "https://jsonplaceholder.typicode.com/users";
 
 const defaultOptions = {
-  method: 'GET',
+  method: "GET",
   body: null,
   headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
   },
 };
 
@@ -37,9 +37,6 @@ export const tiger = async (options) => {
   return response;
 };
 
-const response = await tiger({ url: ENDPOINT });
-// console.log(response.data);
-
 tiger.get = (url, options) => {
   return tiger({
     url,
@@ -49,7 +46,7 @@ tiger.get = (url, options) => {
 
 tiger.post = (url, body, options) => {
   return tiger({
-    method: 'POST',
+    method: "POST",
     url,
     body: JSON.stringify(body),
     ...options,
@@ -58,7 +55,7 @@ tiger.post = (url, body, options) => {
 
 tiger.delete = (url, options) => {
   return tiger({
-    method: 'DELETE',
+    method: "DELETE",
     url,
     ...options,
   });
@@ -68,7 +65,7 @@ tiger.delete = (url, options) => {
 
 tiger.put = (url, body, options) => {
   return tiger({
-    method: 'PUT',
+    method: "PUT",
     url,
     body: JSON.stringify(body),
     ...options,
@@ -77,7 +74,7 @@ tiger.put = (url, body, options) => {
 
 tiger.patch = (url, body, options) => {
   return tiger({
-    method: 'PATCH',
+    method: "PATCH",
     url,
     body: JSON.stringify(body),
     ...options,
