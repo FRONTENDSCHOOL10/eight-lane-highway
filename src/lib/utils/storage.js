@@ -14,8 +14,6 @@ export async function getStorage(key) {
   }
 }
 
-const data = await getStorage("user");
-
 export function deleteStorage(key) {
   return new Promise((resolve) => {
     !key ? storage.clear() : storage.removeItem(key);
