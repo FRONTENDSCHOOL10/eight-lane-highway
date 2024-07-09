@@ -4,6 +4,18 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 const loginButton = document.querySelector(".login-form__button");
 
+async function getLocalItems(key) {
+  if (typeof key === "string") {
+    return await JSON.parse(localStorage.getItem(key));
+  }
+}
+
+async function setLocalItem(key, value) {
+  if (typeof key === "string") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+}
+
 function handleLogin(e) {
   e.preventDefault(e);
 
@@ -14,9 +26,13 @@ function handleLogin(e) {
     .authWithPassword(userId, userPw)
     .then(
       async () => {
-        const { record, token } = await pb
-          .collection("users")
-          .authWithPassword(userId, userPw);
+        const { model, token } = await getLocalItems("pocketbase_auth");
+
+        setLocalItem("auth", {
+          isLogin: model ? true : false,
+          userInfo: model,
+          token,
+        });
 
         alert("🎉로그인에 성공하셨습니다🎉");
         location.href = "/";

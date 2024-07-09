@@ -66,6 +66,14 @@
 
 - component/pop-up/index.html : 클래스명 수정
 - component/pop-up/style.scss : popup 스타일링 추가
+- component/recent-product/index.html: 최근 본 상품 마크업
+- component/recent-product/main.js: 최근 본 상품 스크립트 생성
+- component/assets/\_recentproduct.scss: 최근 본 상품 기본 스타일링
+
+## 2024-07-08
+
+- component/recent-product/index.html: `span`태그 `button`태그로 변경
+- component/header/header.css: 불필요한 파일 삭제
 - component/pop-up/index.html : scss 경로 수정
 
 **이희재**
@@ -102,10 +110,28 @@
 
 **최소현**
 
+- component/assets/\_popup.scss : 파일명 수정
+- component/pop-up/main.js : 인라인 스타일에서 클래스 토글로 수정
+
 **오성훈**
+
+- login/login.js: 로그인 기능 추가
+  - 포켓호스트 SDK를 활용하여 로그인 여부 확인
+  - 받아온 로그인 정보를 로컬스토리지에 저장
+  - 스토리지에서 값을 받아오고 저장하기 위한 함수 생성
+  - 잘못된 아이디 비밀번호 값 입력 시 alert창으로 경고
+  - 로그인 성공 시 메인 페이지로 이동
+- component/variables.scss: 잘못된 변수 값 수정
+- component/header.scss: 충돌이 발생한 헤더 마진 영역 수정
 
 **김한울**
 
 - feature: 회원가입 마크업 및 스크립트 작업
 - feature: product 컴포넌트 생성
 - refactor: input width 값 수정
+- component/assets/badges.scss: 뱃지 작업
+- component/assets/buttons.scss: icon 버튼 작업
+- component/assets/character.scss: text 컴포넌트 작업
+- component/assets/products.scss: products 스타일링
+- component/assets/variables.scss: 강조 컬러, 그레이100 추가
+- product/product.html: 마크업 작업 및 포켓베이스 이미지 연결
