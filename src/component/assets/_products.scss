@@ -1,8 +1,28 @@
 .product {
   &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 250px;
+    max-width: 250px;
+
+    .visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .button__icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 15px;
+        margin-bottom: 17px;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .info__sale__price {
+        color: $accentColor;
+      }
+    }
   }
 }
