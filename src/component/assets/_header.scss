@@ -46,7 +46,7 @@
         content: "";
         @include absolute($t: 5px, $r: -10px);
         @include size($w: 8px, $h: 5px);
-        background: url("../component/header/assets/ico_down.webp") center /
+        background: url("/src/component/header/assets/ico_down.webp") center /
           cover no-repeat;
       }
     }
@@ -219,7 +219,7 @@
       @include absolute($t: 14px, $l: 2px);
       @include size($w: 16px, $h: 14px);
       content: "";
-      background-image: url("../component/header/assets/category.svg");
+      background-image: url("/src/component/header/assets/category.svg");
       background-repeat: no-repeat;
     }
 
@@ -257,7 +257,7 @@
         @include size($w: 24px, $h: 24px);
         margin-right: 4px;
         display: inline-block;
-        background-image: url("../component/header/assets/menuImg.svg");
+        background-image: url("/src/component/header/assets/menuImg.svg");
         background-repeat: no-repeat;
         background-size: 30px;
         background-position: -3px -1px;
@@ -265,7 +265,7 @@
 
       > a:hover::before {
         content: "";
-        mask-image: url("../component/header/assets/menuImg.svg");
+        mask-image: url("/src/component/header/assets/menuImg.svg");
         mask-repeat: no-repeat;
         mask-size: 30px;
         mask-position: -3px -1px;

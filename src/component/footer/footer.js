@@ -3,9 +3,9 @@ const footerTemplate = document.createElement("template");
 
 footerTemplate.innerHTML = `
 <style>
-  @import url(../../styles/reset.css);
-  @import url(../../styles/sr-only.css);
-  @import url(../../styles/style.scss);
+  @import url(/src/styles/style.scss);
+  @import url(/src/styles/sr-only.css);
+  @import url(/src/styles/style.scss);
 </style>
     <section class="footer">
     <h2 class="sr-only">컬리 고객센터 및 회사 소개</h2>

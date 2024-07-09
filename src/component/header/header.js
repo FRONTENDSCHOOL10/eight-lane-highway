@@ -5,17 +5,17 @@ import {
   cart,
   heart,
   newSvg,
-} from "./assets/index.js";
-import { addClass, removeClass, toggleClass } from "../../lib/index.js";
+} from "/src/component/header/assets/index.js";
+import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
 
 const header = document.querySelector("#header");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
 <style>
-  @import url(../../styles/reset.css);
-  @import url(../../styles/sr-only.css);
-  @import url(../../styles/style.scss);
+  @import url(/src/styles/style.scss);
+  @import url(/src/styles/sr-only.css);
+  @import url(/src/styles/style.scss);
   </style>
        <nav class="nav">
        <h1 class="nav__logo">
