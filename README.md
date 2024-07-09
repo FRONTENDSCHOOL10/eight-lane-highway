@@ -113,6 +113,8 @@
 - component/recent-product/index.html: 마크업 수정
 - component/recent-product/main.js: 기능 구현중
 - component/assets/\_recentproduct.scss: 스타일링 수정
+- component/assets/\_popup.scss : 파일명 수정
+- component/pop-up/main.js : 인라인 스타일에서 클래스 토글로 수정
 
 **오성훈**
 
@@ -121,3 +123,9 @@
 - feature: 회원가입 마크업 및 스크립트 작업
 - feature: product 컴포넌트 생성
 - refactor: input width 값 수정
+- component/assets/badges.scss: 뱃지 작업
+- component/assets/buttons.scss: icon 버튼 작업
+- component/assets/character.scss: text 컴포넌트 작업
+- component/assets/products.scss: products 스타일링
+- component/assets/variables.scss: 강조 컬러, 그레이100 추가
+- product/product.html: 마크업 작업 및 포켓베이스 이미지 연결
