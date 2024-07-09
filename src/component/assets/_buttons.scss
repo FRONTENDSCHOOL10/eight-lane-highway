@@ -2,11 +2,17 @@
   &__stroke {
     @include buttonStyle($primaryColor, $white, $primaryColor);
   }
+  &__stroke__gray {
+    @include buttonStyle($darkBlack, $white, $gray400);
+  }
   &__fill {
     @include buttonStyle($white, $primaryColor, $black);
   }
   &__small {
     @include buttonSize(143px, 44px);
+  }
+  &__large__basket {
+    @include buttonSize(174px, 54px);
   }
   &__large {
     @include buttonSize(340px, 54px);
