@@ -13,8 +13,8 @@
   }
 
   &__wrapper {
-    border: 1px solid blue;
-    @include flexAll(column, space-evenly, stretch);
+    @include flexAll(column, flex-start, stretch);
+    gap: 16px;
     flex: 1;
 
     &__title {
@@ -82,16 +82,17 @@
     font-size: 12.003px;
     font-weight: 400;
     line-height: 160%;
+    margin-top: 15px;
 
     & > li {
       display: inline-block;
 
       &:nth-of-type(7) {
-        width: 200px;
+        @include size($w: 200px);
       }
       &:nth-of-type(10),
       &:nth-of-type(11) {
-        width: 100%;
+        @include size($w: 100%);
       }
 
       &:nth-of-type(1)::after,
@@ -99,10 +100,9 @@
       &:nth-of-type(4)::after,
       &:nth-of-type(6)::after,
       &:nth-of-type(8)::after {
+        @include size($w: 1px, $h: 8px);
         content: "";
         display: inline-block;
-        height: 8px;
-        width: 1px;
         background-color: $black;
         margin-left: 4px;
       }
@@ -114,7 +114,66 @@
   }
 
   &__link {
+    @include flexAll(row, flex-start, stretch);
+    gap: 20px;
+    margin-top: 15px;
+
+    a {
+      display: inline-block;
+      @include size($w: 40px, $h: 40px);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .blog {
+      background-image: url(../component/footer/assets/blog.svg);
+    }
+    .facebook {
+      background-image: url(../component/footer/assets/facebook.svg);
+    }
+    .insta {
+      background-image: url(../component/footer/assets/insta.svg);
+    }
+    .post {
+      background-image: url(../component/footer/assets/post.svg);
+    }
+    .youtube {
+      background-image: url(../component/footer/assets/youtube.svg);
+    }
+  }
+
+  &__disclaimer {
     border: 1px solid red;
-    height: 40px;
+    @include flexAll(row, center, stretch);
+    gap: 40px;
+
+    p {
+      border: 1px solid green;
+      position: relative;
+    }
+
+    p::before {
+      @include absolute($t: 0, $l: -40px);
+      content: "";
+      display: inline-block;
+      @include size($w: 40px, $h: 40px);
+      background-position: 0;
+      background-repeat: no-repeat;
+      border: 1px solid red;
+    }
+
+    p:nth-of-type(1)::before {
+      background-image: url(../component/footer/assets/security.svg);
+    }
+    p:nth-of-type(2)::before {
+      background-image: url(../component/footer/assets/privacy.svg);
+    }
+    p:nth-of-type(3)::before {
+      background-image: url(../component/footer/assets/tossPayments.svg);
+    }
+    p:nth-of-type(4)::before {
+      background-image: url(../component/footer/assets/wooriBank.svg);
+    }
   }
 }
