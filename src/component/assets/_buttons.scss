@@ -8,6 +8,9 @@
   &__small {
     @include buttonSize(143px, 44px);
   }
+  &__large__basket {
+    @include buttonSize(174px, 54px);
+  }
   &__large {
     @include buttonSize(340px, 54px);
   }
