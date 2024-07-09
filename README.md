@@ -142,3 +142,6 @@
 
 - component/header/header.js : 마크업 및 이벤트 추가
 - component/header/header.scss : 그리드 레이아웃 구현
+- component/footer/footer.js :footer.js 생성
+- component/footer/footer.scss :footer.scss 생성
+- component/footer/footer.html :footer.html 생성
