@@ -20,14 +20,15 @@ function handleAddProduct(e) {
   const selectedItem = target.closest("li");
   if (!selectedItem) return;
   // 상품각각의 data-id 값을 데이터베이스 아이디로 임시지정
-  const ItemId = selectedItem.dataset.id;
+  const itemId = selectedItem.dataset.id;
   // 클릭한 상품 id 로컬 스토리지에 저장
-  saveRecentProduct(ItemId);
+  saveRecentProduct(itemId);
 }
 
 menuContainer.addEventListener("click", handleAddProduct);
 
-async function getId() {
+// 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
+async function getSavedRecentProduct() {
   if (await getStorage("recentProducts")) {
     const productValue = await getStorage("recentProducts");
     for (let item of productValue) {
@@ -40,21 +41,7 @@ async function getId() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", getId);
-
-// 데이터 불러오는 함수
-// itemId => id값
-async function setData(itemId) {
-  const data = await pb.collection("products").getOne(itemId);
-  const { name, subtitle, price, seller, packaging, unit, photo } = data;
-
-  const template = `<div class="added-product">
-    <img src="${getPbImageURL(data)}" alt="" />
-  </div>`;
-  insertLast(itemContainer, template);
-}
-
-// setData("agiethsdi3a56uo");
+document.addEventListener("DOMContentLoaded", getSavedRecentProduct);
 
 // 최근 상품 저장 함수
 async function saveRecentProduct(productId) {
@@ -63,7 +50,7 @@ async function saveRecentProduct(productId) {
   // 새로운 요소 추가
   recentProducts.unshift(productId);
   // 5개만 보기
-  const recentProductsTrimmed = recentProducts.slice(0, 5);
+  const fiveRecentProducts = recentProducts.slice(0, 5);
   // 5개로 정리된 value 로컬 스토리지에 저장
-  await setStorage("recentProducts", recentProductsTrimmed);
+  await setStorage("recentProducts", fiveRecentProducts);
 }
