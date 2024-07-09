@@ -4,21 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../styles/style.scss" />
-    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="/src/styles/style.scss" />
+    <script type="module" src="/src/component/recent-product/main.js"></script>
   </head>
   <body>
     <aside class="recent-product-container">
       <button type="button" class="recent-product__button upper-arrow">
-        <img src="./assets/upper.svg" alt="" />
+        <img src="/src/component/recent-product/assets/upper.svg" alt="" />
       </button>
       <p>최근 본 상품</p>
       <div class="added-item-container"></div>
       <button type="button" class="recent-product__button below-arrow">
-        <img src="./assets/below.svg" alt="" />
+        <img src="/src/component/recent-product/assets/below.svg" alt="" />
       </button>
     </aside>
 
-    <div id="product1" href="">라면</div>
+    <nav class="product-menu-item">
+      <li id="product1" href="">[풀무원] 탱탱쫄면 (4개입)</li>
+      <li id="product2" href="">[온더바디] 죠르디 시카 자석 선쿠션</li>
+      <li id="product3" href="">유기농 밀키퀸 현미 4kg</li>
+      <li id="product4" href="">프로쉬] 베이비 세탁세제</li>
+    </nav>
   </body>
 </html>
