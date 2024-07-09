@@ -139,3 +139,11 @@
 
 - component/header/header.js : 마크업 및 이벤트 추가
 - component/header/header.scss : 그리드 레이아웃 구현
+
+**최소현**
+
+**오성훈**
+
+**김한울**
+
+- 기본-이슈-템플릿.md: 이슈 템플릿 내용 수정
