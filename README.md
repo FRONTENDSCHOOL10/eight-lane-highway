@@ -142,6 +142,9 @@
 
 **최소현**
 
+- api/getPbImageURL.js: getPbImageURL API 생성
+- api/pocketbase.js: pocketbase api 생성
+
 **오성훈**
 
 **김한울**
