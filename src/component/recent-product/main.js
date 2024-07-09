@@ -1,9 +1,8 @@
+import getPbImageURL from "../../api/getPbImageURL";
+import pb from "../../api/pocketbase";
 import { getNode, insertAfter, setStorage, insertLast } from "../../lib/index";
 
 import PocketBase from "pocketbase";
-
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
-const url = "https://eight-lane-highway.pockethost.io";
 
 const upperArrow = getNode(".upper-arrow");
 const belowArrow = getNode(".below-arrow");
@@ -20,10 +19,6 @@ const itemContainer = getNode(".added-item-container");
 // }
 
 // product1.addEventListener("click", handleAddProduct);
-
-function getPbImageURL(item, fileName = "photo") {
-  return `${url}/api/files/${item.collectionId}/${item.id}/${item[fileName]}`;
-}
 
 // async function getData() {
 //   const data = await pb.collection("products").getOne("agiethsdi3a56uo");
