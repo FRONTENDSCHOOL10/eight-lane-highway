@@ -2,6 +2,9 @@
   &__stroke {
     @include buttonStyle($primaryColor, $white, $primaryColor);
   }
+  &__stroke__gray {
+    @include buttonStyle($darkBlack, $white, $gray400);
+  }
   &__fill {
     @include buttonStyle($white, $primaryColor, $black);
   }

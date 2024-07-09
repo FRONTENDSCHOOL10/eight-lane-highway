@@ -1,9 +1,9 @@
 .basket-container {
   @include size(356px, auto);
-  border: 1px solid black;
-  border-radius: 16px;
-  padding: 24px 20px;
   @include flexAll($fd: column, $gap: 28px);
+  border-radius: 16px;
+  box-shadow: 0px 8px 36px 0px rgba(0, 0, 0, 0.2);
+  padding: 24px 20px;
 
   &__product__num__container {
     width: 100%;
@@ -31,6 +31,14 @@
       }
     }
   }
+
+  &__btn_container {
+    @include flexAll($jc: space-between, $gap: 8px);
+
+    &__items {
+      @include flexAll();
+    }
+  }
 }
 
 .price_counter {
@@ -42,6 +50,7 @@
     @include size(30px, 30px);
     background-color: $white;
     border: none;
+
     img {
       width: 100%;
       vertical-align: middle;
