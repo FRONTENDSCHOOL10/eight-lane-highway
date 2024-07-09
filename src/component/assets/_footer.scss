@@ -147,6 +147,8 @@
     @include size($w: 1050px);
     @include flexAll(row, space-between, stretch);
     margin: 0 auto;
+    padding-top: 28px;
+    border-top: 1px solid $gray200;
 
     figure {
       @include flexAll(row, center, center);

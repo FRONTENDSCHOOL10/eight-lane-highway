@@ -89,7 +89,6 @@ footerTemplate.innerHTML = `
       </ul>
     </article>
   </section>
-  <hr />
   <article class="footer__disclaimer">
     <h4 class="sr-only">칼리 인증 내역</h4>
     <figure>
@@ -131,9 +130,7 @@ export class Footer extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(footerTemplate.content.cloneNode(true));
   }
-  connectedCallback() {
-    console.log("연결");
-  }
+  connectedCallback() {}
 }
 
 customElements.define("c-footer", Footer);
