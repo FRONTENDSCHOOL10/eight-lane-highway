@@ -39,10 +39,10 @@
         height: 100%;
       }
     }
-    main {
+    .product__info__container {
       max-width: 560px;
 
-      table {
+      .product__info__table {
         border-collapse: collapse;
 
         th,
@@ -51,7 +51,7 @@
         }
 
         th {
-          width: 128px;
+          min-width: 128px;
           text-align: left;
           vertical-align: text-top;
           font-size: 0.75rem;
