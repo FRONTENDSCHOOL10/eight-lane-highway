@@ -1,1 +1,120 @@
+.footer {
+  @include size(1050px);
+  @include flexAll(row, space-between, stretch);
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 28px 0px 32px 0px;
+  gap: 40px;
+  font-family: Pretendard;
+  font-style: normal;
 
+  ul {
+    list-style: none;
+  }
+
+  &__wrapper {
+    border: 1px solid blue;
+    @include flexAll(column, space-evenly, stretch);
+    flex: 1;
+
+    &__title {
+      font-size: 21.328px;
+      font-weight: 700;
+      line-height: 140%;
+      color: $black;
+    }
+  }
+
+  &__customer-service {
+    @include flexAll(row, flex-start, center);
+    gap: 16px;
+
+    .customer-service-number {
+      font-size: 37.897px;
+      font-weight: 700;
+      line-height: 140%;
+      color: $black;
+    }
+
+    .customer-service-button {
+      background-color: transparent;
+      border: 1px solid $gray200;
+      color: $black;
+      @include size($w: 140px, $h: 40px);
+      padding: 4px;
+    }
+
+    .customer-service-time {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+  .customer-center {
+    @include flexAll(row, flex-start, center);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+
+    .customer-service-time {
+      color: $black;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
+
+  .non-member-inquiry {
+    font-size: 12.003px;
+    font-weight: 400;
+    line-height: 160%;
+
+    a {
+      color: $primaryColor;
+    }
+  }
+
+  &__navigation {
+    @include flexAll(row, space-between, center);
+  }
+
+  &__company-info {
+    color: $black;
+    font-size: 12.003px;
+    font-weight: 400;
+    line-height: 160%;
+
+    & > li {
+      display: inline-block;
+
+      &:nth-of-type(7) {
+        width: 200px;
+      }
+      &:nth-of-type(10),
+      &:nth-of-type(11) {
+        width: 100%;
+      }
+
+      &:nth-of-type(1)::after,
+      &:nth-of-type(2)::after,
+      &:nth-of-type(4)::after,
+      &:nth-of-type(6)::after,
+      &:nth-of-type(8)::after {
+        content: "";
+        display: inline-block;
+        height: 8px;
+        width: 1px;
+        background-color: $black;
+        margin-left: 4px;
+      }
+
+      a {
+        color: $primaryColor;
+      }
+    }
+  }
+
+  &__link {
+    border: 1px solid red;
+    height: 40px;
+  }
+}
