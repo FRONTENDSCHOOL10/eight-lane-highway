@@ -91,36 +91,39 @@ footerTemplate.innerHTML = `
   </section>
   <article class="footer__disclaimer">
     <h4 class="sr-only">칼리 인증 내역</h4>
-    <figure>
-      <img src="./assets/security.svg" alt="보안" />
-      <figcaption>
-        [인증범위] 마켓칼리 쇼핑몰 서비스 개발 운영<br />
-        (심사받지 않은 물리적 인프라 제외) <br />
-        [유효기간] 2022.01.19 ~ 2025.01.18
-      </figcaption>
-    </figure>
-    <figure>
+    <button class="footer__disclaimer-button" aria-describedby="buttonSecurity">
+    <img src="./assets/security.svg" alt="보안" />
+      <span id="buttonSecurity">
+          [인증범위] 마켓칼리 쇼핑몰 서비스 개발 운영<br />
+          (심사받지 않은 물리적 인프라 제외) <br />
+          [유효기간] 2022.01.19 ~ 2025.01.18
+      </span>
+    </button>
+    <button class="footer__disclaimer-button" aria-describedby="buttonPrivacy">
       <img src="./assets/privacy.svg" alt="프라이버시" />
-      <figcaption>
+      <span id="buttonPrivacy">
         개인정보보호 우수 웹사이트<br />
         개인정보처리시스템 인증 (ePRIVACY PLUS)
-      </figcaption>
-    </figure>
-    <figure>
+      </span>
+    </button>
+    <button class="footer__disclaimer-button" aria-describedby="buttonTossPayments">
       <img src="./assets/tossPayments.svg" alt="토스페이먼츠" />
-      <figcaption>
+      <span id="buttonTossPayments">
         토스페이먼츠 구매안전(에스크로) 서비스<br />를 이용하실 수 있습니다.
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="./assets/wooriBank.svg" alt="우리은행" />
-      <figcaption>
+      </span>
+    </button>
+    <button class="footer__disclaimer-button" aria-describedby="buttonWooriBank">
+      <img src="./assets/wooriBank.svg" alt="우리은행" width="36"/>
+      <span id="buttonWooriBank">
         고객님이 현금으로 결제한 금액에 대해 우리은행과<br />
         채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.
-      </figcaption>
-    </figure>
+      </span>
+    </button>
   </article>
-  <address>address</address>
+  <p class="footer__copyright">마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.<br/>
+  마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
+  <small>© KURLY CORP. ALL RIGHTS RESERVED</small></p>
+  
 `;
 
 export class Footer extends HTMLElement {

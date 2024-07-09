@@ -147,24 +147,31 @@
     @include size($w: 1050px);
     @include flexAll(row, space-between, stretch);
     margin: 0 auto;
-    padding-top: 28px;
+    padding: 24px 0px 32px 0px;
     border-top: 1px solid $gray200;
 
-    figure {
+    &-button {
       @include flexAll(row, center, center);
+      background-color: transparent;
+      border: none;
 
-      img {
-        height: 32px;
-        margin-right: 10px;
-      }
-
-      figcaption {
+      span {
         font-family: Pretendard;
         font-size: 10px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%;
+        margin-left: 10px;
       }
     }
+  }
+
+  &__copyright {
+    @include flexAll(column, center, center);
+    @include size($w: 100%);
+    text-align: center;
+    padding: 20px 4px 32px 4px;
+    gap: 4px;
+    background-color: #f9f9f9;
   }
 }
