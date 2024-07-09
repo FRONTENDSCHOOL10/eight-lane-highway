@@ -16,5 +16,9 @@
     border: 0;
     border-radius: 50%;
     cursor: pointer;
+
+    &__small {
+      @include buttonSize(36px, 36px);
+    }
   }
 }
