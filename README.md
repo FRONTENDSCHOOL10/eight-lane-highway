@@ -145,6 +145,9 @@
 
 **최소현**
 
+- component/recent-product/main.js: 데이터 받아오기 구현
+- component/recent-product/index.html: 마크업 일부 수정
+
 **오성훈**
 
 **김한울**
