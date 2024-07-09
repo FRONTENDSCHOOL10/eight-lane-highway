@@ -45,11 +45,15 @@
       table {
         border-collapse: collapse;
 
+        th,
+        td {
+          padding: 16px 0;
+        }
+
         th {
           width: 128px;
           text-align: left;
           vertical-align: text-top;
-          padding: 4px;
           font-size: 0.75rem;
           border-top: 1px solid $gray100;
           border-bottom: 1px solid $gray100;
