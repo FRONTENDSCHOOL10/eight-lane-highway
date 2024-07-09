@@ -1,7 +1,3 @@
-body {
-  height: 200vh;
-}
-
 .nav {
   @include size(1050px);
   max-width: 1050px;
@@ -123,10 +119,6 @@ body {
     padding-right: 18px;
     grid-area: c;
     position: relative;
-
-    &__label {
-      display: none;
-    }
 
     & input {
       border: none;
@@ -520,4 +512,3 @@ body {
     }
   }
 }
-//주석
