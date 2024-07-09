@@ -1,0 +1,177 @@
+.footer {
+  @include size(1050px);
+  @include flexAll(row, space-between, stretch);
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 28px 0px 32px 0px;
+  gap: 40px;
+  font-family: Pretendard;
+  font-style: normal;
+
+  ul {
+    list-style: none;
+  }
+
+  &__wrapper {
+    @include flexAll(column, flex-start, stretch);
+    gap: 16px;
+    flex: 1;
+
+    &__title {
+      font-size: 21.328px;
+      font-weight: 700;
+      line-height: 140%;
+      color: $black;
+    }
+  }
+
+  &__customer-service {
+    @include flexAll(row, flex-start, center);
+    gap: 16px;
+
+    .customer-service-number {
+      font-size: 37.897px;
+      font-weight: 700;
+      line-height: 140%;
+      color: $black;
+    }
+
+    .customer-service-button {
+      background-color: transparent;
+      border: 1px solid $gray200;
+      color: $black;
+      @include size($w: 140px, $h: 40px);
+      padding: 4px;
+    }
+
+    .customer-service-time {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+  .customer-center {
+    @include flexAll(row, flex-start, center);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+
+    .customer-service-time {
+      color: $black;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
+
+  .non-member-inquiry {
+    font-size: 12.003px;
+    font-weight: 400;
+    line-height: 160%;
+
+    a {
+      color: $primaryColor;
+    }
+  }
+
+  &__navigation {
+    @include flexAll(row, space-between, center);
+  }
+
+  &__company-info {
+    color: $black;
+    font-size: 12.003px;
+    font-weight: 400;
+    line-height: 160%;
+    margin-top: 15px;
+
+    & > li {
+      display: inline-block;
+
+      &:nth-of-type(7) {
+        @include size($w: 200px);
+      }
+      &:nth-of-type(10),
+      &:nth-of-type(11) {
+        @include size($w: 100%);
+      }
+
+      &:nth-of-type(1)::after,
+      &:nth-of-type(2)::after,
+      &:nth-of-type(4)::after,
+      &:nth-of-type(6)::after,
+      &:nth-of-type(8)::after {
+        @include size($w: 1px, $h: 8px);
+        content: "";
+        display: inline-block;
+        background-color: $black;
+        margin-left: 4px;
+      }
+
+      a {
+        color: $primaryColor;
+      }
+    }
+  }
+
+  &__link {
+    @include flexAll(row, flex-start, stretch);
+    gap: 20px;
+    margin-top: 15px;
+
+    a {
+      display: inline-block;
+      @include size($w: 40px, $h: 40px);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .blog {
+      background-image: url(/src/component/footer/assets/blog.svg);
+    }
+    .facebook {
+      background-image: url(/src/component/footer/assets/facebook.svg);
+    }
+    .insta {
+      background-image: url(/src/component/footer/assets/insta.svg);
+    }
+    .post {
+      background-image: url(/src/component/footer/assets/post.svg);
+    }
+    .youtube {
+      background-image: url(/src/component/footer/assets/youtube.svg);
+    }
+  }
+
+  &__disclaimer {
+    @include size($w: 1050px);
+    @include flexAll(row, space-between, stretch);
+    margin: 0 auto;
+    padding: 24px 0px 32px 0px;
+    border-top: 1px solid $gray200;
+
+    &-button {
+      @include flexAll(row, center, center);
+      background-color: transparent;
+      border: none;
+
+      span {
+        font-family: Pretendard;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__copyright {
+    @include flexAll(column, center, center);
+    @include size($w: 100%);
+    text-align: center;
+    padding: 20px 4px 32px 4px;
+    gap: 4px;
+    background-color: #f9f9f9;
+  }
+}
