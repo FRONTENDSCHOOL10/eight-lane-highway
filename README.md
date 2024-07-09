@@ -167,4 +167,8 @@
 **김한울**
 
 - 기본-이슈-템플릿.md: 이슈 템플릿 내용 수정
-- component/product/product-info.html: 상세페이지 정보 부분 마크업
+- component/product/product-info.html: 상세페이지 정보 부분 마크업 및 스타일링, 배포 빌드 내용 수정
+- component/product/product.html: 배포 빌드 내용 수정
+- src/pages/signup/checkAll.js -> src/pages/register/checkAll.js: 배포 빌드 내용 수정
+- src/pages/signup/index.html -> src/pages/register/index.html: 배포 빌드 내용 수정
+- src/pages/signup/signup.js -> src/pages/register/register.js: 배포 빌드 내용 수정
