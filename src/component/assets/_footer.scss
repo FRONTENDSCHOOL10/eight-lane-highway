@@ -150,30 +150,6 @@
 
     p {
       border: 1px solid green;
-      position: relative;
-    }
-
-    p::before {
-      @include absolute($t: 0, $l: -40px);
-      content: "";
-      display: inline-block;
-      @include size($w: 40px, $h: 40px);
-      background-position: 0;
-      background-repeat: no-repeat;
-      border: 1px solid red;
-    }
-
-    p:nth-of-type(1)::before {
-      background-image: url(../component/footer/assets/security.svg);
-    }
-    p:nth-of-type(2)::before {
-      background-image: url(../component/footer/assets/privacy.svg);
-    }
-    p:nth-of-type(3)::before {
-      background-image: url(../component/footer/assets/tossPayments.svg);
-    }
-    p:nth-of-type(4)::before {
-      background-image: url(../component/footer/assets/wooriBank.svg);
     }
   }
 }
