@@ -144,6 +144,15 @@
 
 **오성훈**
 
+- 브랜치 네임 변경 (bug) : addShoppingBasket -> add-shopping-basket
+- component/addShoppingBasket/addShoppingBasket.html : 장바구니 추가 마크업 어제에 이어 추가
+- component/assets/mixins.scss: flexAll 믹스인 수정
+  - 기본값 설정 및 gap 속성 추가
+- component/assets/addShoppingBasket.scss:
+  - 장바구니 추가 컴포넌트 중 물품 개수 설정 부분 스타일링
+  - 버튼 모음 영역 스타일링
+- component/assets/buttons.scss: 회색 선 버튼 스타일과 새로운 버튼 크기 스타일 추가
+
 **김한울**
 
 - 기본-이슈-템플릿.md: 이슈 템플릿 내용 수정
