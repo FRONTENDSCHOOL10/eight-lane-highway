@@ -147,3 +147,4 @@
 **김한울**
 
 - 기본-이슈-템플릿.md: 이슈 템플릿 내용 수정
+- component/product/product-info.html: 상세페이지 정보 부분 마크업
