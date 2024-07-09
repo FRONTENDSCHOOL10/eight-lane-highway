@@ -13,173 +13,161 @@ const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
 <style>@import url(../../styles/reset.css); @import url(../../styles/style.scss);</style>
-     <nav class="nav nav__container-first">
-     <h1 class="nav__logo">
-       <a href="/">
-         <img src="${logo}" alt="로고 이미지" />
-       </a>
-     </h1>
-     <ul class="nav__user-auth">
-       <li class="nav__user-auth__item signup">
-         <a href="">회원가입</a>
-       </li>
-       <li class="nav__user-auth__item login">
-         <a href="">로그인</a>
-       </li>
-       <li class="nav__user-auth__item customer-service">
-         <a href="">고객센터</a>
-         <ul class="nav__user-auth__notice">
-           <li class="nav__user-auth__notice__item notice">
-             <a href="">공지 사항</a>
-           </li>
-           <li class="nav__user-auth__notice__item faq">
-             <a href="">자주하는 질문</a>
-           </li>
-           <li class="nav__user-auth__notice__item one-to-one">
-             <a href="">1:1 문의</a>
-           </li>
-           <li class="nav__user-auth__notice__item bulk-order">
-             <a href="">대량주문 문의</a>
-           </li>
-         </ul>
-       </li>
-     </ul>
-     <ul class="nav__page">
-       <li class="nav__page__item market">
-         <button type="button" class="is__active">마켓칼리</button>
-       </li>
-       <li class="nav__page__item beauty">
-         <button type="button">뷰티칼리</button>
-         <img src="${newSvg}" alt="새로 나왔다는 표시" />
-       </li>
-     </ul>
-     <fieldset class="nav__search-box">
-       <label for="headerSearchInput" class="sr-only nav__search-box__label">
-         검색 창</label
-       >
-       <input
-         type="text"
-         id="headerSearchInput"
-         class="nav__search-box__input"
-         placeholder="검색어를 입력해주세요" />
-       <button type="button" class="nav__search-box__button">
-         <img src="${readingGlasses}" alt="검색 돋보기" />
-       </button>
-     </fieldset>
-     <ul class="nav__user-service">
-       <li
-         tabindex="0"
-         class="nav__user-service__item address">
+       <nav class="nav">
+       <h1 class="nav__logo">
+         <a href="">
+           <img src="${logo}" alt="마켓칼리" />
+         </a>
+       </h1>
+       <ul class="nav__user-auth">
+         <li class="nav__user-auth__item signup">
+           <a href="">회원가입</a>
+         </li>
+         <li class="nav__user-auth__item login">
+           <a href="">로그인</a>
+         </li>
+         <li class="nav__user-auth__item customer-service">
+           <a href="">고객센터</a>
+           <ul class="nav__user-auth__notice">
+             <li class="nav__user-auth__notice__item notice">
+               <a href="">공지 사항</a>
+             </li>
+             <li class="nav__user-auth__notice__item faq">
+               <a href="">자주하는 질문</a>
+             </li>
+             <li class="nav__user-auth__notice__item one-to-one">
+               <a href="">1:1 문의</a>
+             </li>
+             <li class="nav__user-auth__notice__item bulk-order">
+               <a href="">대량주문 문의</a>
+             </li>
+           </ul>
+         </li>
+       </ul>
+       <ul class="nav__page">
+         <li class="nav__page__item market">
+           <button type="button" class="is__active">마켓칼리</button>
+         </li>
+         <li class="nav__page__item beauty">
+           <button type="button">뷰티칼리</button>
+           <img src="${newSvg}" alt="새로 나왔다는 표시" />
+         </li>
+       </ul>
+       <fieldset class="nav__search-box">
+         <label for="headerSearchInput" class="sr-only nav__search-box__label">
+           검색 창</label
+         >
+         <input
+           type="text"
+           id="headerSearchInput"
+           class="nav__search-box__input"
+           placeholder="검색어를 입력해주세요" />
+         <button type="button" class="nav__search-box__button">
+           <img src="${readingGlasses}" alt="검색 돋보기" />
+         </button>
+       </fieldset>
+       <ul class="nav__user-service">
+         <li tabindex="0" class="nav__user-service__item address">
+         <button type="button">
          <img src="${address}" alt="주소" />
-         <dialog class="nav__user-service__item__address-modal">
-           <p>
-             <span>배송지를 등록하고</span><br />구매 가능한 상품을
-             확인하세요!
-           </p>
-           <button type="button" class="modal-button modal-login">로그인</button>
-           <button type="button" class="modal-button modal-search-address">
-             주소 검색
-           </button>
-         </dialog>
-       </li>
-       <li class="nav__user-service__item heart">
-         <a href=""> <img src="${heart}" alt="찜" /></a>
-       </li>
-       <li class="nav__user-service__item cart">
-         <a href=""> <img src="${cart}" alt="카트" /></a>
-       </li>
-     </ul>
-   </nav>
-   <nav class="nav nav__container-second">
-     <ul class="nav__product">
-       <li class="nav__product__list category">
-         <a href="/">카테고리</a>
-         <ul class="nav__product__list__category">
-           <li class="nav__product__list__category__item">
+         </button>
+           <dialog class="nav__user-service__item__address-modal">
+             <p>
+               <span>배송지를 등록하고</span><br />구매 가능한 상품을
+               확인하세요!
+             </p>
+             <button type="button" class="modal-button modal-login">
+               로그인
+             </button>
+             <button type="button" class="modal-button modal-search-address">
+               주소 검색
+             </button>
+           </dialog>
+         </li>
+         <li class="nav__user-service__item heart">
+           <a href=""> <img src="${heart}" alt="찜" /></a>
+         </li>
+         <li class="nav__user-service__item cart">
+           <a href=""> <img src="${cart}" alt="카트" /></a>
+         </li>
+       </ul>
+       <div class="nav__product__category" aria-label="제품 카테고리" >
+          <button type="button">카테고리</button>
+         <ul class="nav__product__category__list">
+           <li class="nav__product__category__item">
              <a href="/"> 선물하기 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 채소 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 과일·견과·쌀 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 수산·해산·건어물 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 정육·계란 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 국·반찬·메인요리 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 샐러드·간편식 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 면·양념·오일 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 생수·음료·우유·커피 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 간식·과자·떡 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 베이커리·치즈·델리 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 건강식품 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 와인 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 전통주 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 생활용품·리빙·캠핑 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 스킨케어·메이크업 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 헤어·바디·구강 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 주방용품 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 가전제품 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 반려동물 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 베이비·키즈·완구 </a>
            </li>
-           <li class="nav__product__list__category__item">
+           <li class="nav__product__category__item">
              <a href="/"> 여행·티켓 </a>
            </li>
          </ul>
-       </li>
-       <li class="nav__product__list new">
-         <a href="/">신상품</a>
-       </li>
-       <li class="nav__product__list best">
-         <a href="/">베스트</a>
-       </li>
-       <li class="nav__product__list shopping">
-         <a href="/">알뜰쇼핑</a>
-       </li>
-       <li class="nav__product__list benefits">
-         <a href="/">특가/혜택</a>
-       </li>
-       <li class="nav__product__list delivery">
-         <a href="/"><span>샛별·하루</span> 배송안내</a>
-       </li>
-     </ul>
-   </nav>
+       </div>
+       <a href="/" class="nav__menu__list new">신상품</a>
+       <a href="/" class="nav__menu__list best">베스트</a>
+       <a href="/" class="nav__menu__list shopping">알뜰쇼핑</a>
+       <a href="/" class="nav__menu__list benefits">특가/혜택</a>
+       <p href="/" class="delivery"><span>샛별·하루</span> 배송안내</p>
+     </nav>
 `;
 
 export class Header extends HTMLElement {
@@ -189,43 +177,42 @@ export class Header extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
 
-    // nav first
-    this.navFirst = this.shadowRoot.querySelector(".nav__container-first");
-    // nav second
-    this.navSecond = this.shadowRoot.querySelector(".nav__container-second");
-    // 사용자 서비스 리스트(회원가입, 로그인, 고객센터)
-    this.customerService = this.navFirst.querySelector(".customer-service");
-    // 사용자 서비스 리스트 호버시 나올 모달창
-    this.noticeList = this.navFirst.querySelector(".nav__user-auth__notice");
+    // nav
+    this.nav = this.shadowRoot.querySelector(".nav");
     // 마켓칼리, 뷰티칼리 페이지 버튼
-    this.pageList = this.navFirst.querySelector(".nav__page");
+    this.pageList = this.nav.querySelector(".nav__page");
+
+    // 고객 센터
+    this.customerService = this.nav.querySelector(".customer-service");
+    // 고객 센터 호버시 나올 모달창
+    this.customerServiceModal = this.nav.querySelector(
+      ".nav__user-auth__notice"
+    );
 
     // 주소표시 svg
-    this.address = this.navFirst.querySelector(".address");
+    this.address = this.nav.querySelector(".address");
     // 주소표시 svg 호버시 나올 모달창
-    this.addressModal = this.navFirst.querySelector(
+    this.addressModal = this.nav.querySelector(
       ".nav__user-service__item__address-modal"
     );
 
     // 카테고리 메뉴
-    this.productItem = this.navSecond.querySelector(".nav__product__list");
+    this.categoryTitle = this.nav.querySelector(".nav__product__category");
     // 카테고리 하단 메뉴
-    this.categoryList = this.navSecond.querySelector(
-      ".nav__product__list__category"
-    );
+    this.categoryList = this.nav.querySelector(".nav__product__category__list");
   }
   connectedCallback() {
     // customerService modal 마우스이벤트
     this.customerService.addEventListener("mouseover", () => {
-      addClass(this.noticeList, "is__show");
+      addClass(this.customerServiceModal, "is__show");
     });
     this.customerService.addEventListener("mouseleave", () => {
-      removeClass(this.noticeList, "is__show");
+      removeClass(this.customerServiceModal, "is__show");
     });
     // customerService modal 키보드이벤트
     this.customerService.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
-        toggleClass(this.noticeList, "is__show");
+        toggleClass(this.customerServiceModal, "is__show");
       }
     });
     // page 이벤트
@@ -260,28 +247,33 @@ export class Header extends HTMLElement {
       }
     });
 
-    // productItem 마우스 이벤트
-    this.productItem.addEventListener("mouseover", () => {
+    // categoryTitle 마우스 이벤트
+    this.categoryTitle.addEventListener("mouseover", () => {
       addClass(this.categoryList, "is__show");
     });
-    this.productItem.addEventListener("mouseleave", () => {
+    this.categoryTitle.addEventListener("mouseleave", () => {
       removeClass(this.categoryList, "is__show");
     });
-    this.productItem.addEventListener("keydown", (e) => {
+    // categoryTitle 키보드 이벤트
+    this.categoryTitle.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
         toggleClass(this.categoryList, "is__show");
       }
     });
+    function handleScroll() {
+      if (window.scrollY > 30) {
+        addClass(this.nav, "is__scroll");
+      } else if (window.scrollY < 30) {
+        removeClass(this.nav, "is__scroll");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll.bind(this));
   }
 }
 
 customElements.define("c-header", Header);
 const cHeader = document.createElement("c-header");
-
 header.append(cHeader);
 
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY > 30) {
-//     console.log("이상");
-//   }
-// });
+// input 입력시 button 클릭하면 input text 초기화 추가하기
