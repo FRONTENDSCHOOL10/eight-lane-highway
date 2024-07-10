@@ -166,6 +166,10 @@
   - 장바구니 추가 컴포넌트 중 물품 개수 설정 부분 스타일링
   - 버튼 모음 영역 스타일링
 - component/assets/buttons.scss: 회색 선 버튼 스타일과 새로운 버튼 크기 스타일 추가
+- component/product/product-detail.html: 물품 세부정보 하단 컴포넌트 마크업
+- component/assets/product-detail.scss: 물품 세부 정보 하단 컴포넌트 스타일링 중 네비게이션 부분 스타일링, `is__clicked` 스타일 추가
+- lib/utils/tiger.js: async 없이 사용된 await문 제거 (build 생성시 오류 발생하므로)
+- lib/utils/storage.js: async 없이 사용된 await문 제거 (build 생성시 오류 발생하므로)
 
 **김한울**
 
