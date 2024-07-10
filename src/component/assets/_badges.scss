@@ -8,7 +8,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     @include font($fs: 0.75rem, $fw: 600);
-    __karly {
+    &__karly {
       color: $primaryColor;
     }
     &__text {
