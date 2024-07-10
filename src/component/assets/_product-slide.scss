@@ -11,35 +11,16 @@
       @include font($fs: 28.43px, $fw: 700, $lh: 140%);
     }
   }
+
   &-slide {
     position: relative;
-
-    a {
-      @include size($w: 249px, $h: 249px);
-    }
-    img {
-      @include size($w: 100%);
-    }
-    .add-cart {
-      @include absolute($t: 265px, $r: 7px);
-      z-index: 1;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    .name {
-      @include font($fs: 16px, $fw: 400, $lh: 160%);
-    }
-    .price {
-      @include font($fs: 21.328px, $fw: 600, $lh: 150%);
-    }
   }
 
   &-button-prev,
   &-button-next {
     @include size($w: 60px, $h: 60px);
-    z-index: 1;
-    top: 300px;
+    z-index: 10;
+    top: 260px;
     border: none;
     background-color: transparent;
     background-image: url("/src/component/assets/img/next-button-black.svg");
@@ -55,11 +36,11 @@
 
   &-button-prev {
     transform: rotate(180deg);
-    left: 80px;
+    left: 60px;
   }
 
   &-button-next {
-    right: 80px;
+    right: 60px;
   }
 
   &-button-next.is__hide,
