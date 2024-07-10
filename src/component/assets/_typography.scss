@@ -1,10 +1,33 @@
 h1 {
-  @include font($fs: 1rem, $fw: 400, $lh: 160%);
-  margin: 0;
+  @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
+  color: $black;
 }
 h2 {
+  @include font($fw: 700, $fs: 1.375rem, $lh: 140%);
+
+  &.title__primary {
+    color: $gray500;
+  }
+}
+h3 {
+  @include font($fw: 400, $fs: 1rem, $lh: 160%);
+
+  &.title__secondary {
+    color: $gray400;
+  }
+  &.title__price {
+    font-weight: 700;
+  }
+  .price__emphasis {
+    @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
+  }
 }
 p {
-  @include font($fs: 0.75rem, $fw: 400, $lh: 150%);
+  @include font($fw: 400, $fs: 0.75rem, $lh: 150%);
   color: $gray400;
+
+  &.text__primary__color {
+    font-weight: 600;
+    color: $primaryColor;
+  }
 }
