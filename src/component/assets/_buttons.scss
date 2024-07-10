@@ -33,5 +33,16 @@
         object-fit: contain;
       }
     }
+
+    &__large {
+      @include buttonSize(56px, 56px);
+      padding: 8px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
   }
 }
