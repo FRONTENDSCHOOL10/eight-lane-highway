@@ -1,0 +1,94 @@
+.product__detail {
+  width: 1050px;
+  margin: 0 auto;
+
+  // 메뉴바 영역
+  &__menu {
+    @include flexAll($at: center);
+    width: 100%;
+    padding-top: 48px;
+    margin-bottom: 10px;
+
+    &__item {
+      @include flexAll($jc: center, $at: center);
+      border: 1px solid $gray300;
+      background-color: $gray50;
+      width: 100%;
+      height: 54px;
+      color: $darkBlack;
+      font-family: Pretendard;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
+
+  // 상품 정보 영역
+  &__info_container {
+    text-align: center;
+
+    img {
+      display: inline-block;
+      margin-top: 40px;
+    }
+
+    &_title {
+      margin-top: 76px;
+      margin-bottom: 36px;
+
+      span {
+        color: #000;
+        font-family: Pretendard;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+
+      p {
+        color: $darkBlack;
+        font-family: Pretendard;
+        font-size: 3.125rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+      }
+    }
+
+    &_main {
+      border-top: 1px solid $gray100;
+      padding-top: 28px;
+      text-align: left;
+      margin-bottom: 96px;
+      color: $darkBlack;
+      font-family: Pretendard;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+
+    &_checkpoint {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .checkpoint__header {
+      }
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// 상단 메뉴바 클릭 시 적용되는 스타일
+.is__clicked {
+  border-top: 1px solid $gray100;
+  border-right: 1px solid $gray100;
+  border-left: 1px solid $gray100;
+  border-bottom: none;
+  background-color: $white;
+  color: $primaryColor;
+}
