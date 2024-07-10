@@ -60,12 +60,25 @@
       border-top: 1px solid $gray100;
       padding-top: 28px;
       text-align: left;
+      margin-bottom: 96px;
       color: $darkBlack;
       font-family: Pretendard;
       font-size: 1rem;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
+    }
+
+    &_checkpoint {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .checkpoint__header {
+      }
+
+      span {
+        white-space: nowrap;
+      }
     }
   }
 }
