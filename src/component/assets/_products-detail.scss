@@ -34,6 +34,26 @@
     }
 
     &_title {
+      margin-top: 76px;
+      margin-bottom: 36px;
+
+      span {
+        color: #000;
+        font-family: Pretendard;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+      }
+
+      p {
+        color: $darkBlack;
+        font-family: Pretendard;
+        font-size: 3.125rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+      }
     }
 
     &_main {
