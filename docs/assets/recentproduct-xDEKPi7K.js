@@ -1,3 +1,0 @@
-import"./modulepreload-polyfill-9p4a8sJU.js";/* empty css              */import{C as r}from"./pocketbase.es-knC2my0u.js";import{b as n}from"./type-ux6Gv8tB.js";function o(t,e=document){return e.nodeType!==9&&(e=document.querySelector(e)),e.querySelector(t)}function a(t,e){n(t)&&(t=o(t)),t.insertAdjacentHTML("beforeend",e)}function i(t,e="photo"){return`https://eight-lane-highway.pockethost.io/api/files/${t.collectionId}/${t.id}/${t[e]}`}const c=new r("https://eight-lane-highway.pockethost.io");o(".upper-arrow");o(".below-arrow");o("#product1");const s=o(".added-item-container");async function d(){const t=await c.collection("products").getOne("agiethsdi3a56uo"),e=`<div class="addedProduct">
-    <img src="${i(t)}" alt="" />
-  </div>`;a(s,e),console.log(i(t))}d();
