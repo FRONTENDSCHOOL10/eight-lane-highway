@@ -1,9 +1,13 @@
 .button {
   &__stroke {
     @include buttonStyle($primaryColor, $white, $primaryColor);
-  }
-  &__stroke__gray {
-    @include buttonStyle($darkBlack, $white, $gray400);
+
+    &__lightgray {
+      @include buttonStyle($darkBlack, $white, $gray100);
+    }
+    &__gray {
+      @include buttonStyle($darkBlack, $white, $gray400);
+    }
   }
   &__fill {
     @include buttonStyle($white, $primaryColor, $black);
@@ -16,6 +20,10 @@
   }
   &__large {
     @include buttonSize(340px, 54px);
+  }
+  &__full {
+    @include buttonSize(auto, 54px);
+    flex: 1 0 0;
   }
   &__icon {
     @include buttonSize(45px, 45px);

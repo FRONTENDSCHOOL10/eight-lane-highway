@@ -19,13 +19,19 @@
       </aside>
       <main class="product__info__container">
         <article>
-          <h2>샛별배송</h2>
+          <h2 class="title__primary">샛별배송</h2>
           <h1>[풀무원] 탱탱쫄면 (4개입)</h1>
-          <p>튀기지 않아 부담 없는 매콤함</p>
-          <h3>4,980 <span>원</span></h3>
-          <p>로그인 후, 적립 혜택이 제공됩니다.</p>
+          <h3 class="title__secondary">튀기지 않아 부담 없는 매콤함</h3>
+          <h3 class="title__price">
+            <span class="price__emphasis">4,980</span> 원
+          </h3>
+          <p class="text__primary__color">로그인 후, 적립 혜택이 제공됩니다.</p>
         </article>
         <table class="product__info__table">
+          <colgroup>
+            <col style="width: 128px" />
+            <col style="width: auto" />
+          </colgroup>
           <tr>
             <th>배송</th>
             <td>
@@ -77,27 +83,49 @@
                 <p>[풀무원] 탱탱쫄면 (4개입)</p>
                 <div class="product__count__price">
                   <div class="product__count__button">
-                    <button type="button">-</button>
-                    <div class="product__count__box">1</div>
-                    <button type="button">+</button>
+                    <button type="button">
+                      <img
+                        src="/public/images/icon-minus-disabled.svg"
+                        alt=""
+                      />
+                    </button>
+                    <div class="product__count__box">
+                      <p class="text__price">1</p>
+                    </div>
+                    <button type="button">
+                      <img src="/public/images/icon-plus-disabled.svg" alt="" />
+                    </button>
                   </div>
                 </div>
               </div>
             </td>
           </tr>
         </table>
-        <article>
+        <article class="product__price__container">
           <div class="product__final__price">
-            총 상품금액: 4,980원 로그인 후, 적립 혜택 제공
+            <p class="text__price">
+              총 상품금액: <span class="price__emphasis">4,980</span>원
+            </p>
+            <p class="text__price">
+              <span class="badge__accent">적립</span>로그인 후, 적립 혜택 제공
+            </p>
           </div>
           <div class="product__button__container">
-            <button class="button__stroke button__icon__large" type="button">
+            <button
+              class="button__stroke__lightgray button__icon__large button__default"
+              type="button"
+            >
               <img src="/images/icon-heart.svg" alt="" />
             </button>
-            <button class="button__stroke button__icon__large" type="button">
+            <button
+              class="button__stroke__lightgray button__icon__large"
+              type="button"
+            >
               <img src="/images/icon-bell.svg" alt="" />
             </button>
-            <button class="button__fill" type="button">장바구니 담기</button>
+            <button class="button__fill button__full" type="button">
+              장바구니 담기
+            </button>
           </div>
         </article>
       </main>
