@@ -6,24 +6,38 @@
     <title>Document</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
     <script type="module" src="/src/component/recent-product/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
     <aside class="recent-product-container">
-      <button type="button" class="recent-product__button upper-arrow">
-        <img src="/src/component/recent-product/assets/upper.svg" alt="" />
+      <button type="button" class="swiper-button-prev">
+        <img
+          src="/src/component/recent-product/assets/upper.svg"
+          alt="위로 올리기 버튼" />
       </button>
       <p>최근 본 상품</p>
-      <div class="added-item-container"></div>
-      <button type="button" class="recent-product__button below-arrow">
-        <img src="/src/component/recent-product/assets/below.svg" alt="" />
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+      </div>
+
+      <button type="button" class="swiper-button-next">
+        <img
+          src="/src/component/recent-product/assets/below.svg"
+          alt="아래로 내리기 버튼" />
       </button>
     </aside>
 
+    <!-- 추후 삭제 예정 -->
     <nav class="product-menu-item">
-      <li id="product1" href="">[풀무원] 탱탱쫄면 (4개입)</li>
-      <li id="product2" href="">[온더바디] 죠르디 시카 자석 선쿠션</li>
-      <li id="product3" href="">유기농 밀키퀸 현미 4kg</li>
-      <li id="product4" href="">프로쉬] 베이비 세탁세제</li>
+      <li data-id="4tswqr13jklyoem" href="">
+        [한식곳간] 막걸리 보쌈 수육 300g
+      </li>
+      <li data-id="agiethsdi3a56uo" href="">[풀무원] 탱탱쫄면 (4개입)</li>
+      <li data-id="a5uvfwe9nirhaxw" href="">[올드페리도넛] 시그니처 4종세트</li>
+      <li data-id="4tswqr13jklyoem" href="">
+        [한식곳간] 막걸리 보쌈 수육 300g
+      </li>
     </nav>
   </body>
 </html>

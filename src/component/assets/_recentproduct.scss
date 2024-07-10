@@ -2,31 +2,33 @@
   width: 74px;
   border: 1px solid $gray200;
   box-sizing: border-box;
-  display: flex;
-  flex-flow: nowrap column;
+  @include flexColumn(center);
   gap: 8px;
   padding: 8px;
   margin: 0;
 
-  .recent-product__button {
+  .swiper-button-prev,
+  .swiper-button-next {
     appearance: none;
     background-color: inherit;
     border: none;
-    &upper-arrow,
-    &below-arrow {
-      margin: 0 auto;
-      padding: 0;
-      height: 18px;
+    vertical-align: center;
+    padding: 0;
+    height: 18px;
+    &:hover {
+      cursor: pointer;
     }
   }
-  .added-item-container {
+  .swiper-container {
     max-height: 129px;
     overflow: hidden;
-    .addedProduct {
-      width: 40px;
-      height: 51.406px;
-      border: 1px solid black;
-      margin: 0 auto 4px auto;
+
+    .swiper-slide {
+      @include size(40px, 51.406px);
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   p {
@@ -35,5 +37,18 @@
     font-weight: 600;
     line-height: 150%;
     margin: 0;
+    color: black;
+  }
+}
+
+.product-menu-item {
+  margin-top: 50px;
+  li {
+    margin: 20px;
+    border: 1px solid black;
+    list-style: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
