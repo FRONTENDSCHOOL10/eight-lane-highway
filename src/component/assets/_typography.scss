@@ -1,15 +1,10 @@
 h1 {
-  font-size: $fontMedium;
-  line-height: 1.6;
-  font-weight: 400;
-  color: $black;
+  @include font($fs: 1rem, $fw: 400, $lh: 160%);
   margin: 0;
 }
 h2 {
 }
 p {
-  font-size: $fontSmall;
-  line-height: 1.5;
+  @include font($fs: 0.75rem, $fw: 400, $lh: 150%);
   color: $gray400;
-  font-weight: 400;
 }

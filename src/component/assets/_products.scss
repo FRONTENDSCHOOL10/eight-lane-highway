@@ -26,15 +26,15 @@
       color: $accentColor;
     }
     &__product__price {
-      @include font($fw: 600, $fs: 21.328px, $lh: 150%);
+      @include font($fw: 600, $fs: 1.375rem, $lh: 150%);
     }
     &__product__original-price {
-      @include font($fw: 400, $fs: 12.003px, $lh: 160%);
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
       text-decoration: line-through;
       color: $gray400;
     }
     &__product__description {
-      @include font($fw: 400, $fs: 12.003px, $lh: 160%);
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
       color: $gray400;
     }
   }
