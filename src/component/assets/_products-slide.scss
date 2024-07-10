@@ -1,50 +1,52 @@
-.swiper {
-  &-container {
-    @include flexAll($fd: column, $at: center);
-    @include size($w: 1050px);
-    max-width: 1050px;
-    margin: 0 auto;
-    gap: 28px;
-    padding: 40px 0;
-    overflow: hidden;
-    h2 {
-      @include font($fs: 28.43px, $fw: 700, $lh: 140%);
+.products-slide {
+  .swiper {
+    &-container {
+      @include flexAll($fd: column, $at: center);
+      @include size($w: 1050px);
+      max-width: 1050px;
+      margin: 0 auto;
+      gap: 28px;
+      padding: 40px 0;
+      overflow: hidden;
+      h2 {
+        @include font($fs: 28.43px, $fw: 700, $lh: 140%);
+      }
     }
-  }
 
-  &-slide {
-    position: relative;
-  }
+    &-slide {
+      position: relative;
+    }
 
-  &-button-prev,
-  &-button-next {
-    @include size($w: 60px, $h: 60px);
-    z-index: 10;
-    top: 260px;
-    border: none;
-    background-color: transparent;
-    background-image: url("/src/component/assets/img/next-button-black.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-  }
+    &-button-prev,
+    &-button-next {
+      @include size($w: 60px, $h: 60px);
+      z-index: 10;
+      top: 260px;
+      border: none;
+      background-color: transparent;
+      background-image: url("/images/img/next-button-black.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
 
-  &-button-prev::after,
-  &-button-next::after {
-    display: none;
-  }
+    &-button-prev::after,
+    &-button-next::after {
+      display: none;
+    }
 
-  &-button-prev {
-    transform: rotate(180deg);
-    left: 60px;
-  }
+    &-button-prev {
+      transform: rotate(180deg);
+      left: 60px;
+    }
 
-  &-button-next {
-    right: 60px;
-  }
+    &-button-next {
+      right: 60px;
+    }
 
-  &-button-next.is__hide,
-  &-button-prev.is__hide {
-    display: none;
+    &-button-next.is__hide,
+    &-button-prev.is__hide {
+      display: none;
+    }
   }
 }
