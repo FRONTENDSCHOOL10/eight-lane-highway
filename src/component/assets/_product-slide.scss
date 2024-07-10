@@ -1,0 +1,69 @@
+.swiper {
+  &-container {
+    @include flexAll($fd: column, $at: center);
+    @include size($w: 1050px);
+    max-width: 1050px;
+    margin: 0 auto;
+    gap: 28px;
+    padding: 40px 0;
+    overflow: hidden;
+    h2 {
+      @include font($fs: 28.43px, $fw: 700, $lh: 140%);
+    }
+  }
+  &-slide {
+    position: relative;
+
+    a {
+      @include size($w: 249px, $h: 249px);
+    }
+    img {
+      @include size($w: 100%);
+    }
+    .add-cart {
+      @include absolute($t: 265px, $r: 7px);
+      z-index: 1;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .name {
+      @include font($fs: 16px, $fw: 400, $lh: 160%);
+    }
+    .price {
+      @include font($fs: 21.328px, $fw: 600, $lh: 150%);
+    }
+  }
+
+  &-button-prev,
+  &-button-next {
+    @include size($w: 60px, $h: 60px);
+    z-index: 1;
+    top: 300px;
+    border: none;
+    background-color: transparent;
+    background-image: url("/src/component/assets/img/next-button-black.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+  }
+
+  &-button-prev::after,
+  &-button-next::after {
+    display: none;
+  }
+
+  &-button-prev {
+    transform: rotate(180deg);
+    left: 80px;
+  }
+
+  &-button-next {
+    right: 80px;
+  }
+
+  &-button-next.is__hide,
+  &-button-prev.is__hide {
+    display: none;
+  }
+}
