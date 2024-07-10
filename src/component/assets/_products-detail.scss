@@ -2,6 +2,7 @@
   width: 1050px;
   margin: 0 auto;
 
+  // 메뉴바 영역
   &__menu {
     @include flexAll($at: center);
     width: 100%;
@@ -22,8 +23,34 @@
       line-height: 150%;
     }
   }
+
+  // 상품 정보 영역
+  &__info_container {
+    text-align: center;
+
+    img {
+      display: inline-block;
+      margin-top: 40px;
+    }
+
+    &_title {
+    }
+
+    &_main {
+      border-top: 1px solid $gray100;
+      padding-top: 28px;
+      text-align: left;
+      color: $darkBlack;
+      font-family: Pretendard;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
 }
 
+// 상단 메뉴바 클릭 시 적용되는 스타일
 .is__clicked {
   border-top: 1px solid $gray100;
   border-right: 1px solid $gray100;
