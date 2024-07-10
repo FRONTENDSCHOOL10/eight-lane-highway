@@ -6,26 +6,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
     <script type="module" src="/src/component/recent-product/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
     <aside class="recent-product-container">
-      <button type="button" class="recent-product__button upper-arrow">
-        <img src="/src/component/recent-product/assets/upper.svg" alt="" />
+      <button type="button" class="swiper-button-prev">
+        <img
+          src="/src/component/recent-product/assets/upper.svg"
+          alt="위로 올리기 버튼" />
       </button>
       <p>최근 본 상품</p>
-      <div class="added-item-container"></div>
-      <button type="button" class="recent-product__button below-arrow">
-        <img src="/src/component/recent-product/assets/below.svg" alt="" />
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+      </div>
+
+      <button type="button" class="swiper-button-next">
+        <img
+          src="/src/component/recent-product/assets/below.svg"
+          alt="아래로 내리기 버튼" />
       </button>
     </aside>
 
+    <!-- 추후 삭제 예정 -->
     <nav class="product-menu-item">
-      <li data-id="agiethsdi3a56uo" href="">
+      <li data-id="25lfmfp0848mxqn" href="">
         [온더바디] 죠르디 시카 자석 선쿠션
       </li>
-      <li data-id="dd" href="">[풀무원] 탱탱쫄면 (4개입)</li>
-      <li data-id="cc" href="">유기농 밀키퀸 현미 4kg</li>
-      <li data-id="dd" href="">프로쉬] 베이비 세탁세제</li>
+      <li data-id="agiethsdi3a56uo" href="">[풀무원] 탱탱쫄면 (4개입)</li>
+      <li data-id="gz4kn7v2e736fza" href="">유기농 밀키퀸 현미 4kg</li>
+      <li data-id="uae0z8nfp82zdo5" href="">프로쉬] 베이비 세탁세제</li>
     </nav>
   </body>
 </html>

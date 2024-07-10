@@ -177,3 +177,9 @@
 - src/pages/signup/checkAll.js -> src/pages/register/checkAll.js: 배포 빌드 내용 수정
 - src/pages/signup/index.html -> src/pages/register/index.html: 배포 빌드 내용 수정
 - src/pages/signup/signup.js -> src/pages/register/register.js: 배포 빌드 내용 수정
+
+## 2024-07-10
+
+- component/recent-product/main.js: 스와이퍼 기능 추가
+- component/recent-product/index.html: 스와이퍼 관련 마크업 구조 수정
+- component/assets/\_recentproduct.scss: 스와이퍼 관련 스타일링 수정
