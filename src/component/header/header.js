@@ -5,7 +5,7 @@ import {
   cart,
   heart,
   newSvg,
-} from "/src/component/header/assets/index.js";
+} from "/src/component/header/index.js";
 import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
 
 const header = document.querySelector("#header");

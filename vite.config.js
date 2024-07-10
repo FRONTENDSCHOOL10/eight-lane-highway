@@ -9,7 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         header: resolve(__dirname, "src/component/header/header.html"),
 
-        register: resolve(__dirname, "src/pages/signup/index.html"),
+        register: resolve(__dirname, "src/pages/register/index.html"),
         productinfo: resolve(
           __dirname,
           "src/component/product/product-info.html"

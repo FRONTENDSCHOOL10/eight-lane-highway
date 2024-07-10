@@ -1,6 +1,6 @@
-import "./src/styles/style.scss";
-// import { Header } from "./src/component/header/header.js";
-// import { Footer } from "./src/component/footer/footer.js";
+import "/src/styles/style.scss";
+// import { Header } from "/src/component/header/header.js";
+// import { Footer } from "/src/component/footer/footer.js";
 
 // const header = document.querySelector("#header");
 // const footer = document.querySelector("#footer");
