@@ -1,14 +1,13 @@
+import resetCss from "/src/styles/reset.css?inline";
+import srOnlyCss from "/src/styles/sr-only.css?inline";
+import headerCss from "/src/styles/style.scss?inline";
 import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
 
 const header = document.querySelector("#header");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
-<style>
-  @import url(/src/styles/reset.css);
-  @import url(/src/styles/sr-only.css);
-  @import url(/src/styles/style.scss);
-  </style>
+<style>${resetCss}${srOnlyCss}${headerCss}</style>
        <nav class="nav">
        <h1 class="nav__logo">
          <a href="">
