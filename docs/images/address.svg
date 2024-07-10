@@ -1,0 +1,22 @@
+<svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="user-service__address"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M18.0062 30C18.0062 30 8.7002 22.544 8.7002 15.306C8.7002 12.8379 9.68065 10.4709 11.4259 8.72566C13.1711 6.98045 15.5381 6 18.0062 6C20.4743 6 22.8413 6.98045 24.5865 8.72566C26.3317 10.4709 27.3122 12.8379 27.3122 15.306C27.3122 22.544 18.0062 30 18.0062 30Z"
+              stroke="#333333"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path
+              d="M17.9124 17.907C19.45 17.907 20.6964 16.6606 20.6964 15.123C20.6964 13.5854 19.45 12.339 17.9124 12.339C16.3749 12.339 15.1284 13.5854 15.1284 15.123C15.1284 16.6606 16.3749 17.907 17.9124 17.907Z"
+              stroke="#333333"
+              stroke-width="1.7"
+              stroke-linecap="square"
+              stroke-linejoin="round" />
+          </svg>
