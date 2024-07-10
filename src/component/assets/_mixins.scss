@@ -59,7 +59,7 @@
   padding: 0;
 }
 
-@mixin font($fs, $fw, $lh) {
+@mixin font($fs: 1rem, $fw: normal, $lh: normal) {
   color: $black;
   font-family: Pretendard;
   font-style: normal;
