@@ -8,32 +8,34 @@
     <link rel="stylesheet" href="/src/styles/style.scss" />
   </head>
   <body>
-    <div class="product__container">
+    <article class="product">
+      <h3 class="sr-only">제품 상세</h3>
       <div class="visual">
-        <img
-          src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ijklnxd2h128afe/product02_l5ax9Bonou.png"
-          alt="상품 사진"
-        />
-        <button type="button" class="button__icon">
+        <a href="" class="visual__link">
+          <img
+            src="https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/a68f6340-0b47-4929-9266-314dca796093.jpg?v=0531" />
+        </a>
+        <button class="visual__add-cart">
           <img
             src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg"
-            alt="장바구니 담기"
-          />
+            alt="장바구니 담기" />
         </button>
       </div>
       <div class="info">
-        <p class="info__delivery">샛별배송</p>
-        <h1 class="info__product__title">[온더바디] 죠르디 시카 자석 선쿠션</h1>
-        <h2 class="info__product__price">
+        <!-- <p class="info__delivery">샛별배송</p> -->
+        <p class="info__product__title">[온더바디] 죠르디 시카 자석 선쿠션</p>
+        <p class="info__product__price">
           <span class="info__sale__price">50%</span> 32,500 원
-        </h2>
-        <p class="info__product__price__original">65,000 원</p>
-        <p class="info__product__subtitle">자외선을 차단하는 시카 선쿠션</p>
+        </p>
+        <p class="info__product__original-price">65,000 원</p>
+        <p class="info__product__subtitle">
+          끈적임 없이 보송한 무기자차 선쿠션
+        </p>
         <div class="badge__group">
-          <span class="badge badge__karly">Karly Only</span>
-          <span class="badge badge__text">한정수량</span>
+          <p class="badge badge__karly">Karly Only</p>
+          <p class="badge badge__text">한정수량</p>
         </div>
       </div>
-    </div>
+    </article>
   </body>
 </html>

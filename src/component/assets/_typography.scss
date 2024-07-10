@@ -6,31 +6,10 @@ h1 {
   margin: 0;
 }
 h2 {
-  &.info__product__price {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    margin: 0;
-  }
 }
 p {
   font-size: $fontSmall;
   line-height: 1.5;
   color: $gray400;
   font-weight: 400;
-
-  &.info {
-    &__delivery {
-      margin: 16px 0 0;
-      font-weight: 600;
-    }
-    &__product {
-      &__price__original {
-        margin: 0;
-        text-decoration: line-through;
-      }
-      &__subtitle {
-        margin: 0;
-      }
-    }
-  }
 }

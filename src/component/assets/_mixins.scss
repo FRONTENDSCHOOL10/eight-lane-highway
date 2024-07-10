@@ -58,3 +58,12 @@
   height: $height;
   padding: 0;
 }
+
+@mixin font($fs: 1rem, $fw: normal, $lh: normal) {
+  color: $black;
+  font-family: Pretendard;
+  font-style: normal;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}

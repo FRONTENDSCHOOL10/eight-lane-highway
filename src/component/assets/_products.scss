@@ -1,29 +1,41 @@
 .product {
-  &__container {
-    max-width: 250px;
+  .visual {
+    position: relative;
 
-    .visual {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    &__link {
+      display: inline-block;
+      @include size($w: 249px, $h: 320px);
 
-      .button__icon {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin-right: 15px;
-        margin-bottom: 17px;
+      img {
+        @include size($w: 100%, $h: 100%);
       }
     }
-    .info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
 
-      .info__sale__price {
-        color: $accentColor;
-      }
+    &__add-cart {
+      @include absolute($t: 265px, $r: 7px);
+      z-index: 1;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .info {
+    @include flexAll($fd: column, $jc: flex-start, $at: stretch);
+    gap: 8px;
+    &__sale__price {
+      color: $accentColor;
+    }
+    &__product__price {
+      @include font($fw: 600, $fs: 21.328px, $lh: 150%);
+    }
+    &__product__original-price {
+      @include font($fw: 400, $fs: 12.003px, $lh: 160%);
+      text-decoration: line-through;
+      color: $gray400;
+    }
+    &__product__description {
+      @include font($fw: 400, $fs: 12.003px, $lh: 160%);
+      color: $gray400;
     }
   }
   &__info {

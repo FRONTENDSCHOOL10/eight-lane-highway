@@ -155,6 +155,8 @@
 - component/assets/\_recentproduct.scss: 클래스명 수정
 - api/getPbImageURL.js: getPbImageURL API 생성
 - api/pocketbase.js: pocketbase api 생성
+- component/recent-product/main.js: 로컬스토리지 저장 및 데이터 불러오기 구현
+- component/recent-product/index.html: 태그 속성 수정
 
 **오성훈**
 
@@ -166,6 +168,10 @@
   - 장바구니 추가 컴포넌트 중 물품 개수 설정 부분 스타일링
   - 버튼 모음 영역 스타일링
 - component/assets/buttons.scss: 회색 선 버튼 스타일과 새로운 버튼 크기 스타일 추가
+- component/product/product-detail.html: 물품 세부정보 하단 컴포넌트 마크업
+- component/assets/product-detail.scss: 물품 세부 정보 하단 컴포넌트 스타일링 중 네비게이션 부분 스타일링, `is__clicked` 스타일 추가
+- lib/utils/tiger.js: async 없이 사용된 await문 제거 (build 생성시 오류 발생하므로)
+- lib/utils/storage.js: async 없이 사용된 await문 제거 (build 생성시 오류 발생하므로)
 
 **김한울**
 
@@ -175,3 +181,9 @@
 - src/pages/signup/checkAll.js -> src/pages/register/checkAll.js: 배포 빌드 내용 수정
 - src/pages/signup/index.html -> src/pages/register/index.html: 배포 빌드 내용 수정
 - src/pages/signup/signup.js -> src/pages/register/register.js: 배포 빌드 내용 수정
+
+## 2024-07-10
+
+- component/recent-product/main.js: 스와이퍼 기능 추가
+- component/recent-product/index.html: 스와이퍼 관련 마크업 구조 수정
+- component/assets/\_recentproduct.scss: 스와이퍼 관련 스타일링 수정
