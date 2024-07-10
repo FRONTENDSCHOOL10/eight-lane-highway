@@ -13,7 +13,7 @@ const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
 <style>
-  @import url(/src/styles/style.scss);
+  @import url(/src/styles/reset.css);
   @import url(/src/styles/sr-only.css);
   @import url(/src/styles/style.scss);
   </style>

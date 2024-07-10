@@ -83,6 +83,7 @@
       cursor: pointer;
       color: #b5b5b5;
 
+      &:hover,
       &.is__active {
         font-weight: 600;
         color: $primaryColor;
