@@ -26,7 +26,6 @@ p {
   @include font($fw: 400, $fs: 0.75rem, $lh: 150%);
   color: $gray400;
 
-
   &.text {
     &__primary__color {
       font-weight: 600;
@@ -41,5 +40,4 @@ p {
 }
 .price__emphasis {
   @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
-  
-
+}
