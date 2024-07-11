@@ -208,3 +208,11 @@
 - .github/workflows/main.yml: 빌드 파일 생성
 - index.html: 스타일 파일 경로 변경
 - main.js: 스타일 파일 경로 변경
+
+
+## 2024-07-11
+
+- src/style/style.scss cart.scss추가
+- src/pages/cart 기본 마크업
+- component/assets/\_typography 수정
+- public/images `sun`, `frozen`, `water` svg 파일 추가

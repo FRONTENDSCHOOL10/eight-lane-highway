@@ -18,6 +18,9 @@ h3 {
   &.title__price {
     font-weight: 700;
   }
+  .price__emphasis {
+    @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
+  }
 }
 p {
   @include font($fw: 400, $fs: 0.75rem, $lh: 150%);
@@ -37,4 +40,9 @@ p {
 }
 .price__emphasis {
   @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
+  
+  &.text__primary__color {
+    font-weight: 600;
+    color: $primaryColor;
+  }
 }
