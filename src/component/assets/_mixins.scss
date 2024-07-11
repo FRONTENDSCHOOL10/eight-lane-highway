@@ -58,8 +58,8 @@
   height: $height;
 }
 
-@mixin font($fs: 1rem, $fw: normal, $lh: normal) {
-  color: $black;
+@mixin font($color: black, $fs: 1rem, $fw: normal, $lh: normal) {
+  color: $color;
   font-family: Pretendard;
   font-style: normal;
   font-size: $fs;
