@@ -89,7 +89,6 @@ footerTemplate.innerHTML = `
   <article class="footer__disclaimer">
     <h4 class="sr-only">칼리 인증 내역</h4>
     <a href="" target="_blank" rel="noopener noreferrer" class="footer__disclaimer-link" aria-describedby="buttonSecurity">
-    <img src="/images/security.svg" alt="보안" />
       <span id="buttonSecurity">
           [인증범위] 마켓칼리 쇼핑몰 서비스 개발 운영<br />
           (심사받지 않은 물리적 인프라 제외) <br />
@@ -97,20 +96,17 @@ footerTemplate.innerHTML = `
       </span>
     </a>
     <a href="" target="_blank" rel="noopener noreferrer" class="footer__disclaimer-link" aria-describedby="buttonPrivacy">
-      <img src="/images/privacy.svg" alt="프라이버시" />
       <span id="buttonPrivacy">
         개인정보보호 우수 웹사이트<br />
         개인정보처리시스템 인증 (ePRIVACY PLUS)
       </span>
     </a>
     <a href="" target="_blank" rel="noopener noreferrer" class="footer__disclaimer-link" aria-describedby="buttonTossPayments">
-      <img src="/images/tossPayments.svg" alt="토스페이먼츠" />
       <span id="buttonTossPayments">
         토스페이먼츠 구매안전(에스크로) 서비스<br />를 이용하실 수 있습니다.
       </span>
     </a>
     <a href="" target="_blank" rel="noopener noreferrer" class="footer__disclaimer-link" aria-describedby="buttonWooriBank">
-      <img src="/images/wooriBank.svg" alt="우리은행" width="36"/>
       <span id="buttonWooriBank">
         고객님이 현금으로 결제한 금액에 대해 우리은행과<br />
         채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.

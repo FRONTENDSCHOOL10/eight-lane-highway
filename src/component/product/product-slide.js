@@ -120,11 +120,13 @@ async function renderProductItem() {
 // add-button 클릭시 일어날 이벤트 처리
 function addCartEvent() {
   const addCart = getNodes(".visual__add-cart");
-  addCart.forEach((button) => {
-    button.addEventListener("click", handleClickButton);
+  addCart.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      handleClickButton(index);
+    });
   });
 }
 // add-button 클릭시 일어날 이벤트 처리
-function handleClickButton() {
-  console.log("add-cart버튼 클릭");
+function handleClickButton(index) {
+  console.log(index + 1 + "번째 add-cart버튼 클릭");
 }
