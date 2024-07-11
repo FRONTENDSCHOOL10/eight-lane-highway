@@ -20,19 +20,31 @@
         <!-- 선택상품 구분 -->
         <ul class="food-type__container">
           <li class="food-type__item">
-            <img src="" alt="냉장 식품 아이콘" />
-            <span>냉장 식품</span>
-            <img src="" alt="냉장 식품 아이콘" />
+            <span class="food-type__item__name">
+              <img src="/images/water.svg" alt="냉장 식품 아이콘" />냉장
+              식품</span
+            >
+            <button type="button">
+              <img src="/images/below.svg" alt="펼치기" />
+            </button>
           </li>
           <li class="food-type__item">
-            <img src="" alt="냉동 식품 아이콘" />
-            <span>냉동 식품</span>
-            <img src="" alt="냉장 식품 아이콘" />
+            <span class="food-type__item__name"
+              ><img src="/images/frozen.svg" alt="냉동 식품 아이콘" />냉동
+              식품</span
+            >
+            <button type="button">
+              <img src="/images/below.svg" alt="펼치기" />
+            </button>
           </li>
           <li class="food-type__item">
-            <img src="" alt="상온 식품 아이콘" />
-            <span>상온 식품</span>
-            <img src="" alt="냉장 식품 아이콘" />
+            <span class="food-type__item__name"
+              ><img src="/images/sun.svg" alt="상온 식품 아이콘" />상온
+              식품</span
+            >
+            <button type="button">
+              <img src="/images/below.svg" alt="펼치기" />
+            </button>
           </li>
         </ul>
         <!-- 전체선택 선택삭제 체크박스 -->
@@ -47,12 +59,16 @@
       <aside class="adress-payment__container">
         <!-- 배송지 정보 -->
         <section class="adress__container">
-          <h3 class="adress__title">배송지</h3>
+          <h3 class="adress__title">
+            <img src="/images/address.svg" alt="" />배송지
+          </h3>
           <div class="adress__client-adress">
             서울 중랑구 면목로 42길 11 (행운빌딩) 603호
           </div>
           <span class="adress__type">샛별배송</span>
-          <button type="button" class="adress__adress-change">
+          <button
+            type="button"
+            class="adress__adress-change button__stroke button__small">
             배송지 변경
           </button>
         </section>
@@ -77,28 +93,29 @@
             <span class="">결제예정금액</span>
             <span class="">40,680원</span>
           </div>
+
           <!-- 적립뱃지 -->
           <div class="point__container">
             <span class="">적립</span>
             <span class="">최대 36원 적립 일반 0.1%</span>
           </div>
-          <button class="adress-payment__order">주문하기</button>
-          <div class="adress-payment__info">
-            <p>쿠폰/적립금은 주문서에서 사용 가능합니다</p>
-            <p>[주문완료] 상태일 경우에만 주문 취소 가능합니다.</p>
-            <p>
-              [마이컬리 > 주문내역 상세페이지] 에서 직접 취소하실 수 있습니다.
-            </p>
-            <p>
-              쿠폰, 적립금 사용 금액을 제외한 실 결제 금액 기준으로 최종
-              산정됩니다.
-            </p>
-            <p>
-              상품별로 적립금 지급 기준이 다를 수 있습니다. (상품 상세
-              페이지에서 확인 가능합니다)
-            </p>
-          </div>
         </section>
+        <button class="adress-payment__order">주문하기</button>
+        <div class="adress-payment__info">
+          <p>쿠폰/적립금은 주문서에서 사용 가능합니다</p>
+          <p>[주문완료] 상태일 경우에만 주문 취소 가능합니다.</p>
+          <p>
+            [마이컬리 > 주문내역 상세페이지] 에서 직접 취소하실 수 있습니다.
+          </p>
+          <p>
+            쿠폰, 적립금 사용 금액을 제외한 실 결제 금액 기준으로 최종
+            산정됩니다.
+          </p>
+          <p>
+            상품별로 적립금 지급 기준이 다를 수 있습니다. (상품 상세 페이지에서
+            확인 가능합니다)
+          </p>
+        </div>
       </aside>
     </section>
   </body>
