@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-9p4a8sJU.js";/* empty css              */import{r as s,s as t,h as r}from"./style-Y7sHKK8f.js";const a=document.querySelector("#footer"),e=document.createElement("template");e.innerHTML=`
+import"./modulepreload-polyfill-9p4a8sJU.js";/* empty css              */import{r as s,s as t,h as r}from"./style-6H22of8j.js";const a=document.querySelector("#footer"),e=document.createElement("template");e.innerHTML=`
 <style>${s}${t}${r}</style>
     <section class="footer">
     <h2 class="sr-only">컬리 고객센터 및 회사 소개</h2>
