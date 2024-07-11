@@ -2,8 +2,6 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/eight-lane-highway/",
-
   build: {
     outDir: "docs",
     rollupOptions: {
@@ -17,6 +15,10 @@ export default defineConfig({
           "src/component/product/product-info.html"
         ),
         product: resolve(__dirname, "src/component/product/product.html"),
+        productslide: resolve(
+          __dirname,
+          "src/component/product/product-slide.html"
+        ),
         popup: resolve(__dirname, "src/component/pop-up/index.html"),
         recentproduct: resolve(
           __dirname,
