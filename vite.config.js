@@ -15,6 +15,10 @@ export default defineConfig({
           "src/component/product/product-info.html"
         ),
         product: resolve(__dirname, "src/component/product/product.html"),
+        productslide: resolve(
+          __dirname,
+          "src/component/product/product-slide.html"
+        ),
         popup: resolve(__dirname, "src/component/pop-up/index.html"),
         recentproduct: resolve(
           __dirname,
