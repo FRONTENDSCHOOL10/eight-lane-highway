@@ -1,26 +1,17 @@
-import {
-  logo,
-  readingGlasses,
-  address,
-  cart,
-  heart,
-  newSvg,
-} from "/src/component/header/index.js";
+import resetCss from "/src/styles/reset.css?inline";
+import srOnlyCss from "/src/styles/sr-only.css?inline";
+import headerCss from "/src/styles/style.scss?inline";
 import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
 
 const header = document.querySelector("#header");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
-<style>
-  @import url(/src/styles/reset.css);
-  @import url(/src/styles/sr-only.css);
-  @import url(/src/styles/style.scss);
-  </style>
+<style>${resetCss}${srOnlyCss}${headerCss}</style>
        <nav class="nav">
        <h1 class="nav__logo">
          <a href="">
-           <img src="${logo}" alt="마켓칼리" />
+           <img src="/images/logo.svg" alt="마켓칼리" />
          </a>
        </h1>
        <ul class="nav__user-auth">
@@ -54,7 +45,7 @@ headerTemplate.innerHTML = `
          </li>
          <li class="nav__page__item beauty">
            <button type="button">뷰티칼리</button>
-           <img src="${newSvg}" alt="새로 나왔다는 표시" />
+           <img src="/images/new.svg" alt="새로 나왔다는 표시" />
          </li>
        </ul>
        <fieldset class="nav__search-box">
@@ -67,13 +58,13 @@ headerTemplate.innerHTML = `
            class="nav__search-box__input"
            placeholder="검색어를 입력해주세요" />
          <button type="button" class="nav__search-box__button">
-           <img src="${readingGlasses}" alt="검색 돋보기" />
+           <img src="/images/reading-glasses.svg" alt="검색 돋보기" />
          </button>
        </fieldset>
        <ul class="nav__user-service">
          <li tabindex="0" class="nav__user-service__item address">
          <button type="button">
-         <img src="${address}" alt="주소" />
+         <img src="/images/address.svg" alt="주소" />
          </button>
            <dialog class="nav__user-service__item__address-modal">
              <p>
@@ -89,10 +80,10 @@ headerTemplate.innerHTML = `
            </dialog>
          </li>
          <li class="nav__user-service__item heart">
-           <a href=""> <img src="${heart}" alt="찜" /></a>
+           <a href=""> <img src="/images/heart.svg" alt="찜" /></a>
          </li>
          <li class="nav__user-service__item cart">
-           <a href=""> <img src="${cart}" alt="카트" /></a>
+           <a href=""> <img src="/images/cart.svg" alt="카트" /></a>
          </li>
        </ul>
        <div class="nav__product__category" aria-label="제품 카테고리" >

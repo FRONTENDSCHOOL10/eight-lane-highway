@@ -2,12 +2,15 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "/eight-lane-highway/",
+
   build: {
     outDir: "docs",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
         header: resolve(__dirname, "src/component/header/header.html"),
+        footer: resolve(__dirname, "src/component/footer/footer.html"),
         register: resolve(__dirname, "src/pages/register/index.html"),
         productinfo: resolve(
           __dirname,
