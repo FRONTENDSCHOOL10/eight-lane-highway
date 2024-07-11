@@ -205,6 +205,7 @@ export class Header extends HTMLElement {
     // customerService modal 키보드이벤트
     this.customerService.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
+        e.preventDefault();
         toggleClass(this.customerServiceModal, "is__show");
       }
     });
@@ -236,6 +237,7 @@ export class Header extends HTMLElement {
 
     this.address.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
+        e.preventDefault();
         toggleClass(this.addressModal, "is__show");
       }
     });
@@ -250,6 +252,7 @@ export class Header extends HTMLElement {
     // categoryTitle 키보드 이벤트
     this.categoryTitle.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
+        e.preventDefault();
         toggleClass(this.categoryList, "is__show");
       }
     });
