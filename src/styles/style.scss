@@ -1,3 +1,5 @@
+@import "/src/component/assets/reset";
+@import "/src/component/assets/sr-only";
 @import "/src/component/assets/variables";
 @import "/src/component/assets/mixins";
 @import "/src/component/assets/common";
@@ -17,6 +19,7 @@
 @import "/src/component/assets/products-detail";
 @import "/src/component/assets/products-slide";
 @import "/src/component/assets/cart";
+@import "/src/component/assets/banner";
 
 body {
   font-size: 16px;
