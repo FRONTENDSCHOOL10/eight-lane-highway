@@ -1,19 +1,17 @@
 .footer {
   @include size(1050px);
-  @include flexAll(row, space-between, stretch);
+  @include flexAll($fd: row, $jc: flex-start, $at: stretch, $gap: 40px);
   @include font();
   max-width: 1050px;
   margin: 0 auto;
   padding: 28px 0px 32px 0px;
-  gap: 40px;
 
   ul {
     list-style: none;
   }
 
   &__wrapper {
-    @include flexAll(column, flex-start, stretch);
-    gap: 16px;
+    @include flexAll($fd: column, $jc: flex-start, $at: stretch, $gap: 16px);
     flex: 1;
 
     &__title {
@@ -22,8 +20,7 @@
   }
 
   &__customer-service {
-    @include flexAll(row, flex-start, center);
-    gap: 16px;
+    @include flexAll($fd: row, $jc: flex-start, $at: center, $gap: 16px);
 
     .customer-service-number {
       @include font($fs: 2.375rem, $fw: 700, $lh: 140%);
@@ -34,6 +31,7 @@
       border: 1px solid $gray200;
       @include size($w: 140px, $h: 40px);
       padding: 4px;
+      cursor: pointer;
     }
 
     .customer-service-time {
@@ -41,9 +39,8 @@
     }
   }
   .customer-center {
-    @include flexAll(row, flex-start, center);
+    @include flexAll($fd: row, $jc: flex-start, $at: center, $gap: 8px);
     @include font($fs: 1rem, $fw: 600, $lh: 150%);
-    gap: 8px;
 
     .customer-service-time {
       @include font($fw: 600, $lh: 150%);
@@ -58,7 +55,7 @@
   }
 
   &__navigation {
-    @include flexAll(row, space-between, center);
+    @include flexAll($fd: row, $jc: space-between, $at: center);
   }
 
   &__company-info {
@@ -95,8 +92,7 @@
   }
 
   &__link {
-    @include flexAll(row, flex-start, stretch);
-    gap: 20px;
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch, $gap: 20px);
     margin-top: 15px;
 
     a {
@@ -126,18 +122,17 @@
 
   &__disclaimer {
     @include size($w: 1050px);
-    @include flexAll(row, space-between, stretch);
+    @include flexAll($fd: row, $jc: space-between, $at: stretch);
     margin: 0 auto;
     padding: 24px 0px 32px 0px;
     border-top: 1px solid $gray200;
 
-    &-button {
-      @include flexAll(row, center, center);
+    &-link {
+      @include flexAll($fd: row, $jc: center, $at: center);
       background-color: transparent;
       border: none;
 
       span {
-        font-family: Pretendard;
         @include font($fs: 0.625rem, $fw: 400, $lh: 160%);
         margin-left: 10px;
       }
@@ -145,11 +140,10 @@
   }
 
   &__copyright {
-    @include flexAll(column, center, center);
+    @include flexAll($fd: column, $jc: center, $at: center, $gap: 4px);
     @include size($w: 100%);
     text-align: center;
     padding: 20px 4px 32px 4px;
-    gap: 4px;
     background-color: #f9f9f9;
   }
 }

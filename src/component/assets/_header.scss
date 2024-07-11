@@ -1,24 +1,28 @@
+body {
+  height: 200vh;
+}
+
 .nav {
   @include size(1050px);
   max-width: 1050px;
   margin: 50px auto 0px;
   position: relative;
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(8, 1fr);
   grid-template-areas:
     "a b b c c c d d"
     "e e f g h i j j";
   gap: 20px 0;
-  align-items: center;
 
   &__logo {
     grid-area: a;
   }
 
   &__user-auth {
-    @include flexAll(row, flex-start, stretch);
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch);
     @include absolute($t: -30px, $r: 13px);
-    font-size: 0.75rem;
+    @include font($fs: 0.75rem, $fw: 400, $lh: 160%);
 
     &__item {
       position: relative;
@@ -44,9 +48,9 @@
 
       &::after {
         content: "";
-        @include absolute($t: 5px, $r: -10px);
+        @include absolute($t: 6px, $r: -10px);
         @include size($w: 8px, $h: 5px);
-        background: url("/images/ico_down.webp") center / cover no-repeat;
+        background: url("/images/icon-down.svg") center / cover no-repeat;
       }
     }
 
@@ -71,14 +75,13 @@
   }
 
   &__page {
-    display: flex;
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch, $gap: 12px);
     grid-area: b;
 
     &__item > button {
       background-color: transparent;
       border: none;
       font-size: 1.25rem;
-      font-style: normal;
       cursor: pointer;
       color: #b5b5b5;
 
@@ -91,11 +94,11 @@
 
     .market {
       & button {
+        @include flexAll($fd: row, $jc: flex-start, $at: center, $gap: 12px);
         position: relative;
 
         &::after {
           content: "";
-          @include absolute($t: 10px, $r: 0);
           @include size($w: 1px, $h: 13px);
           background-color: #d9d9d9;
         }
@@ -104,7 +107,6 @@
 
     .beauty {
       position: relative;
-      margin-right: 50px;
 
       img {
         @include absolute($t: -10px, $r: -2px);
@@ -113,7 +115,7 @@
   }
 
   &__search-box {
-    @include flexAll(row, flex-start, stretch);
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch);
     border: 1px solid $primaryColor;
     border-radius: 4px;
     padding-right: 18px;
@@ -139,7 +141,7 @@
   }
 
   &__user-service {
-    @include flexAll(row, flex-start, stretch);
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch);
     grid-area: d;
 
     gap: 20px;
@@ -173,7 +175,7 @@
 
         p {
           margin-bottom: 16px;
-          font-size: 1rem;
+          @include font($fs: 1rem, $fw: 600, $lh: 160%);
         }
         span {
           color: $primaryColor;
@@ -205,8 +207,7 @@
     max-width: 100px;
 
     button {
-      font-size: 1rem;
-      font-weight: normal;
+      @include font($fs: 1rem, $fw: 600, $lh: 150%);
       border: none;
       background-color: transparent;
     }
@@ -243,7 +244,7 @@
     &__item {
       > a {
         @include size($w: 160px);
-        @include font($fs: 0.875rem);
+        @include font($fs: 1rem, $fw: 600, $lh: 150%);
         position: relative;
         display: inline-block;
         padding: 8px;
@@ -403,6 +404,7 @@
 
   &__menu__list {
     @include size($w: 100px);
+    @include font($fs: 1rem, $fw: 600, $lh: 150%);
     padding: 10px 0;
 
     &:hover:not(.delivery) {
@@ -426,11 +428,11 @@
     grid-area: i;
   }
   .delivery {
+    @include size($h: 19px);
     grid-area: j;
     text-align: right;
     border: 1px solid #d9d9d9;
     border-radius: 16px;
-    @include size($h: 19px);
     margin-left: auto;
     margin-top: 6px;
     padding: 4px 8px;
@@ -450,14 +452,13 @@
   margin-top: 0px;
   translate: -50% 0;
   padding: 20px;
-
   grid-template-areas: "a b c d e f f g g";
   grid-template-columns: repeat(8, 1fr);
 
   .nav__logo,
   .nav__page,
   .nav__user-auth,
-  .nav__menu__list:nth-of-type(5) {
+  .delivery {
     display: none;
   }
 
@@ -472,9 +473,9 @@
     color: $black;
 
     & input {
+      @include size($w: 242px);
       background-color: rgb(247, 247, 247);
       border: 1px solid transparent;
-      @include size($w: 242px);
     }
 
     & input:focus {
@@ -496,18 +497,16 @@
     grid-area: g;
   }
 
-  .nav__menu__list {
-    .new {
-      grid-area: b;
-    }
-    .best {
-      grid-area: c;
-    }
-    .shopping {
-      grid-area: d;
-    }
-    .benefits {
-      grid-area: e;
-    }
+  .new {
+    grid-area: b;
+  }
+  .best {
+    grid-area: c;
+  }
+  .shopping {
+    grid-area: d;
+  }
+  .benefits {
+    grid-area: e;
   }
 }
