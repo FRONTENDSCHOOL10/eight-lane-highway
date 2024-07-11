@@ -33,6 +33,7 @@ export default defineConfig({
           __dirname,
           "src/component/addShoppingBasket/addShoppingBasket.html"
         ),
+        banner: resolve(__dirname, "src/component/banner/banner.html"),
       },
     },
   },
