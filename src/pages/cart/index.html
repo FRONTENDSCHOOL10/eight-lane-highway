@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/styles/style.scss" />
     <title>cart</title>
+    <link rel="stylesheet" href="/src/styles/style.scss" />
   </head>
   <body>
     <h2 class="cart-title">장바구니</h2>
@@ -12,7 +12,7 @@
       <!-- 장바구니 왼쪽 선택한 상품 -->
       <!-- 전체선택 선택삭제 체크박스 -->
       <main role="group" class="selected-item__conatiner">
-        <div class="selected-item__checkbox">
+        <div class="selected-item__checkbox__upper">
           <label for="checkAll" class="checkbox__check-all">전체선택</label>
           <input type="checkbox" id="selectAll" />
           <button type="button" class="checkbox__delete">선택삭제</button>
@@ -66,9 +66,7 @@
             서울 중랑구 면목로 42길 11 (행운빌딩) 603호
           </div>
           <span class="adress__type">샛별배송</span>
-          <button
-            type="button"
-            class="adress__adress-change button__stroke button__small">
+          <button type="button" class="adress__adress-change button__stroke">
             배송지 변경
           </button>
         </section>
@@ -90,13 +88,16 @@
             </li>
           </ul>
           <div class="payment__total-price">
-            <span class="">결제예정금액</span>
-            <span class="">40,680원</span>
+            <span class="total-price__name">결제예정금액</span>
+            <span class="total-price__sum">
+              <span class="total-price__sum__value">40,680</span>
+              <span class="total-price__sum__unit">원</span>
+            </span>
           </div>
 
           <!-- 적립뱃지 -->
           <div class="point__container">
-            <span class="">적립</span>
+            <span class="badge__accent">적립</span>
             <span class="">최대 36원 적립 일반 0.1%</span>
           </div>
         </section>

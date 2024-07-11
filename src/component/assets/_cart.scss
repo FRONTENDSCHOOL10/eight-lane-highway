@@ -45,7 +45,7 @@
 }
 
 .cart__container {
-  border: 1px solid black;
+  // border: 1px solid black;
   @include size(1050px, 709px);
   @include flexAll(row, space-between);
   margin: 0 auto;
@@ -57,10 +57,15 @@
     @include fontStyleStrong();
   }
   &__checkbox {
-    // border: 1px solid red;
-    height: 24px;
-    padding: 16px 0;
+    height: 56px;
+    @include paddingBox(16px);
     align-items: center;
+
+    &__upper {
+      border-bottom: 1px solid var(--black, #000);
+      height: 56px;
+      @include paddingBox(16px);
+    }
   }
 }
 
@@ -77,6 +82,7 @@
     width: 100%;
     @include paddingBox(16px);
     @include flexAll(row, space-between, center);
+    border-bottom: 1px solid var(--black, #000);
 
     &__name {
       font-size: 1rem;
@@ -107,7 +113,6 @@
 .adress-payment {
   &__container {
     width: 284px;
-    border: 1px dotted brown;
   }
 }
 
@@ -122,8 +127,8 @@
     }
   }
   &__container {
+    border: 1px solid $gray100;
     @include size(100%, 222px);
-    border: 1px solid hotpink;
     @include paddingBox(20px, 20px);
     @include fontStyleStrong();
     display: flex;
@@ -142,15 +147,42 @@
 .payment {
   &__container {
     @include size(100%, 267px);
-    border: 1px solid rgb(3, 70, 31);
+
     @include paddingBox(20px 20px);
+    border: 1px solid $gray100;
+    background: $gray050;
   }
   &__detail {
-    border: 1px solid orange;
     height: 100px;
-    padding: 0;
+    padding: 0 0 24px 0;
+    border-bottom: 1px solid black;
+    @include flexSet(column, center, space-between, 16px);
     li {
       list-style: none;
+      @include fontStyleNormal();
+      @include flexSet(row, space-between, center, 0);
+    }
+  }
+}
+
+.payment__total-price {
+  padding: 24px 0 0 0;
+  @include flexSet(row, space-between, center, 0);
+
+  .total-price__name {
+    align-content: center;
+  }
+
+  .total-price__sum {
+    @include size(118px, 40px);
+    @include flexSet(row, space-between, center, 0);
+
+    &__value {
+      @include fontStyleStrong(1.75rem, 700, 140%);
+    }
+    &__unit {
+      @include fontStyleNormal();
+      align-content: center;
     }
   }
 }
