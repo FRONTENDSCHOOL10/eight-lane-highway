@@ -48,9 +48,11 @@ body {
 
       &::after {
         content: "";
-        @include absolute($t: 6px, $r: -10px);
-        @include size($w: 8px, $h: 5px);
-        background: url("/images/icon-down.svg") center / cover no-repeat;
+        @include absolute($t: 4px, $r: -10px);
+        @include size($w: 8px, $h: 8px);
+        background: url("/images/icon-header.png");
+        background-position: -10px -8px;
+        background-repeat: no-repeat;
       }
     }
 
@@ -78,7 +80,7 @@ body {
     @include flexAll($fd: row, $jc: flex-start, $at: stretch, $gap: 12px);
     grid-area: b;
 
-    &__item > button {
+    &__item > a {
       background-color: transparent;
       border: none;
       font-size: 1.25rem;
@@ -93,7 +95,7 @@ body {
     }
 
     .market {
-      & button {
+      & a {
         @include flexAll($fd: row, $jc: flex-start, $at: center, $gap: 12px);
         position: relative;
 
@@ -148,16 +150,41 @@ body {
     margin-left: auto;
 
     &__item {
+      @include size($w: 36px, $h: 36px);
       position: relative;
+      background-image: url("/images/icon-header.png");
+      background-repeat: no-repeat;
+      background-position-x: -10px;
 
-      & > button {
-        border: none;
-        background-color: transparent;
+      &:nth-of-type(1) {
+        background-position-y: -137px;
+      }
+      &:nth-of-type(2) {
+        background-position-y: -249px;
+      }
+      &:nth-of-type(3) {
+        background-position-y: -193px;
       }
 
-      &:hover img {
-        filter: invert(14%) sepia(61%) saturate(6515%) hue-rotate(282deg)
-          brightness(60%) contrast(113%);
+      &:nth-of-type(1):hover {
+        .nav__user-service__item__address-modal {
+          display: block;
+        }
+      }
+
+      &:hover {
+        mask-image: url("/images/icon-header.png");
+        mask-repeat: no-repeat;
+        mask-position: -10px -137px;
+        background-color: $primaryColor;
+        // .address {
+        //   background-position-y: -137px;
+        // }
+        // .heart {
+        // }
+        // .cart {
+        //   background-position-y: -193px;
+        // }
       }
 
       &__address-modal {
@@ -169,10 +196,6 @@ body {
         background-color: $white;
         z-index: 2;
 
-        &.is__show {
-          display: block;
-        }
-
         p {
           margin-bottom: 16px;
           @include font($fs: 1rem, $fw: 600, $lh: 160%);
@@ -181,10 +204,10 @@ body {
           color: $primaryColor;
         }
 
-        .modal-button {
-          border: none;
+        .modal-link {
           border-radius: 4px;
-          padding: 8px 32px;
+          @include font($fs: 1rem, $fw: 400, $lh: 150%);
+          padding: 8px;
           cursor: pointer;
         }
 
@@ -195,6 +218,7 @@ body {
         .modal-search-address {
           background-color: $primaryColor;
           color: $white;
+          margin-left: 10px;
         }
       }
     }
@@ -220,8 +244,9 @@ body {
       @include absolute($t: 14px, $l: 2px);
       @include size($w: 16px, $h: 14px);
       content: "";
-      background-image: url("/images/category.svg");
+      background-image: url("/images/icon-header.png");
       background-repeat: no-repeat;
+      background-position: -10px -64px;
     }
 
     &:hover::before {
