@@ -39,49 +39,46 @@ headerTemplate.innerHTML = `
        </ul>
        <ul class="nav__page">
          <li class="nav__page__item market">
-           <button type="button" class="is__active">마켓칼리</button>
+           <a class="is__active">마켓칼리</a>
          </li>
          <li class="nav__page__item beauty">
-           <button type="button">뷰티칼리</button>
+           <a >뷰티칼리</a>
            <img src="/images/new.svg" alt="새로 나왔다는 표시" />
          </li>
        </ul>
        <fieldset class="nav__search-box">
          <label for="headerSearchInput" class="sr-only nav__search-box__label">
-           검색 창</label
-         >
+           검색 창</label>
          <input
            type="text"
            id="headerSearchInput"
            class="nav__search-box__input"
            placeholder="검색어를 입력해주세요" />
-         <button type="button" class="nav__search-box__button">
-           <img src="/images/reading-glasses.svg" alt="검색 돋보기" />
+         <button type="button" class="nav__search-box__button" aria-label="검색 버튼">
          </button>
        </fieldset>
        <ul class="nav__user-service">
-         <li tabindex="0" class="nav__user-service__item address">
-         <button type="button">
-         <img src="/images/address.svg" alt="주소" />
+         <li  class="nav__user-service__item address">
+         <button type="button" aria-label="주소 정보 버튼">
          </button>
            <dialog class="nav__user-service__item__address-modal">
              <p>
                <span>배송지를 등록하고</span><br />구매 가능한 상품을
                확인하세요!
              </p>
-             <button type="button" class="modal-button modal-login">
+             <a class="modal-link modal-login">
                로그인
-             </button>
-             <button type="button" class="modal-button modal-search-address">
+             </a>
+             <a class="modal-link modal-search-address">
                주소 검색
-             </button>
+             </a>
            </dialog>
          </li>
          <li class="nav__user-service__item heart">
-           <a href=""> <img src="/images/heart.svg" alt="찜" /></a>
+           <a href="" aria-label="찜 목록"></a>
          </li>
          <li class="nav__user-service__item cart">
-           <a href=""> <img src="/images/cart.svg" alt="카트" /></a>
+           <a href="" aria-label="장바구니"></a>
          </li>
        </ul>
        <div class="nav__product__category" aria-label="제품 카테고리" >
@@ -214,8 +211,8 @@ export class Header extends HTMLElement {
       const liList = e.currentTarget.children;
       if (!liList) return;
       [...liList].forEach((li) => {
-        const button = li.querySelector("button");
-        removeClass(button, "is__active");
+        const a = li.querySelector("a");
+        removeClass(a, "is__active");
       });
       if (e.target.closest("li").classList.contains("market")) {
         // location.href = "/market";
@@ -227,14 +224,13 @@ export class Header extends HTMLElement {
     });
 
     // address modal 마우스이벤트
-    this.address.addEventListener("mouseover", () => {
-      addClass(this.addressModal, "is__show");
-    });
-    this.address.addEventListener("mouseleave", () => {
-      removeClass(this.addressModal, "is__show");
-    });
+    // this.address.addEventListener("mouseover", () => {
+    //   addClass(this.addressModal, "is__show");
+    // });
+    // this.address.addEventListener("mouseleave", () => {
+    //   removeClass(this.addressModal, "is__show");
+    // });
     // address modal 키보드이벤트
-
     this.address.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
         e.preventDefault();
