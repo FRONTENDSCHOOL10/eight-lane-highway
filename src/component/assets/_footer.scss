@@ -1,12 +1,11 @@
 .footer {
   @include size(1050px);
   @include flexAll(row, space-between, stretch);
+  @include font();
   max-width: 1050px;
   margin: 0 auto;
   padding: 28px 0px 32px 0px;
   gap: 40px;
-  font-family: Pretendard;
-  font-style: normal;
 
   ul {
     list-style: none;
@@ -18,10 +17,7 @@
     flex: 1;
 
     &__title {
-      font-size: 21.328px;
-      font-weight: 700;
-      line-height: 140%;
-      color: $black;
+      @include font($fs: 1.375rem, $fw: 700, $lh: 140%);
     }
   }
 
@@ -30,45 +26,32 @@
     gap: 16px;
 
     .customer-service-number {
-      font-size: 37.897px;
-      font-weight: 700;
-      line-height: 140%;
-      color: $black;
+      @include font($fs: 2.375rem, $fw: 700, $lh: 140%);
     }
 
     .customer-service-button {
       background-color: transparent;
       border: 1px solid $gray200;
-      color: $black;
       @include size($w: 140px, $h: 40px);
       padding: 4px;
     }
 
     .customer-service-time {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 160%;
+      @include font($fs: 1rem, $fw: 400, $lh: 160%);
     }
   }
   .customer-center {
     @include flexAll(row, flex-start, center);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 150%;
+    @include font($fs: 1rem, $fw: 600, $lh: 150%);
     gap: 8px;
 
     .customer-service-time {
-      color: $black;
-      font-weight: 600;
-      line-height: 150%;
+      @include font($fw: 600, $lh: 150%);
     }
   }
 
   .non-member-inquiry {
-    font-size: 12.003px;
-    font-weight: 400;
-    line-height: 160%;
-
+    @include font($fs: 0.75rem, $fw: 400, $lh: 160%);
     a {
       color: $primaryColor;
     }
@@ -79,10 +62,7 @@
   }
 
   &__company-info {
-    color: $black;
-    font-size: 12.003px;
-    font-weight: 400;
-    line-height: 160%;
+    @include font($fs: 0.75rem, $fw: 400, $lh: 160%);
     margin-top: 15px;
 
     & > li {
@@ -158,10 +138,7 @@
 
       span {
         font-family: Pretendard;
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 160%;
+        @include font($fs: 0.625rem, $fw: 400, $lh: 160%);
         margin-left: 10px;
       }
     }

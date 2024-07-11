@@ -18,7 +18,7 @@
   &__user-auth {
     @include flexAll(row, flex-start, stretch);
     @include absolute($t: -30px, $r: 13px);
-    font-size: $fontSmall;
+    font-size: 0.75rem;
 
     &__item {
       position: relative;
@@ -65,7 +65,7 @@
 
       &__item {
         margin: 8px 0;
-        font-size: $fontSmall;
+        font-size: 0.75rem;
       }
     }
   }
@@ -77,7 +77,7 @@
     &__item > button {
       background-color: transparent;
       border: none;
-      font-size: $fontLarge;
+      font-size: 1.25rem;
       font-style: normal;
       cursor: pointer;
       color: #b5b5b5;
@@ -173,7 +173,7 @@
 
         p {
           margin-bottom: 16px;
-          font-size: $fontMedium;
+          font-size: 1rem;
         }
         span {
           color: $primaryColor;
@@ -205,7 +205,7 @@
     max-width: 100px;
 
     button {
-      font-size: $fontMedium;
+      font-size: 1rem;
       font-weight: normal;
       border: none;
       background-color: transparent;
@@ -243,11 +243,10 @@
     &__item {
       > a {
         @include size($w: 160px);
+        @include font($fs: 0.875rem);
         position: relative;
         display: inline-block;
-        color: $black;
         padding: 8px;
-        font-size: 14px;
         &:hover {
           color: $primaryColor;
         }

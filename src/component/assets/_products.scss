@@ -14,7 +14,7 @@
     }
 
     &__add-cart {
-      @include absolute($t: 265px, $r: 7px);
+      @include absolute($b: 17px, $r: 15px);
       z-index: 1;
       background-color: transparent;
       border: none;
@@ -31,12 +31,15 @@
       @include font($fw: 600, $fs: 1.375rem, $lh: 150%);
     }
     &__product__original-price {
-      @include font($fw: 400, $fs: 0.75rem, $lh: 160%);
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
+
       text-decoration: line-through;
       color: $gray400;
     }
     &__product__description {
-      @include font($fw: 400, $fs: 0.75rem, $lh: 160%);
+
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
+
       color: $gray400;
     }
   }
