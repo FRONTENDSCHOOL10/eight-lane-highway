@@ -99,6 +99,45 @@
       }
     }
   }
+
+  &__details_container {
+    text-align: center;
+
+    &__whyC {
+      border-top: 1px solid #d9d9d9;
+
+      &__title {
+        @include font($fs: 1.75rem, $fw: 700, $lh: 140%);
+        margin-top: 72px;
+      }
+    }
+  }
+}
+
+.why__carly__intro {
+  @include flexAll($fd: column);
+  margin-top: 35px;
+
+  &__upper,
+  &__lower {
+    @include flexAll();
+
+    &__item {
+      @include flexAll($fd: column, $at: center);
+      width: 315px;
+
+      img {
+        margin-bottom: 16px;
+      }
+
+      span {
+        @include font($primaryColor, $fs: 1.375rem, $fw: 600, $lh: 150%);
+        margin-bottom: 24px;
+      }
+      p {
+      }
+    }
+  }
 }
 
 // 상단 메뉴바 클릭 시 적용되는 스타일
