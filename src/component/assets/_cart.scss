@@ -1,34 +1,3 @@
-// @mixin flexAll($fd: row, $jc: left, $at: baseline, $gap: 0) {
-//   display: flex;
-//   flex-direction: $fd;
-//   justify-content: $jc;
-//   align-items: $at;
-//   gap: $gap;
-// }
-
-@mixin fontStyleStrong($fs: 1rem, $fw: 600, $lh: 150%) {
-  font-family: Pretendard;
-  font-size: $fs;
-  font-style: normal;
-  font-weight: $fw;
-  line-height: $lh;
-  color: $darkBlack;
-}
-
-@mixin fontStyleNormal($fs: 1rem, $fw: 400, $lh: 160%) {
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: $fw;
-  line-height: $lh;
-  color: $darkBlack;
-}
-// border박스로 박스스타일 변경 후 패딩값 지정
-@mixin paddingBox($pdtb, $pdrl: 0) {
-  padding: $pdtb $pdrl;
-  box-sizing: border-box;
-}
-
 @mixin flexSet($fd, $jc, $ac, $gp) {
   display: flex;
   flex-direction: $fd;
@@ -40,47 +9,86 @@
 
 .cart-title {
   @include size(74px, 32px);
-  @include fontStyleStrong($fs: 1.333rem);
+  @include font($darkBlack, 1.333rem, 600, 150%);
   margin: 80px auto 44px auto;
 }
 
 .cart__container {
-  // border: 1px solid black;
   @include size(1050px, 709px);
   @include flexAll(row, space-between);
   margin: 0 auto;
 }
 .selected-item {
   &__conatiner {
-    // border: 1px solid black;
     width: 712px;
-    @include fontStyleStrong();
+    @include font($darkBlack, 1rem, 600, 150%);
   }
   &__checkbox {
     height: 56px;
-    @include paddingBox(16px);
+    padding: 16px 0;
     align-items: center;
+    @include flexSet(row, space-between, center, 10px);
 
     &__upper {
       border-bottom: 1px solid var(--black, #000);
       height: 56px;
-      @include paddingBox(16px);
+      padding: 16px 0;
     }
+  }
+}
+
+.checkbox {
+  &__group {
+    width: 129px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      font-size: 0.625rem;
+      border-left: 1px solid $black;
+      margin: 0 8px;
+      line-height: 100%;
+    }
+  }
+  &__check-all {
+    &__label {
+      padding-left: 30px;
+      width: 100%;
+      height: 100%;
+      background: url("/images/input-unchecked.svg") no-repeat left/contain;
+    }
+    &__box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      // border: 1px solid red;
+      appearance: none;
+      margin: 0;
+      top: 0;
+      left: 0;
+      &:checked + label {
+        background-image: url(/images/input-checked.svg);
+      }
+    }
+  }
+
+  &__delete {
+    @include font($darkBlack, 1rem, 600, 150%);
+    margin-left: 16px;
   }
 }
 
 .food-type {
   &__container {
-    // border: 1px solid blue;
     @include flexColumn(end);
     padding: 0;
   }
   &__item {
-    // border: 1px solid black;
     height: 62px;
     list-style: none;
     width: 100%;
-    @include paddingBox(16px);
+    padding: 16px 0;
     @include flexAll(row, space-between, center);
     border-bottom: 1px solid var(--black, #000);
 
@@ -118,7 +126,7 @@
 
 .adress {
   &__title {
-    @include fontStyleStrong();
+    @include font($darkBlack, 1rem, 600, 150%);
     margin: 0;
     display: flex;
     align-items: center;
@@ -129,14 +137,14 @@
   &__container {
     border: 1px solid $gray100;
     @include size(100%, 222px);
-    @include paddingBox(20px, 20px);
-    @include fontStyleStrong();
+    padding: 20px;
+    @include font($darkBlack, 1rem, 600, 150%);
     display: flex;
     flex-flow: column nowrap;
     gap: 12px;
   }
   &__type {
-    @include fontStyleStrong(0.75rem);
+    @include font($darkBlack, 0.75rem, 600, 150%);
     color: var(--primary, #5f0080);
   }
   &__adress-change {
@@ -146,27 +154,31 @@
 
 .payment {
   &__container {
-    @include size(100%, 267px);
-
-    @include paddingBox(20px 20px);
+    padding: 20px;
     border: 1px solid $gray100;
     background: $gray050;
   }
   &__detail {
-    height: 100px;
+    height: auto;
     padding: 0 0 24px 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dashed $gray100;
     @include flexSet(column, center, space-between, 16px);
-    li {
-      list-style: none;
-      @include fontStyleNormal();
-      @include flexSet(row, space-between, center, 0);
-    }
+  }
+}
+
+.price {
+  &__container {
+    list-style: none;
+    @include font($black, 1rem, 400, 160%);
+    @include flexSet(row, space-between, center, 0);
+  }
+  &__group {
+    @include flexSet(row, space-between, center, 4px);
   }
 }
 
 .payment__total-price {
-  padding: 24px 0 0 0;
+  padding: 24px 0 12px 0;
   @include flexSet(row, space-between, center, 0);
 
   .total-price__name {
@@ -174,18 +186,36 @@
   }
 
   .total-price__sum {
-    @include size(118px, 40px);
-    @include flexSet(row, space-between, center, 0);
+    @include flexSet(row, space-between, center, 4px);
 
     &__value {
-      @include fontStyleStrong(1.75rem, 700, 140%);
+      @include font($darkBlack, 1.75rem, 700, 140%);
     }
     &__unit {
-      @include fontStyleNormal();
+      @include font($darkBlack, 1rem, 400, 160%);
       align-content: center;
     }
   }
 }
 
+.point__container {
+  @include flexSet(row, flex-end, center, 4px);
+  .point-badge {
+    border-radius: 0;
+  }
+  .point-rate {
+    @include font($black, 0.75rem, 600, 150%);
+    color: $black;
+  }
+}
+
+.adress-payment {
+  &__order {
+    @include size(284px, 44px);
+    margin: 16px 0;
+  }
+}
+
 .adress-payment__info {
+  @include font($gray400, 0.75rem, 600, 150%);
 }
