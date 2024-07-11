@@ -18,6 +18,9 @@
   &__large__basket {
     @include buttonSize(174px, 54px);
   }
+  &__medium {
+    @include buttonSize(333px, 44px);
+  }
   &__large {
     @include buttonSize(340px, 54px);
   }
