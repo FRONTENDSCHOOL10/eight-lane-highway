@@ -1,34 +1,159 @@
+// @mixin flexAll($fd: row, $jc: left, $at: baseline, $gap: 0) {
+//   display: flex;
+//   flex-direction: $fd;
+//   justify-content: $jc;
+//   align-items: $at;
+//   gap: $gap;
+// }
+
+@mixin fontStyleStrong($fs: 1rem, $fw: 600, $lh: 150%) {
+  font-family: Pretendard;
+  font-size: $fs;
+  font-style: normal;
+  font-weight: $fw;
+  line-height: $lh;
+  color: $darkBlack;
+}
+
+@mixin fontStyleNormal($fs: 1rem, $fw: 400, $lh: 160%) {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: $fw;
+  line-height: $lh;
+  color: $darkBlack;
+}
+// border박스로 박스스타일 변경 후 패딩값 지정
+@mixin paddingBox($pdtb, $pdrl: 0) {
+  padding: $pdtb $pdrl;
+  box-sizing: border-box;
+}
+
+@mixin flexSet($fd, $jc, $ac, $gp) {
+  display: flex;
+  flex-direction: $fd;
+  flex-wrap: nowrap;
+  justify-content: $jc;
+  align-content: $ac;
+  gap: $gp;
+}
+
 .cart-title {
   @include size(74px, 32px);
-  font-weight: 600;
-  line-height: 150%;
-  font-size: 1.333rem;
-  color: $darkBlack;
+  @include fontStyleStrong($fs: 1.333rem);
   margin: 80px auto 44px auto;
 }
 
 .cart__container {
   border: 1px solid black;
   @include size(1050px, 709px);
-  display: flex;
-  flex-flow: row nowrap;
+  @include flexAll(row, space-between);
+  margin: 0 auto;
+}
+.selected-item {
+  &__conatiner {
+    // border: 1px solid black;
+    width: 712px;
+    @include fontStyleStrong();
+  }
+  &__checkbox {
+    // border: 1px solid red;
+    height: 24px;
+    padding: 16px 0;
+    align-items: center;
+  }
+}
 
-  .selected-item {
-    &__conatiner {
-      border: 1px solid black;
-      width: 742px;
+.food-type {
+  &__container {
+    // border: 1px solid blue;
+    @include flexColumn(end);
+    padding: 0;
+  }
+  &__item {
+    // border: 1px solid black;
+    height: 62px;
+    list-style: none;
+    width: 100%;
+    @include paddingBox(16px);
+    @include flexAll(row, space-between, center);
+
+    &__name {
+      font-size: 1rem;
+      line-height: 150%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      line-height: 150%;
+
+      img {
+        @include size(30px, 30px);
+        margin-right: 12px;
+      }
     }
-    &__checkbox {
-      border: 1px solid black;
+
+    button {
+      border: none;
+      background-color: inherit;
+      @include size(30px, 30px);
+
+      img {
+        @include size(100%, 100%);
+      }
     }
   }
+}
 
-  .food-type {
-    &__container {
-      border: 1px solid black;
-    }
-    &__item {
-      border: 1px solid black;
+.adress-payment {
+  &__container {
+    width: 284px;
+    border: 1px dotted brown;
+  }
+}
+
+.adress {
+  &__title {
+    @include fontStyleStrong();
+    margin: 0;
+    display: flex;
+    align-items: center;
+    img {
+      @include size(36px, 36px);
     }
   }
+  &__container {
+    @include size(100%, 222px);
+    border: 1px solid hotpink;
+    @include paddingBox(20px, 20px);
+    @include fontStyleStrong();
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 12px;
+  }
+  &__type {
+    @include fontStyleStrong(0.75rem);
+    color: var(--primary, #5f0080);
+  }
+  &__adress-change {
+    @include buttonSize(244px, 44px);
+  }
+}
+
+.payment {
+  &__container {
+    @include size(100%, 267px);
+    border: 1px solid rgb(3, 70, 31);
+    @include paddingBox(20px 20px);
+  }
+  &__detail {
+    border: 1px solid orange;
+    height: 100px;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.adress-payment__info {
 }

@@ -1,6 +1,7 @@
 .product__detail {
   width: 1050px;
   margin: 0 auto;
+  margin-bottom: 96px;
 
   // 메뉴바 영역
   &__menu {
@@ -70,14 +71,31 @@
     }
 
     &_checkpoint {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      .checkpoint__header {
-      }
+      margin-bottom: 96px;
 
-      span {
-        white-space: nowrap;
+      .checkpoint__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 68px;
+
+        hr {
+          flex-grow: 1;
+          border: none;
+          border-bottom: 1px solid #d9d9d9;
+          margin: 0 16px;
+        }
+
+        span {
+          white-space: nowrap;
+          color: $darkBlack;
+          font-family: Pretendard;
+          font-size: 3.125rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%;
+        }
       }
     }
   }
