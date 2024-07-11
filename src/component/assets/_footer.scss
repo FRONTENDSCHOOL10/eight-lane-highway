@@ -97,26 +97,25 @@
 
     a {
       display: inline-block;
-      @include size($w: 40px, $h: 40px);
-      background-position: 0 0;
+      @include size($w: 30px, $h: 30px);
       background-repeat: no-repeat;
-      background-size: cover;
+      background-image: url(/images/icon-footer.png);
     }
 
     .blog {
-      background-image: url(/images/blog.svg);
+      background-position: -10px -10px;
     }
     .facebook {
-      background-image: url(/images/facebook.svg);
+      background-position: -10px -60px;
     }
     .insta {
-      background-image: url(/images/insta.svg);
+      background-position: -10px -210px;
     }
     .post {
-      background-image: url(/images/post.svg);
+      background-position: -10px -110px;
     }
     .youtube {
-      background-image: url(/images/youtube.svg);
+      background-position: -10px -160px;
     }
   }
 
@@ -128,13 +127,32 @@
     border-top: 1px solid $gray200;
 
     &-link {
-      @include flexAll($fd: row, $jc: center, $at: center);
-      background-color: transparent;
+      background-position: -5px -366px;
+      background-repeat: no-repeat;
+      background-image: url(/images/icon-footer.png);
       border: none;
+      @include flexAll($fd: row, $jc: center, $at: center);
 
       span {
         @include font($fs: 0.625rem, $fw: 400, $lh: 160%);
-        margin-left: 10px;
+        text-align: left;
+      }
+
+      &:nth-of-type(1) {
+        padding-left: 49px;
+        background-position-y: -362px;
+      }
+      &:nth-of-type(2) {
+        padding-left: 50px;
+        background-position-y: -308px;
+      }
+      &:nth-of-type(3) {
+        padding-left: 118px;
+        background-position-y: -256px;
+      }
+      &:nth-of-type(4) {
+        padding-left: 49px;
+        background-position-y: -416px;
       }
     }
   }
