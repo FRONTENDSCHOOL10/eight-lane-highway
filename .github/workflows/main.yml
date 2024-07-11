@@ -11,6 +11,7 @@ on:
 
 # GITHUB_TOKEN의 권한을 설정하여 GitHub Pages에 배포할 수 있도록 함
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
