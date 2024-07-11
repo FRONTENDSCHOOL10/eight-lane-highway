@@ -155,3 +155,8 @@ input[type="text" i] {
   padding-block: 0;
   padding-inline: 0;
 }
+button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+}

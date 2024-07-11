@@ -185,9 +185,12 @@
 
 ## 2024-07-10
 
+**최소현**
+
 - component/recent-product/main.js: 스와이퍼 기능 추가
 - component/recent-product/index.html: 스와이퍼 관련 마크업 구조 수정
 - component/assets/\_recentproduct.scss: 스와이퍼 관련 스타일링 수정
+
 
 **이희재**
 
@@ -196,3 +199,33 @@
 - component/product/product-slide.js: 스와이퍼 기능 추가
 - component/header/header-slide.js: build시 scss 경로 수정
 - component/footer/footer-slide.js: build시 scss 경로 수정
+- 
+**김한울**
+
+- public/images/icon-minus-active.svg,
+  public/images/icon-minus-disabled.svg,
+  public/images/icon-plus-active.svg,
+  public/images/icon-plus-disabled.svg,
+  public/images/icon-bell.svg,
+  public/images/icon-heart.svg: 이미지 파일 추가
+- src/component/assets/\_mixins.scss: 믹스인 속성 수정
+- src/component/assets/\_badges.scss: 뱃지 스타일 추가
+- src/component/assets/\_buttons.scss: 버튼 스타일 추가
+- src/component/assets/\_products.scss: 상품 정보 스타일링
+- src/component/assets/\_typography.scss: 타이포 스타일 추가
+- src/component/assets/\_products-detail.scss: 변수명 수정
+- src/component/product/product-info.html: 상품 정보 스타일링 및 구조 디테일 작업
+- src/styles/reset.css: 버튼 reset 속성 추가
+- .github/workflows/main.yml: 빌드 파일 생성
+- index.html: 스타일 파일 경로 변경
+- main.js: 스타일 파일 경로 변경
+
+
+## 2024-07-11
+
+**최소현**
+
+- src/style/style.scss cart.scss추가
+- src/pages/cart 기본 마크업
+- component/assets/\_typography 수정
+- public/images `sun`, `frozen`, `water` svg 파일 추가

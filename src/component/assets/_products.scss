@@ -1,4 +1,6 @@
 .product {
+  box-sizing: border-box;
+
   .visual {
     position: relative;
 
@@ -30,11 +32,14 @@
     }
     &__product__original-price {
       @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
+
       text-decoration: line-through;
       color: $gray400;
     }
     &__product__description {
+
       @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
+
       color: $gray400;
     }
   }
@@ -52,14 +57,27 @@
       }
     }
     .product__info__container {
+      width: 100%;
       max-width: 560px;
 
+      .title__primary,
+      .title__secondary,
+      .title__price,
+      .text__primary__color {
+        margin-bottom: 16px;
+      }
+
       .product__info__table {
+        width: 100%;
+        table-layout: fixed;
+        box-sizing: border-box;
+        max-width: 560px;
         border-collapse: collapse;
 
         th,
         td {
           padding: 16px 0;
+          color: $gray500;
         }
 
         th {
@@ -86,6 +104,32 @@
           .product__count {
             border: 1px solid $gray100;
             padding: 12px 16px;
+
+            &__button {
+              display: inline-flex;
+              width: auto;
+              border: 1px solid $gray200;
+              align-items: center;
+              gap: 8px;
+            }
+          }
+        }
+      }
+      .product__price__container {
+        width: 100%;
+        padding: 28px 0 20px;
+        text-align: right;
+
+        .product__button__container {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .product__final__price {
+          margin-bottom: 30px;
+
+          .text__price {
+            margin-bottom: 8px;
           }
         }
       }

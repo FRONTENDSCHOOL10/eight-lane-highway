@@ -1,18 +1,28 @@
 .badge__group {
   @include flexAll($fd: row, $jc: flex-start, $at: stretch);
   gap: 8px;
-  .badge {
-    background-color: $gray100;
-    padding: 4px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    @include font($fs: 0.75rem, $fw: 600);
-    &__karly {
-      color: $primaryColor;
-    }
-    &__text {
-      color: $black;
-    }
+}
+
+.badge {
+  background-color: $gray100;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  @include font($fs: 0.75rem, $fw: 600);
+
+  &__karly {
+    color: $primaryColor;
+  }
+  &__text {
+    color: $black;
+  }
+  &__accent {
+    background-color: $accentColor;
+    color: $white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.625rem;
+    margin-right: 6px;
   }
 }

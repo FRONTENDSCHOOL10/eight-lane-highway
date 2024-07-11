@@ -26,8 +26,20 @@ p {
   @include font($fw: 400, $fs: 0.75rem, $lh: 150%);
   color: $gray400;
 
-  &.text__primary__color {
-    font-weight: 600;
-    color: $primaryColor;
+
+  &.text {
+    &__primary__color {
+      font-weight: 600;
+      color: $primaryColor;
+    }
+    &__price {
+      font-weight: 600;
+      font-size: 1rem;
+      color: $darkBlack;
+    }
   }
 }
+.price__emphasis {
+  @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
+  
+
