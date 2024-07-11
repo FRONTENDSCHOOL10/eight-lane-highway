@@ -34,4 +34,11 @@ export default defineConfig({
       },
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/styles/style.scss";`,
+      },
+    },
+  },
 });
