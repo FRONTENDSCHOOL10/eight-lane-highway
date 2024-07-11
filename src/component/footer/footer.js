@@ -1,12 +1,10 @@
-import resetCss from "/src/styles/reset.css?inline";
-import srOnlyCss from "/src/styles/sr-only.css?inline";
 import headerCss from "/src/styles/style.scss?inline";
 
 const footer = document.querySelector("#footer");
 const footerTemplate = document.createElement("template");
 
 footerTemplate.innerHTML = `
-<style>${resetCss}${srOnlyCss}${headerCss}</style>
+<style>${headerCss}</style>
     <section class="footer">
     <h2 class="sr-only">컬리 고객센터 및 회사 소개</h2>
     <article class="footer__wrapper">
