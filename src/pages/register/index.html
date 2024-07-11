@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
-    <script src="./register.js"></script>
-    <script src="./checkAll.js"></script>
+    <script type="module" src="/src/pages/register/register.js"></script>
+    <script type="module" src="/src/pages/register/checkAll.js"></script>
   </head>
   <body>
     <section class="signup-container">
@@ -77,9 +77,12 @@
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">주소</label>
-          <button class="button__fill button__large" type="button">
-            주소 검색
-          </button>
+          <div class="button__container">
+            <button class="button__stroke button__medium" type="button">
+              주소 검색
+            </button>
+            <p>배송지에 따라 상품 정보가 달라질 수 있습니다.</p>
+          </div>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium" for="radioGender"
