@@ -8,8 +8,8 @@ import {
   getStorage,
 } from "../../lib/index";
 
-const upperArrow = getNode(".upper-arrow");
-const belowArrow = getNode(".below-arrow");
+const upperArrow = getNode(".swiper-button-prev");
+const belowArrow = getNode(".swiper-button-next");
 const product1 = getNode("#product1");
 const itemContainer = getNode(".swiper-wrapper");
 const menuContainer = getNode(".product-menu-item");
@@ -45,6 +45,11 @@ menuContainer.addEventListener("click", handleAddProduct);
 async function getSavedRecentProduct() {
   if (await getStorage("recentProducts")) {
     const productValue = await getStorage("recentProducts");
+    if (productValue.length >= 3) {
+      upperArrow.classList.add("is__active");
+      belowArrow.classList.add("is__active");
+    }
+
     for (let item of productValue) {
       const data = await pb.collection("products").getOne(item);
       const template = `<div class="swiper-slide">
@@ -52,7 +57,7 @@ async function getSavedRecentProduct() {
   </div>`;
       insertLast(itemContainer, template);
     }
-    swiper.update();
+    // swiper.update();
   }
 }
 
@@ -62,10 +67,14 @@ document.addEventListener("DOMContentLoaded", getSavedRecentProduct);
 async function saveRecentProduct(productId) {
   // recentProducts 키 있는지 확인 , 없으면 배열 생성
   const recentProducts = (await getStorage("recentProducts")) || [];
-  // 새로운 요소 추가
-  recentProducts.unshift(productId);
-  // 10개만 보기
-  const fiveRecentProducts = recentProducts.slice(0, 10);
-  // 5개로 정리된 value 로컬 스토리지에 저장
-  await setStorage("recentProducts", fiveRecentProducts);
+  if (recentProducts.includes(productId)) {
+    return;
+  } else {
+    // 새로운 요소 추가
+    recentProducts.unshift(productId);
+    // 10개만 보기
+    const fiveRecentProducts = recentProducts.slice(0, 10);
+    // 5개로 정리된 value 로컬 스토리지에 저장
+    await setStorage("recentProducts", fiveRecentProducts);
+  }
 }
