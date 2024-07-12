@@ -7,22 +7,27 @@
   gap: $gp;
 }
 
+// 장바구니 타이틀
 .cart-title {
   @include size(74px, 32px);
   @include font($darkBlack, 1.333rem, 600, 150%);
   margin: 80px auto 44px auto;
 }
 
+// 전체 장바구니 영역
 .cart__container {
   @include size(1050px, 709px);
   @include flexAll(row, space-between);
   margin: 0 auto;
 }
+
+// 왼쪽 상품선택 영역
 .selected-item {
   &__conatiner {
     width: 712px;
     @include font($darkBlack, 1rem, 600, 150%);
   }
+  // 전체선택 체크박스 및 선택삭제 줄 구조설정
   &__checkbox {
     height: 56px;
     padding: 16px 0;
@@ -37,6 +42,7 @@
   }
 }
 
+// 전체선택 체크박스 스타일링
 .checkbox {
   &__group {
     width: 129px;
@@ -62,7 +68,6 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      // border: 1px solid red;
       appearance: none;
       margin: 0;
       top: 0;
@@ -72,13 +77,14 @@
       }
     }
   }
-
+  // 선택 삭제 버튼
   &__delete {
     @include font($darkBlack, 1rem, 600, 150%);
     margin-left: 16px;
   }
 }
 
+// 냉동, 냉장, 상온 구분 영역
 .food-type {
   &__container {
     @include flexColumn(end);
@@ -90,7 +96,7 @@
     width: 100%;
     padding: 16px 0;
     @include flexAll(row, space-between, center);
-    border-bottom: 1px solid var(--black, #000);
+    // border-bottom: 1px solid var(--black, #000);
 
     &__name {
       font-size: 1rem;
@@ -100,12 +106,22 @@
       align-items: center;
       line-height: 150%;
 
+      // 상온, 냉장, 냉동 아이콘
       img {
         @include size(30px, 30px);
         margin-right: 12px;
       }
     }
 
+    // 아코디언 활성화 - max-height값 auto => 0 변경하기
+    &__added {
+      max-height: auto;
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid var(--black, #000);
+    }
+
+    // 아코디언 토글 버튼
     button {
       border: none;
       background-color: inherit;
@@ -113,27 +129,60 @@
 
       img {
         @include size(100%, 100%);
+        padding: 4px;
       }
     }
   }
 }
 
+// 아코디언 추가된 상품
+.food-type__accordion {
+  height: 118px;
+  padding: 20px 0;
+  // border: 1px solid blue;
+  @include flexSet(row, left, center, 8px);
+  align-items: center;
+
+  &__input {
+    @include size(22px, 22px);
+    margin: 0;
+    appearance: none;
+    background: url("/images/input-unchecked.svg") no-repeat center/contain;
+    &:checked {
+      background-image: url(/images/input-checked.svg);
+    }
+  }
+  &__img {
+    @include size(60px, 78px);
+  }
+  &__name {
+    @include size(345px, 24px);
+    @include font($darkBlack, 1rem, 600, 150%);
+  }
+
+  &__price {
+    @include size(127px, 24px);
+    @include font($darkBlack, 1rem, 600, 150%);
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__delete {
+    @include size(30px, 30px);
+
+    background: url("/images/cancel.svg") no-repeat center/contain;
+  }
+}
+
+// 장바구니 오른쪽 배송지, 결제 영역
 .adress-payment {
   &__container {
     width: 284px;
   }
 }
 
+// 배송지 영역
 .adress {
-  &__title {
-    @include font($darkBlack, 1rem, 600, 150%);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    img {
-      @include size(36px, 36px);
-    }
-  }
+  // 배송지 영역 구조설정
   &__container {
     border: 1px solid $gray100;
     @include size(100%, 222px);
@@ -143,21 +192,39 @@
     flex-flow: column nowrap;
     gap: 12px;
   }
+  // 배송지 타이틀
+  &__title {
+    @include font($darkBlack, 1rem, 600, 150%);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    img {
+      @include size(36px, 36px);
+    }
+  }
+  // 고객 주소
+  &__client-adress {
+    @include font($darkBlack, 1rem, 600, 150%);
+  }
+  // 배송타입 = 샛별배송
   &__type {
     @include font($darkBlack, 0.75rem, 600, 150%);
     color: var(--primary, #5f0080);
   }
+  //  배송지 변경 버튼
   &__adress-change {
     @include buttonSize(244px, 44px);
   }
 }
 
+// 결제 영역
 .payment {
   &__container {
     padding: 20px;
     border: 1px solid $gray100;
     background: $gray050;
   }
+  // 금액 구분 구조
   &__detail {
     height: auto;
     padding: 0 0 24px 0;
@@ -167,16 +234,19 @@
 }
 
 .price {
+  // 상품금액/할인금액/배송비 구분
   &__container {
     list-style: none;
     @include font($black, 1rem, 400, 160%);
     @include flexSet(row, space-between, center, 0);
   }
+  // 금액 숫자/원 그룹
   &__group {
     @include flexSet(row, space-between, center, 4px);
   }
 }
 
+// 결제 예정 금액
 .payment__total-price {
   padding: 24px 0 12px 0;
   @include flexSet(row, space-between, center, 0);
@@ -184,13 +254,14 @@
   .total-price__name {
     align-content: center;
   }
-
+  // 금액 숫자/원 그룹
   .total-price__sum {
     @include flexSet(row, space-between, center, 4px);
-
+    // 금액
     &__value {
       @include font($darkBlack, 1.75rem, 700, 140%);
     }
+    // 단위
     &__unit {
       @include font($darkBlack, 1rem, 400, 160%);
       align-content: center;
@@ -198,17 +269,21 @@
   }
 }
 
+// 적립부분
 .point__container {
   @include flexSet(row, flex-end, center, 4px);
+  // 뱃지 기존 스타일  border-radius 수정
   .point-badge {
     border-radius: 0;
   }
+  // 적립율 상세
   .point-rate {
     @include font($black, 0.75rem, 600, 150%);
     color: $black;
   }
 }
 
+// 주문하기 버튼
 .adress-payment {
   &__order {
     @include size(284px, 44px);
@@ -216,6 +291,7 @@
   }
 }
 
+// 주문 관련 상세 정보
 .adress-payment__info {
   @include font($gray400, 0.75rem, 600, 150%);
 }
