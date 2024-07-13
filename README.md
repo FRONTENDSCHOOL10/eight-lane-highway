@@ -218,6 +218,8 @@
 - index.html: 스타일 파일 경로 변경
 - main.js: 스타일 파일 경로 변경
 
+---
+
 ## 2024-07-11
 
 **최소현**
@@ -228,3 +230,18 @@
 - public/images `sun`, `frozen`, `water` svg 파일 추가
 - src/style/style.scss 장바구니 기본 스타일링
 - vite.config.js 장바구니 페이지 추가
+
+---
+
+## 2024-07-13
+
+**김한울**
+
+- input 경로 수정
+- checkAll 함수 클래스 함수로 변경
+- register/index.html: 아이디 빈값 삭제
+- register 포켓베이스 데이터 연결 (함수 분리 필요)
+- 주소 API 추가
+- 핸드폰 번호 유효성 검사
+- 이메일 검사
+- 회원가입 페이지 스타일링 수정
