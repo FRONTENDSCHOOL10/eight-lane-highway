@@ -191,7 +191,6 @@
 - component/recent-product/index.html: 스와이퍼 관련 마크업 구조 수정
 - component/assets/\_recentproduct.scss: 스와이퍼 관련 스타일링 수정
 
-
 **이희재**
 
 - component/product/product-slide.html: product-slide 마크업
@@ -199,8 +198,7 @@
 - component/product/product-slide.js: 스와이퍼 기능 추가
 - component/header/header-slide.js: build시 scss 경로 수정
 - component/footer/footer-slide.js: build시 scss 경로 수정
-- 
-**김한울**
+- **김한울**
 
 - public/images/icon-minus-active.svg,
   public/images/icon-minus-disabled.svg,
@@ -220,7 +218,6 @@
 - index.html: 스타일 파일 경로 변경
 - main.js: 스타일 파일 경로 변경
 
-
 ## 2024-07-11
 
 **최소현**
@@ -229,3 +226,16 @@
 - src/pages/cart 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
+
+## 2024-07-13
+
+**김한울**
+
+- input 경로 수정
+- checkAll 함수 클래스 함수로 변경
+- register/index.html: 아이디 빈값 삭제
+- register 포켓베이스 데이터 연결 (함수 분리 필요)
+- 주소 API 추가
+- 핸드폰 번호 유효성 검사
+- 이메일 검사
+- 회원가입 페이지 스타일링 수정
