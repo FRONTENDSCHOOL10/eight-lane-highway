@@ -198,6 +198,15 @@
 - component/product/product-slide.js: 스와이퍼 기능 추가
 - component/header/header-slide.js: build시 scss 경로 수정
 - component/footer/footer-slide.js: build시 scss 경로 수정
+
+**오성훈**
+07/12 0:01
+
+- product/product-detail.html: 상품 세부 하단 컴포넌트 중 karly's point 부분 전체와 why karly 일부 마크업
+- assets/products-detail.scss: 상품 세부 하단 컴포넌트 karly's point 부분 전체와 why karly 일부 스타일링
+- public/images: checkpoint.png, jjolmeon-detail-info.png, jjolmeon.png 추가
+
+**김한울**
 - **김한울**
 
 - public/images/icon-minus-active.svg,
@@ -228,6 +237,15 @@
 - src/pages/cart 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
+
+**오성훈**
+07/12 0:01
+
+- product/product-detail.html: 상품 세부 하단 컴포넌트 마크업 마무리
+- assets/products-detail.scss: 상품 세부 하단 컴포넌트 스타일 마무리
+- assets/mixins.scss: font 믹스인에 사용자가 글자색을 추가할 수 있도록 추가
+- pakage.json: 빌드 파일을 지우는 `clean` script를 `rm -rf docs`를 통해 작성
+- public/images: `icon-k-box`, `icon-check-list`, `icon-recycle`, `icon-truck`, `icon-won` svg 파일 추가
 - src/style/style.scss 장바구니 기본 스타일링
 - vite.config.js 장바구니 페이지 추가
 
