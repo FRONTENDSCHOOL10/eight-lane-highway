@@ -1,7 +1,6 @@
 .product__detail {
   width: 1050px;
   margin: 0 auto;
-  margin-bottom: 96px;
 
   // 메뉴바 영역
   &__menu {
@@ -117,14 +116,17 @@
 .why__carly__intro {
   @include flexAll($fd: column);
   margin-top: 35px;
+  padding-bottom: 84px;
 
   &__upper,
   &__lower {
-    @include flexAll();
+    @include flexAll($jc: center, $at: center, $gap: 24px);
+    margin: 0 auto;
 
     &__item {
       @include flexAll($fd: column, $at: center);
       width: 315px;
+      padding-top: 56px;
 
       img {
         margin-bottom: 16px;
@@ -135,6 +137,7 @@
         margin-bottom: 24px;
       }
       p {
+        @include font($fs: 1rem, $fw: 400, $lh: 160%);
       }
     }
   }
