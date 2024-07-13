@@ -1,3 +1,48 @@
+import PocketBase from "pocketbase";
+
+const url = "https://eight-lane-highway.pockethost.io/";
+const client = new PocketBase(url);
+
+const record = await pb.collection("demo").create({
+  title: "Lorem ipsum",
+});
+
+document
+  .getElementById("registerForm")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    fetch(
+      "https://eight-lane-highway.pockethost.io/api/collections/users/records",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code) {
+          // 에러 처리
+          alert("회원가입 실패: " + data.message);
+        } else {
+          // 성공 처리
+          alert("회원가입 성공");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("회원가입 중 오류 발생");
+      });
+  });
 function sendit() {
   const userId = document.getElementById("idField");
   const userPw = document.getElementById("pwField");
@@ -63,3 +108,5 @@ function sendit() {
 
   return true;
 }
+
+sendit();
