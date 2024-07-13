@@ -207,6 +207,7 @@
 - public/images: checkpoint.png, jjolmeon-detail-info.png, jjolmeon.png 추가
 
 **김한울**
+- **김한울**
 
 - public/images/icon-minus-active.svg,
   public/images/icon-minus-disabled.svg,
@@ -243,3 +244,5 @@
 - assets/mixins.scss: font 믹스인에 사용자가 글자색을 추가할 수 있도록 추가
 - pakage.json: 빌드 파일을 지우는 `clean` script를 `rm -rf docs`를 통해 작성
 - public/images: `icon-k-box`, `icon-check-list`, `icon-recycle`, `icon-truck`, `icon-won` svg 파일 추가
+- src/style/style.scss 장바구니 기본 스타일링
+- vite.config.js 장바구니 페이지 추가

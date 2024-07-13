@@ -5,6 +5,7 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
+  border: 1px solid $darkBlack;
   padding: 0;
   &.is__hide {
     display: none;
@@ -36,7 +37,7 @@
       border: none;
     }
     #hidePopup {
-      border-right: 1px solid gray;
+      border-right: 1px solid $gray100;
     }
   }
 }
