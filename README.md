@@ -191,7 +191,6 @@
 - component/recent-product/index.html: 스와이퍼 관련 마크업 구조 수정
 - component/assets/\_recentproduct.scss: 스와이퍼 관련 스타일링 수정
 
-
 **이희재**
 
 - component/product/product-slide.html: product-slide 마크업
@@ -199,8 +198,7 @@
 - component/product/product-slide.js: 스와이퍼 기능 추가
 - component/header/header-slide.js: build시 scss 경로 수정
 - component/footer/footer-slide.js: build시 scss 경로 수정
-- 
-**김한울**
+- **김한울**
 
 - public/images/icon-minus-active.svg,
   public/images/icon-minus-disabled.svg,
@@ -220,7 +218,6 @@
 - index.html: 스타일 파일 경로 변경
 - main.js: 스타일 파일 경로 변경
 
-
 ## 2024-07-11
 
 **최소현**
@@ -229,3 +226,5 @@
 - src/pages/cart 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
+- src/style/style.scss 장바구니 기본 스타일링
+- vite.config.js 장바구니 페이지 추가
