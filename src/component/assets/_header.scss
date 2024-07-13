@@ -2,10 +2,15 @@ body {
   height: 200vh;
 }
 
+header {
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+}
+
 .nav {
   @include size(1050px);
   max-width: 1050px;
-  margin: 50px auto 0px;
+  padding-top: 50px;
+  margin: 0 auto;
   position: relative;
   display: grid;
   align-items: center;
@@ -21,7 +26,7 @@ body {
 
   &__user-auth {
     @include flexAll($fd: row, $jc: flex-start, $at: stretch);
-    @include absolute($t: -30px, $r: 13px);
+    @include absolute($t: 20px, $r: 13px);
     @include font($fs: 0.75rem, $fw: 400, $lh: 160%);
 
     &__item {
@@ -135,6 +140,10 @@ body {
 
     &__button {
       @include absolute($t: 10px, $r: 10px);
+      @include size($w: 19px, $h: 19px);
+      background-image: url("/images/icon-header.png");
+      background-repeat: no-repeat;
+      background-position: -10px -98px;
       border: none;
       background-color: transparent;
       cursor: pointer;
@@ -143,10 +152,8 @@ body {
   }
 
   &__user-service {
-    @include flexAll($fd: row, $jc: flex-start, $at: stretch);
+    @include flexAll($fd: row, $jc: flex-start, $at: stretch, $gap: 20px);
     grid-area: d;
-
-    gap: 20px;
     margin-left: auto;
 
     &__item {
@@ -155,6 +162,12 @@ body {
       background-image: url("/images/icon-header.png");
       background-repeat: no-repeat;
       background-position-x: -10px;
+
+      > a,
+      > button {
+        display: inline-block;
+        @include size($w: 100%, $h: 100%);
+      }
 
       &:nth-of-type(1) {
         background-position-y: -137px;
@@ -166,61 +179,55 @@ body {
         background-position-y: -193px;
       }
 
-      &:nth-of-type(1):hover {
-        .nav__user-service__item__address-modal {
-          display: block;
-        }
-      }
-
-      &:hover {
+      &:nth-of-type(2):hover,
+      &:nth-of-type(3):hover {
         mask-image: url("/images/icon-header.png");
-        mask-repeat: no-repeat;
-        mask-position: -10px -137px;
         background-color: $primaryColor;
-        // .address {
-        //   background-position-y: -137px;
-        // }
-        // .heart {
-        // }
-        // .cart {
-        //   background-position-y: -193px;
-        // }
+      }
+      &:nth-of-type(2):hover {
+        mask-position: -10px -249px;
+      }
+      &:nth-of-type(3):hover {
+        mask-position: -10px -193px;
+      }
+    }
+
+    .nav__user-service__item__address-modal {
+      @include absolute($t: 35px, $l: -50px);
+      @include size($w: 270px);
+      // display: none;
+      padding: 32px;
+      border: 1px solid #d9d9d9;
+      background-color: $white;
+      z-index: 2;
+      p {
+        margin-bottom: 16px;
+        @include font($fs: 1rem, $fw: 600, $lh: 160%);
+      }
+      span {
+        color: $primaryColor;
       }
 
-      &__address-modal {
-        @include absolute($t: 40px, $l: -50px);
-        @include size($w: 250px);
-        display: none;
-        padding: 32px;
-        border: 1px solid #d9d9d9;
+      .modal-link {
+        border-radius: 4px;
+        @include font($fs: 1rem, $fw: 400, $lh: 150%);
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .modal-login {
+        border: 1px solid $primaryColor;
         background-color: $white;
-        z-index: 2;
-
-        p {
-          margin-bottom: 16px;
-          @include font($fs: 1rem, $fw: 600, $lh: 160%);
-        }
-        span {
-          color: $primaryColor;
-        }
-
-        .modal-link {
-          border-radius: 4px;
-          @include font($fs: 1rem, $fw: 400, $lh: 150%);
-          padding: 8px;
-          cursor: pointer;
-        }
-
-        .modal-login {
-          border: 1px solid $primaryColor;
-          background-color: $white;
-        }
-        .modal-search-address {
-          background-color: $primaryColor;
-          color: $white;
-          margin-left: 10px;
-        }
       }
+      .modal-search-address {
+        background-color: $primaryColor;
+        color: $white;
+        margin-left: 10px;
+      }
+    }
+
+    .nav__user-service__item__address-modal.is__show {
+      display: block;
     }
   }
 
@@ -229,6 +236,7 @@ body {
     position: relative;
     padding: 10px 0 10px 24px;
     max-width: 100px;
+    border: none;
 
     button {
       @include font($fs: 1rem, $fw: 600, $lh: 150%);
@@ -430,7 +438,7 @@ body {
   &__menu__list {
     @include size($w: 100px);
     @include font($fs: 1rem, $fw: 600, $lh: 150%);
-    padding: 10px 0;
+    padding: 16px 0;
 
     &:hover:not(.delivery) {
       color: $primaryColor;
@@ -445,7 +453,6 @@ body {
   .best {
     grid-area: g;
   }
-
   .shopping {
     grid-area: h;
   }
@@ -453,7 +460,6 @@ body {
     grid-area: i;
   }
   .delivery {
-    @include size($h: 19px);
     grid-area: j;
     text-align: right;
     border: 1px solid #d9d9d9;
@@ -489,6 +495,7 @@ body {
 
   .nav__product__category {
     grid-area: a;
+    padding-right: 10px;
   }
 
   .nav__search-box {
@@ -511,10 +518,8 @@ body {
     & button {
       background-color: transparent;
       padding: 10px;
-      top: 1px;
-      right: 20px;
-      filter: invert(18%) sepia(6%) saturate(0%) hue-rotate(173deg)
-        brightness(96%) contrast(93%);
+      top: 10px;
+      right: 40px;
     }
   }
 
