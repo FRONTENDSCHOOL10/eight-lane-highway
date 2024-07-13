@@ -32,11 +32,11 @@
     height: 56px;
     padding: 16px 0;
     align-items: center;
-    @include flexSet(row, space-between, center, 10px);
+    @include flexSet(row, left, center, 10px);
 
     &__upper {
       border-bottom: 1px solid var(--black, #000);
-      height: 56px;
+      // height: 56px;
       padding: 16px 0;
     }
   }
@@ -90,38 +90,33 @@
     @include flexColumn(end);
     padding: 0;
   }
+
   &__item {
     height: 62px;
     list-style: none;
     width: 100%;
     padding: 16px 0;
-    @include flexAll(row, space-between, center);
-    // border-bottom: 1px solid var(--black, #000);
+    overflow: hidden;
+    border-bottom: 1px solid var(--black, #000);
 
+    // 아코디언 버튼 클릭시 heigth auto 설정
+    &.is__show {
+      height: auto;
+    }
+    &__container {
+      @include flexAll(row, space-between, center);
+    }
     &__name {
       font-size: 1rem;
       line-height: 150%;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
-      line-height: 150%;
 
       // 상온, 냉장, 냉동 아이콘
       img {
         @include size(30px, 30px);
         margin-right: 12px;
-      }
-    }
-
-    // 아코디언 활성화 - max-height값 auto => 0 변경하기
-    &__added {
-      max-height: auto;
-      width: 100%;
-      overflow: hidden;
-      border-bottom: 1px solid var(--black, #000);
-
-      &.is__show {
-        max-height: 1000px;
       }
     }
 
@@ -139,11 +134,10 @@
   }
 }
 
-// 아코디언 추가된 상품
+// 아코디언 추가된 상품 영역
 .food-type__accordion {
   height: 118px;
   padding: 20px 0;
-  // border: 1px solid blue;
   @include flexSet(row, left, center, 8px);
   align-items: center;
 
