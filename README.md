@@ -218,6 +218,8 @@
 - index.html: 스타일 파일 경로 변경
 - main.js: 스타일 파일 경로 변경
 
+---
+
 ## 2024-07-11
 
 **최소현**
@@ -226,6 +228,10 @@
 - src/pages/cart 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
+- src/style/style.scss 장바구니 기본 스타일링
+- vite.config.js 장바구니 페이지 추가
+
+---
 
 ## 2024-07-13
 

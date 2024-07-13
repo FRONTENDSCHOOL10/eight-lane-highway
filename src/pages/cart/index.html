@@ -3,72 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/styles/style.scss" />
     <title>cart</title>
+    <link rel="stylesheet" href="/src/styles/style.scss" />
+    <script type="module" src="/src/pages/cart/main.js"></script>
   </head>
   <body>
     <h2 class="cart-title">장바구니</h2>
-    <section class="cart__container">
+    <main class="cart__container">
       <!-- 장바구니 왼쪽 선택한 상품 -->
-      <!-- 전체선택 선택삭제 체크박스 -->
-      <main role="group" class="selected-item__conatiner">
-        <div class="selected-item__checkbox">
-          <label for="checkAll" class="checkbox__check-all">전체선택</label>
-          <input type="checkbox" id="selectAll" />
+      <section class="selected-item__conatiner">
+        <!-- 전체선택 선택삭제 체크박스 -->
+        <div class="selected-item__checkbox__upper">
+          <div class="checkbox__group">
+            <input
+              type="checkbox"
+              class="checkbox__check-all__box"
+              id="selectAll" /><label
+              for="checkAll"
+              class="checkbox__check-all__label"
+              >전체선택 (0/0)
+            </label>
+          </div>
           <button type="button" class="checkbox__delete">선택삭제</button>
         </div>
         <!-- 선택상품 구분 -->
         <ul class="food-type__container">
+          <!-- 냉장 -->
           <li class="food-type__item">
-            <span class="food-type__item__name">
-              <img src="/images/water.svg" alt="냉장 식품 아이콘" />냉장
-              식품</span
-            >
-            <button type="button">
-              <img src="/images/below.svg" alt="펼치기" />
-            </button>
+            <div class="food-type__item__container" id="foodTypeCold">
+              <span class="food-type__item__name">
+                <img src="/images/water.svg" alt="냉장 식품 아이콘" />냉장
+                식품</span
+              >
+              <button type="button" class="food-type__button"></button>
+            </div>
           </li>
+          <!-- 냉동 -->
           <li class="food-type__item">
-            <span class="food-type__item__name"
-              ><img src="/images/frozen.svg" alt="냉동 식품 아이콘" />냉동
-              식품</span
-            >
-            <button type="button">
-              <img src="/images/below.svg" alt="펼치기" />
-            </button>
+            <div class="food-type__item__container" id="foodTypeFrozen">
+              <span class="food-type__item__name">
+                <img src="/images/frozen.svg" alt="냉동 식품 아이콘" />냉동
+                식품</span
+              >
+              <button type="button" class="food-type__button"></button>
+            </div>
           </li>
+
+          <!-- 상온 -->
           <li class="food-type__item">
-            <span class="food-type__item__name"
-              ><img src="/images/sun.svg" alt="상온 식품 아이콘" />상온
-              식품</span
-            >
-            <button type="button">
-              <img src="/images/below.svg" alt="펼치기" />
-            </button>
+            <div class="food-type__item__container" id="foodTypeRoomTemp">
+              <span class="food-type__item__name">
+                <img src="/images/sun.svg" alt="상온 식품 아이콘" />상온
+                식품</span
+              >
+              <button type="button" class="food-type__button"></button>
+            </div>
           </li>
         </ul>
         <!-- 전체선택 선택삭제 체크박스 -->
         <div class="selected-item__checkbox">
-          <label for="checkAll" class="checkbox__check-all">전체선택</label>
-          <input type="checkbox" id="selectAll" />
+          <div class="checkbox__group">
+            <input
+              type="checkbox"
+              class="checkbox__check-all__box"
+              id="selectAll" /><label
+              for="checkAll"
+              class="checkbox__check-all__label"
+              >전체선택 (0/0)
+            </label>
+          </div>
           <button type="button" class="checkbox__delete">선택삭제</button>
         </div>
-      </main>
+      </section>
       <!-- 장바구니 오른쪽 -->
       <!-- 배송지 정보 및 결제 금액 -->
       <aside class="adress-payment__container">
         <!-- 배송지 정보 -->
         <section class="adress__container">
           <h3 class="adress__title">
-            <img src="/images/address.svg" alt="" />배송지
+            <img src="/images/address.svg" alt="위치 아이콘" />배송지
           </h3>
           <div class="adress__client-adress">
             서울 중랑구 면목로 42길 11 (행운빌딩) 603호
           </div>
           <span class="adress__type">샛별배송</span>
-          <button
-            type="button"
-            class="adress__adress-change button__stroke button__small">
+          <button type="button" class="adress__adress-change button__stroke">
             배송지 변경
           </button>
         </section>
@@ -76,31 +95,35 @@
 
         <section class="payment__container">
           <ul class="payment__detail">
-            <li class="detail__price">
-              <span class="">상품금액</span>
-              <span class="">40,680원</span>
+            <li class="price__container">
+              <span class="price__name">상품금액</span>
+              <div class="price__group"><span>0</span><span>원</span></div>
             </li>
-            <li class="detail__discount">
-              <span class="">상품할인금액</span>
-              <span class="">-4,651원</span>
+            <li class="price__container">
+              <span class="price__name">상품할인금액</span>
+              <div class="price__group"><span>0</span><span>원</span></div>
             </li>
-            <li class="detail__delivery">
-              <span class="">배송비</span>
-              <span class="">+3,000원</span>
+            <li class="price__container">
+              <span class="price__name">배송비</span>
+              <div class="price__group"><span>0</span><span>원</span></div>
             </li>
           </ul>
           <div class="payment__total-price">
-            <span class="">결제예정금액</span>
-            <span class="">40,680원</span>
+            <span class="total-price__name">결제예정금액</span>
+            <span class="total-price__sum">
+              <span class="total-price__sum__value">0</span>
+              <span class="total-price__sum__unit">원</span>
+            </span>
           </div>
 
           <!-- 적립뱃지 -->
           <div class="point__container">
-            <span class="">적립</span>
-            <span class="">최대 36원 적립 일반 0.1%</span>
+            <span class="point-badge badge__accent">적립</span>
+            <span class="point-rate">최대 36원 적립 일반 0.1%</span>
           </div>
         </section>
-        <button class="adress-payment__order">주문하기</button>
+        <!-- 로그아웃시 변경되야할 부분 -->
+        <button class="adress-payment__order button__fill">로그인</button>
         <div class="adress-payment__info">
           <p>쿠폰/적립금은 주문서에서 사용 가능합니다</p>
           <p>[주문완료] 상태일 경우에만 주문 취소 가능합니다.</p>
@@ -117,6 +140,6 @@
           </p>
         </div>
       </aside>
-    </section>
+    </main>
   </body>
 </html>

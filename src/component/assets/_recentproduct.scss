@@ -9,14 +9,31 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    appearance: none;
-    background-color: inherit;
-    border: none;
+    // appearance: none;
+    // background-color: inherit;
+    // border: 1px solid black;
     vertical-align: center;
     padding: 0;
     height: 18px;
+    width: 18px;
     &:hover {
       cursor: pointer;
+    }
+  }
+  .swiper-button-prev {
+    -webkit-mask: url("/images/upper.svg");
+    mask: url("/images/upper.svg");
+    background-color: #999999;
+    &.is__active {
+      background-color: #333;
+    }
+  }
+  .swiper-button-next {
+    -webkit-mask: url("/images/below.svg");
+    mask: url("/images/below.svg");
+    background-color: #999999;
+    &.is__active {
+      background-color: #333;
     }
   }
   .swiper-container {
