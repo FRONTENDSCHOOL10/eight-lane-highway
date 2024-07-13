@@ -115,17 +115,15 @@
         margin-right: 12px;
       }
     }
-
-    // 아코디언 토글 버튼
-    button {
-      border: none;
-      background-color: inherit;
-      @include size(30px, 30px);
-
-      img {
-        @include size(100%, 100%);
-        padding: 4px;
-      }
+  }
+  // 아코디언 토글 버튼
+  &__button {
+    border: none;
+    background-color: inherit;
+    @include size(22px, 22px);
+    background: url("/images/below.svg") no-repeat center/contain;
+    &.is__active {
+      background-image: url("/images/upper.svg");
     }
   }
 }
@@ -191,6 +189,10 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 12px;
+    display: none;
+    &.is__show {
+      display: flex;
+    }
   }
   // 배송지 타이틀
   &__title {
