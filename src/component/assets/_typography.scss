@@ -38,6 +38,7 @@ p {
     }
   }
 }
+
 .price__emphasis {
   @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
 }

@@ -1,3 +1,7 @@
+button {
+  cursor: pointer;
+}
+
 .button {
   &__stroke {
     @include buttonStyle($primaryColor, $white, $primaryColor);
@@ -15,14 +19,15 @@
   &__small {
     @include buttonSize(143px, 44px);
   }
-  &__large__basket {
-    @include buttonSize(174px, 54px);
-  }
   &__medium {
     @include buttonSize(333px, 44px);
   }
   &__large {
     @include buttonSize(340px, 54px);
+
+    &__basket {
+      @include buttonSize(174px, 54px);
+    }
   }
   &__full {
     @include buttonSize(auto, 54px);

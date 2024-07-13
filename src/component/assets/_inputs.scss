@@ -15,7 +15,6 @@ input {
       @include input(1px, 24px, 24px);
       appearance: none;
       border-radius: 50%;
-      margin: 0;
 
       &:checked {
         background-color: $gray200;
@@ -27,10 +26,9 @@ input {
       @include input-color($gray200, transparent);
       appearance: none;
       border-radius: 50%;
-      background-image: url("/Users/hanwoolkim/techit-school/eight-lane-highway/src/component/assets/img/input-vector.svg");
+      background-image: url("/images/input-vector.svg");
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      margin: 0;
 
       &::after {
         content: "";
