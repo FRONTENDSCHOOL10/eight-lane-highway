@@ -119,6 +119,10 @@
       width: 100%;
       overflow: hidden;
       border-bottom: 1px solid var(--black, #000);
+
+      &.is__show {
+        max-height: 1000px;
+      }
     }
 
     // 아코디언 토글 버튼
