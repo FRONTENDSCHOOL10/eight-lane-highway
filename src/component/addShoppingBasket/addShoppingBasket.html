@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/src/styles/style.scss" />
     <script
       type="module"
-      src="/src/component/addShoppingBasket/addShoppingBasket.js"
+      src="../addShoppingBasket/addShoppingBasket.js"
     ></script>
     <title>장바구니 추가</title>
   </head>
@@ -15,13 +15,13 @@
       <article class="basket-container__product__num__container">
         <p>[풀무원] 탱탱 쫄면(4개입)</p>
         <div class="basket-container__product__num__container__box">
-          <span>4890원</span>
+          <span id="product__price">4890원</span>
           <div class="price_counter">
-            <button>
+            <button type="button" id="minusBtn">
               <img src="/images/minus-button-black.svg" alt="" />
             </button>
-            <span>0</span>
-            <button>
+            <span id="product__num">0</span>
+            <button type="button" id="plusBtn">
               <img src="/images/plus-button-black.svg" alt="" />
             </button>
           </div>
