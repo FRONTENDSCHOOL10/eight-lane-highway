@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="/src/styles/style.scss" />
     <script type="module" src="/src/pages/register/register.js"></script>
     <script type="module" src="/src/pages/register/checkAll.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
   <body>
     <section class="signup-container">
       <h1>회원가입</h1>
-      <form action="" method="post" onsubmit="return sendit()">
-        <p class="text__right">필수입력사항</p>
+      <form
+        action=""
+        method="post"
+        onsubmit="return sendit()"
+        id="registerForm"
+      >
+        <p class="text__right">* 필수입력사항</p>
         <fieldset>
           <label class="label__register label__medium">아이디</label>
           <input
@@ -64,23 +70,52 @@
             placeholder="예) marketkarly@karly.com"
             id="emailField"
           />
+          <button
+            class="button__stroke button__small"
+            type="button"
+            id="checkDuplicateButton"
+          >
+            중복확인
+          </button>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">휴대폰</label>
           <input
             class="input__small input__default__text"
-            type="number"
+            type="text"
             placeholder="숫자만 입력해주세요."
             id="phoneField"
+            maxlength="12"
             required
           />
+          <button class="button__stroke button__small" type="button">
+            인증번호 받기
+          </button>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">주소</label>
-          <div class="button__container">
-            <button class="button__stroke button__medium" type="button">
+          <div class="register__address__container">
+            <input type="text" id="sample6_postcode" placeholder="우편번호" />
+            <button
+              class="button__small button__stroke"
+              type="button"
+              onclick="sample6_execDaumPostcode()"
+            >
               주소 검색
             </button>
+            <br />
+            <input
+              class="input__default__text"
+              type="text"
+              id="sample6_address"
+              placeholder="주소"
+            /><br />
+            <input
+              class="input__default__text"
+              type="text"
+              id="sample6_detailAddress"
+              placeholder="상세주소"
+            />
             <p>배송지에 따라 상품 정보가 달라질 수 있습니다.</p>
           </div>
         </fieldset>
@@ -88,12 +123,27 @@
           <label class="label__register label__medium" for="radioGender"
             >성별</label
           >
-          <input class="input__radio" type="radio" name="radioGender" />
+          <input
+            class="input__radio"
+            type="radio"
+            name="radioGender"
+            value="남자"
+          />
           <label>남자</label>
-          <input class="input__radio" type="radio" name="radioGender" />
+          <input
+            class="input__radio"
+            type="radio"
+            name="radioGender"
+            value="여자"
+          />
           <label>여자</label>
-          <input class="input__radio" type="radio" name="radioGender" />
-          <label for="">선택안함</label>
+          <input
+            class="input__radio"
+            type="radio"
+            name="radioGender"
+            value="선택안함"
+          />
+          <label for="radioGender">선택안함</label>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">생년월일</label>
@@ -107,9 +157,19 @@
         </fieldset>
         <fieldset class="form__underline">
           <label class="label__register label__medium">추가입력 사항</label>
-          <input class="input__radio" type="radio" name="radioAddInput" />
+          <input
+            class="input__radio"
+            type="radio"
+            name="radioAddInput"
+            value="친구초대"
+          />
           <label for="radioAddInput">친구초대 추천인 아이디</label>
-          <input class="input__radio" type="radio" name="radioAddInput" />
+          <input
+            class="input__radio"
+            type="radio"
+            name="radioAddInput"
+            value="참여 이벤트"
+          />
           <label for="radioAddInput">참여 이벤트명</label>
         </fieldset>
         <fieldset>
@@ -122,26 +182,30 @@
                   type="checkbox"
                   name=""
                   id="checkAllAgreement"
-                  onclick="checkAll(this)"
                 />
-                <span class="">전체 동의합니다.</span>
-                <p>
+                전체 동의합니다.
+                <p class="text__subscript">
                   선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를
                   이용할 수 있습니다.
                 </p>
               </label>
             </fieldset>
+
             <fieldset class="form__agreement__row">
               <label for="">
                 <input
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  id=""
                   required
                 />
                 이용약관 동의 (필수)
               </label>
+              <p class="text__primary__color">
+                <a href=""
+                  >약관보기 <img src="/images/icon-arrow.svg" alt="바로가기"
+                /></a>
+              </p>
             </fieldset>
             <fieldset class="form__agreement__row">
               <label for="">
@@ -149,11 +213,17 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  id=""
                   required
                 />
                 개인정보 수집・이용 동의 (필수)
               </label>
+              <p class="text__primary__color">
+                <a href=""
+                  >약관보기
+                  <span class="icon__right"
+                    ><img src="/images/icon-arrow.svg" alt="" /></span
+                ></a>
+              </p>
             </fieldset>
             <fieldset class="form__agreement__row">
               <label for="">
@@ -161,10 +231,14 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  id=""
                 />
                 무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)
               </label>
+              <p class="text__primary__color">
+                <a href=""
+                  >약관보기 <img src="/images/icon-arrow.svg" alt=""
+                /></a>
+              </p>
             </fieldset>
             <fieldset class="form__agreement__row">
               <label for="">
@@ -172,11 +246,15 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  id=""
                   required
                 />
                 본인은 만 14세 이상입니다. (필수)
               </label>
+              <p class="text__primary__color">
+                <a href=""
+                  >약관보기 <img src="/images/icon-arrow.svg" alt=""
+                /></a>
+              </p>
             </fieldset>
           </div>
         </fieldset>
@@ -188,4 +266,5 @@
       </form>
     </section>
   </body>
+  <script src="/src/pages/register/userAddress.js"></script>
 </html>

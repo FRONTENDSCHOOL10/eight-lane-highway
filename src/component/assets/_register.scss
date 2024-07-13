@@ -2,7 +2,21 @@
   .input__default__text {
     width: 333px;
   }
-  .button__container {
-    display: block;
+  .register__address__container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
+  }
+  .form__agreement {
+    width: 100%;
+
+    .form__agreement__row {
+      position: relative;
+      justify-content: space-between;
+
+      .text__subscript {
+        margin-left: 1.75rem;
+      }
+    }
   }
 }

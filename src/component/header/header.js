@@ -1,11 +1,17 @@
 import headerCss from "/src/styles/style.scss?inline";
-import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
+import {
+  addClass,
+  removeClass,
+  toggleClass,
+  insertFirst,
+} from "/src/lib/index.js";
 
-const header = document.querySelector("#header");
+const header = document.querySelector("body");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
 <style>${headerCss}</style>
+<header>
        <nav class="nav">
        <h1 class="nav__logo">
          <a href="">
@@ -42,7 +48,7 @@ headerTemplate.innerHTML = `
            <a class="is__active">마켓칼리</a>
          </li>
          <li class="nav__page__item beauty">
-           <a >뷰티칼리</a>
+           <a>뷰티칼리</a>
            <img src="/images/new.svg" alt="새로 나왔다는 표시" />
          </li>
        </ul>
@@ -58,10 +64,10 @@ headerTemplate.innerHTML = `
          </button>
        </fieldset>
        <ul class="nav__user-service">
-         <li  class="nav__user-service__item address">
+         <li class="nav__user-service__item address">
          <button type="button" aria-label="주소 정보 버튼">
          </button>
-           <dialog class="nav__user-service__item__address-modal">
+           <dialog  class="nav__user-service__item__address-modal">
              <p>
                <span>배송지를 등록하고</span><br />구매 가능한 상품을
                확인하세요!
@@ -81,7 +87,7 @@ headerTemplate.innerHTML = `
            <a href="" aria-label="장바구니"></a>
          </li>
        </ul>
-       <div class="nav__product__category" aria-label="제품 카테고리" >
+       <div open class="nav__product__category" aria-label="제품 카테고리" >
           <button type="button">카테고리</button>
          <ul class="nav__product__category__list">
            <li class="nav__product__category__item">
@@ -158,6 +164,7 @@ headerTemplate.innerHTML = `
        <a href="/" class="nav__menu__list benefits">특가/혜택</a>
        <p href="/" class="delivery"><span>샛별·하루</span> 배송안내</p>
      </nav>
+     </header>
 `;
 
 export class Header extends HTMLElement {
@@ -165,7 +172,12 @@ export class Header extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
+    // headerTemplate의 콘텐츠를 Shadow DOM의 시작 부분에 추가
+    this.shadowRoot.insertBefore(
+      headerTemplate.content.cloneNode(true),
+      this.shadowRoot.firstChild
+    );
+    // insertFirst("body", headerTemplate.content.cloneNode(true).innerHTML);
 
     // nav
     this.nav = this.shadowRoot.querySelector(".nav");
@@ -193,7 +205,7 @@ export class Header extends HTMLElement {
   }
   connectedCallback() {
     // customerService modal 마우스이벤트
-    this.customerService.addEventListener("mouseover", () => {
+    this.customerService.addEventListener("mouseenter", () => {
       addClass(this.customerServiceModal, "is__show");
     });
     this.customerService.addEventListener("mouseleave", () => {
@@ -224,12 +236,20 @@ export class Header extends HTMLElement {
     });
 
     // address modal 마우스이벤트
-    // this.address.addEventListener("mouseover", () => {
-    //   addClass(this.addressModal, "is__show");
-    // });
-    // this.address.addEventListener("mouseleave", () => {
-    //   removeClass(this.addressModal, "is__show");
-    // });
+    this.address.addEventListener("mouseover", (e) => {
+      addClass(this.addressModal, "is__show");
+      e.currentTarget.style.backgroundColor = "#5f0080";
+      e.currentTarget.style.maskImage = "url('/images/icon-header.png')";
+      e.currentTarget.style.maskPosition = "-10px -137px";
+      this.addressModal.open = true;
+    });
+    this.address.addEventListener("mouseout", (e) => {
+      e.currentTarget.style.backgroundColor = "#fff";
+      e.currentTarget.style.backgroundImage = "url('/images/icon-header.png')";
+      e.currentTarget.style.maskImage = "";
+      e.currentTarget.style.backgroundPosition = "-10px -137px";
+      this.addressModal.open = false;
+    });
     // address modal 키보드이벤트
     this.address.addEventListener("keydown", (e) => {
       if (e.keyCode == 32) {
@@ -239,7 +259,7 @@ export class Header extends HTMLElement {
     });
 
     // categoryTitle 마우스 이벤트
-    this.categoryTitle.addEventListener("mouseover", () => {
+    this.categoryTitle.addEventListener("mouseenter", () => {
       addClass(this.categoryList, "is__show");
     });
     this.categoryTitle.addEventListener("mouseleave", () => {
