@@ -4,6 +4,7 @@ import {
   addClass,
   removeClass,
   insertLast,
+  formatPrice,
 } from "/src/lib/index.js";
 import getPbImageURL from "/src/api/getPbImageURL";
 import PocketBase from "pocketbase";
@@ -51,12 +52,6 @@ function checkNavigation(swiper) {
   } else {
     removeClass(prev, "is__hide");
   }
-}
-
-// 3자리마다 컴마와 1원단위 삭제
-function formatPrice(price) {
-  const roundedPrice = Math.floor(price / 10) * 10;
-  return roundedPrice.toLocaleString();
 }
 
 async function renderProductItem() {
