@@ -15,7 +15,7 @@ const itemContainer = getNode(".swiper-wrapper");
 const menuContainer = getNode(".product-menu-item");
 
 // 스와이퍼 생성
-const swiper = new Swiper(".swiper-container", {
+const swiper = new Swiper(".recent-product-container", {
   direction: "vertical",
   navigation: {
     nextEl: ".swiper-button-next",
