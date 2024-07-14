@@ -92,3 +92,11 @@
   transform: translate(-50%, -50%);
   background-color: $white;
 }
+
+.basket-container__price__container__bonus{
+  align-items: center;
+
+  p{
+    border-radius: 0;
+  }
+}
