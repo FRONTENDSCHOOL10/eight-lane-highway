@@ -78,6 +78,7 @@ async function getCartAddedProducts() {
     new AgreementManager("#selectAll", "accordion__input");
     new AgreementManager("#selectAll2", "accordion__input");
     countNumber();
+    getCheckedItems();
   }
 }
 
@@ -127,6 +128,7 @@ class AgreementManager {
     this.checkAllElement.checked = allChecked;
   }
 }
+
 // // 위아래 체크 박스 동기화
 function syncCheckBox(checkBox) {
   const checkAllBoxes = document.querySelectorAll(checkBox);
@@ -185,6 +187,19 @@ function countNumber() {
       counterElement.textContent = count;
       priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
       priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
+    });
+  });
+}
+
+// 선택항목 삭제함수
+function getCheckedItems() {
+  const deleteSelected = getNode(".checkbox__delete");
+  const checkedCheckboxes = document.getElementsByName("accordion__input");
+  const template = getNode(".food-type__accordion");
+
+  deleteSelected.addEventListener("click", () => {
+    checkedCheckboxes.forEach((checkBox) => {
+      if (checkBox.checked) template.remove();
     });
   });
 }
