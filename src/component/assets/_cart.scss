@@ -158,8 +158,6 @@
     @include flexSet(column, center, end, 0);
 
     &__value {
-    }
-    &__discount {
       @include font($gray400, 0.875rem, 600, 170%);
       text-decoration: line-through;
     }

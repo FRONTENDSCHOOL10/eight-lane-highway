@@ -1,5 +1,5 @@
 .basket-container {
-  @include size(356px, auto);
+  @include size(396px, auto);
   @include flexAll($fd: column, $gap: 28px);
   border-radius: 16px;
   box-shadow: 0px 8px 36px 0px rgba(0, 0, 0, 0.2);
@@ -11,26 +11,14 @@
     width: 100%;
 
     p {
-      color: $black;
       margin-bottom: 12px;
-
-      font-family: Pretendard;
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 150%;
+      @include font($color: $black, $fs: 1rem, $fw: 600, $lh: 150%);
     }
 
     &__box {
       @include flexAll($jc: space-between, $at: center);
       span {
-        color: $black;
-
-        font-family: Pretendard;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 150%;
+        @include font($color: $black, $fs: 1rem, $fw: 600, $lh: 150%);
       }
     }
   }
@@ -43,33 +31,17 @@
       @include flexAll($jc: space-between);
       margin-bottom: 2px;
       span {
-        color: $darkBlack;
-        font-family: Pretendard;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 150%;
+        @include font($color: $darkBlack, $fs: 1rem, $fw: 600, $lh: 150%);
       }
       #total {
-        color: $darkBlack;
-        font-family: Pretendard;
-        font-size: 28.43px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 140%;
+        @include font($color: $darkBlack, $fs: 1.75rem, $fw: 700, $lh: 140%);
       }
     }
     &__bonus {
       @include flexAll($jc: right);
       span {
         text-align: right;
-        color: #000;
-
-        font-family: Pretendard;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 150%;
+        @include font($color: $darkBlack, $fs: 1rem, $fw: 600, $lh: 150%);
       }
     }
   }
@@ -78,6 +50,7 @@
 
   &__btn_container {
     @include flexAll($jc: space-between, $gap: 8px);
+    width: 100%;
 
     &__items {
       @include flexAll();
@@ -99,5 +72,31 @@
       width: 100%;
       vertical-align: middle;
     }
+  }
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal .modal_popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+}
+
+.basket-container__price__container__bonus{
+  align-items: center;
+
+  p{
+    border-radius: 0;
   }
 }
