@@ -268,14 +268,33 @@
 // 적립부분
 .point__container {
   @include flexSet(row, flex-end, center, 4px);
+
   // 뱃지 기존 스타일  border-radius 수정
   .point-badge {
     border-radius: 0;
+    display: none;
+    &.is__show {
+      display: block;
+    }
   }
   // 적립율 상세
   .point-rate {
     @include font($black, 0.75rem, 600, 150%);
     color: $black;
+    display: none;
+
+    &.is__show {
+      display: block;
+    }
+  }
+}
+
+// 로그아웃 상태
+.point-rate__unlogin {
+  @include font($black, 0.75rem, 600, 150%);
+  color: $black;
+  &.is__hide {
+    display: none;
   }
 }
 

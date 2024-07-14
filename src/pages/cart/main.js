@@ -4,10 +4,12 @@ import {
   addClass,
   formatPrice,
   getNode,
+  getNodes,
   getStorage,
   insertAfter,
   insertLast,
   isString,
+  removeClass,
   toggleClass,
 } from "../../lib";
 
@@ -78,7 +80,8 @@ async function getCartAddedProducts() {
     new AgreementManager("#selectAll", "accordion__input");
     new AgreementManager("#selectAll2", "accordion__input");
     countNumber();
-    getCheckedItems();
+    deleteSelected();
+    deleteItem();
   }
 }
 
@@ -90,11 +93,17 @@ document.addEventListener("DOMContentLoaded", getCartAddedProducts);
 async function isLogin() {
   const auth = await getStorage("auth");
   const adress = getNode(".adress__client-adress");
+  const badge = getNode(".point-badge");
+  const rate = getNode(".point-rate");
+  const rateUnlogin = getNode(".point-rate__unlogin");
 
   if (auth && auth.isLogin) {
     addClass(adressBox, "is__show");
     orderButton.textContent = "주문하기";
     adress.textContent = `${auth.userInfo.address}`;
+    addClass(badge, "is__show");
+    addClass(rate, "is__show");
+    addClass(rateUnlogin, "is__hide");
   }
 }
 
@@ -199,15 +208,30 @@ function countNumber() {
   });
 }
 
-// 선택항목 삭제함수
-function getCheckedItems() {
-  const deleteSelected = getNode(".checkbox__delete");
-  const checkedCheckboxes = document.getElementsByName("accordion__input");
-  const template = getNode(".food-type__accordion");
+// 선택항목 삭제 함수
+function deleteSelected() {
+  const templates = getNodes(".food-type__accordion");
 
-  deleteSelected.addEventListener("click", () => {
-    checkedCheckboxes.forEach((checkBox) => {
-      if (checkBox.checked) template.remove();
+  templates.forEach((item) => {
+    const deleteButton = item.querySelector(".food-type__accordion__delete");
+    deleteButton.addEventListener("click", () => {
+      item.remove();
+    });
+  });
+}
+
+// 항목 개별 삭제 함수
+function deleteItem() {
+  const deleteButton = getNode(".checkbox__delete");
+  const checkboxes = document.getElementsByName("accordion__input");
+  deleteButton.addEventListener("click", () => {
+    Array.from(checkboxes).forEach((checkBox) => {
+      if (checkBox.checked) {
+        const item = checkBox.closest(".food-type__accordion");
+        if (item) {
+          item.remove();
+        }
+      }
     });
   });
 }
