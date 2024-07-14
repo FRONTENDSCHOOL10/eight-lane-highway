@@ -87,10 +87,18 @@ document.addEventListener("DOMContentLoaded", getCartAddedProducts);
 // 로그인 됐을때 로그인 버튼에서 => 주문하기로 변경
 // 로그인 됐을때 배송지 안보임 => 고객 배송지 정보 받아오기
 // isAuth = false
-if (false) {
-  addClass(adressBox, "is__show");
-  orderButton.textContent = "주문하기";
+async function isLogin() {
+  const auth = await getStorage("auth");
+  const adress = getNode(".adress__client-adress");
+
+  if (auth && auth.isLogin) {
+    addClass(adressBox, "is__show");
+    orderButton.textContent = "주문하기";
+    adress.textContent = `${auth.userInfo.address}`;
+  }
 }
+
+document.addEventListener("DOMContentLoaded", isLogin);
 
 // 체크박스 전체선택 관련 함수
 // 전체선택 관련 함수
