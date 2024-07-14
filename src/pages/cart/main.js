@@ -39,7 +39,7 @@ async function getCartAddedProducts() {
       const templete = ` <div class="food-type__accordion" ><input
       type="checkbox"
       id="cartAddedSelect"
-      class="food-type__accordion__input" />
+      class="food-type__accordion__input"  name="accordion__input" />
     <img src="${getPbImageURL(
       data
     )}" alt="" class="food-type__accordion__img" />
@@ -75,12 +75,12 @@ async function getCartAddedProducts() {
         insertAfter(AccordRoomTemp, templete);
       }
     }
+    new AgreementManager("#selectAll", "accordion__input");
+    new AgreementManager("#selectAll2", "accordion__input");
   }
 }
 
-getCartAddedProducts();
-
-// document.addEventListener("DOMContentLoaded", getCartAddedProducts);
+document.addEventListener("DOMContentLoaded", getCartAddedProducts);
 
 // 로그아웃 상태일 경우
 // 로그인 버튼 뜨고 배송지 정보 안뜨게
@@ -89,3 +89,60 @@ if (false) {
   addClass(adressBox, "is__show");
   orderButton.textContent = "주문하기";
 }
+
+// 체크박스 전체선택 관련 함수
+// 전체선택 관련 함수
+class AgreementManager {
+  constructor(checkAllSelector, checkItemSelector) {
+    this.checkAllElement = document.querySelector(checkAllSelector);
+    this.checkItemElements = document.getElementsByName(checkItemSelector);
+
+    if (this.checkAllElement && this.checkItemElements.length > 0) {
+      this.init();
+    } else {
+      console.warn(
+        "AgreementManager: Required elements are not found on the page."
+      );
+    }
+  }
+
+  init() {
+    this.checkAllElement.addEventListener("change", () => this.checkAll());
+    Array.from(this.checkItemElements).forEach((checkItem) => {
+      checkItem.addEventListener("change", () => this.updateCheckAll());
+    });
+  }
+
+  checkAll() {
+    Array.from(this.checkItemElements).forEach((checkItem) => {
+      checkItem.checked = this.checkAllElement.checked;
+    });
+  }
+
+  updateCheckAll() {
+    const allChecked = Array.from(this.checkItemElements).every(
+      (checkItem) => checkItem.checked
+    );
+    this.checkAllElement.checked = allChecked;
+  }
+}
+// // 위아래 체크 박스 동기화
+function syncCheckBox(checkBox) {
+  const checkAllBoxes = document.querySelectorAll(checkBox);
+
+  checkAllBoxes.forEach((box) => {
+    box.addEventListener("change", () => {
+      syncCheckAllBoxes(box.checked);
+    });
+  });
+
+  function syncCheckAllBoxes(isChecked) {
+    checkAllBoxes.forEach((box) => {
+      box.checked = isChecked;
+    });
+  }
+}
+document.addEventListener(
+  "DOMContentLoaded",
+  syncCheckBox(".checkbox__check-all__box")
+);
