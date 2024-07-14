@@ -47,20 +47,20 @@ async function getCartAddedProducts() {
       >${data.name}</label
     >
     <div class="food-type__accordion__count price_counter">
-      <button>
+      <button type="button" class="minus-button">
         <img src="/images/minus-button-black.svg" alt="" />
       </button>
-      <span>0</span>
-      <button>
+      <span class="counter">0</span>
+      <button type="button" class="plus-button">
         <img src="/images/plus-button-black.svg" alt="" />
       </button>
     </div>
 
     <span class="food-type__accordion__price">
-    <span class="food-type__accordion__price__value">${formatPrice(
+    <span class="food-type__accordion__price__discount">${formatPrice(
       data.price * ((100 - data.discount) / 100)
     )}원</span>
-    <span class="food-type__accordion__price__discount">${formatPrice(
+    <span class="food-type__accordion__price__value">${formatPrice(
       data.price
     )}원</span>
     </span>
@@ -77,13 +77,14 @@ async function getCartAddedProducts() {
     }
     new AgreementManager("#selectAll", "accordion__input");
     new AgreementManager("#selectAll2", "accordion__input");
+    countNumber();
   }
 }
 
 document.addEventListener("DOMContentLoaded", getCartAddedProducts);
 
-// 로그아웃 상태일 경우
-// 로그인 버튼 뜨고 배송지 정보 안뜨게
+// 로그인 됐을때 로그인 버튼에서 => 주문하기로 변경
+// 로그인 됐을때 배송지 안보임 => 고객 배송지 정보 받아오기
 // isAuth = false
 if (false) {
   addClass(adressBox, "is__show");
@@ -146,3 +147,44 @@ document.addEventListener(
   "DOMContentLoaded",
   syncCheckBox(".checkbox__check-all__box")
 );
+
+// 수량 변경 및 가격변경 함수 (랜더링되고 나서 실행)
+function countNumber() {
+  const counterSets = document.querySelectorAll(".food-type__accordion");
+
+  counterSets.forEach((set) => {
+    const counterElement = set.querySelector(".counter");
+    const minusButton = set.querySelector(".minus-button");
+    const plusButton = set.querySelector(".plus-button");
+    const priceValue = set.querySelector(".food-type__accordion__price__value");
+    const priceDiscount = set.querySelector(
+      ".food-type__accordion__price__discount"
+    );
+    // 받은 가격 원단위, 숫자단위 떼기
+    function valueTrimmed(value) {
+      return value.textContent
+        .substr(0, value.textContent.length - 1)
+        .replace(",", "");
+    }
+    const dataPrice = valueTrimmed(priceValue);
+    const dataDiscount = valueTrimmed(priceDiscount);
+
+    let count = Number(counterElement.textContent);
+
+    minusButton.addEventListener("click", () => {
+      if (count > 0) {
+        count--;
+        counterElement.textContent = count;
+        priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
+        priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
+      }
+    });
+
+    plusButton.addEventListener("click", () => {
+      count++;
+      counterElement.textContent = count;
+      priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
+      priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
+    });
+  });
+}
