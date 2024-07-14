@@ -19,4 +19,15 @@
       }
     }
   }
+  .register__container {
+    position: relative;
+    width: 100%;
+
+    .register__result {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 149px;
+    }
+  }
 }
