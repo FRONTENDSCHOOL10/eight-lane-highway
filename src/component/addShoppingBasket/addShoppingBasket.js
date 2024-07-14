@@ -1,20 +1,16 @@
 import PocketBase from 'pocketbase';
-import {insertLast} from '/src/lib/dom/index'
+import { insertLast } from '/src/lib/dom/index'
+import { setStorage } from '/src/lib/utils/storage';
 
 const pb = new PocketBase('https://eight-lane-highway.pockethost.io/');
 
-const counterButton = document.querySelector(".price_counter");
-const productPrice = document.getElementById("product__price");
-const countProductNum = document.getElementById("product__num");
-const totalProduct = document.getElementById("total");
-
 const popup = document.querySelector('.modal');
-const cancelButton = document.querySelector('.cancel');
 const button = document.getElementById('button');
+console.log(button)
 
-
-async function renderAddShoppingCart(){
-  const productItem = await pb.collection('products').getOne('4tswqr13jklyoem');
+// 템플릿 생성 함수
+async function renderAddShoppingCart(productId){
+  const productItem = await pb.collection('products').getOne(productId);
 
   const templete = `
       <section class="basket-container modal_popup">
@@ -38,18 +34,19 @@ async function renderAddShoppingCart(){
           <span>합계</span>
           <span id="total">${productItem.price}원</span>
         </div>
-        <div class="basket-container__price__container__bonus">
+        <div class="basket-container__price__container__bonus badge__group">
+          <p class="badge__accent">적립</p>
           <span>구매시 5원 적립</span>
         </div>
       </article>
       <ul class="basket-container__btn_container">
         <li class="basket-container__btn_container__items">
-          <button class="button__stroke__gray button__large__basket cancel">
+          <button type="button" class="button__stroke__gray button__large__basket cancel">
             취소
           </button>
         </li>
         <li class="basket-container__btn_container__items">
-          <button class="button__fill button__large__basket">
+          <button type='submit' class="button__fill button__large__basket add__cart">
             장바구니 담기
           </button>
         </li>
@@ -57,50 +54,76 @@ async function renderAddShoppingCart(){
     </section>
   `
   insertLast(popup, templete);
+
+  const counterButton = document.querySelector(".price_counter");
+  const cancelButton = document.querySelector('.cancel');
+  const addCartButton = document.querySelector('.add__cart');
+  const countProductNum = document.getElementById("product__num");
+  const totalProduct = document.getElementById("total");
+
+  counterButton.addEventListener("click", handleCounterProduct(countProductNum, productItem.price, totalProduct));
+  cancelButton.addEventListener('click', closeCartPopUp);
+  addCartButton.addEventListener('click', handleAddCart(productItem.id));
 }
 
-renderAddShoppingCart()
+// 상품 갯수 별 가격 증가 / 감소 함수
+function handleCounterProduct(countNode, price, resultNode){
+  return function(e){
+    const target = e.target.closest("button");
 
+      if (!target) return;
+    
+      if (target.id === "plusBtn") {
+        countNode.textContent = parseInt(countNode.textContent) + 1;
+        resultNode.textContent = parseInt(resultNode.textContent) + price + "원";
+      } 
+      else if (target.id === "minusBtn") {
+        if(parseInt(countNode.textContent) <= 0 )
+          {
+            alert('상품 개수가 0보다 작으면 안됩니다!');
+            countNode.textContent = 1;
+            resultNode.textContent =price + '원';
+            return;
+          }
+        countNode.textContent = parseInt(countNode.textContent) - 1;
+        resultNode.textContent = parseInt(resultNode.textContent) - price + '원';
+      }
+  }
+}
 
-// function handleCounterProduct(e) {
-//   e.preventDefault();
+// 로컬스토리지에 장바구니 항목 추가 함수
+function handleAddCart(id){
+  return function(e){
+    e.preventDefault();
 
-//   const target = e.target.closest("button");
+    let productNum = document.querySelector('#product__num').textContent;
+    
+    setStorage('cartItems', {productID:id, quantity: productNum});
 
-//   if (!target) return;
+    closeCartPopUp(e);
 
-//   if (target.id === "plusBtn") {
-//     countProductNum.textContent = parseInt(countProductNum.textContent) + 1;
-//     totalProduct.textContent = parseInt(totalProduct.textContent) + parseInt(productPrice.textContent) + "원";
-//   } 
-//   else if (target.id === "minusBtn") {
-//     if(parseInt(countProductNum.textContent) <= 0 )
-//       {
-//         alert('상품 개수가 0보다 작으면 안됩니다!');
-//         countProductNum.textContent = 1;
-//         totalProduct.textContent = 4980 + '원';
-//         return;
-//       }
-//     countProductNum.textContent = parseInt(countProductNum.textContent) - 1;
-//     totalProduct.textContent = parseInt(totalProduct.textContent) - parseInt(productPrice.textContent) + '원';
-//   }
-// }
+  }
+}
+
 
 // 팝업 관련 함수
-function openCartPopUp(e){
-  e.preventDefault();
+function openCartPopUp(productID){
+  return function(e){
+    e.preventDefault();
+  
+    renderAddShoppingCart(productID);
 
-  popup.style.display = 'flex';
-  document.body.style.overflow = 'hidden'; // 팝업 모달 여는 동안 스크롤 못하게 하도록 함
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // 팝업 모달 여는 동안 스크롤 못하게 하도록 함
+  }
 }
 
 function closeCartPopUp(e){
   e.preventDefault();
 
+  popup.textContent = '';
   popup.style.display = 'none';
   document.body.style.overflow = 'visible';
 }
 
-// counterButton.addEventListener("click", handleCounterProduct);
-button.addEventListener('click', openCartPopUp);
-cancelButton.addEventListener('click', closeCartPopUp);
+button.addEventListener('click', openCartPopUp('y8ph7c6xshyxfct'));
