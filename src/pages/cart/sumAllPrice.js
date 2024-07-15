@@ -72,7 +72,7 @@ export function updateSumAllPrice() {
     ).textContent = `${formatPrice(estimatedPrice + 3000)}`;
     document.querySelector(
       ".price__group__delivery"
-    ).textContent = `${formatPrice(3000)}`;
+    ).textContent = `+${formatPrice(3000)}`;
   }
 }
 
