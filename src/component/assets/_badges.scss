@@ -5,11 +5,12 @@
 
 .badge {
   background-color: $gray100;
-  padding: 4px;
+  padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   @include font($fs: 0.75rem, $fw: 600);
+  margin-right: 6px;
 
   &__karly {
     color: $primaryColor;
@@ -20,9 +21,21 @@
   &__accent {
     background-color: $accentColor;
     color: $white;
-    padding: 4px 8px;
     border-radius: 12px;
     font-size: 0.625rem;
     margin-right: 6px;
+  }
+  &__secondary {
+    background-color: $secondaryColor;
+    border-radius: 1px;
+    color: $white;
+    padding: 3px 8px;
+  }
+  &__primary {
+    &__outline {
+      padding: 2px 8px;
+      background-color: $white;
+      border: 1px solid $primaryColor;
+    }
   }
 }

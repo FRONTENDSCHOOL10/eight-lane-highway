@@ -90,26 +90,27 @@
       }
     }
   }
-  &__detail__review {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 1050px;
-    margin: 0 auto;
-
-    .product__review {
-      &__container {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-    .button__container {
+  &__detail {
+    &__review {
       display: flex;
+      flex-direction: column;
       gap: 16px;
+      width: 1050px;
+      margin: 0 auto;
+
+      .product__review {
+        &__container {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      .button__container {
+        display: flex;
+        gap: 16px;
+      }
     }
   }
 }
-
 .product__info__table {
   width: 100%;
   table-layout: fixed;
@@ -159,5 +160,12 @@
   }
   &.product__table__detail {
     max-width: none;
+    tr {
+      &:first-child {
+        td {
+          border-top: 1px solid $black;
+        }
+      }
+    }
   }
 }
