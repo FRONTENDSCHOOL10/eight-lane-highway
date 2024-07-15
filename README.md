@@ -207,6 +207,7 @@
 - public/images: checkpoint.png, jjolmeon-detail-info.png, jjolmeon.png 추가
 
 **김한울**
+
 - **김한울**
 
 - public/images/icon-minus-active.svg,
@@ -263,3 +264,30 @@
 - 핸드폰 번호 유효성 검사
 - 이메일 검사
 - 회원가입 페이지 스타일링 수정
+
+## 2024-07-14
+
+**오성훈**
+
+- component/addShoppingBasket/addShoppingBasket.html: 팝업을 위한 일부 마크업 수정
+- assets/addShoppingBasket.scss:
+  - 믹스인 안에 있는 font 믹스인으로 폰트 수정
+  - 팝업을 위한 스타일링 추가
+- component/addShoppingBasket/addShoppingBasket.js
+  - 장바구니 추가에 + / - 버튼 클릭 시 숫자가 변동되도록 함
+  - 장바구니 추가에 + / - 버튼 클릭 시 숫자 변동에 따른 총 합 변동하게 하기
+  - 팝업을 열고 닫는 함수 추가
+  - 포켓호스트 SDK를 사용하여 상품 정보를 서버에서 받아올 수 있도록 수정
+
+## 2024-07-15
+
+**김한울**
+
+- src/pages/product-detail/product-detail.html: 상품 상세페이지 추가
+- src/component/header/header.js: 주석 추가
+- src/pages/register/emailCheck.js: 이메일 체크 함수 분리
+- src/pages/register/idCheck.js: 아이디 체크 함수 분리
+- src/pages/register/passwordCheck.js: 비번 체크 함수 분리
+- src/pages/register/index.html: 회원가입 페이지 컨테이너 클래스 추가
+- src/pages/register/register.js: 함수 분리
+- src/component/assets/\_register.scss: 회원가입 스타일링

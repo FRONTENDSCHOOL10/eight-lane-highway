@@ -3,23 +3,6 @@ import PocketBase from "pocketbase";
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
 document
-  .getElementById("checkDuplicateButton")
-  .addEventListener("click", async function () {
-    const email = document.getElementById("emailField").value;
-    if (email === "") {
-      alert("이메일을 입력하세요");
-      return;
-    }
-
-    const isUnique = await isEmailUnique(email);
-    if (isUnique) {
-      alert("사용 가능한 이메일입니다.");
-    } else {
-      alert("이미 사용 중인 이메일입니다.");
-    }
-  });
-
-document
   .getElementById("registerForm")
   .addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -121,21 +104,6 @@ async function sendit() {
   }
 
   return true;
-}
-
-async function isEmailUnique(email) {
-  try {
-    const result = await pb
-      .collection("users")
-      .getFirstListItem(`email="${email}"`);
-    return !result; // 이메일이 없으면 true 반환
-  } catch (error) {
-    if (error.status === 404) {
-      return true; // 이메일이 없으면 사용 가능
-    }
-    console.error("Error checking email uniqueness:", error);
-    return false;
-  }
 }
 
 document.getElementById("phoneField").addEventListener("keydown", function (e) {
