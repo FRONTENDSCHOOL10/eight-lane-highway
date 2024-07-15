@@ -251,11 +251,18 @@ function updateSelectedCount() {
 
 // 전체 상품 갯수 랜더링 및 상품 선택시 선택된 상품 갯수 업데이트
 function countChange() {
-  const inputBox = getNodes(".food-type__accordion__input");
+  const templates = getNodes(".food-type__accordion");
   const checkboxes = Array.from(getNodes(".food-type__accordion__input"));
   const checked = getNode(".checkbox__check-all__label");
   checked.textContent = `전체선택 (0/${checkboxes.length})`;
-  Array.from(inputBox).forEach((checkbox) => {
-    checkbox.addEventListener("change", updateSelectedCount);
+  Array.from(templates).forEach((checkbox) => {
+    const inputBox = checkbox.querySelector(".food-type__accordion__input");
+    const deleteButton = checkbox.querySelector(
+      ".food-type__accordion__delete"
+    );
+    const checkAllInput = document.querySelector("#selectAll");
+    inputBox.addEventListener("change", updateSelectedCount);
+    deleteButton.addEventListener("click", updateSelectedCount);
+    checkAllInput.addEventListener("change", updateSelectedCount);
   });
 }
