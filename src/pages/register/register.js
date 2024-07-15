@@ -23,6 +23,7 @@ document
     const userChoice = document.querySelector(
       'input[name="radioAddInput"]:checked'
     ).value;
+    const adAllow = document.getElementById("addAllow").value;
 
     try {
       const data = {
@@ -35,6 +36,7 @@ document
         gender: userGender,
         birth: userBirth,
         choice: userChoice,
+        adAllow: adAllow,
       };
 
       const record = await pb.collection("users").create(data);
