@@ -1,4 +1,4 @@
-const swiper = new Swiper(".swiper", {
+const swiper = new Swiper(".banner .swiper", {
   loop: true,
   autoplay: true,
 });

@@ -1,12 +1,6 @@
 import headerCss from "/src/styles/style.scss?inline";
-import {
-  addClass,
-  removeClass,
-  toggleClass,
-  insertFirst,
-} from "/src/lib/index.js";
+import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
 
-const header = document.querySelector("body");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
@@ -49,7 +43,6 @@ headerTemplate.innerHTML = `
          </li>
          <li class="nav__page__item beauty">
            <a>뷰티칼리</a>
-           <img src="/images/new.svg" alt="새로 나왔다는 표시" />
          </li>
        </ul>
        <fieldset class="nav__search-box">
@@ -67,7 +60,7 @@ headerTemplate.innerHTML = `
          <li class="nav__user-service__item address">
          <button type="button" aria-label="주소 정보 버튼">
          </button>
-           <dialog  class="nav__user-service__item__address-modal">
+           <dialog class="nav__user-service__item__address-modal">
              <p>
                <span>배송지를 등록하고</span><br />구매 가능한 상품을
                확인하세요!
@@ -177,10 +170,10 @@ export class Header extends HTMLElement {
       headerTemplate.content.cloneNode(true),
       this.shadowRoot.firstChild
     );
-    // insertFirst("body", headerTemplate.content.cloneNode(true).innerHTML);
 
     // nav
-    this.nav = this.shadowRoot.querySelector(".nav");
+    this.header = this.shadowRoot.querySelector("header");
+    this.nav = this.header.querySelector(".nav");
     // 마켓칼리, 뷰티칼리 페이지 버튼
     this.pageList = this.nav.querySelector(".nav__page");
 
@@ -192,7 +185,7 @@ export class Header extends HTMLElement {
     );
 
     // 주소표시 svg
-    this.address = this.nav.querySelector(".address");
+    this.address = this.nav.querySelector(".nav__user-service > .address");
     // 주소표시 svg 호버시 나올 모달창
     this.addressModal = this.nav.querySelector(
       ".nav__user-service__item__address-modal"
@@ -236,19 +229,11 @@ export class Header extends HTMLElement {
     });
 
     // address modal 마우스이벤트
-    this.address.addEventListener("mouseover", (e) => {
-      addClass(this.addressModal, "is__show");
-      e.currentTarget.style.backgroundColor = "#5f0080";
-      e.currentTarget.style.maskImage = "url('/images/icon-header.png')";
-      e.currentTarget.style.maskPosition = "-10px -137px";
-      this.addressModal.open = true;
+    this.address.addEventListener("mouseenter", () => {
+      this.addressModal.show();
     });
-    this.address.addEventListener("mouseout", (e) => {
-      e.currentTarget.style.backgroundColor = "#fff";
-      e.currentTarget.style.backgroundImage = "url('/images/icon-header.png')";
-      e.currentTarget.style.maskImage = "";
-      e.currentTarget.style.backgroundPosition = "-10px -137px";
-      this.addressModal.open = false;
+    this.address.addEventListener("mouseleave", () => {
+      this.addressModal.close();
     });
     // address modal 키보드이벤트
     this.address.addEventListener("keydown", (e) => {
@@ -257,7 +242,6 @@ export class Header extends HTMLElement {
         toggleClass(this.addressModal, "is__show");
       }
     });
-
     // categoryTitle 마우스 이벤트
     this.categoryTitle.addEventListener("mouseenter", () => {
       addClass(this.categoryList, "is__show");
@@ -274,18 +258,14 @@ export class Header extends HTMLElement {
     });
     function handleScroll() {
       if (window.scrollY > 30) {
-        addClass(this.nav, "is__scroll");
+        addClass(this.header, "is__scroll");
       } else if (window.scrollY < 30) {
-        removeClass(this.nav, "is__scroll");
+        removeClass(this.header, "is__scroll");
       }
     }
 
     window.addEventListener("scroll", handleScroll.bind(this));
   }
 }
-
-customElements.define("c-header", Header);
-const cHeader = document.createElement("c-header");
-header.append(cHeader);
 
 // input 입력시 button 클릭하면 input text 초기화 추가하기
