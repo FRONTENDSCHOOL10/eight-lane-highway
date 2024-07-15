@@ -5,8 +5,7 @@ import {
   toggleClass,
   insertFirst,
 } from "/src/lib/index.js";
-// @희재님 여기를 헤더로 바꿔줘야 상품 상세페이지에서 header가 정상노출되는데 확인 부탁드립니다!
-const header = document.querySelector("body");
+
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
