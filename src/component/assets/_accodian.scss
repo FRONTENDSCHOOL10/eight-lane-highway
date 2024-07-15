@@ -1,5 +1,5 @@
 .accodian__menu {
-  width: 250px;
+  width: 260px;
 
   &__main {
     @include flexAll($fd: column);
@@ -18,15 +18,19 @@
         div {
           @include font($color: $black, $fw: 600, $lh: 150%);
         }
+
+        img {
+          transition: transform 0.3s ease;
+        }
       }
     }
   }
 }
 
 .accodian__sub {
-  margin: 20px 8px 4px;
+  margin: 20px 0px 4px;
   width: 100%;
-  @include flexAll($fd: column, $at: center);
+  display: none;
 
   &__items {
     width: 100%;
@@ -54,14 +58,23 @@
     &__info__more {
       width: 100%;
       @include font($color: $gray300, $fs: 0.75rem, $fw: 600, $lh: 150%);
-      @include flexAll($jc:center, $at:center);
+      @include flexAll($jc: center, $at: center);
       cursor: pointer;
     }
   }
 }
 
-.filter{
-  button{
+.filter {
+  button {
     @include font($color: $gray300, $fs: 0.625rem, $fw: 600, $lh: 160%);
   }
+}
+
+.is__clicked {
+  @include flexAll($fd: column, $at: center);
+  border: none;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/style.scss" />
+    <script type="module" src="/src/component/accodian/accodian.js"></script>
     <title>아코디언 확인</title>
   </head>
   <body>
     <article class="accodian__menu">
       <ul class="accodian__menu__main">
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title filter">
+          <div class="accodian__menu__main__items__title filter" data-index="0">
             <div>필터</div>
             <button>초기화</button>
           </div>
@@ -18,15 +19,7 @@
         <li class="accodian__menu__main__items">
           <div class="accodian__menu__main__items__title">
             <div>카테고리</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">샐러드 · 간편식</label><span>0</span></div></li>
@@ -43,17 +36,9 @@
           </ul>
         </li>
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title">
+          <div class="accodian__menu__main__items__title" data-index="1">
             <div>브랜드</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">풀무원</label><span>0</span></div></li>
@@ -67,17 +52,9 @@
           </ul>
         </li>
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title">
+          <div class="accodian__menu__main__items__title" data-index="2">
             <div>가격</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info" ><input class="input__checkbox" type="checkbox" /><label for="">6,900원 미만</label><span>0</span></div></li>
@@ -90,15 +67,7 @@
         <li class="accodian__menu__main__items">
           <div class="accodian__menu__main__items__title">
             <div>배송</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub"> 
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">샛별배송</label><span>0</span></div></li>
@@ -107,17 +76,9 @@
           </ul>
         </li>
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title">
+          <div class="accodian__menu__main__items__title" data-index="3">
             <div>유형</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">Kurly Only</label><span>0</span></div></li>
@@ -126,17 +87,9 @@
           </ul>
         </li>
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title">
+          <div class="accodian__menu__main__items__title" data-index="4">
             <div>혜택</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">할인상품</label><span>0</span></div></li>
@@ -145,17 +98,9 @@
           </ul>
         </li>
         <li class="accodian__menu__main__items">
-          <div class="accodian__menu__main__items__title">
+          <div class="accodian__menu__main__items__title" data-index="5">
             <div>특정상품 제외</div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M5 11L9 7L13 11" stroke="#999999" stroke-width="1.2" />
-            </svg>
+            <img src="/images/upper.svg" alt="위 화살표" />
           </div>
           <ul class="accodian__sub">
             <li class="accodian__sub__items"><div class="accodian__sub__items__info"><input class="input__checkbox" type="checkbox" /><label for="">반려동물 상품</label><span>0</span></div></li>
