@@ -17,8 +17,8 @@ const swiper = new Swiper(".product-slide2 .swiper-container", {
   slidesPerGroup: 4,
   spaceBetween: 18,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".product-slide2 .swiper-button-next",
+    prevEl: ".product-slide2 .swiper-button-prev",
   },
   on: {
     init: function () {
