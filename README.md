@@ -303,3 +303,15 @@
 - src/pages/register/index.html: 회원가입 페이지 컨테이너 클래스 추가
 - src/pages/register/register.js: 함수 분리
 - src/component/assets/\_register.scss: 회원가입 스타일링
+
+**최소현**
+
+- src/pages/cart/index.html 페이지 합치기
+- src/style/style.scss 리팩토링
+- src/pages/cart/main.js 수량 변경/ 로컬스토리지, 포켓베이스 연결/ 결제금액 반영/
+- src/pages/cart/countItem.js 수량변경 함수 분리
+- src/pages/cart/delete.js 선택항목 삭제 함수 분리
+- src/pages/cart/selectAll.js 전체선택 관련 함수 분리
+- src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
+- src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
+- src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
