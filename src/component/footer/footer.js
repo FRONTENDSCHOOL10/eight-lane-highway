@@ -120,8 +120,7 @@ footerTemplate.innerHTML = `
   <button class="to-top" aria-label="최상단으로 이동 버튼"></button>
   </footer>
 `;
-
-export class Footer extends HTMLElement {
+class Footer extends HTMLElement {
   constructor() {
     super();
 
@@ -143,3 +142,5 @@ export class Footer extends HTMLElement {
     });
   }
 }
+
+customElements.define("c-footer", Footer);
