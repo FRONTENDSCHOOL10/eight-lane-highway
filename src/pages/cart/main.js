@@ -261,8 +261,10 @@ function countChange() {
       ".food-type__accordion__delete"
     );
     const checkAllInput = document.querySelector("#selectAll");
+    const deleteAllButton = getNode(".checkbox__delete");
     inputBox.addEventListener("change", updateSelectedCount);
     deleteButton.addEventListener("click", updateSelectedCount);
     checkAllInput.addEventListener("change", updateSelectedCount);
+    deleteAllButton.addEventListener("click", updateSelectedCount);
   });
 }
