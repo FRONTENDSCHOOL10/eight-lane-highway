@@ -230,10 +230,10 @@ export class Header extends HTMLElement {
 
     // address modal 마우스이벤트
     this.address.addEventListener("mouseenter", () => {
-      this.addressModal.setAttribute("open", true);
+      this.addressModal.show();
     });
     this.address.addEventListener("mouseleave", () => {
-      this.addressModal.removeAttribute("open");
+      this.addressModal.close();
     });
     // address modal 키보드이벤트
     this.address.addEventListener("keydown", (e) => {

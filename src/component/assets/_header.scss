@@ -169,39 +169,40 @@ header {
     &__item {
       @include size($w: 36px, $h: 36px);
       position: relative;
-      background-image: url("/images/icon-header.png");
-      background-repeat: no-repeat;
-      background-position-x: -10px;
 
       > a,
       > button {
         display: inline-block;
         @include size($w: 100%, $h: 100%);
+        background-image: url("/images/icon-header.png");
+        background-repeat: no-repeat;
+        background-position-x: -10px;
       }
 
-      &:nth-of-type(1) {
+      > a:hover,
+      > button:hover {
+        mask-image: url("/images/icon-header.png");
+        background-image: none;
+        background-color: $primaryColor;
+      }
+
+      &:nth-child(1) button {
         background-position-y: -137px;
       }
-      &:nth-of-type(2) {
+      &:nth-child(2) a {
         background-position-y: -249px;
       }
-      &:nth-of-type(3) {
+      &:nth-child(3) a {
         background-position-y: -193px;
       }
 
-      &:nth-of-type(1):hover,
-      &:nth-of-type(2):hover,
-      &:nth-of-type(3):hover {
-        mask-image: url("/images/icon-header.png");
-        background-color: $primaryColor;
-      }
-      &:nth-of-type(1):hover {
+      &:nth-child(1) button:hover {
         mask-position: -10px -137px;
       }
-      &:nth-of-type(2):hover {
+      &:nth-child(2) a:hover {
         mask-position: -10px -249px;
       }
-      &:nth-of-type(3):hover {
+      &:nth-child(3) a:hover {
         mask-position: -10px -193px;
       }
     }
