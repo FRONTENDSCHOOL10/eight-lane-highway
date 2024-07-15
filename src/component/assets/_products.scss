@@ -1,6 +1,4 @@
 .product {
-  box-sizing: border-box;
-
   .visual {
     position: relative;
 
@@ -91,12 +89,12 @@
     }
   }
   &__detail {
-    &__review {
+    &__board {
       display: flex;
       flex-direction: column;
       gap: 16px;
       width: 1050px;
-      margin: 0 auto;
+      margin: 72px auto;
 
       .product__review {
         &__container {
