@@ -19,7 +19,7 @@
         id="registerForm"
       >
         <p class="text__right">* 필수입력사항</p>
-        <fieldset>
+        <fieldset class="register__container">
           <label class="label__register label__medium">아이디</label>
           <input
             class="input__small input__default__text"
@@ -28,7 +28,12 @@
             id="idField"
             required
           />
-          <button class="button__stroke button__small" type="button">
+          <p class="register__result" id="idResultMessage"></p>
+          <button
+            class="button__stroke button__small"
+            type="button"
+            id="idCheckDuplicateButton"
+          >
             중복확인
           </button>
         </fieldset>
@@ -42,7 +47,7 @@
             required
           />
         </fieldset>
-        <fieldset>
+        <fieldset class="register__container">
           <label class="label__register label__medium">비밀번호 확인</label>
           <input
             class="input__small input__default__text"
@@ -51,6 +56,7 @@
             id="pwCheckField"
             required
           />
+          <p id="passwordCheckMessage" class="register__result"></p>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">이름</label>
@@ -62,7 +68,7 @@
             required
           />
         </fieldset>
-        <fieldset>
+        <fieldset class="register__container">
           <label class="label__register label__medium">이메일</label>
           <input
             class="input__small input__default__text"
@@ -70,10 +76,11 @@
             placeholder="예) marketkarly@karly.com"
             id="emailField"
           />
+          <p class="register__result" id="emailResultMessage"></p>
           <button
             class="button__stroke button__small"
             type="button"
-            id="checkDuplicateButton"
+            id="emailCheckDuplicateButton"
           >
             중복확인
           </button>
@@ -180,7 +187,6 @@
                 <input
                   class="input__checkbox"
                   type="checkbox"
-                  name=""
                   id="checkAllAgreement"
                 />
                 전체 동의합니다.
@@ -266,5 +272,8 @@
       </form>
     </section>
   </body>
+  <script type="module" src="/src/pages/register/idCheck.js"></script>
+  <script type="module" src="/src/pages/register/emailCheck.js"></script>
   <script src="/src/pages/register/userAddress.js"></script>
+  <script src="/src/pages/register/passwordCheck.js"></script>
 </html>
