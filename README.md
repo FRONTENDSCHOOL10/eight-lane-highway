@@ -235,7 +235,7 @@
 **최소현**
 
 - src/style/style.scss cart.scss추가
-- src/pages/cart 기본 마크업
+- src/pages/cart/index.html 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
 
@@ -265,6 +265,12 @@
 - 이메일 검사
 - 회원가입 페이지 스타일링 수정
 
+**최소현**
+
+- src/style/style.scss 스타일링 수정
+- src/pages/cart/index.html 마크업 수정
+- src/pages/cart/main.js 아코디언 UI 장바구니 데이터 포켓베이스 연결
+
 ## 2024-07-14
 
 **오성훈**
@@ -278,6 +284,12 @@
   - 장바구니 추가에 + / - 버튼 클릭 시 숫자 변동에 따른 총 합 변동하게 하기
   - 팝업을 열고 닫는 함수 추가
   - 포켓호스트 SDK를 사용하여 상품 정보를 서버에서 받아올 수 있도록 수정
+
+**최소현**
+
+- src/style/style.scss 스타일링 수정
+- src/pages/cart/index.html 마크업 수정
+- src/pages/cart/main.js 체크박스 및 수량관련 기능 구현, 로그인 상태 UI 반영
 
 ## 2024-07-15
 
