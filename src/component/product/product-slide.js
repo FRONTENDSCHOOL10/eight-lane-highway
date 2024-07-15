@@ -12,13 +12,13 @@ import PocketBase from "pocketbase";
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 // 스와이퍼
-const swiper = new Swiper(".product-slide  .swiper-container", {
+const swiper = new Swiper(".product-slide1 .swiper-container", {
   slidesPerView: 4,
   slidesPerGroup: 4,
   spaceBetween: 18,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".product-slide1 .swiper-button-next",
+    prevEl: ".product-slide1 .swiper-button-prev",
   },
   on: {
     init: function () {
@@ -38,8 +38,8 @@ const swiper = new Swiper(".product-slide  .swiper-container", {
 
 // 스와이퍼의 시작과 마지막을 체크
 function checkNavigation(swiper) {
-  const prev = getNode(".swiper-button-prev");
-  const next = getNode(".swiper-button-next");
+  const prev = getNode(".product-slide1 .swiper-button-prev");
+  const next = getNode(".product-slide1 .swiper-button-next");
 
   if (swiper.isEnd) {
     addClass(next, "is__hide");
@@ -109,12 +109,13 @@ async function renderProductItem() {
     </div>
   </article>
     `;
-    insertLast(".product-slide  .swiper-wrapper", template);
+    insertLast(".product-slide1 .swiper-wrapper", template);
+    // item.addEventListener("click", () => {});
   });
   swiper.update();
 }
 
-// add-button 클릭시 일어날 이벤트 처리
+// add-cart에 각각 이벤트 추가
 function addCartEvent() {
   const addCart = getNodes(".visual__add-cart");
   addCart.forEach((a, index) => {
@@ -123,7 +124,7 @@ function addCartEvent() {
     });
   });
 }
-// add-button 클릭시 일어날 이벤트 처리
+// add-cart 클릭시 일어날 이벤트 처리
 function handleClickButton(index) {
   console.log(index + 1 + "번째 add-cart버튼 클릭");
 }
