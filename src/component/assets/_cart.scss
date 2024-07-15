@@ -1,4 +1,4 @@
-@mixin flexSet($fd, $jc, $ac, $gp) {
+@mixin flexAll($fd, $jc, $ac, $gp) {
   display: flex;
   flex-direction: $fd;
   flex-wrap: nowrap;
@@ -21,8 +21,9 @@
 
 // 전체 장바구니 영역
 .cart__container {
-  @include size(1050px, 709px);
-  @include flexAll(row, space-between);
+  width: 1050px;
+  min-height: 709px;
+  @include flexAll(row, space-between, top, 0);
   margin: 0 auto;
 }
 
@@ -37,7 +38,7 @@
     height: 56px;
     padding: 16px 0;
     align-items: center;
-    @include flexSet(row, left, center, 10px);
+    @include flexAll(row, left, center, 10px);
 
     &__upper {
       border-bottom: 1px solid var(--black, #000);
@@ -109,12 +110,12 @@
       height: auto;
     }
     &__container {
-      @include flexAll(row, space-between, center);
+      @include flexAll(row, space-between, center, 0);
     }
     &__name {
       font-size: 1rem;
       line-height: 150%;
-      @include flexSet(row, center, center, 0); // 상온, 냉장, 냉동 아이콘
+      @include flexAll(row, center, center, 0); // 상온, 냉장, 냉동 아이콘
       img {
         @include size(30px, 30px);
         margin-right: 12px;
@@ -137,7 +138,7 @@
 .food-type__accordion {
   height: 118px;
   padding: 20px 0;
-  @include flexSet(row, left, center, 8px);
+  @include flexAll(row, left, center, 8px);
 
   &__input {
     @include size(22px, 22px);
@@ -160,7 +161,7 @@
     @include size(127px, 24px);
     @include font($darkBlack, 1rem, 600, 150%);
 
-    @include flexSet(column, center, end, 0);
+    @include flexAll(column, center, end, 0);
 
     &__value {
       @include font($gray400, 0.875rem, 600, 170%);
@@ -238,7 +239,7 @@
     height: auto;
     padding: 0 0 24px 0;
     border-bottom: 1px dashed $gray100;
-    @include flexSet(column, center, space-between, 16px);
+    @include flexAll(column, center, space-between, 16px);
   }
 }
 
@@ -247,22 +248,22 @@
   &__container {
     list-style: none;
     @include font($black, 1rem, 400, 160%);
-    @include flexSet(row, space-between, center, 0);
+    @include flexAll(row, space-between, center, 0);
   }
   // 금액 숫자/원 그룹
   &__group {
-    @include flexSet(row, space-between, center, 4px);
+    @include flexAll(row, space-between, center, 4px);
   }
 }
 
 // 결제 예정 금액
 .payment__total-price {
   padding: 24px 0 12px 0;
-  @include flexSet(row, space-between, center, 0);
+  @include flexAll(row, space-between, center, 0);
 
   // 금액 숫자/원 그룹
   .total-price__sum {
-    @include flexSet(row, space-between, center, 4px);
+    @include flexAll(row, space-between, center, 4px);
     // 금액
     &__value {
       @include font($darkBlack, 1.75rem, 700, 140%);
@@ -276,7 +277,7 @@
 
 // 적립부분
 .point__container {
-  @include flexSet(row, flex-end, center, 4px);
+  @include flexAll(row, flex-end, center, 4px);
 
   // 뱃지 기존 스타일  border-radius 수정
   .point-badge {
