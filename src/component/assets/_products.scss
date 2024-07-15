@@ -91,6 +91,9 @@
     }
   }
   &__detail__review {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     width: 1050px;
     margin: 0 auto;
 
@@ -99,6 +102,10 @@
         display: flex;
         justify-content: space-between;
       }
+    }
+    .button__container {
+      display: flex;
+      gap: 16px;
     }
   }
 }

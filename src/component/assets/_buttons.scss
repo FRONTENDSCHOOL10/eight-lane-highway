@@ -50,6 +50,17 @@ button {
       }
     }
 
+    &__medium {
+      @include buttonSize(56px, 56px);
+      padding: 8px;
+
+      img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+      }
+    }
+
     &__large {
       @include buttonSize(56px, 56px);
       padding: 8px;
