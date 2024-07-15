@@ -1,6 +1,5 @@
 import headerCss from "/src/styles/style.scss?inline";
 
-const footer = document.querySelector("#footer");
 const footerTemplate = document.createElement("template");
 
 footerTemplate.innerHTML = `
@@ -128,7 +127,3 @@ export class Footer extends HTMLElement {
   }
   connectedCallback() {}
 }
-
-customElements.define("c-footer", Footer);
-const cFooter = document.createElement("c-footer");
-footer.append(cFooter);
