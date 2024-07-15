@@ -61,10 +61,10 @@ async function getCardAddedProductsNew() {
 
     <span class="food-type__accordion__price">
     <span class="food-type__accordion__price__discount">${formatPrice(
-      data.price * ((100 - data.discount) / 100)
+      data.price * ((100 - data.discount) / 100) * quantity
     )}원</span>
     <span class="food-type__accordion__price__value">${formatPrice(
-      data.price
+      data.price * quantity
     )}원</span>
     </span>
     <button
@@ -84,67 +84,11 @@ async function getCardAddedProductsNew() {
     deleteSelected();
     deleteItem();
     countChange();
+    priceChange();
   }
 }
 
-getCardAddedProductsNew();
-
-// // 로컬스토리지 저장된 아이디 값으로 DB에서 상품정보 불러오기
-// async function getCartAddedProducts() {
-//   if (await getStorage("recentProducts")) {
-//     const productValue = await getStorage("recentProducts");
-//     for (let item of productValue) {
-//       const data = await pb.collection("products").getOne(item);
-//       const type = data.packaging.slice(0, 2);
-//       const templete = ` <div class="food-type__accordion" ><input
-//       type="checkbox"
-//       id="cartAddedSelect"
-//       class="food-type__accordion__input"  name="accordion__input" />
-//     <img src="${getPbImageURL(
-//       data
-//     )}" alt="" class="food-type__accordion__img" />
-//     <label for="cartAddedSelect" class="food-type__accordion__name"
-//       >${data.name}</label
-//     >
-//     <div class="food-type__accordion__count price_counter">
-//       <button type="button" class="minus-button">
-//         <img src="/images/minus-button-black.svg" alt="" />
-//       </button>
-//       <span class="counter">0</span>
-//       <button type="button" class="plus-button">
-//         <img src="/images/plus-button-black.svg" alt="" />
-//       </button>
-//     </div>
-
-//     <span class="food-type__accordion__price">
-//     <span class="food-type__accordion__price__discount">${formatPrice(
-//       data.price * ((100 - data.discount) / 100)
-//     )}원</span>
-//     <span class="food-type__accordion__price__value">${formatPrice(
-//       data.price
-//     )}원</span>
-//     </span>
-//     <button
-//       type="button"
-//       class="food-type__accordion__delete"></button></div>`;
-//       if (type === "냉장") {
-//         insertAfter(AccordCold, templete);
-//       } else if (type === "냉동") {
-//         insertAfter(AccordFrozen, templete);
-//       } else if (type === "상온") {
-//         insertAfter(AccordRoomTemp, templete);
-//       }
-//     }
-//     new AgreementManager("#selectAll", "accordion__input");
-//     new AgreementManager("#selectAll2", "accordion__input");
-//     countNumber();
-//     deleteSelected();
-//     deleteItem();
-//     countChange();
-//   }
-// }
-
-// document.addEventListener("DOMContentLoaded", getCartAddedProducts);
+document.addEventListener("DOMContentLoaded", getCardAddedProductsNew);
 
 // 로그인 됐을때 로그인 버튼에서 => 주문하기로 변경
 // 로그인 됐을때 배송지 안보임 => 고객 배송지 정보 받아오기
@@ -238,16 +182,9 @@ function countNumber() {
     const priceDiscount = set.querySelector(
       ".food-type__accordion__price__discount"
     );
-    // 받은 가격 원단위, 숫자단위 떼기
-    function valueTrimmed(value) {
-      return value.textContent
-        .substr(0, value.textContent.length - 1)
-        .replace(",", "");
-    }
-    const dataPrice = valueTrimmed(priceValue);
-    const dataDiscount = valueTrimmed(priceDiscount);
-
     let count = Number(counterElement.textContent);
+    const dataPrice = valueTrimmed(priceValue) / count;
+    const dataDiscount = valueTrimmed(priceDiscount) / count;
 
     minusButton.addEventListener("click", () => {
       if (count > 0) {
@@ -267,6 +204,13 @@ function countNumber() {
   });
 }
 
+// 받은 가격 원단위, 숫자단위 떼기
+function valueTrimmed(value) {
+  return value.textContent
+    .substr(0, value.textContent.length - 1)
+    .replace(",", "");
+}
+
 // 선택항목 삭제 함수
 function deleteSelected() {
   const templates = getNodes(".food-type__accordion");
@@ -279,7 +223,7 @@ function deleteSelected() {
   });
 }
 
-// 항목 개별 삭제 함수
+// 전체삭제 삭제 함수
 function deleteItem() {
   const deleteButton = getNode(".checkbox__delete");
   const checkboxes = document.getElementsByName("accordion__input");
@@ -297,7 +241,6 @@ function deleteItem() {
 
 // 선택수량 업데이트 함수
 function updateSelectedCount() {
-  // const templates = getNodes(".food-type__accordion");
   const checkboxes = Array.from(getNodes(".food-type__accordion__input"));
   const checked = getNode(".checkbox__check-all__label");
 
@@ -324,5 +267,124 @@ function countChange() {
     deleteButton.addEventListener("click", updateSelectedCount);
     checkAllInput.addEventListener("change", updateSelectedCount);
     deleteAllButton.addEventListener("click", updateSelectedCount);
+  });
+}
+
+// 수량 변경시 총액 변경
+
+function updateSumAllPrice() {
+  const templates = getNodes(".food-type__accordion");
+  // 원가
+  const priceArray = Array.from(templates)
+    .filter((item) => {
+      const checkBox = item.querySelector(".food-type__accordion__input");
+      return checkBox.checked;
+    })
+    .map((item) => {
+      const price = item.querySelector(".food-type__accordion__price__value");
+      return Number(valueTrimmed(price));
+    });
+
+  const valueResult = Array.from(priceArray).reduce(function (
+    accumulator,
+    currentValue
+  ) {
+    return accumulator + currentValue;
+  },
+  0);
+
+  // 할인값
+  const discountArray = Array.from(templates)
+    .filter((item) => {
+      const checkBox = item.querySelector(".food-type__accordion__input");
+      return checkBox.checked;
+    })
+    .map((item) => {
+      const price = item.querySelector(
+        ".food-type__accordion__price__discount"
+      );
+      return Number(valueTrimmed(price));
+    });
+
+  const discountPrice = Array.from(discountArray).reduce(function (
+    accumulator,
+    currentValue
+  ) {
+    return accumulator + currentValue;
+  },
+  0);
+
+  const discountResult = valueResult - discountPrice;
+
+  if (valueResult == 0) {
+    document.querySelector(".price__group__delivery").textContent = `0원`;
+  }
+  // 상품금액
+  document.querySelector(".price__group__value").textContent = `${formatPrice(
+    valueResult
+  )}원`;
+  // 상품할인 금액
+  document.querySelector(
+    ".price__group__discounted"
+  ).textContent = `-${formatPrice(discountResult)}원`;
+  // 결제예정 금액
+  document.querySelector(
+    ".total-price__sum__value"
+  ).textContent = `${formatPrice(discountPrice)}`;
+
+  if (0 != discountPrice && discountPrice < 30000) {
+    document.querySelector(
+      ".total-price__sum__value"
+    ).textContent = `${formatPrice(discountPrice + 3000)}`;
+    document.querySelector(
+      ".price__group__delivery"
+    ).textContent = `${formatPrice(3000)}`;
+  }
+}
+
+// function updateSumAllDiscounted() {
+//   const templates = getNodes(".food-type__accordion");
+//   const discountArray = Array.from(templates)
+//     .filter((item) => {
+//       const checkBox = item.querySelector(".food-type__accordion__input");
+//       return checkBox.checked;
+//     })
+//     .map((item) => {
+//       const price = item.querySelector(".food-type__accordion__price__discount");
+//       return Number(valueTrimmed(price));
+//     });
+
+//   const valueResult = Array.from(priceArray).reduce(function (
+//     accumulator,
+//     currentValue
+//   ) {
+//     return accumulator + currentValue;
+//   },
+//   0);
+//   const priceTemplate = document.querySelector(".price__group__di");
+//   document.querySelector(".price__group__value").textContent = `${formatPrice(
+//     valueResult
+//   )}원`;
+// }
+
+// 선택삭제, 선택, 삭제클릭시 updateSumAllPrice 이벤트 추가
+function priceChange() {
+  const templates = getNodes(".food-type__accordion");
+  Array.from(templates).forEach((checkbox) => {
+    const inputBox = checkbox.querySelector(".food-type__accordion__input");
+    const deleteButton = checkbox.querySelector(
+      ".food-type__accordion__delete"
+    );
+    const checkAllInput = document.querySelector("#selectAll");
+    const deleteAllButton = getNode(".checkbox__delete");
+    const minusButton = checkbox.querySelector(".minus-button");
+    const plusButton = checkbox.querySelector(".plus-button");
+
+    inputBox.addEventListener("change", updateSumAllPrice);
+    deleteButton.addEventListener("click", updateSumAllPrice);
+    checkAllInput.addEventListener("change", updateSumAllPrice);
+    deleteAllButton.addEventListener("click", updateSumAllPrice);
+    minusButton.addEventListener("click", updateSumAllPrice);
+    plusButton.addEventListener("click", updateSumAllPrice);
   });
 }
