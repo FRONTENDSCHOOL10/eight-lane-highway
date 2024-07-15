@@ -50,6 +50,7 @@
     display: flex;
     justify-content: space-between;
     width: 1050px;
+    margin: 40px auto 0;
 
     .product__img__container {
       max-width: 400px;
@@ -68,55 +69,6 @@
       .title__price,
       .text__primary__color {
         margin-bottom: 16px;
-      }
-
-      .product__info__table {
-        width: 100%;
-        table-layout: fixed;
-        box-sizing: border-box;
-        max-width: 560px;
-        border-collapse: collapse;
-
-        th,
-        td {
-          padding: 16px 0;
-          color: $gray500;
-        }
-
-        th {
-          min-width: 128px;
-          text-align: left;
-          vertical-align: text-top;
-          font-size: 0.75rem;
-          border-top: 1px solid $gray100;
-          border-bottom: 1px solid $gray100;
-        }
-        td {
-          font-size: 0.75rem;
-          border-top: 1px solid $gray100;
-          border-bottom: 1px solid $gray100;
-
-          li {
-            margin-left: 10px;
-            line-height: 150%;
-          }
-
-          p {
-            margin: 0;
-          }
-          .product__count {
-            border: 1px solid $gray100;
-            padding: 12px 16px;
-
-            &__button {
-              display: inline-flex;
-              width: auto;
-              border: 1px solid $gray200;
-              align-items: center;
-              gap: 8px;
-            }
-          }
-        }
       }
       .product__price__container {
         width: 100%;
@@ -137,5 +89,68 @@
         }
       }
     }
+  }
+  &__detail__review {
+    width: 1050px;
+    margin: 0 auto;
+
+    .product__review {
+      &__container {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.product__info__table {
+  width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+  max-width: 560px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 16px 0;
+    color: $gray500;
+  }
+
+  th {
+    min-width: 128px;
+    text-align: left;
+    vertical-align: text-top;
+    font-size: 0.75rem;
+    border-top: 1px solid $gray100;
+    border-bottom: 1px solid $gray100;
+  }
+  td {
+    font-size: 0.75rem;
+    border-top: 1px solid $gray100;
+    border-bottom: 1px solid $gray100;
+
+    li {
+      margin-left: 10px;
+      line-height: 150%;
+    }
+
+    p {
+      margin: 0;
+    }
+    .product__count {
+      border: 1px solid $gray100;
+      padding: 12px 16px;
+
+      &__button {
+        display: inline-flex;
+        width: auto;
+        border: 1px solid $gray200;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+  &.product__table__detail {
+    max-width: none;
   }
 }
