@@ -82,6 +82,7 @@ async function getCartAddedProducts() {
     countNumber();
     deleteSelected();
     deleteItem();
+    countChange();
   }
 }
 
@@ -233,5 +234,28 @@ function deleteItem() {
         }
       }
     });
+  });
+}
+
+// 선택수량 업데이트 함수
+function updateSelectedCount() {
+  // const templates = getNodes(".food-type__accordion");
+  const checkboxes = Array.from(getNodes(".food-type__accordion__input"));
+  const checked = getNode(".checkbox__check-all__label");
+
+  const selectedCount = checkboxes.filter(
+    (checkbox) => checkbox.checked
+  ).length;
+  checked.textContent = `전체선택 (${selectedCount}/${checkboxes.length})`;
+}
+
+// 전체 상품 갯수 랜더링 및 상품 선택시 선택된 상품 갯수 업데이트
+function countChange() {
+  const inputBox = getNodes(".food-type__accordion__input");
+  const checkboxes = Array.from(getNodes(".food-type__accordion__input"));
+  const checked = getNode(".checkbox__check-all__label");
+  checked.textContent = `전체선택 (0/${checkboxes.length})`;
+  Array.from(inputBox).forEach((checkbox) => {
+    checkbox.addEventListener("change", updateSelectedCount);
   });
 }
