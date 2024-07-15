@@ -10,6 +10,7 @@ import {
   insertLast,
   isString,
   removeClass,
+  setStorage,
   toggleClass,
 } from "../../lib";
 import { countChange, updateSelectedCount } from "./countedItem";
@@ -37,6 +38,7 @@ function toggleHandler(e) {
 }
 foodTypeNav.addEventListener("click", toggleHandler);
 
+// 로컬스토리지 저장된 상품정보 pb에서 랜더링
 async function getCardAddedProductsNew() {
   if (await getStorage("cartItems")) {
     const product = await getStorage("cartItems");
@@ -119,10 +121,3 @@ document.addEventListener(
   "DOMContentLoaded",
   syncCheckBox(".checkbox__check-all__box")
 );
-
-// 받은 가격 원단위, 숫자단위 떼기
-function valueTrimmed(value) {
-  return value.textContent
-    .substr(0, value.textContent.length - 1)
-    .replace(",", "");
-}
