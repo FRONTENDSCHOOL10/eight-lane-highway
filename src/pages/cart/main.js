@@ -31,13 +31,14 @@ function toggleHandler(e) {
 }
 foodTypeNav.addEventListener("click", toggleHandler);
 
-// 로컬스토리지 저장된 아이디 값으로 DB에서 상품정보 불러오기
-async function getCartAddedProducts() {
-  if (await getStorage("recentProducts")) {
-    const productValue = await getStorage("recentProducts");
-    for (let item of productValue) {
-      const data = await pb.collection("products").getOne(item);
+async function getCardAddedProductsNew() {
+  if (await getStorage("cartItems")) {
+    const product = await getStorage("cartItems");
+
+    for (let item of product) {
+      const data = await pb.collection("products").getOne(item.productID);
       const type = data.packaging.slice(0, 2);
+      const quantity = item.quantity;
       const templete = ` <div class="food-type__accordion" ><input
       type="checkbox"
       id="cartAddedSelect"
@@ -52,7 +53,7 @@ async function getCartAddedProducts() {
       <button type="button" class="minus-button">
         <img src="/images/minus-button-black.svg" alt="" />
       </button>
-      <span class="counter">0</span>
+      <span class="counter">${quantity}</span>
       <button type="button" class="plus-button">
         <img src="/images/plus-button-black.svg" alt="" />
       </button>
@@ -86,7 +87,64 @@ async function getCartAddedProducts() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", getCartAddedProducts);
+getCardAddedProductsNew();
+
+// // 로컬스토리지 저장된 아이디 값으로 DB에서 상품정보 불러오기
+// async function getCartAddedProducts() {
+//   if (await getStorage("recentProducts")) {
+//     const productValue = await getStorage("recentProducts");
+//     for (let item of productValue) {
+//       const data = await pb.collection("products").getOne(item);
+//       const type = data.packaging.slice(0, 2);
+//       const templete = ` <div class="food-type__accordion" ><input
+//       type="checkbox"
+//       id="cartAddedSelect"
+//       class="food-type__accordion__input"  name="accordion__input" />
+//     <img src="${getPbImageURL(
+//       data
+//     )}" alt="" class="food-type__accordion__img" />
+//     <label for="cartAddedSelect" class="food-type__accordion__name"
+//       >${data.name}</label
+//     >
+//     <div class="food-type__accordion__count price_counter">
+//       <button type="button" class="minus-button">
+//         <img src="/images/minus-button-black.svg" alt="" />
+//       </button>
+//       <span class="counter">0</span>
+//       <button type="button" class="plus-button">
+//         <img src="/images/plus-button-black.svg" alt="" />
+//       </button>
+//     </div>
+
+//     <span class="food-type__accordion__price">
+//     <span class="food-type__accordion__price__discount">${formatPrice(
+//       data.price * ((100 - data.discount) / 100)
+//     )}원</span>
+//     <span class="food-type__accordion__price__value">${formatPrice(
+//       data.price
+//     )}원</span>
+//     </span>
+//     <button
+//       type="button"
+//       class="food-type__accordion__delete"></button></div>`;
+//       if (type === "냉장") {
+//         insertAfter(AccordCold, templete);
+//       } else if (type === "냉동") {
+//         insertAfter(AccordFrozen, templete);
+//       } else if (type === "상온") {
+//         insertAfter(AccordRoomTemp, templete);
+//       }
+//     }
+//     new AgreementManager("#selectAll", "accordion__input");
+//     new AgreementManager("#selectAll2", "accordion__input");
+//     countNumber();
+//     deleteSelected();
+//     deleteItem();
+//     countChange();
+//   }
+// }
+
+// document.addEventListener("DOMContentLoaded", getCartAddedProducts);
 
 // 로그인 됐을때 로그인 버튼에서 => 주문하기로 변경
 // 로그인 됐을때 배송지 안보임 => 고객 배송지 정보 받아오기
