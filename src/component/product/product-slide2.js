@@ -12,7 +12,7 @@ import PocketBase from "pocketbase";
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 // 스와이퍼
-const swiper = new Swiper(".product-slide  .swiper-container", {
+const swiper = new Swiper(".product-slide2 .swiper-container", {
   slidesPerView: 4,
   slidesPerGroup: 4,
   spaceBetween: 18,
@@ -38,15 +38,14 @@ const swiper = new Swiper(".product-slide  .swiper-container", {
 
 // 스와이퍼의 시작과 마지막을 체크
 function checkNavigation(swiper) {
-  const prev = getNode(".swiper-button-prev");
-  const next = getNode(".swiper-button-next");
+  const prev = getNode(".product-slide2 .swiper-button-prev");
+  const next = getNode(".product-slide2 .swiper-button-next");
 
   if (swiper.isEnd) {
     addClass(next, "is__hide");
   } else {
     removeClass(next, "is__hide");
   }
-
   if (swiper.isBeginning) {
     addClass(prev, "is__hide");
   } else {
@@ -55,7 +54,9 @@ function checkNavigation(swiper) {
 }
 
 async function renderProductItem() {
-  const productsData = await pb.collection("products").getFullList();
+  const productsData = await pb
+    .collection("products")
+    .getFullList({ sort: "name" });
   productsData.forEach((item) => {
     const discount = item.price * (item.discount * 0.01);
     const template = `
@@ -109,7 +110,7 @@ async function renderProductItem() {
     </div>
   </article>
     `;
-    insertLast(".product-slide  .swiper-wrapper", template);
+    insertLast(".product-slide2 .swiper-wrapper", template);
   });
   swiper.update();
 }

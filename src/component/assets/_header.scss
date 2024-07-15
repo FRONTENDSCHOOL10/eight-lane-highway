@@ -19,6 +19,7 @@ header {
     "a b b c c c d d"
     "e e f g h i j j";
   gap: 20px 0;
+  background-color: $white;
 
   &__logo {
     grid-area: a;
@@ -27,7 +28,7 @@ header {
   &__user-auth {
     @include flexAll($fd: row, $jc: flex-start, $at: stretch);
     @include absolute($t: 20px, $r: 13px);
-    @include font($fs: 0.75rem, $fw: 400, $lh: 160%);
+    @include font($fs: 0.75rem, $fw: 600, $lh: 160%);
 
     &__item {
       position: relative;
@@ -42,7 +43,7 @@ header {
     .signup::after,
     .login::after {
       content: "";
-      @include absolute($t: 2px, $r: -10px);
+      @include absolute($t: 2px, $r: -7px);
       @include size($w: 1px, $h: 13px);
       background-color: #d9d9d9;
     }
@@ -76,7 +77,11 @@ header {
 
       &__item {
         margin: 8px 0;
-        font-size: 0.75rem;
+        @include font($fs: 0.75rem, $fw: 600, $lh: 160%);
+
+        &:hover {
+          color: $primaryColor;
+        }
       }
     }
   }
@@ -115,8 +120,13 @@ header {
     .beauty {
       position: relative;
 
-      img {
-        @include absolute($t: -10px, $r: -2px);
+      &::after {
+        content: "";
+        @include absolute($t: 0, $r: -10px);
+        @include size($w: 8px, $h: 8px);
+        background: url("/images/icon-header.png");
+        background-position: -10px -36px;
+        background-repeat: no-repeat;
       }
     }
   }
@@ -159,35 +169,40 @@ header {
     &__item {
       @include size($w: 36px, $h: 36px);
       position: relative;
-      background-image: url("/images/icon-header.png");
-      background-repeat: no-repeat;
-      background-position-x: -10px;
 
       > a,
       > button {
         display: inline-block;
         @include size($w: 100%, $h: 100%);
+        background-image: url("/images/icon-header.png");
+        background-repeat: no-repeat;
+        background-position-x: -10px;
       }
 
-      &:nth-of-type(1) {
+      > a:hover,
+      > button:hover {
+        mask-image: url("/images/icon-header.png");
+        background-image: none;
+        background-color: $primaryColor;
+      }
+
+      &:nth-child(1) button {
         background-position-y: -137px;
       }
-      &:nth-of-type(2) {
+      &:nth-child(2) a {
         background-position-y: -249px;
       }
-      &:nth-of-type(3) {
+      &:nth-child(3) a {
         background-position-y: -193px;
       }
 
-      &:nth-of-type(2):hover,
-      &:nth-of-type(3):hover {
-        mask-image: url("/images/icon-header.png");
-        background-color: $primaryColor;
+      &:nth-child(1) button:hover {
+        mask-position: -10px -137px;
       }
-      &:nth-of-type(2):hover {
+      &:nth-child(2) a:hover {
         mask-position: -10px -249px;
       }
-      &:nth-of-type(3):hover {
+      &:nth-child(3) a:hover {
         mask-position: -10px -193px;
       }
     }
@@ -195,7 +210,6 @@ header {
     .nav__user-service__item__address-modal {
       @include absolute($t: 35px, $l: -50px);
       @include size($w: 270px);
-      // display: none;
       padding: 32px;
       border: 1px solid #d9d9d9;
       background-color: $white;
@@ -210,7 +224,7 @@ header {
 
       .modal-link {
         border-radius: 4px;
-        @include font($fs: 1rem, $fw: 400, $lh: 150%);
+        @include font($fs: 0.75rem, $fw: 600, $lh: 150%);
         padding: 8px;
         cursor: pointer;
       }
@@ -258,8 +272,8 @@ header {
     }
 
     &:hover::before {
-      filter: invert(14%) sepia(61%) saturate(6515%) hue-rotate(282deg)
-        brightness(60%) contrast(113%);
+      filter: invert(10%) sepia(68%) saturate(6624%) hue-rotate(283deg)
+        brightness(47%) contrast(111%);
     }
 
     &__list {
@@ -269,6 +283,8 @@ header {
       max-height: 500px;
       overflow-x: hidden;
       padding-right: 15px;
+      background-color: $white;
+      z-index: 100;
 
       &.is__show {
         display: block;
@@ -276,7 +292,7 @@ header {
     }
     &__item {
       > a {
-        @include size($w: 160px);
+        @include size($w: 180px);
         @include font($fs: 1rem, $fw: 600, $lh: 150%);
         position: relative;
         display: inline-block;
@@ -461,11 +477,9 @@ header {
   }
   .delivery {
     grid-area: j;
-    text-align: right;
     border: 1px solid #d9d9d9;
     border-radius: 16px;
     margin-left: auto;
-    margin-top: 6px;
     padding: 4px 8px;
     font-size: 0.8125rem;
 
@@ -476,67 +490,71 @@ header {
   }
 }
 
-.nav.is__scroll {
+header.is__scroll {
+  @include size($w: 100%);
   position: fixed;
   top: 0;
   left: 50%;
-  margin-top: 0px;
   translate: -50% 0;
-  padding: 20px;
-  grid-template-areas: "a b c d e f f g g";
-  grid-template-columns: repeat(8, 1fr);
+  background-color: $white;
+  z-index: 100;
+  .nav {
+    padding: 10px;
+    grid-template-areas: "a b c d e f f g g";
+    grid-template-columns: repeat(8, 1fr);
 
-  .nav__logo,
-  .nav__page,
-  .nav__user-auth,
-  .delivery {
-    display: none;
-  }
-
-  .nav__product__category {
-    grid-area: a;
-    padding-right: 10px;
-  }
-
-  .nav__search-box {
-    grid-area: f;
-    margin-left: -15px;
-    border: none;
-    color: $black;
-
-    & input {
-      @include size($w: 242px);
-      background-color: rgb(247, 247, 247);
-      border: 1px solid transparent;
+    .nav__logo,
+    .nav__page,
+    .nav__user-auth,
+    .delivery {
+      display: none;
     }
 
-    & input:focus {
-      background-color: $white;
-      border: 1px solid rgb(191, 191, 191);
+    .nav__product__category {
+      grid-area: a;
+      padding-right: 10px;
     }
 
-    & button {
-      background-color: transparent;
-      padding: 10px;
-      top: 10px;
-      right: 40px;
+    .nav__search-box {
+      grid-area: f;
+      margin-left: -15px;
+      border: none;
+      color: $black;
+
+      & input {
+        @include size($w: 242px);
+        background-color: rgb(247, 247, 247);
+        border: 1px solid transparent;
+      }
+
+      & input:focus {
+        background-color: $white;
+        border: 1px solid rgb(191, 191, 191);
+      }
+
+      & button {
+        background-color: transparent;
+        padding: 10px;
+        top: 10px;
+        right: 40px;
+      }
     }
-  }
 
-  .nav__user-service {
-    grid-area: g;
-  }
+    .nav__user-service {
+      grid-area: g;
+    }
 
-  .new {
-    grid-area: b;
-  }
-  .best {
-    grid-area: c;
-  }
-  .shopping {
-    grid-area: d;
-  }
-  .benefits {
-    grid-area: e;
+    .new {
+      grid-area: b;
+    }
+    .best {
+      grid-area: c;
+    }
+    .shopping {
+      grid-area: d;
+    }
+    .benefits {
+      grid-area: e;
+    }
   }
 }
