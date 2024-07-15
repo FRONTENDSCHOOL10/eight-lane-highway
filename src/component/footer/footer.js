@@ -1,10 +1,12 @@
 import headerCss from "/src/styles/style.scss?inline";
+import { addClass, removeClass } from "/src/lib/index.js";
 
 const footerTemplate = document.createElement("template");
 
 footerTemplate.innerHTML = `
 <style>${headerCss}</style>
-    <section class="footer">
+<footer class="footer">
+    <section class="footer__container">
     <h2 class="sr-only">컬리 고객센터 및 회사 소개</h2>
     <article class="footer__wrapper">
       <h3 class="footer__wrapper__title">고객행복센터</h3>
@@ -115,7 +117,8 @@ footerTemplate.innerHTML = `
   <p class="footer__copyright">마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.<br/>
   마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
   <small>© KURLY CORP. ALL RIGHTS RESERVED</small></p>
-  
+  <button class="to-top" aria-label="최상단으로 이동 버튼"></button>
+  </footer>
 `;
 
 export class Footer extends HTMLElement {
@@ -124,6 +127,19 @@ export class Footer extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(footerTemplate.content.cloneNode(true));
+    this.footer = this.shadowRoot.querySelector("footer");
+    this.toTop = this.footer.querySelector(".to-top");
   }
-  connectedCallback() {}
+  connectedCallback() {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        addClass(this.toTop, "is__show");
+      } else {
+        removeClass(this.toTop, "is__show");
+      }
+    });
+    this.toTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 }

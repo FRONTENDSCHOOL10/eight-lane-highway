@@ -1,16 +1,17 @@
-import PocketBase from 'pocketbase';
-import { insertLast } from '/src/lib/dom/index'
-import { setStorage } from '/src/lib/utils/storage';
+import PocketBase from "pocketbase";
+import { insertLast } from "/src/lib/dom/index";
+import { setStorage, getStorage } from "/src/lib/utils/storage";
+import { isArray } from "/src/lib/utils/type";
 
-const pb = new PocketBase('https://eight-lane-highway.pockethost.io/');
+const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
-const popup = document.querySelector('.modal');
-const button = document.getElementById('button');
-console.log(button)
+const popup = document.querySelector(".modal");
+const button = document.getElementById("button");
+console.log(button);
 
 // 템플릿 생성 함수
-async function renderAddShoppingCart(productId){
-  const productItem = await pb.collection('products').getOne(productId);
+async function renderAddShoppingCart(productId) {
+  const productItem = await pb.collection("products").getOne(productId);
 
   const templete = `
       <section class="basket-container modal_popup">
@@ -52,78 +53,96 @@ async function renderAddShoppingCart(productId){
         </li>
       </ul>
     </section>
-  `
+  `;
   insertLast(popup, templete);
 
   const counterButton = document.querySelector(".price_counter");
-  const cancelButton = document.querySelector('.cancel');
-  const addCartButton = document.querySelector('.add__cart');
+  const cancelButton = document.querySelector(".cancel");
+  const addCartButton = document.querySelector(".add__cart");
   const countProductNum = document.getElementById("product__num");
   const totalProduct = document.getElementById("total");
 
-  counterButton.addEventListener("click", handleCounterProduct(countProductNum, productItem.price, totalProduct));
-  cancelButton.addEventListener('click', closeCartPopUp);
-  addCartButton.addEventListener('click', handleAddCart(productItem.id));
+  counterButton.addEventListener(
+    "click",
+    handleCounterProduct(countProductNum, productItem.price, totalProduct)
+  );
+  cancelButton.addEventListener("click", closeCartPopUp);
+  addCartButton.addEventListener("click", handleAddCart(productItem.id));
 }
 
 // 상품 갯수 별 가격 증가 / 감소 함수
-function handleCounterProduct(countNode, price, resultNode){
-  return function(e){
+function handleCounterProduct(countNode, price, resultNode) {
+  return function (e) {
     const target = e.target.closest("button");
 
-      if (!target) return;
+    if (!target) return;
+
+    if (target.id === "plusBtn") {
+      countNode.textContent = parseInt(countNode.textContent) + 1;
+      resultNode.textContent = parseInt(resultNode.textContent) + price + "원";
+    } 
     
-      if (target.id === "plusBtn") {
-        countNode.textContent = parseInt(countNode.textContent) + 1;
-        resultNode.textContent = parseInt(resultNode.textContent) + price + "원";
-      } 
-      else if (target.id === "minusBtn") {
-        if(parseInt(countNode.textContent) <= 0 )
-          {
-            alert('상품 개수가 0보다 작으면 안됩니다!');
-            countNode.textContent = 1;
-            resultNode.textContent =price + '원';
-            return;
-          }
-        countNode.textContent = parseInt(countNode.textContent) - 1;
-        resultNode.textContent = parseInt(resultNode.textContent) - price + '원';
+    else if (target.id === "minusBtn") {
+      if (parseInt(countNode.textContent) <= 0) {
+        alert("상품 개수가 0보다 작으면 안됩니다!");
+        countNode.textContent = 1;
+        resultNode.textContent = price + "원";
+        return;
       }
-  }
+      countNode.textContent = parseInt(countNode.textContent) - 1;
+      resultNode.textContent = (parseInt(resultNode.textContent) - price) + "원";
+    }
+  };
 }
 
 // 로컬스토리지에 장바구니 항목 추가 함수
-function handleAddCart(id){
-  return function(e){
+function handleAddCart(id) {
+  return async function (e) {
     e.preventDefault();
 
-    let productNum = document.querySelector('#product__num').textContent;
+    let productNum = document.querySelector("#product__num").textContent;
+
+    let cartItems = await getStorage("cartItems");
     
-    setStorage('cartItems', {productID:id, quantity: productNum});
+    if(!isArray(cartItems)){
+      cartItems = [];
+    }
+
+    let existedItems = cartItems.find(item => item.productID === id);
+
+    console.log(existedItems)
+
+    if (existedItems) {
+      existedItems.quantity = parseInt(existedItems.quantity) + parseInt(productNum);
+    } 
+    else {
+      cartItems.push({ productID: id, quantity: parseInt(productNum) });
+    }
+
+    setStorage('cartItems', cartItems);
 
     closeCartPopUp(e);
-
-  }
+  };
 }
-
 
 // 팝업 관련 함수
-function openCartPopUp(productID){
-  return function(e){
+function openCartPopUp(productID) {
+  return function (e) {
     e.preventDefault();
-  
+
     renderAddShoppingCart(productID);
 
-    popup.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // 팝업 모달 여는 동안 스크롤 못하게 하도록 함
-  }
+    popup.style.display = "flex";
+    document.body.style.overflow = "hidden"; // 팝업 모달 여는 동안 스크롤 못하게 하도록 함
+  };
 }
 
-function closeCartPopUp(e){
+function closeCartPopUp(e) {
   e.preventDefault();
 
-  popup.textContent = '';
-  popup.style.display = 'none';
-  document.body.style.overflow = 'visible';
+  popup.textContent = "";
+  popup.style.display = "none";
+  document.body.style.overflow = "visible";
 }
 
-button.addEventListener('click', openCartPopUp('y8ph7c6xshyxfct'));
+button.addEventListener("click", openCartPopUp("uim90v4a3fmb156"));
