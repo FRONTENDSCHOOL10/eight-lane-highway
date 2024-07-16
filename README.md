@@ -336,3 +336,27 @@
 - src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
 - src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
 - src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
+
+## 2024-07-16
+
+**이희재**
+
+**최소현**
+
+**오성훈**
+
+**김한울**
+
+- src/component/pop-up/main.js: 디버깅
+- src/component/product/product-slide.js: 디버깅
+- src/component/recent-product/main.js: 디버깅
+- src/component/banner/banner.js: 디버깅
+- src/component/product/product-slide2.js: 링크 target 수정
+- src/pages/product/product-detail.html: 스타일 작업 및 템플릿 정보 제거 작업
+- src/component/assets/\_products.scss: 스타일 리팩토링
+- src/component/assets/\_products-detail.scss: 스타일 작업
+- src/pages/product/product-detail.js: 디버깅 및 데이터 불러오기 리팩토링
+- src/component/product/product-bubble.html: 장바구니 담기 버블 마크업
+- src/component/product/product-bubble.js: 장바구니 담기 버블 기능 구현
+- vite.config.js: 디테일 페이지 추가
+- package.json: axios 설치
