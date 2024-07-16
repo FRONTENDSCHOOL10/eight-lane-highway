@@ -1,7 +1,22 @@
 import PocketBase from "pocketbase";
 import { insertLast } from "/src/lib/dom/index";
 import getPbImageURL from "/src/api/getPbImageURL";
-import { formatPrice } from "../../lib/utils/price";
+import { formatPrice } from "/src/lib/utils/price";
+import {
+  toggleTitle,
+  handleClickedItems,
+} from "/src/component/accodion/accodion";
+import {
+  updateCategoryCounts,
+  updateBrandCounts,
+} from "/src/component/accodion/countAccodionItems";
+import {
+  updateBenefitCounts,
+  updateDeliveryCounts,
+  updateExeptionCounts,
+  updatePriceCounts,
+  updateTypeCounts,
+} from "../../component/accodion/countAccodionItems";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
@@ -70,6 +85,13 @@ async function renderProductList() {
     insertLast(list, template);
   });
   insertLast(totals, countTotal);
+  updateCategoryCounts(productItem);
+  updateBrandCounts(productItem);
+  updatePriceCounts(productItem);
+  updateDeliveryCounts(productItem);
+  updateTypeCounts(productItem);
+  updateBenefitCounts(productItem);
+  updateExeptionCounts(productItem);
 }
 
 renderProductList();
