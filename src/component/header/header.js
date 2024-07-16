@@ -1,6 +1,14 @@
 import headerCss from "/src/styles/style.scss?inline";
-import { addClass, removeClass, toggleClass } from "/src/lib/index.js";
+import {
+  addClass,
+  removeClass,
+  toggleClass,
+  getStorage,
+  setStorage,
+} from "/src/lib/index.js";
+import PocketBase from "pocketbase";
 
+const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
@@ -13,26 +21,27 @@ headerTemplate.innerHTML = `
          </a>
        </h1>
        <ul class="nav__user-auth">
-         <li class="nav__user-auth__item signup">
-           <a href="">회원가입</a>
+         <li class="nav__user-auth__item signup" id="signup">
+             <a href="/src/pages/register/index.html">회원가입</a>
          </li>
-         <li class="nav__user-auth__item login">
-           <a href="">로그인</a>
+         <li class="nav__user-auth__item login" id="login">
+               <a href="/src/pages/login/index.html">로그인</a>
+           </a>
          </li>
          <li class="nav__user-auth__item customer-service">
-           <a href="">고객센터</a>
+           <a href="/">고객센터</a>
            <ul class="nav__user-auth__notice">
              <li class="nav__user-auth__notice__item notice">
-               <a href="">공지 사항</a>
+               <a href="/">공지 사항</a>
              </li>
              <li class="nav__user-auth__notice__item faq">
-               <a href="">자주하는 질문</a>
+               <a href="/">자주하는 질문</a>
              </li>
              <li class="nav__user-auth__notice__item one-to-one">
-               <a href="">1:1 문의</a>
+               <a href="/">1:1 문의</a>
              </li>
              <li class="nav__user-auth__notice__item bulk-order">
-               <a href="">대량주문 문의</a>
+               <a href="/">대량주문 문의</a>
              </li>
            </ul>
          </li>
@@ -65,19 +74,19 @@ headerTemplate.innerHTML = `
                <span>배송지를 등록하고</span><br />구매 가능한 상품을
                확인하세요!
              </p>
-             <a class="modal-link modal-login">
+             <a href="/src/pages/login/index.html" class="modal-link modal-login">
                로그인
              </a>
-             <a class="modal-link modal-search-address">
+             <a href="" class="modal-link modal-search-address">
                주소 검색
              </a>
            </dialog>
          </li>
          <li class="nav__user-service__item heart">
-           <a href="" aria-label="찜 목록"></a>
+           <a href="/" aria-label="찜 목록"></a>
          </li>
          <li class="nav__user-service__item cart">
-           <a href="" aria-label="장바구니"></a>
+           <a href="/src/pages/cart/index.html" aria-label="장바구니"></a>
          </li>
        </ul>
        <div open class="nav__product__category" aria-label="제품 카테고리" >
@@ -163,7 +172,6 @@ headerTemplate.innerHTML = `
 class Header extends HTMLElement {
   constructor() {
     super();
-
     this.attachShadow({ mode: "open" });
     // headerTemplate의 콘텐츠를 Shadow DOM의 시작 부분에 추가
     this.shadowRoot.insertBefore(
@@ -171,30 +179,36 @@ class Header extends HTMLElement {
       this.shadowRoot.firstChild
     );
 
-    // nav
+    // header
     this.header = this.shadowRoot.querySelector("header");
+    // nav
     this.nav = this.header.querySelector(".nav");
     // 마켓칼리, 뷰티칼리 페이지 버튼
-    this.pageList = this.nav.querySelector(".nav__page");
+    this.pageList = this.header.querySelector(".nav__page");
 
+    this.login = this.header.querySelector("#login");
+    this.modalLogin = this.header.querySelector(".modal-login");
+    this.signup = this.header.querySelector("#signup");
     // 고객 센터
-    this.customerService = this.nav.querySelector(".customer-service");
+    this.customerService = this.header.querySelector(".customer-service");
     // 고객 센터 호버시 나올 모달창
-    this.customerServiceModal = this.nav.querySelector(
+    this.customerServiceModal = this.header.querySelector(
       ".nav__user-auth__notice"
     );
 
     // 주소표시 svg
-    this.address = this.nav.querySelector(".nav__user-service > .address");
+    this.address = this.header.querySelector(".nav__user-service > .address");
     // 주소표시 svg 호버시 나올 모달창
-    this.addressModal = this.nav.querySelector(
+    this.addressModal = this.header.querySelector(
       ".nav__user-service__item__address-modal"
     );
 
     // 카테고리 메뉴
-    this.categoryTitle = this.nav.querySelector(".nav__product__category");
+    this.categoryTitle = this.header.querySelector(".nav__product__category");
     // 카테고리 하단 메뉴
-    this.categoryList = this.nav.querySelector(".nav__product__category__list");
+    this.categoryList = this.header.querySelector(
+      ".nav__product__category__list"
+    );
   }
   connectedCallback() {
     // customerService modal 마우스이벤트
@@ -264,6 +278,39 @@ class Header extends HTMLElement {
       }
     }
     window.addEventListener("scroll", handleScroll.bind(this));
+    this.handleLogout();
+  }
+  async handleLogout() {
+    const defaultAuthData = {
+      isLogin: false,
+      userInfo: { name: null },
+    };
+
+    if (localStorage.getItem("auth")) {
+      const { isLogin, userInfo } = await getStorage("auth");
+
+      if (isLogin) {
+        this.signup.innerHTML = `<a href="/" class="my-page">${userInfo.name}</a>`;
+        this.login.innerHTML = `<a href="/" class="logout">로그아웃</a>`;
+        this.modalLogin.innerHTML = `
+          <a href="/" class="modal-logout">
+            로그아웃
+          </a>`;
+
+        const logout = this.header.querySelector(".logout");
+        const modalLogout = this.header.querySelector(".modal-logout");
+
+        function logOut() {
+          if (confirm("정말 로그아웃 하실겁니까?")) {
+            pb.authStore.clear();
+            setStorage("auth", defaultAuthData);
+            location.reload();
+          }
+        }
+        logout.addEventListener("click", logOut);
+        modalLogout.addEventListener("click", logOut);
+      }
+    }
   }
 }
 

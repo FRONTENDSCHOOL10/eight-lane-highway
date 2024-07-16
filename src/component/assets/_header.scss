@@ -32,8 +32,10 @@ header {
 
     &__item {
       position: relative;
+      @include flexAll($fd: row, $jc: center, $at: center);
       color: $black;
-      margin-left: 24px;
+      margin-left: 10px;
+      padding-bottom: 15px;
     }
 
     .signup {
@@ -43,14 +45,14 @@ header {
     .signup::after,
     .login::after {
       content: "";
-      @include absolute($t: 2px, $r: -7px);
       @include size($w: 1px, $h: 13px);
+      display: inline-block;
+      margin-left: 10px;
       background-color: #d9d9d9;
     }
 
     .customer-service {
       position: relative;
-      padding-bottom: 15px;
 
       &::after {
         content: "";
