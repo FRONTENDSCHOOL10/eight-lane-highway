@@ -33,8 +33,9 @@ function displayProductData(data) {
   // productImgContainer.src = getPbImageURL(data.photo);
   // productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
 
-  productInfoContainer.querySelector(".title__secondary").textContent =
-    data.subtitle;
+  document.querySelectorAll(".title__secondary").forEach((element) => {
+    element.textContent = data.subtitle;
+  });
   productInfoContainer.querySelector(".price__emphasis").textContent =
     data.price.toLocaleString();
 
@@ -51,6 +52,7 @@ function displayProductData(data) {
   document.getElementById("product__packiging__weight").textContent =
     data.weight;
   document.getElementById("product__allergic").textContent = data.allergic;
+  document.getElementById("productDetailText").textContent = data.seller;
 }
 
 // 초기화 함수
