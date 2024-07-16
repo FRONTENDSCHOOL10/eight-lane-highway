@@ -30,8 +30,8 @@ function displayProductData(data) {
   );
 
   // 상품 이미지 URL 설정 (포켓베이스에서 이미지 URL 구성 방식에 따라 수정)
-  // productImgContainer.src = getPbImageURL(data.photo);
-  // productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
+  productImgContainer.src = getPbImageURL(data);
+  productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
 
   document.querySelectorAll(".title__secondary").forEach((element) => {
     element.textContent = data.subtitle;
@@ -52,9 +52,18 @@ function displayProductData(data) {
   document.getElementById("product__packiging__weight").textContent =
     data.weight;
   document.getElementById("product__allergic").textContent = data.allergic;
-  document.getElementById("productDetailText").textContent = data.seller;
+  document.getElementById("productDetailText").textContent = data.detail;
 }
 
+function getImageURL(item, field) {
+  const url = "https://eight-lane-highway.pockethost.io";
+  return `${url}/api/files/${item.collectionId}/${item.id}/${item[field]}`;
+}
+document.getElementById("productDetailImage").src = getImageURL(
+  data,
+  "productPhoto"
+);
+document.getElementById("productDetailImage").alt = data.name;
 // 초기화 함수
 async function initializeProductDetail() {
   try {
