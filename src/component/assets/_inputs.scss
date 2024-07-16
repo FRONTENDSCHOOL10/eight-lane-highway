@@ -6,6 +6,19 @@ input {
     padding: 12px 20px;
     line-height: 18px;
 
+    &.is__invalid {
+      border: 3px solid $negativeColor;
+      &:focus-visible {
+        outline-color: $negativeColor;
+      }
+    }
+    &.is__valid {
+      border: 3px solid $successColor;
+      &:focus-visible {
+        outline-color: $successColor;
+      }
+    }
+
     &:focus-visible {
       outline-color: $black;
     }
