@@ -16,7 +16,7 @@ headerTemplate.innerHTML = `
 <header>
        <nav class="nav">
        <h1 class="nav__logo">
-         <a href="">
+         <a href="/">
            <img src="/images/logo.svg" alt="마켓칼리" />
          </a>
        </h1>
