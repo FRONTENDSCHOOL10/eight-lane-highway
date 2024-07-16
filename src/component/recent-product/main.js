@@ -27,18 +27,16 @@ export async function getSavedRecentProduct() {
     }
     itemContainer.innerHTML = "";
 
-    const productPromises = recentProductsId.map(async (id) => {
+    for (const id of recentProductsId) {
       const item = await pb.collection("products").getOne(id);
-      return `
+      const template = `
         <div class="swiper-slide">
-        <a href="/src/pages/product/product-detail.html?product=${item.id}">
-          <img src="${getPbImageURL(item)}" alt="${item.name}" />
-        </a>
+          <a href="/src/pages/product/product-detail.html?product=${item.id}">
+            <img src="${getPbImageURL(item)}" alt="${item.name}" />
+          </a>
         </div>`;
-    });
-
-    const templates = await Promise.all(productPromises);
-    templates.forEach((template) => insertFirst(itemContainer, template));
+      insertFirst(itemContainer, template);
+    }
   }
 }
 
