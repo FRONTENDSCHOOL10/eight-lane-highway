@@ -311,7 +311,7 @@
 - src/component/assets/\_register.scss: 회원가입 스타일링
 - src/component/product/product-slide.js: 경로 수정
 
-  **이희재**
+**이희재**
 
 - src/component/footer/footer.js: footer안에 to-top버튼 추가
 - src/component/banner/banner.js: banner에 button, pagination 추가
@@ -336,3 +336,10 @@
 - src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
 - src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
 - src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
+
+## 2024-07-16
+
+**이희재**
+
+- src/component/header/header.js: 로그인시 UI변경 로그아웃 구현
+- src/component/product/product-slide1.js: 스와이퍼 디버깅
