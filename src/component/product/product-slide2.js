@@ -16,36 +16,31 @@ import { getSavedRecentProduct } from "/src/component/recent-product/main.js";
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 // 스와이퍼
-const swiperContainer = document.querySelector(
-  ".product-slide2 .swiper-container"
-);
-if (swiperContainer) {
-  const swiper = new Swiper(swiperContainer, {
-    slidesPerView: 4,
-    slidesPerGroup: 4,
-    spaceBetween: 18,
-    navigation: {
-      nextEl: ".product-slide2 .swiper-button-next",
-      prevEl: ".product-slide2 .swiper-button-prev",
+const swiper = new Swiper(".product-slide2 .swiper-container", {
+  slidesPerView: 4,
+  slidesPerGroup: 4,
+  spaceBetween: 18,
+  navigation: {
+    nextEl: ".product-slide2 .swiper-button-next",
+    prevEl: ".product-slide2 .swiper-button-prev",
+  },
+  on: {
+    init: function () {
+      checkNavigation(this);
+      renderProductItem();
     },
-    on: {
-      init: function () {
-        checkNavigation(this);
-        renderProductItem();
-      },
-      slideChange: function () {
-        checkNavigation(this);
-      },
-      update: function () {
-        checkNavigation(this);
-        // add-button 클릭시 일어날 이벤트 처리
-        addCart();
-        // product 클릭시 일어날 이벤트 처리
-        addProduct();
-      },
+    slideChange: function () {
+      checkNavigation(this);
     },
-  });
-}
+    update: function () {
+      checkNavigation(this);
+      // add-button 클릭시 일어날 이벤트 처리
+      addCart();
+      // product 클릭시 일어날 이벤트 처리
+      addProduct();
+    },
+  },
+});
 
 // 스와이퍼의 시작과 마지막을 체크
 function checkNavigation(swiper) {
