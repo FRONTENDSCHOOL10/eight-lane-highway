@@ -63,7 +63,7 @@ async function renderProductItem() {
     <article class="swiper-slide product">
     <h3 class="sr-only">${item.name}</h3>
     <div class="visual">
-      <a href="/src/component/product/product-detail.html?product=${
+      <a href="/src/pages/product/product-detail.html?product=${
         item.id
       }" class="visual__link">
         <img
