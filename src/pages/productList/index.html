@@ -8,8 +8,9 @@
     <title>상품 리스트</title>
   </head>
   <body>
-    <main class="product__lists">
-      <aside>
+    <main class="products__list">
+      <h2>베스트</h2>
+      <div class="product__lists">
         <article class="accodian__menu">
           <ul class="accodian__menu__main">
             <li class="accodian__menu__main__items">
@@ -365,8 +366,51 @@
             </li>
           </ul>
         </article>
-      </aside>
-      <section class="product__lists__container"></section>
+        <section class="product__lists__container">
+          <aside class="product__lists__container__intro">
+            <span class="product__lists__container__totals"></span>
+            <ul class="product__lists__container__nav">
+              <li class="product__lists__container__nav__items">추천순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
+              </li>
+              <li class="product__lists__container__nav__items">신상품순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
+              </li>
+              <li class="product__lists__container__nav__items">판매량순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
+              </li>
+              <li class="product__lists__container__nav__items">혜택순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
+              </li>
+              <li class="product__lists__container__nav__items">낮은가격순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
+              </li>
+              <li class="product__lists__container__nav__items">높은가격순</li>
+            </ul>
+          </aside>
+          <article class="product__lists__container__items"></article>
+        </section>
+      </div>
     </main>
   </body>
 </html>

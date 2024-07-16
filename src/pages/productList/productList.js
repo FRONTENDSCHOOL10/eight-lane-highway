@@ -1,13 +1,17 @@
 import PocketBase from "pocketbase";
 import { insertLast } from "/src/lib/dom/index";
 import getPbImageURL from "/src/api/getPbImageURL";
+import { formatPrice } from "../../lib/utils/price";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
-const list = document.querySelector(".product__lists__container");
+const list = document.querySelector(".product__lists__container__items");
+const totals = document.querySelector(".product__lists__container__totals");
 
 async function renderProductList() {
   const productItem = await pb.collection("products").getFullList();
+
+  const countTotal = countTotalProduct(productItem);
 
   productItem.forEach((items) => {
     const isKarlyOnly = JSON.parse(items.is_karlyOnly.toLowerCase());
@@ -16,13 +20,17 @@ async function renderProductList() {
     const discountSection =
       items.discount !== 0
         ? `<p class="info__product__price">
-            <span class="info__sale__price">${items.discount}%</span> ${
+            <span class="info__sale__price">${
+              items.discount
+            }%</span> ${formatPrice(
             items.price - items.price * (items.discount / 100)
-          } 원
+          )} 원
           </p>
-          <p class="info__product__original-price">${items.price} 원</p>`
+          <p class="info__product__original-price">${formatPrice(
+            items.price
+          )} 원</p>`
         : `<p class="info__product__price">
-            ${items.price} 원 
+            ${formatPrice(items.price)} 원 
           </p>`;
     const karlyOnlyBadge = isKarlyOnly
       ? `<p class="badge badge__karly">Karly Only</p>`
@@ -61,6 +69,17 @@ async function renderProductList() {
     `;
     insertLast(list, template);
   });
+  insertLast(totals, countTotal);
 }
 
 renderProductList();
+
+function countTotalProduct(items) {
+  let count = 0;
+
+  items.forEach((i) => {
+    count++;
+  });
+
+  return `총 ${count} 건`;
+}
