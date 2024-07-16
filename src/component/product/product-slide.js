@@ -15,116 +15,88 @@ import { getSavedRecentProduct } from "/src/component/recent-product/main.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
-// 스와이퍼
-const swiper = new Swiper(".product-slide1 .swiper-container", {
-  slidesPerView: 4,
-  slidesPerGroup: 4,
-  spaceBetween: 18,
-  navigation: {
-    nextEl: ".product-slide1 .swiper-button-next",
-    prevEl: ".product-slide1 .swiper-button-prev",
-  },
-  on: {
-    init: function () {
-      checkNavigation(this);
-      renderProductItem();
-    },
-    slideChange: function () {
-      checkNavigation(this);
-    },
-    update: function () {
-      checkNavigation(this);
-      // add-button 클릭시 일어날 이벤트 처리
-      addCart();
-      // product 클릭시 일어날 이벤트 처리
-      addProduct();
-    },
-  },
-});
-
 // 스와이퍼의 시작과 마지막을 체크
-function checkNavigation(swiper) {
-  const prev = getNode(".product-slide1 .swiper-button-prev");
-  const next = getNode(".product-slide1 .swiper-button-next");
+function checkNavigation(className, swiper) {
+  const prev = getNode(`${className} .swiper-button-prev`);
+  const next = getNode(`${className} .swiper-button-next`);
 
   if (swiper.isEnd) {
     addClass(next, "is__hide");
   } else {
     removeClass(next, "is__hide");
   }
-
   if (swiper.isBeginning) {
     addClass(prev, "is__hide");
   } else {
     removeClass(prev, "is__hide");
   }
 }
-
+let cachedProductsData = null;
+// 수정 필요합니당..
+async function fetchProductsData() {
+  if (!cachedProductsData) {
+    cachedProductsData = await pb.collection("products").getFullList();
+  }
+  return cachedProductsData;
+}
 let productIdList = [];
-async function renderProductItem() {
-  const productsData = await pb.collection("products").getFullList();
+async function renderProductItem(className, swiper) {
+  let productsData = await fetchProductsData();
   productsData.forEach((item) => {
     productIdList.push(item.id);
     const discount = item.price * (item.discount * 0.01);
     const template = `
-    <article class="swiper-slide product">
-    <h3 class="sr-only">${item.name}</h3>
-    <div class="visual">
-      <a href="/src/pages/product/product-detail.html?product=${
-        item.id
-      }" class="visual__link">
-        <img
-          src="${getPbImageURL(item)}" alt="${item.name}" />
-      </a>
-      <a href="/" class="visual__add-cart" aria-label="장바구니 담기">
-        <img
-          src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg"
-          alt="장바구니 담기" />
-      </a>
-    </div>
-    <div class="info">
-      <p class="info__delivery">샛별배송</p> 
-      <p class="info__product__title">
-       ${item.name}
-      </p>
-      <p class="info__product__price">
-        <span class="info__sale__price">${
-          item.discount === 0 ? "" : item.discount + "%"
-        } </span>${formatPrice(item.price - discount)} 원 
-      </p>
-      ${
-        item.discount === 0
-          ? ""
-          : `<p class="info__product__original-price">${formatPrice(
-              item.price
-            )} 원</p>`
-      }
-      <p class="info__product__description">
-        ${item.subtitle}
-      </p>
-      <div class="badge__group">
-      ${
-        item.is_karlyOnly == "true"
-          ? '<p class="badge badge__karly">Karly Only</p>'
-          : ""
-      }
-      ${
-        item.is_limited == "true"
-          ? '<p class="badge badge__text">한정수량</p>'
-          : ""
-      }
-      </div>
-    </div>
-  </article>
+      <article class="swiper-slide product">
+        <h3 class="sr-only">${item.name}</h3>
+        <div class="visual">
+          <a href="/src/pages/product/product-detail.html?product=${
+            item.id
+          }" class="visual__link">
+            <img src="${getPbImageURL(item)}" alt="${item.name}" />
+          </a>
+          <a href="/" class="visual__add-cart" aria-label="장바구니 담기">
+            <img src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg" alt="장바구니 담기" />
+          </a>
+        </div>
+        <div class="info">
+          <p class="info__delivery">샛별배송</p>
+          <p class="info__product__title">${item.name}</p>
+          <p class="info__product__price">
+            <span class="info__sale__price">${
+              item.discount === 0 ? "" : item.discount + "%"
+            }</span>${formatPrice(item.price - discount)} 원
+          </p>
+          ${
+            item.discount === 0
+              ? ""
+              : `<p class="info__product__original-price">${formatPrice(
+                  item.price
+                )} 원</p>`
+          }
+          <p class="info__product__description">${item.subtitle}</p>
+          <div class="badge__group">
+            ${
+              item.is_karlyOnly === "true"
+                ? '<p class="badge badge__karly">Karly Only</p>'
+                : ""
+            }
+            ${
+              item.is_limited === "true"
+                ? '<p class="badge badge__text">한정수량</p>'
+                : ""
+            }
+          </div>
+        </div>
+      </article>
     `;
-    insertLast(".product-slide1 .swiper-wrapper", template);
+    insertLast(`${className} .swiper-wrapper`, template);
   });
   swiper.update();
 }
 
 // add-cart에 각각 이벤트 추가
-function addCart() {
-  const addCart = getNodes(".product-slide1 .visual__add-cart");
+function addCart(className) {
+  const addCart = getNodes(`${className} .visual__add-cart`);
   addCart.forEach((addCartButton, index) => {
     addCartButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -134,18 +106,18 @@ function addCart() {
 }
 
 // 제품 클릭시 일어날 이벤트 처리
-function viewedProducts() {
+function viewedProducts(className) {
   let recentProductsId = [];
 
   return async function () {
-    const productLink = getNodes(".product-slide1 .visual__link");
+    const productLink = getNodes(`${className} .visual__link`);
 
     // 기존 저장된 데이터를 로드
     recentProductsId = (await getStorage("recentProductId")) || [];
 
     productLink.forEach((productLink, index) => {
       productLink.addEventListener("click", async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const productId = productIdList[index];
         const productIndex = recentProductsId.indexOf(productId);
 
@@ -165,8 +137,6 @@ function viewedProducts() {
   };
 }
 
-// 클로저로 생성한 addProduct 함수 사용
-const addProduct = viewedProducts();
 getSavedRecentProduct();
 
 /* -------------------------------------------------------------------------- */
@@ -295,3 +265,34 @@ function closeCartPopUp() {
   popup.style.display = "none";
   document.body.style.overflow = "visible";
 }
+
+function CustomSwiper(className) {
+  const swiper = new Swiper(`${className} .swiper-container`, {
+    slidesPerView: 4,
+    slidesPerGroup: 4,
+    spaceBetween: 18,
+    navigation: {
+      nextEl: `${className} .swiper-button-next`,
+      prevEl: `${className} .swiper-button-prev`,
+    },
+    on: {
+      init: function () {
+        checkNavigation(className, this);
+        renderProductItem(className, this);
+      },
+      slideChange: function () {
+        checkNavigation(className, this);
+      },
+      update: function () {
+        checkNavigation(className, this);
+        addCart(className);
+        viewedProducts(className)();
+      },
+    },
+  });
+
+  return swiper;
+}
+
+const swiper1 = new CustomSwiper(".product-slide1");
+const swiper2 = new CustomSwiper(".product-slide2");

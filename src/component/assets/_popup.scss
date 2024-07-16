@@ -1,13 +1,13 @@
 .pop-up-container {
-  @include size($w: 440px, $h: 672px);
+  @include size($w: 440px, $h: 636px);
   position: fixed;
   top: 50px;
   left: 50px;
   z-index: 100;
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid $darkBlack;
-  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px 0px;
+
   &.is__hide {
     display: none;
   }

@@ -1,8 +1,9 @@
+import axios from "axios";
 import getPbImageURL from "/src/api/getPbImageURL";
-import PocketBase from "pocketbase";
+import "/main.js";
 
-// 포켓베이스 설정
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
+// 포켓베이스 API URL
+const pbUrl = "https://eight-lane-highway.pockethost.io";
 
 // URL 매개변수에서 상품 ID 추출
 function getProductIdFromUrl() {
@@ -15,7 +16,10 @@ function getProductIdFromUrl() {
 // 포켓베이스에서 상품 데이터를 가져오는 함수
 async function fetchProductData(productId) {
   try {
-    const data = await pb.collection("products").getOne(productId);
+    const response = await axios.get(
+      `${pbUrl}/api/collections/products/records/${productId}`
+    );
+    const data = response.data;
     displayProductData(data);
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);
@@ -30,32 +34,76 @@ function displayProductData(data) {
   );
 
   // 상품 이미지 URL 설정 (포켓베이스에서 이미지 URL 구성 방식에 따라 수정)
-  // productImgContainer.src = getPbImageURL(data.photo);
-  // productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
+  productImgContainer.src = getPbImageURL(data);
+  productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
 
-  productInfoContainer.querySelector(".title__product").textContent = data.name;
-  productInfoContainer.querySelector(".title__secondary").textContent =
-    data.subtitle;
-  productInfoContainer.querySelector(".price__emphasis").textContent =
-    data.price.toLocaleString();
+  document.querySelectorAll(".title__secondary").forEach((element) => {
+    element.textContent = data.subtitle;
+  });
+  document.querySelectorAll(".price__emphasis").forEach((element) => {
+    element.textContent = data.price.toLocaleString();
+  });
 
-  document.querySelector(".product__delivery").textContent = data.delivery;
+  document.querySelectorAll(".title__product").forEach((element) => {
+    element.textContent = data.name;
+  });
+  document.querySelectorAll(".product__delivery").forEach((element) => {
+    element.textContent = data.delivery;
+  });
   document.getElementById("product__seller").textContent = data.seller;
   document.querySelector(".product__packiging__detail").textContent =
     data.packaging;
   document.getElementById("product__packiging__unit").textContent = data.unit;
   document.getElementById("product__packiging__weight").textContent =
     data.weight;
-  // document.getElementById("product__allergic").textContent = data.allergic;
+  document.getElementById("product__allergic").textContent = data.allergic;
+  document.getElementById("productDetailText").textContent = data.detail;
+
+  // 이미지 세팅 함수
+  function setImage(elementId, imageUrl, altText) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.src = imageUrl;
+      element.alt = altText;
+    } else {
+      console.error(`Element with ID ${elementId} not found`);
+    }
+  }
+
+  if (data) {
+    setImage(
+      "productDetailImage",
+      getPbImageURL(data, "productPhoto"),
+      data.name
+    );
+    setImage(
+      "productCheckPointImage",
+      getPbImageURL(data, "checkpoint"),
+      data.name
+    );
+    setImage(
+      "productDetailInfoImage",
+      getPbImageURL(data, "detailInfo"),
+      data.name
+    );
+  } else {
+    console.error("Data object is missing");
+  }
 }
 
 // 초기화 함수
 async function initializeProductDetail() {
   try {
-    await pb.admins.authWithPassword(
-      "vanillajs.eightlanehighway@gmail.com",
-      "admin0000"
+    const authResponse = await axios.post(
+      `${pbUrl}/api/admins/auth-with-password`,
+      {
+        identity: "vanillajs.eightlanehighway@gmail.com",
+        password: "admin0000",
+      }
     );
+
+    const token = authResponse.data.token;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     const productId = getProductIdFromUrl();
     if (productId) {

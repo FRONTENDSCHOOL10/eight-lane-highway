@@ -27,7 +27,7 @@ export default defineConfig({
         login: resolve(__dirname, "src/pages/login/index.html"),
         productdetail: resolve(
           __dirname,
-          "src/component/product/product-detail.html"
+          "src/pages/product/product-detail.html"
         ),
         addshoppingbasket: resolve(
           __dirname,
@@ -35,6 +35,7 @@ export default defineConfig({
         ),
         banner: resolve(__dirname, "src/component/banner/banner.html"),
         cart: resolve(__dirname, "src/pages/cart/index.html"),
+        productList: resolve(__dirname, "src/pages/productList/index.html"),
       },
     },
   },

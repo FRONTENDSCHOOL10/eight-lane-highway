@@ -41,6 +41,9 @@ function setStorage(name, exp) {
   // 로컬 스토리지에 저장하기
   localStorage.setItem(name, date);
 }
-
-hideButton.addEventListener("click", HidePopupToday);
-closeButton.addEventListener("click", closePopup);
+if (hideButton) {
+  hideButton.addEventListener("click", HidePopupToday);
+}
+if (closeButton) {
+  closeButton.addEventListener("click", closePopup);
+}
