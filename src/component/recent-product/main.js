@@ -3,15 +3,26 @@ import pb from "../../api/pocketbase";
 import { getNode, insertFirst, getStorage, addClass } from "../../lib/index";
 
 // 스와이퍼 생성
-const swiper = new Swiper(".recent-product-container .swiper-container", {
-  direction: "vertical",
-  navigation: {
-    nextEl: ".recent-product-container .swiper-button-next",
-    prevEl: ".recent-product-container .swiper-button-prev",
-  },
-  slidesPerView: "auto",
-  spaceBetween: 6,
-});
+const swiperContainer = document.querySelector(
+  ".recent-product-container .swiper-container"
+);
+if (swiperContainer) {
+  const swiper = new Swiper(swiperContainer, {
+    direction: "vertical",
+    navigation: {
+      nextEl: ".recent-product-container .swiper-button-next",
+      prevEl: ".recent-product-container .swiper-button-prev",
+    },
+    slidesPerView: "auto",
+    spaceBetween: 6,
+  });
+}
+
+const container = getNode(".recent-product");
+if (container) {
+  const documentHeight = document.documentElement.scrollHeight;
+  container.style.height = `${documentHeight}px`;
+}
 
 // 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
 export async function getSavedRecentProduct() {
@@ -31,15 +42,11 @@ export async function getSavedRecentProduct() {
       const item = await pb.collection("products").getOne(id);
       const template = `
         <div class="swiper-slide">
-          <a href="/src/pages/product/product-detail.html?product=${item.id}">
-            <img src="${getPbImageURL(item)}" alt="${item.name}" />
-          </a>
+        <a href="/src/pages/product/product-detail.html?product=${item.id}">
+        <img src="${getPbImageURL(item)}" alt="${item.name}" />
+      </a>
         </div>`;
       insertFirst(itemContainer, template);
     }
   }
 }
-
-const container = getNode(".recent-product");
-const documentHeight = document.documentElement.scrollHeight;
-container.style.height = `${documentHeight}px`;
