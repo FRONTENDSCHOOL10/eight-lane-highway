@@ -4,12 +4,22 @@ import {
   addClass,
   formatPrice,
   getNode,
+  getNodes,
   getStorage,
   insertAfter,
   insertLast,
   isString,
+  removeClass,
+  setStorage,
   toggleClass,
 } from "../../lib";
+import { countChange, updateSelectedCount } from "./countedItem";
+import { deleteItem, deleteSelected } from "./delete";
+import selectAll from "./selectAll";
+import { priceChange } from "./sumAllPrice";
+import { syncCheckBox } from "./syncCheckBox";
+import { countNumber } from "./updatePrice";
+import "/main.js";
 
 const foodTypeNav = getNode(".food-type__container");
 const AccordCold = getNode("#foodTypeCold");
@@ -29,13 +39,15 @@ function toggleHandler(e) {
 }
 foodTypeNav.addEventListener("click", toggleHandler);
 
-// 로컬스토리지 저장된 아이디 값으로 DB에서 상품정보 불러오기
-async function getCartAddedProducts() {
-  if (await getStorage("recentProducts")) {
-    const productValue = await getStorage("recentProducts");
-    for (let item of productValue) {
-      const data = await pb.collection("products").getOne(item);
+// 로컬스토리지 저장된 상품정보 pb에서 랜더링
+async function getCardAddedProductsNew() {
+  if (await getStorage("cartItems")) {
+    const product = await getStorage("cartItems");
+
+    for (let item of product) {
+      const data = await pb.collection("products").getOne(item.productID);
       const type = data.packaging.slice(0, 2);
+      const quantity = item.quantity;
       const templete = ` <div class="food-type__accordion" ><input
       type="checkbox"
       id="cartAddedSelect"
@@ -48,20 +60,20 @@ async function getCartAddedProducts() {
     >
     <div class="food-type__accordion__count price_counter">
       <button type="button" class="minus-button">
-        <img src="/images/minus-button-black.svg" alt="" />
+        <img src="/images/minus-button-black.svg" alt="수량 감소 버튼" />
       </button>
-      <span class="counter">0</span>
+      <span class="counter">${quantity}</span>
       <button type="button" class="plus-button">
-        <img src="/images/plus-button-black.svg" alt="" />
+        <img src="/images/plus-button-black.svg" alt="수량 추가 버튼" />
       </button>
     </div>
 
     <span class="food-type__accordion__price">
     <span class="food-type__accordion__price__discount">${formatPrice(
-      data.price * ((100 - data.discount) / 100)
+      data.price * ((100 - data.discount) / 100) * quantity
     )}원</span>
     <span class="food-type__accordion__price__value">${formatPrice(
-      data.price
+      data.price * quantity
     )}원</span>
     </span>
     <button
@@ -75,139 +87,38 @@ async function getCartAddedProducts() {
         insertAfter(AccordRoomTemp, templete);
       }
     }
-    new AgreementManager("#selectAll", "accordion__input");
-    new AgreementManager("#selectAll2", "accordion__input");
+    new selectAll("#selectAll", "accordion__input");
+    new selectAll("#selectAll2", "accordion__input");
     countNumber();
-    getCheckedItems();
+    deleteSelected();
+    deleteItem();
+    countChange();
+    priceChange();
   }
 }
 
-document.addEventListener("DOMContentLoaded", getCartAddedProducts);
+document.addEventListener("DOMContentLoaded", getCardAddedProductsNew);
 
-// 로그인 됐을때 로그인 버튼에서 => 주문하기로 변경
-// 로그인 됐을때 배송지 안보임 => 고객 배송지 정보 받아오기
-// isAuth = false
+// 로그인 상태에 따른 UI 변경
 async function isLogin() {
   const auth = await getStorage("auth");
   const adress = getNode(".adress__client-adress");
+  const badge = getNode(".point-badge");
+  const rate = getNode(".point-rate");
+  const rateUnlogin = getNode(".point-rate__unlogin");
 
   if (auth && auth.isLogin) {
     addClass(adressBox, "is__show");
     orderButton.textContent = "주문하기";
     adress.textContent = `${auth.userInfo.address}`;
+    addClass(badge, "is__show");
+    addClass(rate, "is__show");
+    addClass(rateUnlogin, "is__hide");
   }
 }
 
 document.addEventListener("DOMContentLoaded", isLogin);
-
-// 체크박스 전체선택 관련 함수
-// 전체선택 관련 함수
-class AgreementManager {
-  constructor(checkAllSelector, checkItemSelector) {
-    this.checkAllElement = document.querySelector(checkAllSelector);
-    this.checkItemElements = document.getElementsByName(checkItemSelector);
-
-    if (this.checkAllElement && this.checkItemElements.length > 0) {
-      this.init();
-    } else {
-      console.warn(
-        "AgreementManager: Required elements are not found on the page."
-      );
-    }
-  }
-
-  init() {
-    this.checkAllElement.addEventListener("change", () => this.checkAll());
-    Array.from(this.checkItemElements).forEach((checkItem) => {
-      checkItem.addEventListener("change", () => this.updateCheckAll());
-    });
-  }
-
-  checkAll() {
-    Array.from(this.checkItemElements).forEach((checkItem) => {
-      checkItem.checked = this.checkAllElement.checked;
-    });
-  }
-
-  updateCheckAll() {
-    const allChecked = Array.from(this.checkItemElements).every(
-      (checkItem) => checkItem.checked
-    );
-    this.checkAllElement.checked = allChecked;
-  }
-}
-
-// // 위아래 체크 박스 동기화
-function syncCheckBox(checkBox) {
-  const checkAllBoxes = document.querySelectorAll(checkBox);
-
-  checkAllBoxes.forEach((box) => {
-    box.addEventListener("change", () => {
-      syncCheckAllBoxes(box.checked);
-    });
-  });
-
-  function syncCheckAllBoxes(isChecked) {
-    checkAllBoxes.forEach((box) => {
-      box.checked = isChecked;
-    });
-  }
-}
 document.addEventListener(
   "DOMContentLoaded",
   syncCheckBox(".checkbox__check-all__box")
 );
-
-// 수량 변경 및 가격변경 함수 (랜더링되고 나서 실행)
-function countNumber() {
-  const counterSets = document.querySelectorAll(".food-type__accordion");
-
-  counterSets.forEach((set) => {
-    const counterElement = set.querySelector(".counter");
-    const minusButton = set.querySelector(".minus-button");
-    const plusButton = set.querySelector(".plus-button");
-    const priceValue = set.querySelector(".food-type__accordion__price__value");
-    const priceDiscount = set.querySelector(
-      ".food-type__accordion__price__discount"
-    );
-    // 받은 가격 원단위, 숫자단위 떼기
-    function valueTrimmed(value) {
-      return value.textContent
-        .substr(0, value.textContent.length - 1)
-        .replace(",", "");
-    }
-    const dataPrice = valueTrimmed(priceValue);
-    const dataDiscount = valueTrimmed(priceDiscount);
-
-    let count = Number(counterElement.textContent);
-
-    minusButton.addEventListener("click", () => {
-      if (count > 0) {
-        count--;
-        counterElement.textContent = count;
-        priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
-        priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
-      }
-    });
-
-    plusButton.addEventListener("click", () => {
-      count++;
-      counterElement.textContent = count;
-      priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
-      priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
-    });
-  });
-}
-
-// 선택항목 삭제함수
-function getCheckedItems() {
-  const deleteSelected = getNode(".checkbox__delete");
-  const checkedCheckboxes = document.getElementsByName("accordion__input");
-  const template = getNode(".food-type__accordion");
-
-  deleteSelected.addEventListener("click", () => {
-    checkedCheckboxes.forEach((checkBox) => {
-      if (checkBox.checked) template.remove();
-    });
-  });
-}

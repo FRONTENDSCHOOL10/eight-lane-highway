@@ -234,7 +234,7 @@
 **최소현**
 
 - src/style/style.scss cart.scss추가
-- src/pages/cart 기본 마크업
+- src/pages/cart/index.html 기본 마크업
 - component/assets/\_typography 수정
 - public/images `sun`, `frozen`, `water` svg 파일 추가
 
@@ -263,6 +263,12 @@
 - 이메일 검사
 - 회원가입 페이지 스타일링 수정
 
+**최소현**
+
+- src/style/style.scss 스타일링 수정
+- src/pages/cart/index.html 마크업 수정
+- src/pages/cart/main.js 아코디언 UI 장바구니 데이터 포켓베이스 연결
+
 ## 2024-07-14
 
 **오성훈**
@@ -277,6 +283,12 @@
   - 팝업을 열고 닫는 함수 추가
   - 포켓호스트 SDK를 사용하여 상품 정보를 서버에서 받아올 수 있도록 수정
 
+**최소현**
+
+- src/style/style.scss 스타일링 수정
+- src/pages/cart/index.html 마크업 수정
+- src/pages/cart/main.js 체크박스 및 수량관련 기능 구현, 로그인 상태 UI 반영
+
 ## 2024-07-15
 
 **김한울**
@@ -290,6 +302,18 @@
 - src/pages/register/register.js: 함수 분리
 - src/component/assets/\_register.scss: 회원가입 스타일링
 - src/component/product/product-slide.js: 경로 수정
+
+**최소현**
+
+- src/pages/cart/index.html 페이지 합치기
+- src/style/style.scss 리팩토링
+- src/pages/cart/main.js 수량 변경/ 로컬스토리지, 포켓베이스 연결/ 결제금액 반영/
+- src/pages/cart/countItem.js 수량변경 함수 분리
+- src/pages/cart/delete.js 선택항목 삭제 함수 분리
+- src/pages/cart/selectAll.js 전체선택 관련 함수 분리
+- src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
+- src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
+- src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
 
 **오성훈**
 
