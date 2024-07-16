@@ -32,7 +32,7 @@ function checkNavigation(className, swiper) {
   }
 }
 let cachedProductsData = null;
-
+// 수정 필요합니당..
 async function fetchProductsData() {
   if (!cachedProductsData) {
     cachedProductsData = await pb.collection("products").getFullList();
