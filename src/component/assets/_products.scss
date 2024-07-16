@@ -1,10 +1,10 @@
 .product {
   .visual {
     position: relative;
+    @include size($w: 249px, $h: 320px);
 
     &__link {
       display: inline-block;
-      @include size($w: 249px, $h: 320px);
 
       img {
         @include size($w: 100%, $h: 100%);
