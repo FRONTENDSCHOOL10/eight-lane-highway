@@ -50,7 +50,7 @@ function displayProductData(data) {
   document.getElementById("product__packiging__unit").textContent = data.unit;
   document.getElementById("product__packiging__weight").textContent =
     data.weight;
-  // document.getElementById("product__allergic").textContent = data.allergic;
+  document.getElementById("product__allergic").textContent = data.allergic;
 }
 
 // 초기화 함수
