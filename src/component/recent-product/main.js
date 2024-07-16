@@ -28,11 +28,11 @@ export async function getSavedRecentProduct() {
     itemContainer.innerHTML = "";
 
     const productPromises = recentProductsId.map(async (id) => {
-      const data = await pb.collection("products").getOne(id);
+      const item = await pb.collection("products").getOne(id);
       return `
         <div class="swiper-slide">
-        <a href="${data.url}">
-          <img src="${getPbImageURL(data)}" alt="${data.name}" />
+        <a href="/src/pages/product/product-detail.html?product=${item.id}">
+          <img src="${getPbImageURL(item)}" alt="${item.name}" />
         </a>
         </div>`;
     });
