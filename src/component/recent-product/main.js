@@ -19,7 +19,7 @@ if (swiperContainer) {
 }
 
 const recentContainer = getNode(".recent-product");
-if (container) {
+if (recentContainer) {
   const documentHeight = document.documentElement.scrollHeight;
   recentContainer.style.height = `${documentHeight - 500}px`;
 }
