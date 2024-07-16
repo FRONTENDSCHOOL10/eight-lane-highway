@@ -20,7 +20,7 @@ function toggleTitle(e) {
 
   if (!subMenu) return;
 
-  toggleClass(subMenu, "is__clicked");
+  toggleClass(subMenu, "accodion_is__clicked");
   svgElement.classList.toggle("rotate");
 }
 
