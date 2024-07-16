@@ -3,15 +3,15 @@ import { valueTrimmed } from "./sumAllPrice";
 
 // 수량 변경 및 가격변경 함수
 export function countNumber() {
-  const counterSets = document.querySelectorAll(".food-type__accordion");
+  const counterSets = document.querySelectorAll(".cart__accordion");
 
   counterSets.forEach((set) => {
     const counterElement = set.querySelector(".counter");
     const minusButton = set.querySelector(".minus-button");
     const plusButton = set.querySelector(".plus-button");
-    const priceValue = set.querySelector(".food-type__accordion__price__value");
+    const priceValue = set.querySelector(".cart__accordion__price__value");
     const priceDiscount = set.querySelector(
-      ".food-type__accordion__price__discount"
+      ".cart__accordion__price__discount"
     );
     let count = Number(counterElement.textContent);
     const dataPrice = valueTrimmed(priceValue) / count;
