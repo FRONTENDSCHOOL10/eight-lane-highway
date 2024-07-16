@@ -1,5 +1,6 @@
 import axios from "axios";
 import getPbImageURL from "/src/api/getPbImageURL";
+import "/main.js";
 
 // 포켓베이스 API URL
 const pbUrl = "https://eight-lane-highway.pockethost.io";
@@ -39,8 +40,9 @@ function displayProductData(data) {
   document.querySelectorAll(".title__secondary").forEach((element) => {
     element.textContent = data.subtitle;
   });
-  productInfoContainer.querySelector(".price__emphasis").textContent =
-    data.price.toLocaleString();
+  document.querySelectorAll(".price__emphasis").forEach((element) => {
+    element.textContent = data.price.toLocaleString();
+  });
 
   document.querySelectorAll(".title__product").forEach((element) => {
     element.textContent = data.name;
@@ -57,10 +59,35 @@ function displayProductData(data) {
   document.getElementById("product__allergic").textContent = data.allergic;
   document.getElementById("productDetailText").textContent = data.detail;
 
-  const productDetailImage = document.getElementById("productDetailImage");
-  if (productDetailImage) {
-    productDetailImage.src = getPbImageURL(data, "productPhoto");
-    productDetailImage.alt = data.name;
+  // 이미지 세팅 함수
+  function setImage(elementId, imageUrl, altText) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.src = imageUrl;
+      element.alt = altText;
+    } else {
+      console.error(`Element with ID ${elementId} not found`);
+    }
+  }
+
+  if (data) {
+    setImage(
+      "productDetailImage",
+      getPbImageURL(data, "productPhoto"),
+      data.name
+    );
+    setImage(
+      "productCheckPointImage",
+      getPbImageURL(data, "checkpoint"),
+      data.name
+    );
+    setImage(
+      "productDetailInfoImage",
+      getPbImageURL(data, "detailInfo"),
+      data.name
+    );
+  } else {
+    console.error("Data object is missing");
   }
 }
 
