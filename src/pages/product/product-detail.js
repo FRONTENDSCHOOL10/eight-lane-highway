@@ -1,3 +1,4 @@
+import getPbImageURL from "/src/api/getPbImageURL";
 import PocketBase from "pocketbase";
 
 // 포켓베이스 설정
@@ -29,7 +30,7 @@ function displayProductData(data) {
   );
 
   // 상품 이미지 URL 설정 (포켓베이스에서 이미지 URL 구성 방식에 따라 수정)
-  // productImgContainer.src = pb.getFileUrl(data, data.image);
+  // productImgContainer.src = getPbImageURL(data.photo);
   // productImgContainer.alt = data.name; // 상품 이름을 이미지 alt 속성에 설정
 
   productInfoContainer.querySelector(".title__product").textContent = data.name;
@@ -38,7 +39,7 @@ function displayProductData(data) {
   productInfoContainer.querySelector(".price__emphasis").textContent =
     data.price.toLocaleString();
 
-  document.getElementsByName("product__delievery").textContent = data.delivery;
+  document.querySelector(".product__delivery").textContent = data.delivery;
   document.getElementById("product__seller").textContent = data.seller;
   document.querySelector(".product__packiging__detail").textContent =
     data.packaging;
