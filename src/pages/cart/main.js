@@ -19,7 +19,8 @@ import selectAll from "./selectAll";
 import { priceChange } from "./sumAllPrice";
 import { syncCheckBox } from "./syncCheckBox";
 import { countNumber } from "./updatePrice";
-import "/main.js";
+import "/src/component/header/header.js";
+import "/src/component/footer/footer.js";
 
 const foodTypeNav = getNode(".food-type__container");
 const AccordCold = getNode("#foodTypeCold");
