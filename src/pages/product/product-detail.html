@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 상세 페이지</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
-    <script type="module" src="/src/component/header/header.js"></script>
-    <script type="module" src="/src/component/footer/footer.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/pages/product/product-detail.js"></script>
   </head>
   <body>
     <c-header></c-header>
@@ -19,13 +19,13 @@
           />
         </div>
       </aside>
-      <main class="product__info__container">
+      <div class="product__info__container">
         <article>
-          <h2 class="title__primary">샛별배송</h2>
-          <h1>[풀무원] 탱탱쫄면 (4개입)</h1>
-          <h3 class="title__secondary">튀기지 않아 부담 없는 매콤함</h3>
+          <h2 class="title__primary product__delivery">배송방법</h2>
+          <h1 class="title__product">상품이름</h1>
+          <h3 class="title__secondary">상품간략설명</h3>
           <h3 class="title__price">
-            <span class="price__emphasis">4,980</span> 원
+            <span class="price__emphasis">가격</span> 원
           </h3>
           <p class="text__primary__color">로그인 후, 적립 혜택이 제공됩니다.</p>
         </article>
@@ -37,29 +37,33 @@
           <tr>
             <th>배송</th>
             <td>
-              <strong class="product__info text__label__small">샛별배송</strong>
+              <strong
+                class="product__info text__label__small"
+                name="product__delivery"
+                >배송방법</strong
+              >
               <p>23시 전 주문 시 내일 아침 7시 전 도착</p>
               <p>(대구, 부산, 울산 샛별배송 운영시간 별도 확인)</p>
             </td>
           </tr>
           <tr>
             <th>판매자</th>
-            <td>칼리</td>
+            <td id="product__seller">칼리</td>
           </tr>
           <tr>
             <th>포장타입</th>
-            <td>
-              상온포장<br />
+            <td id="product__packiging">
+              <p class="product__packiging__detail">상온포장</p>
               <p>택배배송은 에코 포장이 스티로폼으로 대체됩니다.</p>
             </td>
           </tr>
           <tr>
             <th>판매단위</th>
-            <td>1봉</td>
+            <td id="product__packiging__unit">1봉</td>
           </tr>
           <tr>
             <th>중량/용량</th>
-            <td>123g*4봉</td>
+            <td id="product__packiging__weight">123g*4봉</td>
           </tr>
           <tr>
             <th>원산지</th>
@@ -68,21 +72,17 @@
           <tr>
             <th>알레르기정보</th>
             <td>
-              <ul>
-                <li>대두, 밀, 쇠고기 함유</li>
-                <li>
-                  계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아,
-                  토마토, 아황산류, 호두, 잣, 닭고기, 오징어, 조개류(굴, 전복,
-                  홍합 포함)를 사용한 제품과 같은 제조시설에서 제조
-                </li>
-              </ul>
+              - 대두, 밀, 쇠고기 함유 <br />- 계란, 우유, 메밀, 땅콩, 고등어,
+              게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고기,
+              오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은
+              제조시설에서 제조
             </td>
           </tr>
           <tr>
             <th>상품선택</th>
             <td>
               <div class="product__count">
-                <p>[풀무원] 탱탱쫄면 (4개입)</p>
+                <p>상품 제목</p>
                 <div class="product__count__price">
                   <div class="product__count__button">
                     <button type="button">
@@ -109,7 +109,8 @@
               총 상품금액: <span class="price__emphasis">4,980</span>원
             </p>
             <p class="text__price">
-              <span class="badge__accent">적립</span>로그인 후, 적립 혜택 제공
+              <span class="badge badge__accent">적립</span>로그인 후, 적립 혜택
+              제공
             </p>
           </div>
           <div class="product__button__container">
@@ -130,9 +131,8 @@
             </button>
           </div>
         </article>
-      </main>
+      </div>
     </section>
-
     <section class="product__detail">
       <article>
         <ul class="product__detail__menu">
@@ -236,6 +236,198 @@
           </article>
         </article>
       </article>
+    </section>
+    <section class="product__detail__board">
+      <div class="product__review__container">
+        <div class="product__review__text">
+          <h1>상품후기</h1>
+          <h5>글후기 50원 적립금 혜택이 있어요.</h5>
+          <ul>
+            <li>
+              퍼플, 더퍼플은 2배 적립(100원) / 주간 베스트 후기로 선정 시
+              5,000원 추가 적립
+            </li>
+            <li>후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
+            <li>
+              작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균
+              1~2일 소요)
+            </li>
+          </ul>
+        </div>
+        <button class="button__small button__fill" type="button">
+          후기 작성하기
+        </button>
+      </div>
+      <table class="product__info__table product__table__detail">
+        <colgroup>
+          <col style="width: 210px" />
+          <col style="width: auto" />
+        </colgroup>
+        <tr>
+          <td colspan="2">
+            <span class="badge">공지</span> 금주의 베스트 후기 안내
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span class="badge">공지</span> 상품 후기 적립금 정책 안내
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+      </table>
+      <div class="button__container">
+        <button
+          class="button__stroke__lightgray button__icon__medium"
+          type="button"
+        >
+          <img src="/public/images/icon-arrow-left.svg" alt="" />
+        </button>
+        <button
+          class="button__stroke__lightgray button__icon__medium"
+          type="button"
+        >
+          <img src="/public/images/icon-arrow-right.svg" alt="" />
+        </button>
+      </div>
+    </section>
+    <section class="product__detail__board">
+      <div class="product__review__container">
+        <div class="product__review__text">
+          <h1>상품문의</h1>
+          <ul>
+            <li>
+              상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른
+              글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.
+            </li>
+            <li>
+              배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내
+              1:1 문의에 남겨주세요.
+            </li>
+          </ul>
+        </div>
+        <button class="button__small button__fill" type="button">
+          문의하기
+        </button>
+      </div>
+      <table class="product__info__table product__table__detail">
+        <colgroup>
+          <col style="width: 210px" />
+          <col style="width: auto" />
+        </colgroup>
+        <tr>
+          <td colspan="2">
+            <span class="badge">공지</span> 금주의 베스트 후기 안내
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span class="badge">공지</span> 상품 후기 적립금 정책 안내
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <span class="badge badge__secondary">베스트</span>
+            <span class="badge badge__primary__outline">퍼플</span>
+            <span>김*진</span>
+          </th>
+          <td>
+            <p>[풀무원] 탱탱쫄면 (4개입)</p>
+            <p>
+              너무 맛있어여~<br />
+              면이 쫄깃하고 양념도 짱맛나요!!
+            </p>
+            <p>2022.11.10</p>
+          </td>
+        </tr>
+      </table>
+      <div class="button__container">
+        <button
+          class="button__stroke__lightgray button__icon__medium"
+          type="button"
+        >
+          <img src="/public/images/icon-arrow-left.svg" alt="" />
+        </button>
+        <button
+          class="button__stroke__lightgray button__icon__medium"
+          type="button"
+        >
+          <img src="/public/images/icon-arrow-right.svg" alt="" />
+        </button>
+      </div>
     </section>
     <c-footer></c-footer>
   </body>

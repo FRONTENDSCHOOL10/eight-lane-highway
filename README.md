@@ -291,3 +291,4 @@
 - src/pages/register/index.html: 회원가입 페이지 컨테이너 클래스 추가
 - src/pages/register/register.js: 함수 분리
 - src/component/assets/\_register.scss: 회원가입 스타일링
+- src/component/product/product-slide.js: 경로 수정
