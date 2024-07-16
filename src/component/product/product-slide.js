@@ -117,7 +117,7 @@ function viewedProducts(className) {
 
     productLink.forEach((productLink, index) => {
       productLink.addEventListener("click", async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const productId = productIdList[index];
         const productIndex = recentProductsId.indexOf(productId);
 
