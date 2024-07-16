@@ -35,9 +35,9 @@ const swiper = new Swiper(".product-slide2 .swiper-container", {
     update: function () {
       checkNavigation(this);
       // add-button 클릭시 일어날 이벤트 처리
-      addCart();
+      addCartHandler();
       // product 클릭시 일어날 이벤트 처리
-      addProduct();
+      addProductHandler();
     },
   },
 });
@@ -122,9 +122,9 @@ async function renderProductItem() {
   swiper.update();
 }
 
-// add-button 클릭시 일어날 이벤트 처리
-function addCart() {
-  const addCart = getNodes(".product-slide1 .visual__add-cart");
+// cart-button 클릭시 일어날 이벤트 처리
+function addCartHandler() {
+  const addCart = getNodes(".product-slide2 .visual__add-cart");
   addCart.forEach((addCartButton, index) => {
     addCartButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -134,13 +134,11 @@ function addCart() {
 }
 // 제품 클릭시 일어날 이벤트 처리
 function viewedProducts() {
-  let recentProductsId = [];
-
   return async function () {
-    const productLink = getNodes(".product-slide1 .visual__link");
+    const productLink = getNodes(".product-slide2 .visual__link");
 
     // 기존 저장된 데이터를 로드
-    recentProductsId = (await getStorage("recentProductId")) || [];
+    let recentProductsId = (await getStorage("recentProductId")) || [];
 
     productLink.forEach((productLink, index) => {
       productLink.addEventListener("click", async (e) => {
@@ -165,7 +163,7 @@ function viewedProducts() {
 }
 
 // 클로저로 생성한 addProduct 함수 사용
-const addProduct = viewedProducts();
+const addProductHandler = viewedProducts();
 getSavedRecentProduct();
 
 /* -------------------------------------------------------------------------- */
