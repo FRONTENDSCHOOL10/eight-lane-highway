@@ -1,5 +1,14 @@
 .product__lists {
-  @include flexAll($jc: center);
+  @include flexAll($at: flex-start, $gap: 20px);
+
+  article {
+    box-sizing: border-box;
+    display: inline-block;
+  }
+
+  .product__lists__container {
+    box-sizing: border-box;
+  }
 }
 
 .product__lists__container {
@@ -7,7 +16,6 @@
   width: 783px;
   flex-wrap: wrap;
   column-gap: 10px;
-  margin: 0 auto;
 
   .product-list-items {
     // flex: 1 0 30%; /* 각 아이템을 30% 너비로 설정 */
