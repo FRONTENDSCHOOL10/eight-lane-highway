@@ -336,12 +336,25 @@
 - src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
 - src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
 - src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
+- src/component/assets/\_inputs.scss 인풋박스 스타일링 수정
+- src/component/assets/\_variables.scss 색상 변수 추가
+- src/pages/register/emailCheck.js 이메일 유효성 인풋박스 반영
 
 ## 2024-07-16
 
 **이희재**
 
 **최소현**
+
+- src/pages/cart/main.js 장바구니 헤더 푸터 import
+- src/component/assets/\_cart.scss 뱃지 스타일링 수정 및 가상요소 수정
+- src/pages/register/index.html 회원가입 페이지 헤더 푸터 추가
+- src/pages/register/register.js 회원가입 페이지 헤더 푸터 import
+- src/component/assets/\_register.scss 컨테이너 마진 수정
+- src/component/assets/\_pagination.scss 페이지네이션 스타일링
+- src/component/pagination/index.html 페이지네이션 마크업
+- src/styles/style.scss 페이지네이션 scss 추가
+- public/images/pagination-sprite.png 페이지 네이션 관련 스프라이트 이미지 추가
 
 **오성훈**
 
