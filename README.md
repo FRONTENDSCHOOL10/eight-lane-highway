@@ -265,6 +265,10 @@
 - 이메일 검사
 - 회원가입 페이지 스타일링 수정
 
+**이희재**
+
+- main 페이지 레이아웃 및 전반적인 js추가
+
 ## 2024-07-14
 
 **오성훈**
@@ -279,6 +283,10 @@
   - 팝업을 열고 닫는 함수 추가
   - 포켓호스트 SDK를 사용하여 상품 정보를 서버에서 받아올 수 있도록 수정
 
+**이희재**
+
+- header.scss에서 호버시 svg 컬러 바뀌는 작업
+
 ## 2024-07-15
 
 **김한울**
@@ -291,3 +299,10 @@
 - src/pages/register/index.html: 회원가입 페이지 컨테이너 클래스 추가
 - src/pages/register/register.js: 함수 분리
 - src/component/assets/\_register.scss: 회원가입 스타일링
+
+**이희재**
+
+- src/component/footer/footer.js: footer안에 to-top버튼 추가
+- src/component/banner/banner.js: banner에 button, pagination 추가
+- src/component/product/product-slide1.js: 상품 클릭시 장바구니 팝업 생성
+- src/component/product/product-slide1.js: 상품 클릭시 최근 본 상품에 추가
