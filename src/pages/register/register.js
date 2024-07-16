@@ -1,6 +1,6 @@
 import PocketBase from "pocketbase";
-import "/src/component/header/header.js";
-import "/src/component/footer/footer.js";
+import "/main.js";
+import "/src/pages/register/checkAll.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
@@ -64,6 +64,26 @@ async function sendit() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
   const expNameText = /^[가-힣]+$/;
   const expPhoneText = /^01[016789][0-9]{3,4}[0-9]{4}$/;
+
+  name.addEventListener("input", () => {
+    const value = name.value;
+
+    // 유효하지 않은 문자가 있는지 확인
+    if (!expNameText.test(value)) {
+      // 유효하지 않은 문자가 있으면 이를 제거
+      name.value = value.replace(/[^가-힣]/g, "");
+    }
+  });
+
+  name.addEventListener("compositionend", () => {
+    const value = name.value;
+
+    // 유효하지 않은 문자가 있는지 확인
+    if (!expNameText.test(value)) {
+      // 유효하지 않은 문자가 있으면 이를 제거
+      name.value = value.replace(/[^가-힣]/g, "");
+    }
+  });
 
   if (userId.value === "") {
     alert("아이디를 입력하세요");
