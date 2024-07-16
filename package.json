@@ -15,6 +15,7 @@
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "pocketbase": "^0.21.3"
   }
 }

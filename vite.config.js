@@ -27,7 +27,7 @@ export default defineConfig({
         login: resolve(__dirname, "src/pages/login/index.html"),
         productdetail: resolve(
           __dirname,
-          "src/component/product/product-detail.html"
+          "src/pages/product/product-detail.html"
         ),
         addshoppingbasket: resolve(
           __dirname,
