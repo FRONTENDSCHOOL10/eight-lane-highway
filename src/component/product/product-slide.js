@@ -31,10 +31,17 @@ function checkNavigation(className, swiper) {
     removeClass(prev, "is__hide");
   }
 }
+let cachedProductsData = null;
 
-let productsData = await pb.collection("products").getFullList();
+async function fetchProductsData() {
+  if (!cachedProductsData) {
+    cachedProductsData = await pb.collection("products").getFullList();
+  }
+  return cachedProductsData;
+}
 let productIdList = [];
 async function renderProductItem(className, swiper) {
+  let productsData = await fetchProductsData();
   productsData.forEach((item) => {
     productIdList.push(item.id);
     const discount = item.price * (item.discount * 0.01);
@@ -84,7 +91,6 @@ async function renderProductItem(className, swiper) {
     `;
     insertLast(`${className} .swiper-wrapper`, template);
   });
-
   swiper.update();
 }
 
