@@ -28,23 +28,33 @@ export async function getSavedRecentProduct() {
   const belowArrow = getNode(".recent-product-container .swiper-button-next");
   const itemContainer = getNode(".recent-product-container .swiper-wrapper");
 
-  if (await getStorage("recentProductId")) {
-    const recentProductsId = await getStorage("recentProductId");
-    if (recentProductsId.length > 2) {
-      addClass(upperArrow, "is__active");
-      addClass(belowArrow, "is__active");
-    }
-    itemContainer.innerHTML = "";
+  const recentProductsId = await getStorage("recentProductId");
 
-    for (const id of recentProductsId) {
-      const item = await pb.collection("products").getOne(id);
-      const template = `
-        <div class="swiper-slide">
-        <a href="/src/pages/product/product-detail.html?product=${item.id}">
-        <img src="${getPbImageURL(item)}" alt="${item.name}" />
-      </a>
-        </div>`;
-      insertFirst(itemContainer, template);
+  if (recentProductsId) {
+    if (recentProductsId.length > 2) {
+      if (upperArrow) addClass(upperArrow, "is__active");
+      if (belowArrow) addClass(belowArrow, "is__active");
     }
+
+    if (itemContainer) {
+      itemContainer.innerHTML = "";
+
+      for (const id of recentProductsId) {
+        const item = await pb.collection("products").getOne(id);
+        const template = `
+          <div class="swiper-slide">
+            <a href="/src/pages/product/product-detail.html?product=${
+              item.id
+            }" target="_blank" rel="noopener noreferrer">
+              <img src="${getPbImageURL(item)}" alt="${item.name}" />
+            </a>
+          </div>`;
+        insertFirst(itemContainer, template);
+      }
+    } else {
+      console.warn("Item container not found");
+    }
+  } else {
+    console.error("No recent product IDs found in storage");
   }
 }
