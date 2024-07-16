@@ -1,8 +1,8 @@
+import axios from "axios";
 import getPbImageURL from "/src/api/getPbImageURL";
-import PocketBase from "pocketbase";
 
-// 포켓베이스 설정
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
+// 포켓베이스 API URL
+const pbUrl = "https://eight-lane-highway.pockethost.io";
 
 // URL 매개변수에서 상품 ID 추출
 function getProductIdFromUrl() {
@@ -15,7 +15,10 @@ function getProductIdFromUrl() {
 // 포켓베이스에서 상품 데이터를 가져오는 함수
 async function fetchProductData(productId) {
   try {
-    const data = await pb.collection("products").getOne(productId);
+    const response = await axios.get(
+      `${pbUrl}/api/collections/products/records/${productId}`
+    );
+    const data = response.data;
     displayProductData(data);
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);
@@ -53,24 +56,27 @@ function displayProductData(data) {
     data.weight;
   document.getElementById("product__allergic").textContent = data.allergic;
   document.getElementById("productDetailText").textContent = data.detail;
+
+  const productDetailImage = document.getElementById("productDetailImage");
+  if (productDetailImage) {
+    productDetailImage.src = getPbImageURL(data, "productPhoto");
+    productDetailImage.alt = data.name;
+  }
 }
 
-function getImageURL(item, field) {
-  const url = "https://eight-lane-highway.pockethost.io";
-  return `${url}/api/files/${item.collectionId}/${item.id}/${item[field]}`;
-}
-document.getElementById("productDetailImage").src = getImageURL(
-  data,
-  "productPhoto"
-);
-document.getElementById("productDetailImage").alt = data.name;
 // 초기화 함수
 async function initializeProductDetail() {
   try {
-    await pb.admins.authWithPassword(
-      "vanillajs.eightlanehighway@gmail.com",
-      "admin0000"
+    const authResponse = await axios.post(
+      `${pbUrl}/api/admins/auth-with-password`,
+      {
+        identity: "vanillajs.eightlanehighway@gmail.com",
+        password: "admin0000",
+      }
     );
+
+    const token = authResponse.data.token;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     const productId = getProductIdFromUrl();
     if (productId) {
