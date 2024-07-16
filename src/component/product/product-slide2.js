@@ -72,7 +72,7 @@ async function renderProductItem() {
     <div class="visual">
       <a href="/src/pages/product/product-detail.html?product=${
         item.id
-      }" class="visual__link">
+      }" class="visual__link" target="_blank" rel="noopener noreferrer">
         <img
           src="${getPbImageURL(item)}" alt="${item.name}" />
       </a>

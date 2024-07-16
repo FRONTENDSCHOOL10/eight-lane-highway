@@ -29,9 +29,6 @@ async function fetchProductData(productId) {
 // 상품 데이터를 HTML에 표시하는 함수
 function displayProductData(data) {
   const productImgContainer = document.getElementById("product__image");
-  const productInfoContainer = document.querySelector(
-    ".product__info__container"
-  );
 
   // 상품 이미지 URL 설정 (포켓베이스에서 이미지 URL 구성 방식에 따라 수정)
   productImgContainer.src = getPbImageURL(data);
@@ -66,7 +63,7 @@ function displayProductData(data) {
       element.src = imageUrl;
       element.alt = altText;
     } else {
-      console.error(`Element with ID ${elementId} not found`);
+      console.warn(`Element with ID ${elementId} not found`);
     }
   }
 

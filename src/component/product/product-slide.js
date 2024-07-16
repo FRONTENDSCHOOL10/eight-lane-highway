@@ -51,7 +51,7 @@ async function renderProductItem(className, swiper) {
         <div class="visual">
           <a href="/src/pages/product/product-detail.html?product=${
             item.id
-          }" class="visual__link">
+          }" class="visual__link" target="_blank" rel="noopener noreferrer">
             <img src="${getPbImageURL(item)}" alt="${item.name}" />
           </a>
           <a href="/" class="visual__add-cart" aria-label="장바구니 담기">
@@ -266,6 +266,19 @@ function closeCartPopUp() {
   document.body.style.overflow = "visible";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  initializeSwiper(".product-slide1");
+  initializeSwiper(".product-slide2");
+});
+
+function initializeSwiper(className) {
+  if (document.querySelector(`${className} .swiper-container`)) {
+    new CustomSwiper(className);
+  } else {
+    console.warn(`Swiper container for ${className} not found.`);
+  }
+}
+
 function CustomSwiper(className) {
   const swiper = new Swiper(`${className} .swiper-container`, {
     slidesPerView: 4,
@@ -286,13 +299,10 @@ function CustomSwiper(className) {
       update: function () {
         checkNavigation(className, this);
         addCart(className);
-        viewedProducts(className)();
+        viewedProducts(className);
       },
     },
   });
 
   return swiper;
 }
-
-const swiper1 = new CustomSwiper(".product-slide1");
-const swiper2 = new CustomSwiper(".product-slide2");
