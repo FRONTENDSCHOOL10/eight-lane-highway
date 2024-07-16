@@ -8,336 +8,409 @@
     <title>상품 리스트</title>
   </head>
   <body>
-    <main class="product__lists">
-      <article class="accodian__menu">
-        <ul class="accodian__menu__main">
-          <li class="accodian__menu__main__items">
-            <div
-              class="accodian__menu__main__items__title filter"
-              data-index="0"
-            >
-              <div>필터</div>
-              <button>초기화</button>
-            </div>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button type="button" class="accodian__menu__main__items__title">
-              <div>카테고리</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >샐러드 · 간편식</label
-                  ><span>0</span>
-                </div>
+    <main class="products__list">
+      <h2>베스트</h2>
+      <div class="product__lists">
+        <article class="accodian__menu">
+          <ul class="accodian__menu__main">
+            <li class="accodian__menu__main__items">
+              <div
+                class="accodian__menu__main__items__title filter"
+                data-index="0"
+              >
+                <div>필터</div>
+                <button>초기화</button>
+              </div>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button type="button" class="accodian__menu__main__items__title">
+                <div>카테고리</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >샐러드 · 간편식</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >국 · 반찬 · 메인요리</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >쿠키 · 비스켓 · 크래커</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >양념육</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >디저트</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >짜장 · 짬뽕 · 파스타 · 면류</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >정육 · 계란</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >생수 · 음료 · 우유 · 커피</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >과일 · 견과 · 쌀</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >건강식품</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    카테고리 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button
+                type="button"
+                class="accodian__menu__main__items__title"
+                data-index="1"
+              >
+                <div>브랜드</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >풀무원</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >사미헌</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >제니쿠키</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >99치킨</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >조선호텔</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >올드페리도넛</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >한식곳간</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    브랜드 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button
+                type="button"
+                class="accodian__menu__main__items__title"
+                data-index="2"
+              >
+                <div>가격</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >6,900원 미만</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >6,900원 ~ 9,900원</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >9,900원 ~ 14,500원</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >14,500원 이상</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    가격 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button type="button" class="accodian__menu__main__items__title">
+                <div>배송</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >샛별배송</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >판매자 배송</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    배송 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button
+                type="button"
+                class="accodian__menu__main__items__title"
+                data-index="3"
+              >
+                <div>유형</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >Kurly Only</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >희소가치 프로젝트</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    유형 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button
+                type="button"
+                class="accodian__menu__main__items__title"
+                data-index="4"
+              >
+                <div>혜택</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >할인상품</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >한정수량</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    혜택 더보기
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="accodian__menu__main__items">
+              <button
+                type="button"
+                class="accodian__menu__main__items__title"
+                data-index="5"
+              >
+                <div>특정상품 제외</div>
+                <img src="/images/upper.svg" alt="위 화살표" />
+              </button>
+              <ul class="accodian__sub">
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info">
+                    <input class="input__checkbox" type="checkbox" /><label
+                      for=""
+                      >반려동물 상품</label
+                    ><span>0</span>
+                  </div>
+                </li>
+                <li class="accodian__sub__items">
+                  <div class="accodian__sub__items__info__more">
+                    특정상품 제외
+                    <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </article>
+        <section class="product__lists__container">
+          <aside class="product__lists__container__intro">
+            <span class="product__lists__container__totals"></span>
+            <ul class="product__lists__container__nav">
+              <li class="product__lists__container__nav__items">추천순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
               </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >국 · 반찬 · 메인요리</label
-                  ><span>0</span>
-                </div>
+              <li class="product__lists__container__nav__items">신상품순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
               </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >쿠키 · 비스켓 · 크래커</label
-                  ><span>0</span>
-                </div>
+              <li class="product__lists__container__nav__items">판매량순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
               </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >양념육</label
-                  ><span>0</span>
-                </div>
+              <li class="product__lists__container__nav__items">혜택순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
               </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >디저트</label
-                  ><span>0</span>
-                </div>
+              <li class="product__lists__container__nav__items">낮은가격순</li>
+              <li
+                class="product__lists__container__nav__items"
+                aria-hidden="true"
+              >
+                |
               </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >짜장 · 짬뽕 · 파스타 · 면류</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >정육 · 계란</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >생수 · 음료 · 우유 · 커피</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >과일 · 견과 · 쌀</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >건강식품</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  카테고리 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
+              <li class="product__lists__container__nav__items">높은가격순</li>
             </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button
-              type="button"
-              class="accodian__menu__main__items__title"
-              data-index="1"
-            >
-              <div>브랜드</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >풀무원</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >사미헌</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >제니쿠키</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >99치킨</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >조선호텔</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >올드페리도넛</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >한식곳간</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  브랜드 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button
-              type="button"
-              class="accodian__menu__main__items__title"
-              data-index="2"
-            >
-              <div>가격</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >6,900원 미만</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >6,900원 ~ 9,900원</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >9,900원 ~ 14,500원</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >14,500원 이상</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  가격 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button type="button" class="accodian__menu__main__items__title">
-              <div>배송</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >샛별배송</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >판매자 배송</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  배송 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button
-              type="button"
-              class="accodian__menu__main__items__title"
-              data-index="3"
-            >
-              <div>유형</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >Kurly Only</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >희소가치 프로젝트</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  유형 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button
-              type="button"
-              class="accodian__menu__main__items__title"
-              data-index="4"
-            >
-              <div>혜택</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >할인상품</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >한정수량</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  혜택 더보기
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li class="accodian__menu__main__items">
-            <button
-              type="button"
-              class="accodian__menu__main__items__title"
-              data-index="5"
-            >
-              <div>특정상품 제외</div>
-              <img src="/images/upper.svg" alt="위 화살표" />
-            </button>
-            <ul class="accodian__sub">
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info">
-                  <input class="input__checkbox" type="checkbox" /><label for=""
-                    >반려동물 상품</label
-                  ><span>0</span>
-                </div>
-              </li>
-              <li class="accodian__sub__items">
-                <div class="accodian__sub__items__info__more">
-                  특정상품 제외
-                  <img src="/images/right-arrow.svg" alt="오른쪽 화살표" />
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </article>
-
-      <section class="product__lists__container"></section>
+          </aside>
+          <article class="product__lists__container__items"></article>
+        </section>
+      </div>
     </main>
   </body>
 </html>
