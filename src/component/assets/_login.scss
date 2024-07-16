@@ -7,13 +7,10 @@ body {
   width: 360px;
   margin: 0 auto;
   margin-top: 80px;
+  margin-bottom: 80px;
 
   h2 {
-    font-family: Pretendard;
-    font-size: 21.328px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
+    @include font($color: $black, $fs: 1.357rem, $fw: 600, $lh: 150%);
   }
 
   .login-form {
@@ -22,20 +19,21 @@ body {
     gap: 12px;
 
     input {
-      @include input(1px, 300px, 26px);
+      @include input(1px, 340px, 50px);
+      @include font($color: $gray400, $fs: 1rem, $fw: 400, $lh: 160%);
+      padding: 12px 20px;
     }
 
     button {
       order: 1;
       margin-top: 16px;
-      // margin-bottom: 12px;
     }
   }
 
   .search-containers {
     @include flexAll(row, right, center);
     width: 100%;
-    margin-right: 0.8rem;
+    padding-right: 0.8rem;
   }
 
   .search-container {
@@ -45,12 +43,7 @@ body {
     &__item {
       display: flex;
       flex-direction: row;
-      color: $darkBlack;
-      font-family: Pretendard;
-      font-size: 12.003px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 160%;
+      @include font($color: $darkBlack, $fs: 0.75rem, $fw: 400, $lh: 160%);
     }
   }
 
