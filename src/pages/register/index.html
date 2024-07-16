@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
-    <script type="module" src="/src/pages/register/register.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
   <body>
@@ -58,7 +57,7 @@
           />
           <p id="passwordCheckMessage" class="register__result"></p>
         </fieldset>
-        <fieldset>
+        <fieldset class="register__container">
           <label class="label__register label__medium">이름</label>
           <input
             class="input__small input__default__text"
@@ -67,6 +66,9 @@
             id="nameField"
             required
           />
+          <p class="warning__message" id="warningMessage">
+            이름은 한글로 작성해주세요.
+          </p>
         </fieldset>
         <fieldset class="register__container">
           <label class="label__register label__medium">이메일</label>
@@ -273,6 +275,8 @@
     </section>
     <c-footer></c-footer>
   </body>
+  <script type="module" src="/src/pages/register/register.js"></script>
+
   <script type="module" src="/src/pages/register/idCheck.js"></script>
   <script type="module" src="/src/pages/register/emailCheck.js"></script>
   <script type="module" src="/src/pages/register/passwordCheck.js"></script>

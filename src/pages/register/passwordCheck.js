@@ -28,10 +28,10 @@ class PasswordMatcher {
 
     if (password === confirmPassword) {
       this.messageField.textContent = "비밀번호가 일치합니다.";
-      this.messageField.style.color = "green";
+      this.messageField.style.color = "#3EF071";
     } else {
       this.messageField.textContent = "비밀번호가 일치하지 않습니다.";
-      this.messageField.style.color = "red";
+      this.messageField.style.color = "#f03f40";
     }
   }
 }

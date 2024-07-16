@@ -31,36 +31,15 @@ class EmailChecker {
     const email = this.emailField.value;
 
     if (email === "") {
-      this.updateMessage("이메일을 입력하세요.", "red");
-      this.emailField.classList.add("is__invalid");
-      this.emailField.addEventListener("keydown", () => {
-        this.emailField.classList.remove("is__invalid");
-      });
-      this.emailField.addEventListener("focusout", () => {
-        this.emailField.classList.remove("is__invalid");
-      });
+      this.setInvalidState("이메일을 입력하세요.");
       return;
     }
 
     const isUnique = await this.isEmailUnique(email);
     if (isUnique) {
-      this.updateMessage("사용 가능한 이메일입니다.", "green");
-      this.emailField.classList.add("is__valid");
-      this.emailField.addEventListener("keydown", () => {
-        this.emailField.classList.remove("is__valid");
-      });
-      this.emailField.addEventListener("focusout", () => {
-        this.emailField.classList.remove("is__valid");
-      });
+      this.setValidState("사용 가능한 이메일입니다.");
     } else {
-      this.updateMessage("이미 사용중인 이메일입니다.", "red");
-      this.emailField.classList.add("is__invalid");
-      this.emailField.addEventListener("keydown", () => {
-        this.emailField.classList.remove("is__invalid");
-      });
-      this.emailField.addEventListener("focusout", () => {
-        this.emailField.classList.remove("is__invalid");
-      });
+      this.setInvalidState("이미 사용중인 이메일입니다.");
     }
   }
 
@@ -86,18 +65,23 @@ class EmailChecker {
     }
   }
 
-  // 이메일 유효성 확인 => 클래스 추가
-  setFieldValidState(field, validClass) {
-    field.classList.add(validClass);
+  setValidState(message) {
+    this.updateMessage(message, "#3EF071");
+    this.setFieldState(this.emailField, "is__valid");
+  }
 
-    // 이벤트 핸들러 함수
-    function removeValidClass() {
-      field.classList.remove(validClass);
-    }
+  setInvalidState(message) {
+    this.updateMessage(message, "red");
+    this.setFieldState(this.emailField, "is__invalid");
+  }
 
-    // 이벤트 리스너 추가
-    field.addEventListener("keydown", removeValidClass);
-    field.addEventListener("blur", removeValidClass);
+  setFieldState(field, stateClass) {
+    field.classList.add(stateClass);
+
+    const removeStateClass = () => field.classList.remove(stateClass);
+
+    field.addEventListener("keydown", removeStateClass, { once: true });
+    field.addEventListener("blur", removeStateClass, { once: true });
   }
 }
 

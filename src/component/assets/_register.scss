@@ -32,4 +32,11 @@
       left: 149px;
     }
   }
+  .warning__message {
+    position: absolute;
+    left: 149px;
+    bottom: 0;
+    display: none;
+    color: $errorColor;
+  }
 }

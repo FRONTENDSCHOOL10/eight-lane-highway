@@ -7,13 +7,14 @@ input {
     line-height: 18px;
 
     &.is__invalid {
-      border: 3px solid $negativeColor;
+      border: 3px solid $errorColor;
       &:focus-visible {
-        outline-color: $negativeColor;
+        outline-color: $errorColor;
       }
     }
     &.is__valid {
       border: 3px solid $successColor;
+
       &:focus-visible {
         outline-color: $successColor;
       }
