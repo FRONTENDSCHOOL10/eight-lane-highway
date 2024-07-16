@@ -1,36 +1,42 @@
 .pagination__container {
+  margin: 10px;
 }
 
 .page {
   &__container {
     @include size(232px, 34px);
-    border: 1px solid black;
-    @include flexAll(row, left, center, 0);
+    @include flexAll(row, center, center, 0);
   }
   &__item {
-    @include size(26px, 26px);
-    padding: 4px;
-    border: 1px solid red;
+    @include size(34px, 34px);
+    border: 1px solid $gray100;
+
+    a {
+      width: 100%;
+      height: 100%;
+      @include flexAll(row, center, center, 0);
+      @include font($darkBlack, 0.75rem, 400, normal);
+    }
   }
 }
 
-.bg-leftleft {
-  width: 9px;
-  height: 8px;
-  background: url("/images/pagination-sprite.png") -10px -10px;
-}
-.bg-left {
-  width: 5px;
-  height: 8px;
-  background: url("/images/pagination-sprite.png") -10px -38px;
-}
-.bg-right {
-  width: 5px;
-  height: 8px;
-  background: url("/images/pagination-sprite.png") -35px -38px;
-}
-.bg-rightright {
-  width: 9px;
-  height: 8px;
-  background: url("/images/pagination-sprite.png") -39px -10px;
+.move-icon {
+  display: block;
+  padding: 4px;
+  &__left {
+    @include size(9px, 8px);
+    background: url("/images/pagination-sprite.png") -10px -38px;
+  }
+  &__first {
+    @include size(9px, 8px);
+    background: url("/images/pagination-sprite.png") -10px -10px;
+  }
+  &__right {
+    @include size(9px, 8px);
+    background: url("/images/pagination-sprite.png") -35px -38px;
+  }
+  &__last {
+    @include size(9px, 8px);
+    background: url("/images/pagination-sprite.png") -39px -10px;
+  }
 }
