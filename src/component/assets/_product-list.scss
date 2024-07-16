@@ -1,0 +1,22 @@
+.product__lists {
+  @include flexAll($jc: center);
+}
+
+.product__lists__container {
+  @include flexAll($jc: space-between);
+  width: 783px;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  margin: 0 auto;
+
+  .product-list-items {
+    // flex: 1 0 30%; /* 각 아이템을 30% 너비로 설정 */
+    box-sizing: border-box;
+    margin-bottom: 24px;
+  }
+}
+
+.product__lists__container::after {
+  content: "";
+  flex: auto;
+}
