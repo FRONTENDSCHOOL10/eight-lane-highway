@@ -1,5 +1,6 @@
 import axios from "axios";
 import getPbImageURL from "/src/api/getPbImageURL";
+import "/main.js";
 
 // 포켓베이스 API URL
 const pbUrl = "https://eight-lane-highway.pockethost.io";

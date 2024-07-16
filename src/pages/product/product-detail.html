@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 상세 페이지</title>
-    <script type="module" src="/main.js"></script>
+    <link rel="stylesheet" href="/src/styles/style.scss" />
     <script type="module" src="/src/pages/product/product-detail.js"></script>
   </head>
   <body>
@@ -115,7 +115,11 @@
             >
               <img src="/images/icon-bell.svg" alt="" />
             </button>
-            <button class="button__fill button__full" type="button">
+            <button
+              class="button__fill button__full"
+              type="button"
+              id="addToCartButton"
+            >
               장바구니 담기
             </button>
           </div>

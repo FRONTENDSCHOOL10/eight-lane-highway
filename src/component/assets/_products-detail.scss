@@ -152,3 +152,32 @@
   background-color: $white;
   color: $primaryColor;
 }
+.product__bubble {
+  position: relative;
+  display: inline-flex;
+  padding: 20px;
+  border: 1px solid $gray200;
+
+  .bubble {
+    &__image__container {
+      width: 46px;
+      background-color: $gray200;
+      margin-right: 24px;
+    }
+    &__text__container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    right: 28px;
+    display: block;
+    width: 20px;
+    height: 17px;
+    background-image: url(/images/icon-bubble-tail.svg);
+  }
+}
