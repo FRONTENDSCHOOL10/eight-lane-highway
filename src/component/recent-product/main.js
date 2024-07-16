@@ -19,8 +19,10 @@ if (swiperContainer) {
 }
 
 const recentContainer = getNode(".recent-product");
-const documentHeight = document.documentElement.scrollHeight;
-recentContainer.style.height = `${documentHeight - 500}px`;
+if (container) {
+  const documentHeight = document.documentElement.scrollHeight;
+  recentContainer.style.height = `${documentHeight - 500}px`;
+}
 
 // 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
 export async function getSavedRecentProduct() {
