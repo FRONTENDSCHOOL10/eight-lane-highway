@@ -1,4 +1,6 @@
 import PocketBase from "pocketbase";
+import "/src/component/header/header.js";
+import "/src/component/footer/footer.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
