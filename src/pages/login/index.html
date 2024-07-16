@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/src/pages/login/login.js"></script>
     <link rel="stylesheet" href="/src/styles/style.scss" />
+    <script type="module" src="/src/pages/login/login.js"></script>
     <title>로그인</title>
   </head>
   <body>
+    <c-header></c-header>
     <section class="login-container">
       <h2>로그인</h2>
       <form action="/" class="login-form">
@@ -53,7 +54,12 @@
           </ul>
         </article>
       </form>
-      <a href="#" class="button__stroke button__large button__a">회원가입</a>
+      <a
+        href="/src/pages/register/index.html"
+        class="button__stroke button__large button__a"
+        >회원가입</a
+      >
     </section>
+    <c-footer></c-footer>
   </body>
 </html>
