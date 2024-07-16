@@ -75,17 +75,18 @@
   }
 }
 
-.modal{
+.modal {
   display: none;
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal .modal_popup{
+.modal .modal_popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -93,10 +94,10 @@
   background-color: $white;
 }
 
-.basket-container__price__container__bonus{
+.basket-container__price__container__bonus {
   align-items: center;
 
-  p{
+  p {
     border-radius: 0;
   }
 }

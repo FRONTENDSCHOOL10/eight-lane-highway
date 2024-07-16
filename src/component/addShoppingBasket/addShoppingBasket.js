@@ -80,9 +80,7 @@ function handleCounterProduct(countNode, price, resultNode) {
     if (target.id === "plusBtn") {
       countNode.textContent = parseInt(countNode.textContent) + 1;
       resultNode.textContent = parseInt(resultNode.textContent) + price + "원";
-    } 
-    
-    else if (target.id === "minusBtn") {
+    } else if (target.id === "minusBtn") {
       if (parseInt(countNode.textContent) <= 0) {
         alert("상품 개수가 0보다 작으면 안됩니다!");
         countNode.textContent = 1;
@@ -90,43 +88,43 @@ function handleCounterProduct(countNode, price, resultNode) {
         return;
       }
       countNode.textContent = parseInt(countNode.textContent) - 1;
-      resultNode.textContent = (parseInt(resultNode.textContent) - price) + "원";
+      resultNode.textContent = parseInt(resultNode.textContent) - price + "원";
     }
   };
 }
 
 // 로컬스토리지에 장바구니 항목 추가 함수
-function handleAddCart(id) {
+export function handleAddCart(id) {
   return async function (e) {
     e.preventDefault();
 
     let productNum = document.querySelector("#product__num").textContent;
 
     let cartItems = await getStorage("cartItems");
-    
-    if(!isArray(cartItems)){
+
+    if (!isArray(cartItems)) {
       cartItems = [];
     }
 
-    let existedItems = cartItems.find(item => item.productID === id);
+    let existedItems = cartItems.find((item) => item.productID === id);
 
-    console.log(existedItems)
+    console.log(existedItems);
 
     if (existedItems) {
-      existedItems.quantity = parseInt(existedItems.quantity) + parseInt(productNum);
-    } 
-    else {
+      existedItems.quantity =
+        parseInt(existedItems.quantity) + parseInt(productNum);
+    } else {
       cartItems.push({ productID: id, quantity: parseInt(productNum) });
     }
 
-    setStorage('cartItems', cartItems);
+    setStorage("cartItems", cartItems);
 
     closeCartPopUp(e);
   };
 }
 
 // 팝업 관련 함수
-function openCartPopUp(productID) {
+export function openCartPopUp(productID) {
   return function (e) {
     e.preventDefault();
 
@@ -137,7 +135,7 @@ function openCartPopUp(productID) {
   };
 }
 
-function closeCartPopUp(e) {
+export function closeCartPopUp(e) {
   e.preventDefault();
 
   popup.textContent = "";
@@ -145,4 +143,4 @@ function closeCartPopUp(e) {
   document.body.style.overflow = "visible";
 }
 
-button.addEventListener("click", openCartPopUp("uim90v4a3fmb156"));
+// button.addEventListener("click", openCartPopUp("uim90v4a3fmb156"));
