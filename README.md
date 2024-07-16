@@ -200,7 +200,6 @@
 - component/footer/footer-slide.js: build시 scss 경로 수정
 
 **오성훈**
-07/12 0:01
 
 - product/product-detail.html: 상품 세부 하단 컴포넌트 중 karly's point 부분 전체와 why karly 일부 마크업
 - assets/products-detail.scss: 상품 세부 하단 컴포넌트 karly's point 부분 전체와 why karly 일부 스타일링
@@ -240,7 +239,6 @@
 - public/images `sun`, `frozen`, `water` svg 파일 추가
 
 **오성훈**
-07/12 0:01
 
 - product/product-detail.html: 상품 세부 하단 컴포넌트 마크업 마무리
 - assets/products-detail.scss: 상품 세부 하단 컴포넌트 스타일 마무리
@@ -299,10 +297,16 @@
 - src/pages/register/index.html: 회원가입 페이지 컨테이너 클래스 추가
 - src/pages/register/register.js: 함수 분리
 - src/component/assets/\_register.scss: 회원가입 스타일링
-
-**이희재**
+  **이희재**
 
 - src/component/footer/footer.js: footer안에 to-top버튼 추가
 - src/component/banner/banner.js: banner에 button, pagination 추가
 - src/component/product/product-slide1.js: 상품 클릭시 장바구니 팝업 생성
 - src/component/product/product-slide1.js: 상품 클릭시 최근 본 상품에 추가
+
+**오성훈**
+
+- component/accodian/accodian.html: 아코디언 마크업 진행
+- assets/accodian.scss: 아코디언 스타일링 진행
+- component/accodian/accodian.js: 아코디언 접었다 펼쳤다 하는 기능 추가
+- component/addShoppingBasket/addShoppingBasket.js: 새로운 상품 추가 시 로컬스토리지에 저장되어지는 것이 새로운 것으로 대체되는 문제를 누적되는 것으로 변경
