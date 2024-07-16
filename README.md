@@ -269,6 +269,10 @@
 - src/pages/cart/index.html 마크업 수정
 - src/pages/cart/main.js 아코디언 UI 장바구니 데이터 포켓베이스 연결
 
+**이희재**
+
+- main 페이지 레이아웃 및 전반적인 js추가
+
 ## 2024-07-14
 
 **오성훈**
@@ -289,6 +293,10 @@
 - src/pages/cart/index.html 마크업 수정
 - src/pages/cart/main.js 체크박스 및 수량관련 기능 구현, 로그인 상태 UI 반영
 
+**이희재**
+
+- header.scss에서 호버시 svg 컬러 바뀌는 작업
+
 ## 2024-07-15
 
 **김한울**
@@ -303,6 +311,20 @@
 - src/component/assets/\_register.scss: 회원가입 스타일링
 - src/component/product/product-slide.js: 경로 수정
 
+  **이희재**
+
+- src/component/footer/footer.js: footer안에 to-top버튼 추가
+- src/component/banner/banner.js: banner에 button, pagination 추가
+- src/component/product/product-slide1.js: 상품 클릭시 장바구니 팝업 생성
+- src/component/product/product-slide1.js: 상품 클릭시 최근 본 상품에 추가
+
+**오성훈**
+
+- component/accodian/accodian.html: 아코디언 마크업 진행
+- assets/accodian.scss: 아코디언 스타일링 진행
+- component/accodian/accodian.js: 아코디언 접었다 펼쳤다 하는 기능 추가
+- component/addShoppingBasket/addShoppingBasket.js: 새로운 상품 추가 시 로컬스토리지에 저장되어지는 것이 새로운 것으로 대체되는 문제를 누적되는 것으로 변경
+
 **최소현**
 
 - src/pages/cart/index.html 페이지 합치기
@@ -314,10 +336,3 @@
 - src/pages/cart/sumAllprice.js 결제금액반영 함수 분리
 - src/pages/cart/syncCheckBox.js 체크박스 동기화 함수 분리
 - src/pages/cart/updatePrice.js 수량에 따른 금액 변경 함수 분리
-
-**오성훈**
-
-- component/accodian/accodian.html: 아코디언 마크업 진행
-- assets/accodian.scss: 아코디언 스타일링 진행
-- component/accodian/accodian.js: 아코디언 접었다 펼쳤다 하는 기능 추가
-- component/addShoppingBasket/addShoppingBasket.js: 새로운 상품 추가 시 로컬스토리지에 저장되어지는 것이 새로운 것으로 대체되는 문제를 누적되는 것으로 변경

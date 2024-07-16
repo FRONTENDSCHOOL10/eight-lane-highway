@@ -5,31 +5,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/styles/style.scss" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script
-      type="module"
-      src="/src/component/product/product-slide.js"></script>
-    <script
-      type="module"
-      src="/src/component/product/product-slide2.js"></script>
-    <script type="module" src="/src/component/banner/banner.js"></script>
-    <script type="module" src="/src/component/pop-up/main.js"></script>
-    <script type="module" src="/src/component/recent-product/main.js"></script>
     <script type="module" src="/main.js"></script>
   </head>
   <body>
     <c-header></c-header>
     <main>
+      <div class="modal"></div>
       <div class="pop-up-container">
         <a href="/" class="quick-link"></a>
         <div class="button-container">
           <button type="button" id="hidePopup">오늘 하루 안 보기</button>
           <button type="button" id="closePopup">닫기</button>
         </div>
+      </div>
+      <div class="recent-product">
+        <aside class="recent-product-container">
+          <button type="button" class="swiper-button-prev"></button>
+          <p>최근 본 상품</p>
+          <div class="swiper-container">
+            <div class="swiper-wrapper"></div>
+          </div>
+          <button type="button" class="swiper-button-next"></button>
+        </aside>
       </div>
       <section class="banner">
         <!-- Slider main container -->
@@ -87,14 +88,6 @@
             tabindex="-1"></button>
         </div>
       </section>
-      <aside class="recent-product-container">
-        <button type="button" class="swiper-button-prev"></button>
-        <p>최근 본 상품</p>
-        <div class="swiper-container">
-          <div class="swiper-wrapper"></div>
-        </div>
-        <button type="button" class="swiper-button-next"></button>
-      </aside>
       <a href="" class="banner-img">
         <img src="/images/line-banner.png" alt="광고 배너" />
       </a>
@@ -115,7 +108,7 @@
         </div>
       </section>
     </main>
-    <div id="app">
+    <!-- <div id="app">
       <h1>메인페이지입니다</h1>
       <h2>
         <a href="/src/component/header/header.html">헤더</a>
@@ -163,7 +156,7 @@
           >상품 상세페이지</a
         >
       </h2>
-    </div>
+    </div> -->
     <c-footer></c-footer>
   </body>
 </html>

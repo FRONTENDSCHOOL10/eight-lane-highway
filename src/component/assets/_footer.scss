@@ -179,6 +179,7 @@
     border-radius: 50%;
     opacity: 0;
     transition: ease all 0.5s;
+    z-index: 12;
 
     &.is__show {
       opacity: 1;

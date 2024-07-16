@@ -160,7 +160,7 @@ headerTemplate.innerHTML = `
      </header>
 `;
 
-export class Header extends HTMLElement {
+class Header extends HTMLElement {
   constructor() {
     super();
 
@@ -263,9 +263,9 @@ export class Header extends HTMLElement {
         removeClass(this.header, "is__scroll");
       }
     }
-
     window.addEventListener("scroll", handleScroll.bind(this));
   }
 }
 
 // input 입력시 button 클릭하면 input text 초기화 추가하기
+customElements.define("c-header", Header);

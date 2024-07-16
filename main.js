@@ -1,11 +1,8 @@
 import "/src/styles/style.scss";
-import { Header } from "/src/component/header/header.js";
-import { Footer } from "/src/component/footer/footer.js";
-import { getNode, addClass, removeClass } from "./src/lib/index.js";
-
-const defineElement = () => {
-  customElements.define("c-header", Header);
-  customElements.define("c-footer", Footer);
-};
-
-defineElement();
+import "/src/component/recent-product/main.js";
+import "/src/component/product/product-slide1.js";
+import "/src/component/product/product-slide2.js";
+import "/src/component/banner/banner.js";
+import "/src/component/pop-up/main.js";
+import "/src/component/header/header.js";
+import "/src/component/footer/footer.js";
