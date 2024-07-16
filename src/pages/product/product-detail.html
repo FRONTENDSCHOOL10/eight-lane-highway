@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 상세 페이지</title>
-    <link rel="stylesheet" href="/src/styles/style.scss" />
     <script type="module" src="/main.js"></script>
     <script type="module" src="/src/pages/product/product-detail.js"></script>
   </head>
@@ -13,10 +12,7 @@
     <section class="product__info">
       <aside class="">
         <div class="product__img__container">
-          <img
-            src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/oaadansr1f30wwd/product01_xXHrpWtSPH.png"
-            alt="상품사진"
-          />
+          <img src="" alt="" id="product__image" />
         </div>
       </aside>
       <div class="product__info__container">
@@ -37,9 +33,7 @@
           <tr>
             <th>배송</th>
             <td>
-              <strong
-                class="product__info text__label__small"
-                name="product__delivery"
+              <strong class="text__label__small product__delivery"
                 >배송방법</strong
               >
               <p>23시 전 주문 시 내일 아침 7시 전 도착</p>
@@ -53,7 +47,7 @@
           <tr>
             <th>포장타입</th>
             <td id="product__packiging">
-              <p class="product__packiging__detail">상온포장</p>
+              <p class="product__packiging__detail">포장타입내용</p>
               <p>택배배송은 에코 포장이 스티로폼으로 대체됩니다.</p>
             </td>
           </tr>
@@ -71,18 +65,13 @@
           </tr>
           <tr>
             <th>알레르기정보</th>
-            <td>
-              - 대두, 밀, 쇠고기 함유 <br />- 계란, 우유, 메밀, 땅콩, 고등어,
-              게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고기,
-              오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은
-              제조시설에서 제조
-            </td>
+            <td id="product__allergic">알레르기 내용</td>
           </tr>
           <tr>
             <th>상품선택</th>
             <td>
               <div class="product__count">
-                <p>상품 제목</p>
+                <p class="title__product">상품이름</p>
                 <div class="product__count__price">
                   <div class="product__count__button">
                     <button type="button">
@@ -143,21 +132,13 @@
         </ul>
       </article>
       <article class="product__detail__info_container">
-        <img src="/images/jjolmeon.png" alt="jjolmeon이미지" />
+        <img id="productDetailImage" />
         <div class="product__detail__info_container_title">
-          <span>튀기지 않아 부담없는 매콤함</span>
-          <p>[풀무원] 탱탱쫄면</p>
+          <span class="title__secondary">상품간략설명</span>
+          <p class="title__product">상품이름</p>
         </div>
         <div class="product__detail__info_container_main">
-          <span>
-            쫄면의 진가는 매콤새콤한 양념과 탱탱한 면발에서 찾을 수 있지요.
-            풀무원은 이 맛을 더 부담 없이 즐길 수 있도록 튀기지 않고 만든
-            탱탱쫄면을 선보입니다. 밀가루와 감자 전분을 적절히 배합해 탄력이
-            좋고, 입에 넣었을 때는 찰지게 씹히죠. 고추장을 넣어 숙성한 비빔장은
-            자연스럽고 깊은 맛을 냅니다. 간단하게 조리해 마지막 한 가닥까지
-            탱탱한 식감을 즐겨보세요. 취향에 따라 다양한 고명을 올려 드셔도
-            좋아요.
-          </span>
+          <span id="productDetailText"> 내용 </span>
         </div>
         <div class="product__detail__info_container_checkpoint">
           <article class="checkpoint__header">
