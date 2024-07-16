@@ -11,6 +11,7 @@ import {
 } from "/src/lib/index.js";
 import getPbImageURL from "/src/api/getPbImageURL";
 import PocketBase from "pocketbase";
+import { getSavedRecentProduct } from "/src/component/recent-product/main.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
@@ -34,7 +35,9 @@ const swiper = new Swiper(".product-slide2 .swiper-container", {
     update: function () {
       checkNavigation(this);
       // add-button 클릭시 일어날 이벤트 처리
-      addCartEvent();
+      addCart();
+      // product 클릭시 일어날 이벤트 처리
+      addProduct();
     },
   },
 });
@@ -120,8 +123,8 @@ async function renderProductItem() {
 }
 
 // add-button 클릭시 일어날 이벤트 처리
-function addCartEvent() {
-  const addCart = getNodes(".product-slide2 .visual__add-cart");
+function addCart() {
+  const addCart = getNodes(".product-slide1 .visual__add-cart");
   addCart.forEach((addCartButton, index) => {
     addCartButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -129,10 +132,46 @@ function addCartEvent() {
     });
   });
 }
-// add-button 클릭시 일어날 이벤트 처리
-// function handleClickButton(index) {
-//   console.log(index + 1 + "번째 add-cart버튼 클릭");
-// }
+// 제품 클릭시 일어날 이벤트 처리
+function viewedProducts() {
+  let recentProductsId = [];
+
+  return async function () {
+    const productLink = getNodes(".product-slide1 .visual__link");
+
+    // 기존 저장된 데이터를 로드
+    recentProductsId = (await getStorage("recentProductId")) || [];
+
+    productLink.forEach((productLink, index) => {
+      productLink.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const productId = productIdList[index];
+        const productIndex = recentProductsId.indexOf(productId);
+
+        // 중복된 값을 제거
+        if (productIndex !== -1) {
+          recentProductsId.splice(productIndex, 1);
+        }
+
+        // 최근 본 제품 목록에 추가
+        recentProductsId.push(productId);
+        await setStorage("recentProductId", recentProductsId);
+
+        // 업데이트된 목록을 화면에 출력
+        getSavedRecentProduct();
+      });
+    });
+  };
+}
+
+// 클로저로 생성한 addProduct 함수 사용
+const addProduct = viewedProducts();
+getSavedRecentProduct();
+
+/* -------------------------------------------------------------------------- */
+/*                                   장바구니 모달                             */
+/* -------------------------------------------------------------------------- */
+
 const popup = document.querySelector(".modal");
 
 // 템플릿 생성 함수
@@ -200,7 +239,6 @@ async function renderAddShoppingCart(id) {
 function handleCounterProduct(countNode, price, resultNode) {
   return function (e) {
     const target = e.target.closest("button");
-    console.log(e);
     if (!target) return;
 
     if (target.id === "plusBtn") {
