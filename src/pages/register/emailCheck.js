@@ -32,14 +32,35 @@ class EmailChecker {
 
     if (email === "") {
       this.updateMessage("이메일을 입력하세요.", "red");
+      this.emailField.classList.add("is__invalid");
+      this.emailField.addEventListener("keydown", () => {
+        this.emailField.classList.remove("is__invalid");
+      });
+      this.emailField.addEventListener("focusout", () => {
+        this.emailField.classList.remove("is__invalid");
+      });
       return;
     }
 
     const isUnique = await this.isEmailUnique(email);
     if (isUnique) {
       this.updateMessage("사용 가능한 이메일입니다.", "green");
+      this.emailField.classList.add("is__valid");
+      this.emailField.addEventListener("keydown", () => {
+        this.emailField.classList.remove("is__valid");
+      });
+      this.emailField.addEventListener("focusout", () => {
+        this.emailField.classList.remove("is__valid");
+      });
     } else {
       this.updateMessage("이미 사용중인 이메일입니다.", "red");
+      this.emailField.classList.add("is__invalid");
+      this.emailField.addEventListener("keydown", () => {
+        this.emailField.classList.remove("is__invalid");
+      });
+      this.emailField.addEventListener("focusout", () => {
+        this.emailField.classList.remove("is__invalid");
+      });
     }
   }
 
@@ -63,6 +84,20 @@ class EmailChecker {
       this.message.textContent = message;
       this.message.style.color = color;
     }
+  }
+
+  // 이메일 유효성 확인 => 클래스 추가
+  setFieldValidState(field, validClass) {
+    field.classList.add(validClass);
+
+    // 이벤트 핸들러 함수
+    function removeValidClass() {
+      field.classList.remove(validClass);
+    }
+
+    // 이벤트 리스너 추가
+    field.addEventListener("keydown", removeValidClass);
+    field.addEventListener("blur", removeValidClass);
   }
 }
 
