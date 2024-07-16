@@ -120,7 +120,7 @@
 
   &__upper,
   &__lower {
-    @include flexAll($jc: center, $at: center, $gap: 24px);
+    @include flexAll($jc: center, $at: flex-start, $gap: 24px);
     margin: 0 auto;
 
     &__item {
