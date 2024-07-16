@@ -1,3 +1,7 @@
+footer {
+  border-top: 1px solid $gray100;
+}
+
 .footer {
   &__container {
     @include size(1050px);

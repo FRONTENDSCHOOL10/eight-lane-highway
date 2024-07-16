@@ -16,7 +16,7 @@ headerTemplate.innerHTML = `
 <header>
        <nav class="nav">
        <h1 class="nav__logo">
-         <a href="">
+         <a href="/">
            <img src="/images/logo.svg" alt="마켓칼리" />
          </a>
        </h1>
@@ -160,11 +160,11 @@ headerTemplate.innerHTML = `
            </li>
          </ul>
        </div>
-       <a href="/" class="nav__menu__list new">신상품</a>
-       <a href="/" class="nav__menu__list best">베스트</a>
-       <a href="/" class="nav__menu__list shopping">알뜰쇼핑</a>
-       <a href="/" class="nav__menu__list benefits">특가/혜택</a>
-       <p href="/" class="delivery"><span>샛별·하루</span> 배송안내</p>
+       <a href="/src/pages/productList/index.html?title=new" class="nav__menu__list new">신상품</a>
+       <a href="/src/pages/productList/index.html?title=best" class="nav__menu__list best">베스트</a>
+       <a href="/src/pages/productList/index.html?title=shopping" class="nav__menu__list shopping">알뜰쇼핑</a>
+       <a href="/src/pages/productList/index.html?title=benefits" class="nav__menu__list benefits">특가/혜택</a>
+       <p  class="delivery"><span>샛별·하루</span> 배송안내</p>
      </nav>
      </header>
 `;

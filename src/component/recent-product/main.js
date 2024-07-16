@@ -18,10 +18,10 @@ if (swiperContainer) {
   });
 }
 
-const container = getNode(".recent-product");
-if (container) {
+const recentContainer = getNode(".recent-product");
+if (recentContainer) {
   const documentHeight = document.documentElement.scrollHeight;
-  container.style.height = `${documentHeight}px`;
+  recentContainer.style.height = `${documentHeight - 500}px`;
 }
 
 // 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
