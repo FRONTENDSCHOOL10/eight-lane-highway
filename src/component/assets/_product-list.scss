@@ -1,22 +1,67 @@
-.product__lists {
-  @include flexAll($jc: center);
-}
-
-.product__lists__container {
-  @include flexAll($jc: space-between);
-  width: 783px;
-  flex-wrap: wrap;
-  column-gap: 10px;
+.products__list {
+  width: 1050px;
   margin: 0 auto;
 
-  .product-list-items {
-    // flex: 1 0 30%; /* 각 아이템을 30% 너비로 설정 */
-    box-sizing: border-box;
-    margin-bottom: 24px;
+  h2 {
+    @include font($color: $darkBlack, $fs: 1.375rem, $fw: 600, $lh: 150%);
+    text-align: center;
   }
 }
 
-.product__lists__container::after {
-  content: "";
-  flex: auto;
+.product__lists {
+  @include flexAll($at: flex-start, $gap: 40px);
+
+  .accodian__menu {
+    margin-top: 40px;
+  }
+
+  article {
+    box-sizing: border-box;
+    display: inline-block;
+  }
+
+  .product__lists__container {
+    box-sizing: border-box;
+  }
+}
+
+.product__lists__container {
+  @include flexAll();
+  width: 100%;
+  flex-wrap: wrap;
+  column-gap: 10px;
+
+  &__intro {
+    @include flexAll($jc: space-between);
+    width: 100%;
+    margin-top: 48px;
+  }
+
+  &__totals {
+    @include flexAll();
+    @include font($color: $black, $fw: 600, $lh: 150%);
+  }
+
+  &__nav {
+    @include flexAll($at: center, $gap: 5px);
+    padding-right: 32px;
+
+    &__items {
+      @include flexAll();
+      cursor: pointer;
+      margin-top: 0;
+      @include font($color: $gray300, $fw: 600, $lh: 150%);
+    }
+  }
+
+  &__items {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .product-list-items {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    padding-right: 10px;
+  }
 }
