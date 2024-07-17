@@ -16,12 +16,13 @@ import {
   updateExeptionCounts,
   updatePriceCounts,
   updateTypeCounts,
-} from "../../component/accodion/countAccodionItems";
+} from "/src/component/accodion/countAccodionItems";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 const list = document.querySelector(".product__lists__container__items");
 const totals = document.querySelector(".product__lists__container__totals");
+const popup = document.querySelector(".modal");
 
 async function renderProductList() {
   const productItem = await pb.collection("products").getFullList();
@@ -58,7 +59,9 @@ async function renderProductList() {
     <article class="product product-list-items">
         <h3 class="sr-only">제품 상세</h3>
         <div class="visual">
-          <a href="" class="visual__link">
+          <a href="/src/pages/product/product-detail.html?product=${
+            items.id
+          }" class="visual__link">
             <img
               src="${getPbImageURL(items)}" />
           </a>
