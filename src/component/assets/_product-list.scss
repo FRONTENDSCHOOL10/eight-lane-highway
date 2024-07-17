@@ -20,10 +20,6 @@
     box-sizing: border-box;
     display: inline-block;
   }
-
-  .product__lists__container {
-    box-sizing: border-box;
-  }
 }
 
 .product__lists__container {
@@ -64,5 +60,14 @@
     box-sizing: border-box;
     margin-bottom: 24px;
     padding-right: 10px;
+    width: 250px;
+  }
+}
+
+.pagination__container {
+  margin-top: 36px;
+  width: 100%;
+  ul {
+    margin: 0 auto;
   }
 }
