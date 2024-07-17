@@ -389,6 +389,22 @@
 
 ## 2024-07-17
 
+**이희재**
+**최소현**
+
 **오성훈**
 
 - component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
+
+**김한울**
+
+- src/component/assets/\_inputs.scss: 인풋 스타일 리팩토링
+- src/component/assets/\_register.scss: 주소 인풋 스타일 리팩토링, 경고 메시지 노출 스타일 설정
+- src/component/assets/\_variables.scss: 변수 컬러 변경
+- src/pages/register/passwordCheck.js: 컬러 변경
+- src/pages/register/emailCheck.js: 함수 리팩토링
+- src/pages/register/idCheck.js: 메시지 컬러 변경
+- src/pages/register/index.html: 주소 부분 함수 리팩토링으로 인한 수정, 이름 함수 변경으로 인한 경고 메시지 엘리먼트 추가
+- src/pages/register/nameCheck.js: 영어 입력 방지 설정
+- src/pages/register/register.js: 스크립트 경로 수정, 이름 체크 모듈 불러오기
+- src/pages/register/userAddress.js: 스크립트 경로 수정
