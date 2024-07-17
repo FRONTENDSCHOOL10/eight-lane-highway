@@ -396,6 +396,17 @@
 **오성훈**
 
 - component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
+- component/accodion/countAccodionItems.js: 잘못된 조건 수정(판매자 배송을 가격 조건으로 잘못 걸음)
+- pages/productList/index.html: 페이지네이션을 위한 마크업과 팝업을 위한 마크업 추가
+- pages/productList/productList.js:
+  - 헤더에서 상품 리스트 요소 클릭시 나오는 각각의 헤더에 맞는 제목 나오도록 변경 및 각각의 조건 부여를 통한 글자 변경
+  - 페이지네이션 함수 작성
+  - 페이지네이션과 장바구니 추가 기능을 위한 탬플릿 수정
+- assets/product-list.scss: 각각의 리스트 요소의 width속성 부여
+- component/addShoppingBasket/addShoppingBasket.js
+  - 할인되는 상품이어도 정가로 값이 나오는 것을 수정
+  - 할인가와 가격이 같이 나오도록 템플릿 수정
+- assets/addShoppingBasket.scss: 할인가와 가격이 같이 나오는 것에 대한 스타일링 추가
 
 **이희재**
 
