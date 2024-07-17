@@ -393,6 +393,15 @@
 
 ## 2024-07-17
 
+
+**이희재**
+
+- src/component/product/product-slide.js: 디버깅완료
+- src/component/product/product-slide.js: 최근 본 상품 5개 이상시 가장 처음에 본 제품 삭제
+- src/component/topBanner/topBanner.js: 탑배너 마크업 및 디자인 기능 구현
+
+**최소현**
+
 **오성훈**
 
 - component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
@@ -407,9 +416,23 @@
   - 할인되는 상품이어도 정가로 값이 나오는 것을 수정
   - 할인가와 가격이 같이 나오도록 템플릿 수정
 - assets/addShoppingBasket.scss: 할인가와 가격이 같이 나오는 것에 대한 스타일링 추가
+- component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
 
-**이희재**
+**김한울**
 
-- src/component/product/product-slide.js: 디버깅완료
-- src/component/product/product-slide.js: 최근 본 상품 5개 이상시 가장 처음에 본 제품 삭제
-- src/component/topBanner/topBanner.js: 탑배너 마크업 및 디자인 기능 구현
+- src/component/assets/\_inputs.scss: 인풋 스타일 리팩토링
+- src/component/assets/\_register.scss: 주소 인풋 스타일 리팩토링, 경고 메시지 노출 스타일 설정
+- src/component/assets/\_variables.scss: 변수 컬러 변경
+- src/pages/register/passwordCheck.js: 컬러 변경
+- src/pages/register/emailCheck.js: 함수 리팩토링
+- src/pages/register/idCheck.js: 메시지 컬러 변경
+- src/pages/register/index.html: 주소 부분 함수 리팩토링으로 인한 수정, 이름 함수 변경으로 인한 경고 메시지 엘리먼트 추가
+- src/pages/register/nameCheck.js: 영어 입력 방지 설정
+- src/pages/register/register.js: 스크립트 경로 수정, 이름 체크 모듈 불러오기
+- src/pages/register/userAddress.js: 스크립트 경로 수정
+- src/pages/product/addToCartBubble.js: 장바구니 담기 버블 리팩토링
+- src/pages/product/productCount.js: 장바구니 담기 숫자 함수 작성
+- src/pages/product/product-detail.html: HTML Validation 체크, 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_products.scss: 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_products-detail.scss: 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_typography.scss: 제목 type 및 list type 에셋 추가

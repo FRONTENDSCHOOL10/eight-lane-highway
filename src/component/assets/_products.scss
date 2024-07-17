@@ -70,6 +70,7 @@
         text-align: right;
 
         .product__button__container {
+          position: relative;
           display: flex;
           align-items: center;
           gap: 12px;
@@ -158,6 +159,16 @@
       &:first-child {
         td {
           border-top: 1px solid $black;
+        }
+      }
+    }
+  }
+  &.product__table__qna {
+    tr {
+      &:first-child {
+        td {
+          border-top: 2px solid $black;
+          border-bottom: 1px solid $black;
         }
       }
     }
