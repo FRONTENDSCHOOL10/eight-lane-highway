@@ -1,6 +1,7 @@
 import axios from "axios";
 import getPbImageURL from "/src/api/getPbImageURL";
 import "/main.js";
+import "./productCount.js";
 
 // 포켓베이스 API URL
 const pbUrl = "https://eight-lane-highway.pockethost.io";
@@ -20,6 +21,7 @@ async function fetchProductData(productId) {
       `${pbUrl}/api/collections/products/records/${productId}`
     );
     const data = response.data;
+    console.log("Fetched product data:", data); // 가져온 데이터 로그 출력
     displayProductData(data);
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);
@@ -28,6 +30,11 @@ async function fetchProductData(productId) {
 
 // 상품 데이터를 HTML에 표시하는 함수
 function displayProductData(data) {
+  if (!data) {
+    console.error("No data provided to display");
+    return;
+  }
+
   const productImgContainer = document.getElementById("product__image");
 
   // 상품 이미지 URL 설정 (포켓베이스에서 이미지 URL 구성 방식에 따라 수정)

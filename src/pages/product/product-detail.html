@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>상품 상세 페이지</title>
+    <title>Karly: 8차선고속도로 / 상품 상세</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
-    <script type="module" src="/src/pages/product/product-detail.js"></script>
+    <script type="module" src="/src/pages/product/productDetail.js"></script>
   </head>
   <body>
     <c-header></c-header>
     <section class="product__info">
       <aside class="">
         <div class="product__img__container">
-          <img src="" alt="" id="product__image" />
+          <img src="" alt="상품 이미지" id="product__image" />
         </div>
       </aside>
       <div class="product__info__container">
@@ -33,9 +33,9 @@
           <tr>
             <th>배송</th>
             <td>
-              <strong class="text__label__small product__delivery"
-                >배송방법</strong
-              >
+              <strong class="text__label__small product__delivery">
+                배송방법
+              </strong>
               <p>23시 전 주문 시 내일 아침 7시 전 도착</p>
               <p>(대구, 부산, 울산 샛별배송 운영시간 별도 확인)</p>
             </td>
@@ -74,17 +74,18 @@
                 <p class="title__product">상품이름</p>
                 <div class="product__count__price">
                   <div class="product__count__button">
-                    <button type="button">
+                    <button type="button" id="minusBtn">
                       <img
                         src="/public/images/icon-minus-disabled.svg"
-                        alt=""
+                        alt="상품 개수 빼기"
                       />
                     </button>
-                    <div class="product__count__box">
-                      <p class="text__price">1</p>
-                    </div>
-                    <button type="button">
-                      <img src="/public/images/icon-plus-disabled.svg" alt="" />
+                    <p class="product__count__box text__price" id="count">1</p>
+                    <button type="button" id="plusBtn">
+                      <img
+                        src="/public/images/icon-plus-disabled.svg"
+                        alt="상품 개수 추가"
+                      />
                     </button>
                   </div>
                 </div>
@@ -95,7 +96,8 @@
         <article class="product__price__container">
           <div class="product__final__price">
             <p class="text__price">
-              총 상품금액: <span class="price__emphasis">가격</span>원
+              총 상품금액:
+              <span class="price__emphasis" id="totalPrice">가격</span>원
             </p>
             <p class="text__price">
               <span class="badge badge__accent">적립</span>로그인 후, 적립 혜택
@@ -107,18 +109,18 @@
               class="button__stroke__lightgray button__icon__large button__default"
               type="button"
             >
-              <img src="/images/icon-heart.svg" alt="" />
+              <img src="/images/icon-heart.svg" alt="좋아요" />
             </button>
             <button
               class="button__stroke__lightgray button__icon__large"
               type="button"
             >
-              <img src="/images/icon-bell.svg" alt="" />
+              <img src="/images/icon-bell.svg" alt="알림 설정" />
             </button>
             <button
               class="button__fill button__full"
               type="button"
-              id="addToCartButton"
+              id="addCartBtn"
             >
               장바구니 담기
             </button>
@@ -150,11 +152,11 @@
             <span>Karly's Check Point</span>
             <hr />
           </article>
-          <img src="" alt="" id="productCheckPointImage" />
+          <img src="" alt="칼리의 체크포인트" id="productCheckPointImage" />
         </div>
       </article>
       <article class="product__detail__details_container">
-        <img src="" alt="" id="productDetailInfoImage" />
+        <img src="" alt="상품 디테일 설명" id="productDetailInfoImage" />
         <article class="product__detail__details_container__whyC">
           <p class="product__detail__details_container__whyC__title">
             WHY KARLY
@@ -306,13 +308,16 @@
           class="button__stroke__lightgray button__icon__medium"
           type="button"
         >
-          <img src="/public/images/icon-arrow-left.svg" alt="" />
+          <img src="/public/images/icon-arrow-left.svg" alt="왼쪽으로 넘기기" />
         </button>
         <button
           class="button__stroke__lightgray button__icon__medium"
           type="button"
         >
-          <img src="/public/images/icon-arrow-right.svg" alt="" />
+          <img
+            src="/public/images/icon-arrow-right.svg"
+            alt="오른쪽으로 넘기기"
+          />
         </button>
       </div>
     </section>
@@ -401,13 +406,16 @@
           class="button__stroke__lightgray button__icon__medium"
           type="button"
         >
-          <img src="/public/images/icon-arrow-left.svg" alt="" />
+          <img src="/public/images/icon-arrow-left.svg" alt="왼쪽으로 넘기기" />
         </button>
         <button
           class="button__stroke__lightgray button__icon__medium"
           type="button"
         >
-          <img src="/public/images/icon-arrow-right.svg" alt="" />
+          <img
+            src="/public/images/icon-arrow-right.svg"
+            alt="오른쪽으로 넘기기"
+          />
         </button>
       </div>
     </section>
