@@ -20,6 +20,7 @@ import {
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
+const productListTitle = document.querySelector(".products__list_title");
 const list = document.querySelector(".product__lists__container__items");
 const totals = document.querySelector(".product__lists__container__totals");
 const popup = document.querySelector(".modal");
@@ -35,6 +36,32 @@ async function fetchProducts() {
   renderPaginationButtons();
   renderProductList();
 }
+
+function renderTitleName() {
+  const params = new URLSearchParams(location.search);
+  let titleName = params.get("title");
+
+  switch (titleName) {
+    case "new":
+      titleName = "신상품";
+      break;
+    case "best":
+      titleName = "베스트";
+      break;
+    case "shopping":
+      titleName = "알뜰쇼핑";
+      break;
+    case "benefits":
+      titleName = "특가/혜택";
+      break;
+  }
+
+  const template = `<h2 class="products__list_title">${titleName}</h2>`;
+
+  insertLast(productListTitle, template);
+}
+
+renderTitleName();
 
 function renderProductList() {
   list.innerHTML = "";
