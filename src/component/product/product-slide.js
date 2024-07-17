@@ -15,6 +15,23 @@ import { getSavedRecentProduct } from "/src/component/recent-product/main.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
+// 스와이퍼의 시작과 마지막을 체크
+function checkNavigation(className, swiper) {
+  const prev = getNode(`${className} .swiper-button-prev`);
+  const next = getNode(`${className} .swiper-button-next`);
+
+  if (swiper.isEnd) {
+    addClass(next, "is__hide");
+  } else {
+    removeClass(next, "is__hide");
+  }
+  if (swiper.isBeginning) {
+    addClass(prev, "is__hide");
+  } else {
+    removeClass(prev, "is__hide");
+  }
+}
+
 (async function () {
   // 데이터 캐시 변수
   let cachedProductsData = null;
@@ -261,21 +278,6 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
     document.body.style.overflow = "visible";
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    initializeSwiper(".product-slide1");
-    initializeSwiper(".product-slide2");
-  });
-
-  function initializeSwiper(className) {
-    const swiperContainer = document.querySelector(
-      `${className} .swiper-container`
-    );
-    if (swiperContainer) {
-      new CustomSwiper(className);
-    } else {
-      console.warn(`Swiper container for ${className} not found.`);
-    }
-  }
   function CustomSwiper(className) {
     const swiper = new Swiper(`${className} .swiper-container`, {
       slidesPerView: 4,
@@ -303,20 +305,7 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
     return swiper;
   }
-  // 스와이퍼의 시작과 마지막을 체크
-  function checkNavigation(className, swiper) {
-    const prev = getNode(`${className} .swiper-button-prev`);
-    const next = getNode(`${className} .swiper-button-next`);
 
-    if (swiper.isEnd) {
-      addClass(next, "is__hide");
-    } else {
-      removeClass(next, "is__hide");
-    }
-    if (swiper.isBeginning) {
-      addClass(prev, "is__hide");
-    } else {
-      removeClass(prev, "is__hide");
-    }
-  }
+  const swiper1 = new CustomSwiper(".product-slide1");
+  const swiper2 = new CustomSwiper(".product-slide2");
 })();
