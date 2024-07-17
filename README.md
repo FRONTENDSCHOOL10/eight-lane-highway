@@ -412,6 +412,13 @@
 - src/component/assets/\_cart.scss a태그 관련 구조 스타일링
 - src/pages/cart/main.js 장바구니 상품 a태그 추가, 상품 상세페이지 연결
 - src/pages/cart/delete.js 로컬스토리지 삭제관련 디버깅(선택삭제시 로컬스토리지에서 1개 이상 삭제안되는 오류 해결)
+- src/component/assets/\_badges.scss 뱃지 패딩추가
+- src/pages/cart/index.html 결제 영역 금액, 단위 사이 gap 추가
+- src/pages/cart/sumAllPrice.js 결제 영역 금액, 단위 사이 gap 추가 및
+  30000만원 이상 배송비 추가 오류 디버깅
+- src/pages/cart/countedItem.js 디버깅 및 리팩토링
+- src/pages/cart/delete.js 디버깅 및 리팩토링
+- src/pages/cart/sumAllPrice.js 디버깅 및 리팩토링
 
 **오성훈**
 
