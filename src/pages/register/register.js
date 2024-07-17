@@ -57,6 +57,7 @@ document
       const record = await pb.collection("users").create(data);
 
       alert("회원가입 성공");
+      window.location.href = "/src/pages/login/index.html";
     } catch (error) {
       console.error("Error:", error);
       alert("회원가입 중 오류 발생: " + error.message);
