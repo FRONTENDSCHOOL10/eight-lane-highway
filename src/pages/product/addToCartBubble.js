@@ -1,4 +1,4 @@
-export class AddToCartBubble extends HTMLElement {
+export class addToCartBubble extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });

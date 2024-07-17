@@ -1,7 +1,7 @@
 import PocketBase from "pocketbase";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
 import getPbImageURL from "/src/api/getPbImageURL";
-import { AddToCartBubble } from "./AddToCartBubble.js";
+import { addToCartBubble } from "/src/pages/product/addToCartBubble.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
