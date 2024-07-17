@@ -35,6 +35,8 @@ function checkNavigation(className, swiper) {
 (async function () {
   // 데이터 캐시 변수
   let cachedProductsData = null;
+  // 제품 ID 리스트
+  let productIdList = [];
   // 데이터 가져오기 함수
   async function fetchProductsData(sortType = "") {
     if (!cachedProductsData || sortType) {
@@ -46,9 +48,6 @@ function checkNavigation(className, swiper) {
   }
   // 데이터 미리 가져오기
   await fetchProductsData();
-
-  // 제품 ID 리스트
-  let productIdList = [];
 
   // 제품 항목 렌더링 함수
   async function renderProductItem(className, swiper, sortType = "") {
@@ -128,24 +127,25 @@ function checkNavigation(className, swiper) {
     return async function () {
       const productLinks = getNodes(`${className} .visual__link`);
       async function handleClick(e, index) {
-        const productId = productIdList[index];
-        recentProductsId = (await getStorage("recentProductId")) || [];
-
-        // 이미 저장된 상품이 있다면 중복 체크 후 제거
-        const productIndex = recentProductsId.indexOf(productId);
-        if (productIndex !== -1) {
-          recentProductsId.splice(productIndex, 1);
+        e.preventDefault();
+        try {
+          const productId = productIdList[index];
+          recentProductsId = (await getStorage("recentProductId")) || [];
+          // 이미 저장된 상품이 있다면 중복 체크 후 제거
+          const productIndex = recentProductsId.indexOf(productId);
+          if (productIndex !== -1) {
+            recentProductsId.splice(productIndex, 1);
+          }
+          // 최근 본 상품 목록에 상품 추가
+          recentProductsId.push(productId);
+          await setStorage("recentProductId", recentProductsId);
+          // 최신 데이터로 업데이트
+          await removeRecentProductsId(); // 오래된 상품 제거를 위한 비동기 호출
+          await getSavedRecentProduct(); // 최신 데이터를 가져오기 위한 비동기 호출
+        } catch (error) {
+          console.error("Error handling recent products:", error);
         }
-
-        // 최근 본 상품 목록에 상품 추가
-        recentProductsId.push(productId);
-        await setStorage("recentProductId", recentProductsId);
-
-        // 최신 데이터로 업데이트
-        getSavedRecentProduct();
-        removeRecentProductsId(); // removeRecentProductsId 함수를 호출하여 오래된 상품 제거
       }
-
       productLinks.forEach((productLink, index) => {
         productLink.addEventListener("click", (e) => handleClick(e, index));
       });
@@ -293,8 +293,8 @@ function checkNavigation(className, swiper) {
       },
       on: {
         init: function () {
-          recentProducts(className)();
           renderProductItem(className, this, sortType);
+          recentProducts(className)();
           checkNavigation(className, this);
         },
         slideChange: function () {
@@ -313,4 +313,6 @@ function checkNavigation(className, swiper) {
 
   const swiper1 = new CustomSwiper(".product-slide1");
   const swiper2 = new CustomSwiper(".product-slide2", "price");
+
+  if (!swiper1 || !swiper2) return;
 })();
