@@ -1,0 +1,63 @@
+.mypage__container {
+  background-color: $gray070;
+  padding: 50px 0 70px;
+
+  .mypage__sub__container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    gap: 16px;
+  }
+
+  .member__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 375px;
+
+    .profile__container {
+      padding: 24px;
+      background-color: $white;
+      border-radius: 16px 16px 0 0;
+
+      .user__point {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid $gray100;
+        display: flex;
+
+        .user__save__point {
+          flex: 1;
+          padding: 20px;
+          position: relative;
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 27px;
+            right: 0;
+            width: 1px;
+            height: 30px;
+            background-color: $gray200;
+          }
+        }
+        .user__cash__point {
+          flex: 1;
+          padding: 20px;
+        }
+      }
+    }
+    .mypage__menu__container {
+      padding: 24px;
+      background-color: $white;
+      border-radius: 0 0 16px 16px;
+
+      ul {
+        list-style: none;
+        li {
+        }
+      }
+    }
+  }
+}
