@@ -2,6 +2,8 @@ import PocketBase from "pocketbase";
 import { insertLast } from "/src/lib/dom/index";
 import getPbImageURL from "/src/api/getPbImageURL";
 import { formatPrice } from "/src/lib/utils/price";
+import "/src/component/header/header.js";
+import "/src/component/footer/footer.js";
 import {
   toggleTitle,
   handleClickedItems,
@@ -17,6 +19,7 @@ import {
   updatePriceCounts,
   updateTypeCounts,
 } from "/src/component/accodion/countAccodionItems";
+import { openCartPopUp } from "/src/component/addShoppingBasket/addShoppingBasket";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
@@ -79,7 +82,7 @@ function renderProductList() {
             <span class="info__sale__price">${
               items.discount
             }%</span> ${formatPrice(
-            items.price - items.price * (items.discount / 100)
+            items.price * ((100 - items.discount) / 100)
           )} 원
           </p>
           <p class="info__product__original-price">${formatPrice(
@@ -96,36 +99,44 @@ function renderProductList() {
       : `<p></p>`;
 
     const template = `
-    <article class="product product-list-items">
-        <h3 class="sr-only">제품 상세</h3>
-        <div class="visual">
-          <a href="/src/pages/product/product-detail.html?product=${
-            items.id
-          }" class="visual__link">
-            <img
-              src="${getPbImageURL(items)}" />
-          </a>
-          <a href="" class="visual__add-cart">
-            <img
-              src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg"
-              alt="장바구니 담기" />
-          </a>
-        </div>
-        <div class="info">
-          <p class="info__delivery">${items.delivery}</p>
-          <p class="info__product__title">${items.name}</p>
-          ${discountSection}
-          <p class="info__product__subtitle">
-            ${items.subtitle}
-          </p>
-          <div class="badge__group">
-            ${karlyOnlyBadge}
-            ${limitedBadge}
-          </div>
-        </div>
-      </article>
+      <a href="/src/pages/product/product-detail.html?product=${items.id}">
+        <article class="product product-list-items">
+            <h3 class="sr-only">제품 상세</h3>
+            <div class="visual">
+              <p class="visual__link">
+                <img
+                  src="${getPbImageURL(items)}" />
+              </p>
+              <button class="visual__add-cart"  data-product-id=${items.id}>
+                <img
+                  src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg"
+                  alt="장바구니 담기"/>
+              </button>
+            </div>
+            <div class="info">
+              <p class="info__delivery">${items.delivery}</p>
+              <p class="info__product__title">${items.name}</p>
+              ${discountSection}
+              <p class="info__product__subtitle">
+                ${items.subtitle}
+              </p>
+              <div class="badge__group">
+                ${karlyOnlyBadge}
+                ${limitedBadge}
+              </div>
+            </div>
+          </article>
+      </a>
     `;
     insertLast(list, template);
+  });
+
+  const addCartButtons = document.querySelectorAll(".visual__add-cart");
+  addCartButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const productId = e.currentTarget.getAttribute("data-product-id");
+      openCartPopUp(productId)(e);
+    });
   });
 
   const countTotal = countTotalProduct(productItem);
