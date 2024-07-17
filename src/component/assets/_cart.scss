@@ -281,8 +281,6 @@
   .point-badge {
     border-radius: 0;
     display: none;
-    padding: 0 8px;
-    @include font($white, 0.75rem, 600, 150%);
 
     &.is__show {
       display: block;
