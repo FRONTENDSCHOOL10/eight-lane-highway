@@ -44,16 +44,16 @@ export function updateSumAllPrice() {
   const discountResult = valueResult - estimatedPrice;
 
   if (valueResult == 0) {
-    document.querySelector(".price__group__delivery").textContent = `0원`;
+    document.querySelector(".price__group__delivery").textContent = `0 원`;
   }
   // 상품금액
   document.querySelector(".price__group__value").textContent = `${formatPrice(
     valueResult
-  )}원`;
+  )} 원`;
   // 상품할인 금액
   document.querySelector(
     ".price__group__discounted"
-  ).textContent = `${formatPrice(-discountResult)}원`;
+  ).textContent = `${formatPrice(-discountResult)} 원`;
   // 결제예정 금액
   document.querySelector(
     ".total-price__sum__value"
@@ -61,16 +61,18 @@ export function updateSumAllPrice() {
 
   // 할인금액이 0일 경우
   if (discountResult === 0) {
-    document.querySelector(".price__group__discounted").textContent = `0원`;
+    document.querySelector(".price__group__discounted").textContent = `0 원`;
   }
   // 결제금액이 0이 아니고 3만원 미만인 경우 배송비 3천원
-  if (0 != estimatedPrice && estimatedPrice < 30000) {
+  if (0 !== estimatedPrice && estimatedPrice < 30000) {
     document.querySelector(
       ".total-price__sum__value"
     ).textContent = `${formatPrice(estimatedPrice + 3000)}`;
     document.querySelector(
       ".price__group__delivery"
-    ).textContent = `+${formatPrice(3000)}`;
+    ).textContent = `+${formatPrice(3000)} 원`;
+  } else {
+    document.querySelector(".price__group__delivery").textContent = `0 원`;
   }
 }
 
