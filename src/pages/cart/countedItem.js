@@ -1,3 +1,5 @@
+import { getNodes } from "../../lib";
+
 // 선택수량 업데이트 함수
 export function updateSelectedCount() {
   const checkboxes = Array.from(
@@ -22,12 +24,10 @@ export function countChange() {
   // 다음과 같은 이벤트 발생시 선택된 수량 반영
   Array.from(templates).forEach((checkbox) => {
     const inputBox = checkbox.querySelector(".cart__accordion__input");
-    const deleteButton = checkbox.querySelector(".cart__accordion__delete");
-    const checkAllInput = document.querySelector("#selectAll");
-    const deleteAllButton = document.querySelector(".checkbox__delete");
     inputBox.addEventListener("change", updateSelectedCount);
-    deleteButton.addEventListener("click", updateSelectedCount);
-    checkAllInput.addEventListener("change", updateSelectedCount);
-    deleteAllButton.addEventListener("click", updateSelectedCount);
+  });
+  const selectAllInput = getNodes(".checkbox__check-all__box");
+  Array.from(selectAllInput).forEach((item) => {
+    item.addEventListener("change", updateSelectedCount);
   });
 }

@@ -13,6 +13,7 @@ export default class selectAll {
     }
   }
 
+  //초기설정
   init() {
     this.checkAllElement.addEventListener("change", () => this.checkAll());
     Array.from(this.checkItemElements).forEach((checkItem) => {
@@ -20,12 +21,14 @@ export default class selectAll {
     });
   }
 
+  //전체선택 상태 따라 개별 체크박스 선택 변경
   checkAll() {
     Array.from(this.checkItemElements).forEach((checkItem) => {
       checkItem.checked = this.checkAllElement.checked;
     });
   }
 
+  // 모든 체크박스 선택됐을때 전체선택 박스 checked
   updateCheckAll() {
     const allChecked = Array.from(this.checkItemElements).every(
       (checkItem) => checkItem.checked
