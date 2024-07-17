@@ -305,7 +305,6 @@ class Header extends HTMLElement {
 
     if (localStorage.getItem("auth")) {
       const { isLogin, userInfo } = await getStorage("auth");
-      console.log(this.modalLogin);
       if (isLogin) {
         this.register.innerHTML = `<a href="/" class="my-page">${userInfo.name}</a>`;
         this.login.innerHTML = `<a href="/" class="logout">로그아웃</a>`;

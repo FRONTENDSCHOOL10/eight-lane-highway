@@ -533,6 +533,7 @@ header.is__scroll {
         @include size($w: 242px);
         background-color: rgb(247, 247, 247);
         border: 1px solid transparent;
+        padding: 6px 20px;
       }
 
       & input:focus {
@@ -543,8 +544,8 @@ header.is__scroll {
       & button {
         background-color: transparent;
         padding: 10px;
-        top: 10px;
-        right: 40px;
+        top: 4px;
+        right: 30px;
       }
     }
 
