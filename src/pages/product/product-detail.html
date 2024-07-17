@@ -33,9 +33,9 @@
           <tr>
             <th>배송</th>
             <td>
-              <strong class="text__label__small product__delivery"
-                >배송방법</strong
-              >
+              <strong class="text__label__small product__delivery">
+                배송방법
+              </strong>
               <p>23시 전 주문 시 내일 아침 7시 전 도착</p>
               <p>(대구, 부산, 울산 샛별배송 운영시간 별도 확인)</p>
             </td>
@@ -74,16 +74,14 @@
                 <p class="title__product">상품이름</p>
                 <div class="product__count__price">
                   <div class="product__count__button">
-                    <button type="button">
+                    <button type="button" id="minusBtn">
                       <img
                         src="/public/images/icon-minus-disabled.svg"
                         alt="상품 개수 빼기"
                       />
                     </button>
-                    <div class="product__count__box">
-                      <p class="text__price">1</p>
-                    </div>
-                    <button type="button">
+                    <p class="product__count__box text__price" id="count">1</p>
+                    <button type="button" id="plusBtn">
                       <img
                         src="/public/images/icon-plus-disabled.svg"
                         alt="상품 개수 추가"
@@ -98,7 +96,8 @@
         <article class="product__price__container">
           <div class="product__final__price">
             <p class="text__price">
-              총 상품금액: <span class="price__emphasis">가격</span>원
+              총 상품금액:
+              <span class="price__emphasis" id="totalPrice">가격</span>원
             </p>
             <p class="text__price">
               <span class="badge badge__accent">적립</span>로그인 후, 적립 혜택
@@ -121,7 +120,7 @@
             <button
               class="button__fill button__full"
               type="button"
-              id="addToCartButton"
+              id="addCartBtn"
             >
               장바구니 담기
             </button>
