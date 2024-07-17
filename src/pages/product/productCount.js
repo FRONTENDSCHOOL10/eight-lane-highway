@@ -1,5 +1,7 @@
 import PocketBase from "pocketbase";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
+import getPbImageURL from "/src/api/getPbImageURL";
+import { AddToCartBubble } from "./AddToCartBubble.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
@@ -76,80 +78,15 @@ export function handleAddCart(id) {
 
     setStorage("cartItems", cartItems);
 
-    // 팝업을 닫는 대신 로그를 남깁니다.
+    // 버블을 표시합니다.
+    const productData = await pb.collection("products").getOne(id);
+    const bubble = document.querySelector("add-to-cart-bubble");
+    bubble.show(getPbImageURL(productData), productData.name);
+
     console.log("Cart updated:", cartItems);
   };
 }
-function displayProductDataInBubble(data) {
-  const bubble = document.querySelector("add-to-cart-bubble");
-  const productImageURL = getPbImageURL(data);
-  const productName = data.name;
 
-  if (bubble) {
-    bubble.show(productImageURL, productName);
-  } else {
-    console.error("Add to Cart Bubble not found");
-  }
-}
-
-class AddToCartBubble extends HTMLElement {
-  constructor() {
-    super();
-    const shadow = this.attachShadow({ mode: "open" });
-
-    // Create the bubble container
-    const bubble = document.createElement("div");
-    bubble.className = "product__bubble";
-    bubble.innerHTML = `
-      <style>
-        .product__bubble {
-          display: none;
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          padding: 10px;
-          background: #fff;
-          border: 1px solid #ccc;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-          z-index: 1000;
-        }
-        .bubble__image__container img {
-          max-width: 50px;
-          max-height: 50px;
-        }
-      </style>
-      <div class="bubble__image__container">
-        <img id="productImg" />
-      </div>
-      <div class="bubble__text__container">
-        <h3 id="productName">상품이름</h3>
-        <p>장바구니에 상품을 담았습니다.</p>
-      </div>
-    `;
-
-    shadow.appendChild(bubble);
-
-    // Store a reference to the bubble element
-    this.bubble = bubble;
-  }
-
-  show(productImage, productName) {
-    const img = this.shadowRoot.getElementById("productImg");
-    const name = this.shadowRoot.getElementById("productName");
-
-    img.src = productImage;
-    img.alt = productName;
-    name.textContent = productName;
-
-    this.bubble.style.display = "block";
-
-    setTimeout(() => {
-      this.bubble.style.display = "none";
-    }, 3000); // Hide after 3 seconds
-  }
-}
-
-customElements.define("add-to-cart-bubble", AddToCartBubble);
 // 초기화 함수
 async function initializePage() {
   const countNode = document.getElementById("count");
