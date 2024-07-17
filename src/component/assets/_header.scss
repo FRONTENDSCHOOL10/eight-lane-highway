@@ -227,14 +227,11 @@ header {
         @include font($fs: 0.75rem, $fw: 600, $lh: 150%);
         border-radius: 4px;
         padding: 8px;
-        cursor: pointer;
-      }
-
-      .modal-login {
         border: 1px solid $primaryColor;
-        background-color: $white;
+        cursor: pointer;
         color: $primaryColor;
       }
+
       .modal-search-address {
         margin-left: 10px;
         background-color: $primaryColor;

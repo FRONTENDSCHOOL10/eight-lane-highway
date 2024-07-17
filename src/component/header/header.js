@@ -305,14 +305,20 @@ class Header extends HTMLElement {
 
     if (localStorage.getItem("auth")) {
       const { isLogin, userInfo } = await getStorage("auth");
-
+      console.log(this.modalLogin);
       if (isLogin) {
         this.register.innerHTML = `<a href="/" class="my-page">${userInfo.name}</a>`;
         this.login.innerHTML = `<a href="/" class="logout">로그아웃</a>`;
-        this.modalLogin.innerHTML = `
-          <a href="/" class="modal-logout">
-            로그아웃
-          </a>`;
+        this.addressModal.innerHTML = `
+          <p>
+            <span>배송지를 등록하고</span><br />구매 가능한 상품을 확인하세요!
+          </p>
+              <a
+                href="/"
+                class="modal-link modal-logout">
+                로그아웃
+              </a>
+              <a href="" class="modal-link modal-search-address"> 주소 검색 </a>`;
         const logout = this.header.querySelector(".logout");
         const modalLogout = this.header.querySelector(".modal-logout");
 
@@ -324,7 +330,19 @@ class Header extends HTMLElement {
           }
         }
         logout.addEventListener("click", logOut);
+        logout.addEventListener("keydown", (e) => {
+          if (e.keyCode == 32) {
+            e.preventDefault();
+            logOut();
+          }
+        });
         modalLogout.addEventListener("click", logOut);
+        modalLogout.addEventListener("keydown", (e) => {
+          if (e.keyCode == 32) {
+            e.preventDefault();
+            logOut();
+          }
+        });
       }
     }
   }
