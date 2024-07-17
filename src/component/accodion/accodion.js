@@ -1,4 +1,4 @@
-import { toggleClass } from "../../lib";
+import { toggleClass } from "/src/lib";
 
 const titles = document.querySelectorAll(".accodian__menu__main__items__title");
 const itemLists = document.querySelectorAll(".accodian__sub__items__info");
@@ -11,7 +11,7 @@ itemLists.forEach((item) => {
   item.addEventListener("click", handleClickedItems);
 });
 
-function toggleTitle(e) {
+export function toggleTitle(e) {
   const titleElement = e.currentTarget;
 
   const subMenu = titleElement.nextElementSibling;
@@ -24,7 +24,7 @@ function toggleTitle(e) {
   svgElement.classList.toggle("rotate");
 }
 
-function handleClickedItems(e) {
+export function handleClickedItems(e) {
   const target = e.target.closest("input");
 
   if (!target) return;
@@ -32,8 +32,8 @@ function handleClickedItems(e) {
   const isChecked = target.checked;
   console.log(isChecked);
 
-  const labelElement = target.nextElementSibling;
+  const labelElement = target.nextElementSibling.textContent;
+  console.log(labelElement);
 
   console.log(target);
-  console.log(labelElement.textContent);
 }

@@ -358,6 +358,19 @@
 
 **오성훈**
 
+- pages/login/login.js: 헤더/푸터 결합을 위한 헤더/푸터 import
+- assets/login.scss: input 믹스인 스타일 변경에 따른 로그인 input 스타일 변경
+- component/accodian, component/accodion/accodion.html, component/accodion/accodion.js, assets/accodion.scss:
+  accodian을 accodion으로 파일명 각각 변경
+- assets/accodion.scss: refactor => 클래스 이름 중복으로 인한 스타일 붕괴로 클래스 이름 변경
+- component/accodion/accodion.js: 안에 함수를 다 export 함
+- pages/productList/index.html:
+  - 상품 리스트 마크업
+  - 아코디언과의 결합
+- pages/productList/productList.js:
+  - 상품 리스트들 포켓호스트 SDK를 사용하여 가져옴
+  - 상품 총 개수 구하기
+
 **김한울**
 
 - src/component/pop-up/main.js: 디버깅
@@ -373,3 +386,9 @@
 - src/component/product/product-bubble.js: 장바구니 담기 버블 기능 구현
 - vite.config.js: 디테일 페이지 추가
 - package.json: axios 설치
+
+## 2024-07-17
+
+**오성훈**
+
+- component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
