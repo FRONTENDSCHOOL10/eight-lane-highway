@@ -5,3 +5,4 @@ import "/src/component/recent-product/main.js";
 import "/src/component/product/product-slide.js";
 import "/src/component/banner/banner.js";
 import "/src/component/pop-up/main.js";
+import "/src/component/topBanner/topBanner.js";
