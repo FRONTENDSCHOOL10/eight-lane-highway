@@ -12,7 +12,7 @@ import { countChange } from "./countedItem";
 import { deleteItem, deleteSelected } from "./delete";
 import { hidePrice } from "./hidePrice";
 import selectAll from "./selectAll";
-import { priceChange, valueTrimmed } from "./sumAllPrice";
+import { priceChange } from "./sumAllPrice";
 import { syncCheckBox } from "./syncCheckBox";
 import { countNumber } from "./updatePrice";
 import "/src/component/footer/footer.js";
@@ -37,7 +37,7 @@ function toggleHandler(e) {
 foodTypeNav.addEventListener("click", toggleHandler);
 
 // 로컬스토리지 저장된 상품정보 pb에서 랜더링
-async function getCardAddedProductsNew() {
+async function getCartAddedProductsNew() {
   if (await getStorage("cartItems")) {
     const product = await getStorage("cartItems");
 
@@ -80,6 +80,7 @@ async function getCardAddedProductsNew() {
   
       </div>`;
 
+      // 보관 타입에 따라 구분하여 랜더링
       if (type === "냉장") {
         insertAfter(AccordCold, templete);
       } else if (type === "냉동") {
@@ -88,20 +89,28 @@ async function getCardAddedProductsNew() {
         insertAfter(AccordRoomTemp, templete);
       }
     }
+    // 장바구니 품목 랜더링 후 실행될 함수들
+    // 선택한 품목 동기화 위 아래
     new selectAll("#selectAll", "accordion__input");
     new selectAll("#selectAll2", "accordion__input");
+    // 수량 반영 함수
     countNumber();
+    // 선택 삭제 함수
     deleteSelected();
+    // 개별 삭제 함수
     deleteItem();
+    // 수량변경에 따른 가격변경 함수
     countChange();
+    // 결제 영역 가격변경 함수
     priceChange();
+    // 할인율 0 hide 조건처리 함수
     hidePrice();
   }
 }
 
-document.addEventListener("DOMContentLoaded", getCardAddedProductsNew);
-
 // 로그인 상태에 따른 UI 변경
+// 로그아웃 상태 => 주소 x 로그인버튼 o 적립관련 멘트 변경
+// 로그인 상태 => 고객 주소 o 주문하기버튼 o 적립관련 멘트 변경
 async function isLogin() {
   const auth = await getStorage("auth");
 
@@ -116,6 +125,7 @@ async function isLogin() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", getCartAddedProductsNew);
 document.addEventListener("DOMContentLoaded", isLogin);
 document.addEventListener(
   "DOMContentLoaded",
