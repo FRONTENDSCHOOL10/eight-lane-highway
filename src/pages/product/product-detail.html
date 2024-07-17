@@ -124,6 +124,7 @@
             >
               장바구니 담기
             </button>
+            <add-to-cart-bubble></add-to-cart-bubble>
           </div>
         </article>
       </div>
@@ -224,23 +225,32 @@
     <section class="product__detail__board">
       <div class="product__review__container">
         <div class="product__review__text">
-          <h1>상품후기</h1>
+          <h1 class="title__board">상품후기</h1>
           <h5>글후기 50원 적립금 혜택이 있어요.</h5>
-          <ul>
+          <ul class="list__description">
             <li>
-              퍼플, 더퍼플은 2배 적립(100원) / 주간 베스트 후기로 선정 시
+              &nbsp;퍼플, 더퍼플은 2배 적립(100원) / 주간 베스트 후기로 선정 시
               5,000원 추가 적립
             </li>
-            <li>후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
+            <li>&nbsp;후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
             <li>
-              작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균
-              1~2일 소요)
+              &nbsp;작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준
+              평균 1~2일 소요)
             </li>
           </ul>
         </div>
         <button class="button__small button__fill" type="button">
           후기 작성하기
         </button>
+      </div>
+      <div class="data__container">
+        <p class="board__count">총 <span>0</span>개</p>
+        <div class="board__filter">
+          <ul>
+            <li><button type="button">추천순</button></li>
+            <li><button type="button">최근 등록순</button></li>
+          </ul>
+        </div>
       </div>
       <table class="product__info__table product__table__detail">
         <colgroup>
