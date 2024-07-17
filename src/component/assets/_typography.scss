@@ -40,6 +40,9 @@ ul {
       }
     }
   }
+h4 {
+  @include font($color: $gray300, $fw: 400, $fs: 0.85rem, $lh: 150%);
+  margin-bottom: 0.75rem;
 }
 p {
   @include font($fw: 400, $fs: 0.75rem, $lh: 150%);
