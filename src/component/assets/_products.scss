@@ -167,4 +167,14 @@
       }
     }
   }
+  &.product__table__qna {
+    tr {
+      &:first-child {
+        td {
+          border-top: 2px solid $black;
+          border-bottom: 1px solid $black;
+        }
+      }
+    }
+  }
 }
