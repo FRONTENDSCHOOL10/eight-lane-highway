@@ -1,6 +1,12 @@
 import getPbImageURL from "../../api/getPbImageURL";
 import pb from "../../api/pocketbase";
-import { getNode, insertFirst, getStorage, addClass } from "../../lib/index";
+import {
+  getNode,
+  insertFirst,
+  getStorage,
+  addClass,
+  setStorage,
+} from "../../lib/index";
 
 // 스와이퍼 생성
 const swiperContainer = document.querySelector(
@@ -29,8 +35,18 @@ export async function getSavedRecentProduct() {
   const upperArrow = getNode(".recent-product-container .swiper-button-prev");
   const belowArrow = getNode(".recent-product-container .swiper-button-next");
   const itemContainer = getNode(".recent-product-container .swiper-wrapper");
-
   const recentProductsId = await getStorage("recentProductId");
+
+  async function removeRecentProductsId() {
+    if (!recentProductsId) return;
+    // 최근 본 상품이 5개 초과일 경우, 가장 오래된 상품 하나를 삭제
+    if (recentProductsId.length > 5) {
+      recentProductsId.shift(); // 가장 오래된 상품 하나를 삭제
+      await setStorage("recentProductId", recentProductsId); // 수정된 목록을 저장
+    }
+  }
+
+  removeRecentProductsId();
 
   if (recentProductsId) {
     if (recentProductsId.length > 2) {
