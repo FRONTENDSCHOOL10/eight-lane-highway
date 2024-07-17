@@ -315,4 +315,5 @@ function checkNavigation(className, swiper) {
   const swiper2 = new CustomSwiper(".product-slide2", "price");
 
   if (!swiper1 || !swiper2) return;
+  if (!swiper2) return;
 })();
