@@ -132,13 +132,24 @@
     <section class="product__detail">
       <article>
         <ul class="product__detail__menu">
-          <li class="product__detail__menu__item is__clicked">상품 설명</li>
-          <li class="product__detail__menu__item">상세 정보</li>
-          <li class="product__detail__menu__item">후기(1,000)</li>
-          <li class="product__detail__menu__item">문의</li>
+          <li class="product__detail__menu__item is__clicked">
+            <button type="button" id="productDescriptionBtn">상품 설명</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productDetailBtn">상세 정보</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productReviewBtn">후기(1,000)</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productQnABtn">문의</button>
+          </li>
         </ul>
       </article>
-      <article class="product__detail__info_container">
+      <article
+        class="product__detail__info_container"
+        id="productDescriptionArticle"
+      >
         <img src="/" alt="상품설명" id="productDetailImage" />
         <div class="product__detail__info_container_title">
           <span class="title__secondary">상품간략설명</span>
@@ -156,7 +167,10 @@
           <img src="/" alt="칼리의 체크포인트" id="productCheckPointImage" />
         </div>
       </article>
-      <article class="product__detail__details_container">
+      <article
+        class="product__detail__details_container"
+        id="productDetailArticle"
+      >
         <img src="/" alt="상품 디테일 설명" id="productDetailInfoImage" />
         <article class="product__detail__details_container__whyC">
           <p class="product__detail__details_container__whyC__title">
@@ -223,7 +237,7 @@
       </article>
     </section>
     <section class="product__detail__board">
-      <div class="product__review__container">
+      <div class="product__review__container" id="productReviewArticle">
         <div class="product__review__text">
           <h1 class="title__board">상품후기</h1>
           <h5>글후기 50원 적립금 혜택이 있어요.</h5>
@@ -332,7 +346,7 @@
       </div>
     </section>
     <section class="product__detail__board">
-      <div class="product__review__container">
+      <div class="product__review__container" id="productQnaArticle">
         <div class="product__review__text">
           <h1 class="title__board">상품문의</h1>
           <ul class="list__description">
