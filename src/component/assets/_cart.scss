@@ -305,10 +305,26 @@
 }
 
 // 주문하기 버튼
-.adress-payment {
+.payment {
   &__button {
     @include size(284px, 44px);
     margin: 16px 0;
+    display: none;
+    a {
+      display: inline-block;
+      width: 284px;
+      height: 44px;
+    }
+    &.is__show {
+      display: block;
+    }
+  }
+  &__button__unlogin {
+    @include size(284px, 44px);
+    margin: 16px 0;
+    &.is__hide {
+      display: none;
+    }
   }
 }
 

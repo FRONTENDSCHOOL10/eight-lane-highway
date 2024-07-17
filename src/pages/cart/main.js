@@ -22,7 +22,7 @@ const AccordCold = getNode("#foodTypeCold");
 const AccordFrozen = getNode("#foodTypeFrozen");
 const AccordRoomTemp = getNode("#foodTypeRoomTemp");
 const adressBox = getNode(".adress__container");
-const orderButton = getNode(".adress-payment__order");
+const orderButton = getNode(".adress-payment__button");
 
 // 버튼 클릭시 아코디언 오픈
 function toggleHandler(e) {
@@ -49,7 +49,9 @@ async function getCardAddedProductsNew() {
       type="checkbox"
       id="cartAddedSelect"
       class="cart__accordion__input"  name="accordion__input" />
-    <img src="${getPbImageURL(data)}" alt="" class="cart__accordion__img" />
+    <img src="${getPbImageURL(data)}" alt="${
+        data.name
+      }" class="cart__accordion__img" />
     <label for="cartAddedSelect" class="cart__accordion__name"
       >${data.name}</label
     >
@@ -99,18 +101,15 @@ document.addEventListener("DOMContentLoaded", getCardAddedProductsNew);
 // 로그인 상태에 따른 UI 변경
 async function isLogin() {
   const auth = await getStorage("auth");
-  const adress = getNode(".adress__client-adress");
-  const badge = getNode(".point-badge");
-  const rate = getNode(".point-rate");
-  const rateUnlogin = getNode(".point-rate__unlogin");
 
   if (auth && auth.isLogin) {
     addClass(adressBox, "is__show");
-    orderButton.textContent = "주문하기";
-    adress.textContent = `${auth.userInfo.address}`;
-    addClass(badge, "is__show");
-    addClass(rate, "is__show");
-    addClass(rateUnlogin, "is__hide");
+    getNode(".adress__client-adress").textContent = `${auth.userInfo.address}`;
+    addClass(getNode(".point-badge"), "is__show");
+    addClass(getNode(".point-rate"), "is__show");
+    addClass(getNode(".point-rate__unlogin"), "is__hide");
+    addClass(getNode(".payment__button__unlogin"), "is__hide");
+    addClass(getNode(".payment__button"), "is__show");
   }
 }
 
