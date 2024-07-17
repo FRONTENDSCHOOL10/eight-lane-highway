@@ -160,6 +160,9 @@
     &__value {
       @include font($gray400, 0.875rem, 600, 170%);
       text-decoration: line-through;
+      &.is__hide {
+        display: none;
+      }
     }
   }
   &__delete {

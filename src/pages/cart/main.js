@@ -10,8 +10,9 @@ import {
 } from "../../lib";
 import { countChange } from "./countedItem";
 import { deleteItem, deleteSelected } from "./delete";
+import { hidePrice } from "./hidePrice";
 import selectAll from "./selectAll";
-import { priceChange } from "./sumAllPrice";
+import { priceChange, valueTrimmed } from "./sumAllPrice";
 import { syncCheckBox } from "./syncCheckBox";
 import { countNumber } from "./updatePrice";
 import "/src/component/footer/footer.js";
@@ -45,7 +46,7 @@ async function getCardAddedProductsNew() {
       const type = data.packaging.slice(0, 2);
       const quantity = item.quantity;
       const templete = ` <div class="cart__accordion" >
-      <a href="/src/pages/product/product-detail.html?product=${data.id}"><input
+      <input
       type="checkbox"
       id="cartAddedSelect"
       class="cart__accordion__input"  name="accordion__input" />
@@ -76,8 +77,9 @@ async function getCardAddedProductsNew() {
     <button
       type="button"
       class="cart__accordion__delete"></button>
-      </a>
+  
       </div>`;
+
       if (type === "냉장") {
         insertAfter(AccordCold, templete);
       } else if (type === "냉동") {
@@ -93,6 +95,7 @@ async function getCardAddedProductsNew() {
     deleteItem();
     countChange();
     priceChange();
+    hidePrice();
   }
 }
 
