@@ -126,12 +126,13 @@
 .cart__accordion {
   height: 118px;
   padding: 20px 0;
+  @include flexAll(row, left, center, 8px);
 
-  a {
-    @include flexAll(row, left, center, 8px);
-    width: 100%;
-    height: 100%;
-  }
+  // a {
+  //   @include flexAll(row, left, center, 8px);
+  //   width: 100%;
+  //   height: 100%;
+  // }
 
   &__input {
     @include size(22px, 22px);
