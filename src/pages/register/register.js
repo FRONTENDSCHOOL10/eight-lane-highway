@@ -1,11 +1,11 @@
 import PocketBase from "pocketbase";
 import "/main.js";
 import "/src/pages/register/checkAll.js";
+import "/src/pages/register/passwordCheck.js";
+import "/src/pages/register/emailCheck.js";
+import "/src/pages/register/idCheck.js";
+import { sample6_execDaumPostcode } from "/src/pages/register/userAddress.js";
 import { setupNameCheck } from "/src/pages/register/nameCheck.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-  setupNameCheck("nameField", "warningMessage");
-});
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
@@ -30,7 +30,14 @@ document
     const userChoice = document.querySelector(
       'input[name="radioAddInput"]:checked'
     ).value;
-    const adAllow = document.getElementById("addAllow").value;
+    const adAllow = document.getElementById("adAllow").checked;
+    const postCode = document.querySelector("#sample6_postcode").value;
+    const userDefaultAddress = document.querySelector("#sample6_address").value;
+    const detailAddress = document.querySelector(
+      "#sample6_detailAddress"
+    ).value;
+    const userAddress =
+      "(" + postCode + ")" + userDefaultAddress + detailAddress;
 
     try {
       const data = {
@@ -44,6 +51,7 @@ document
         birth: userBirth,
         choice: userChoice,
         adAllow: adAllow,
+        address: userAddress,
       };
 
       const record = await pb.collection("users").create(data);
@@ -137,3 +145,13 @@ function isNumberKey(event) {
   }
   return false;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupNameCheck("nameField", "warningMessage");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("userAddressButton").addEventListener("click", () => {
+    sample6_execDaumPostcode();
+  });
+});

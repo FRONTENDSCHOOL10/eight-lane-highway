@@ -8,6 +8,16 @@
     display: flex;
     flex-flow: row wrap;
     gap: 8px;
+
+    .address__input {
+      max-width: 333px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        margin-left: 8px;
+      }
+    }
   }
   .form__agreement {
     width: 100%;

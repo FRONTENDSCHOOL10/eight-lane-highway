@@ -104,23 +104,29 @@
         <fieldset>
           <label class="label__register label__medium">주소</label>
           <div class="register__address__container">
-            <input type="text" id="sample6_postcode" placeholder="우편번호" />
-            <button
-              class="button__small button__stroke"
-              type="button"
-              onclick="sample6_execDaumPostcode()"
-            >
-              주소 검색
-            </button>
-            <br />
+            <div class="address__input">
+              <input
+                class="address__text"
+                type="text"
+                id="sample6_postcode"
+                placeholder="우편번호"
+              />
+              <button
+                class="button__small button__stroke"
+                type="button"
+                id="userAddressButton"
+              >
+                주소 검색
+              </button>
+            </div>
             <input
-              class="input__default__text"
+              class="input__default__text address__text"
               type="text"
               id="sample6_address"
               placeholder="주소"
             /><br />
             <input
-              class="input__default__text"
+              class="input__default__text address__text"
               type="text"
               id="sample6_detailAddress"
               placeholder="상세주소"
@@ -276,9 +282,4 @@
     <c-footer></c-footer>
   </body>
   <script type="module" src="/src/pages/register/register.js"></script>
-
-  <script type="module" src="/src/pages/register/idCheck.js"></script>
-  <script type="module" src="/src/pages/register/emailCheck.js"></script>
-  <script type="module" src="/src/pages/register/passwordCheck.js"></script>
-  <script src="/src/pages/register/userAddress.js"></script>
 </html>
