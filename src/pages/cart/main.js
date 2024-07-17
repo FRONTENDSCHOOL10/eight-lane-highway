@@ -4,23 +4,18 @@ import {
   addClass,
   formatPrice,
   getNode,
-  getNodes,
   getStorage,
   insertAfter,
-  insertLast,
-  isString,
-  removeClass,
-  setStorage,
   toggleClass,
 } from "../../lib";
-import { countChange, updateSelectedCount } from "./countedItem";
+import { countChange } from "./countedItem";
 import { deleteItem, deleteSelected } from "./delete";
 import selectAll from "./selectAll";
 import { priceChange } from "./sumAllPrice";
 import { syncCheckBox } from "./syncCheckBox";
 import { countNumber } from "./updatePrice";
-import "/src/component/header/header.js";
 import "/src/component/footer/footer.js";
+import "/src/component/header/header.js";
 
 const foodTypeNav = getNode(".food-type__container");
 const AccordCold = getNode("#foodTypeCold");
@@ -49,17 +44,15 @@ async function getCardAddedProductsNew() {
       const data = await pb.collection("products").getOne(item.productID);
       const type = data.packaging.slice(0, 2);
       const quantity = item.quantity;
-      const templete = ` <div class="food-type__accordion" ><input
+      const templete = ` <div class="cart__accordion" ><input
       type="checkbox"
       id="cartAddedSelect"
-      class="food-type__accordion__input"  name="accordion__input" />
-    <img src="${getPbImageURL(
-      data
-    )}" alt="" class="food-type__accordion__img" />
-    <label for="cartAddedSelect" class="food-type__accordion__name"
+      class="cart__accordion__input"  name="accordion__input" />
+    <img src="${getPbImageURL(data)}" alt="" class="cart__accordion__img" />
+    <label for="cartAddedSelect" class="cart__accordion__name"
       >${data.name}</label
     >
-    <div class="food-type__accordion__count price_counter">
+    <div class="cart__accordion__count price_counter">
       <button type="button" class="minus-button">
         <img src="/images/minus-button-black.svg" alt="수량 감소 버튼" />
       </button>
@@ -69,17 +62,17 @@ async function getCardAddedProductsNew() {
       </button>
     </div>
 
-    <span class="food-type__accordion__price">
-    <span class="food-type__accordion__price__discount">${formatPrice(
+    <span class="cart__accordion__price">
+    <span class="cart__accordion__price__discount">${formatPrice(
       data.price * ((100 - data.discount) / 100) * quantity
     )}원</span>
-    <span class="food-type__accordion__price__value">${formatPrice(
+    <span class="cart__accordion__price__value">${formatPrice(
       data.price * quantity
     )}원</span>
     </span>
     <button
       type="button"
-      class="food-type__accordion__delete"></button></div>`;
+      class="cart__accordion__delete"></button></div>`;
       if (type === "냉장") {
         insertAfter(AccordCold, templete);
       } else if (type === "냉동") {

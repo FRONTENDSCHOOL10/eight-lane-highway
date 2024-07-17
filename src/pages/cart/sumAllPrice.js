@@ -2,15 +2,15 @@ import { formatPrice, getNode, getNodes } from "../../lib";
 
 // 수량 변경시 총액 변경
 export function updateSumAllPrice() {
-  const templates = getNodes(".food-type__accordion");
+  const templates = getNodes(".cart__accordion");
   // 체크된 상품 원가 합치기
   const priceArray = Array.from(templates)
     .filter((item) => {
-      const checkBox = item.querySelector(".food-type__accordion__input");
+      const checkBox = item.querySelector(".cart__accordion__input");
       return checkBox.checked;
     })
     .map((item) => {
-      const price = item.querySelector(".food-type__accordion__price__value");
+      const price = item.querySelector(".cart__accordion__price__value");
       return Number(valueTrimmed(price));
     });
   // 상품 총 금액
@@ -25,13 +25,11 @@ export function updateSumAllPrice() {
   // 체크된 상품 할인 적용된값 합치기
   const discountArray = Array.from(templates)
     .filter((item) => {
-      const checkBox = item.querySelector(".food-type__accordion__input");
+      const checkBox = item.querySelector(".cart__accordion__input");
       return checkBox.checked;
     })
     .map((item) => {
-      const price = item.querySelector(
-        ".food-type__accordion__price__discount"
-      );
+      const price = item.querySelector(".cart__accordion__price__discount");
       return Number(valueTrimmed(price));
     });
   // 결제예정금액
@@ -78,12 +76,10 @@ export function updateSumAllPrice() {
 
 // 선택삭제, 선택, 삭제클릭시 updateSumAllPrice 이벤트 추가
 export function priceChange() {
-  const templates = getNodes(".food-type__accordion");
+  const templates = getNodes(".cart__accordion");
   Array.from(templates).forEach((checkbox) => {
-    const inputBox = checkbox.querySelector(".food-type__accordion__input");
-    const deleteButton = checkbox.querySelector(
-      ".food-type__accordion__delete"
-    );
+    const inputBox = checkbox.querySelector(".cart__accordion__input");
+    const deleteButton = checkbox.querySelector(".cart__accordion__delete");
     const checkAllInput = document.querySelector("#selectAll");
     const deleteAllButton = getNode(".checkbox__delete");
     const minusButton = checkbox.querySelector(".minus-button");

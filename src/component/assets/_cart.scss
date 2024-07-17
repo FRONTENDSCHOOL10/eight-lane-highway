@@ -123,7 +123,7 @@
 }
 
 // 아코디언 추가된 상품 영역
-.food-type__accordion {
+.cart__accordion {
   height: 118px;
   padding: 20px 0;
   @include flexAll(row, left, center, 8px);
@@ -301,7 +301,7 @@
 
 // 주문하기 버튼
 .adress-payment {
-  &__order {
+  &__button {
     @include size(284px, 44px);
     margin: 16px 0;
   }
