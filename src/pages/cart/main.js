@@ -44,7 +44,8 @@ async function getCardAddedProductsNew() {
       const data = await pb.collection("products").getOne(item.productID);
       const type = data.packaging.slice(0, 2);
       const quantity = item.quantity;
-      const templete = ` <div class="cart__accordion" ><input
+      const templete = ` <div class="cart__accordion" >
+      <a href="/src/pages/product/product-detail.html?product=${data.id}"><input
       type="checkbox"
       id="cartAddedSelect"
       class="cart__accordion__input"  name="accordion__input" />
@@ -72,7 +73,9 @@ async function getCardAddedProductsNew() {
     </span>
     <button
       type="button"
-      class="cart__accordion__delete"></button></div>`;
+      class="cart__accordion__delete"></button>
+      </a>
+      </div>`;
       if (type === "냉장") {
         insertAfter(AccordCold, templete);
       } else if (type === "냉동") {
