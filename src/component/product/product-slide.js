@@ -128,7 +128,6 @@ function checkNavigation(className, swiper) {
     return async function () {
       const productLinks = getNodes(`${className} .visual__link`);
       async function handleClick(e, index) {
-        e.preventDefault();
         const productId = productIdList[index];
         recentProductsId = (await getStorage("recentProductId")) || [];
 
