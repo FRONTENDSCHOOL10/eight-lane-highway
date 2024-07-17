@@ -7,8 +7,6 @@
   background-color: $gray100;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
   @include font($fs: 0.75rem, $fw: 600);
   margin-right: 6px;
 
@@ -24,6 +22,11 @@
     border-radius: 12px;
     font-size: 0.625rem;
     margin-right: 6px;
+
+    &.badge__sm__bd {
+      padding: 0 8px;
+      border-radius: 1px;
+    }
   }
   &__secondary {
     background-color: $secondaryColor;
