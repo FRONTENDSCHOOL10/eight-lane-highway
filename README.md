@@ -429,6 +429,7 @@
 - src/pages/register/index.html: 주소 부분 함수 리팩토링으로 인한 수정, 이름 함수 변경으로 인한 경고 메시지 엘리먼트 추가
 - src/pages/register/nameCheck.js: 영어 입력 방지 설정
 - src/pages/register/register.js: 스크립트 경로 수정, 이름 체크 모듈 불러오기
+- src/pages/register/index.html: 타이틀 수정
 - src/pages/register/userAddress.js: 스크립트 경로 수정
 - src/pages/product/addToCartBubble.js: 장바구니 담기 버블 리팩토링
 - src/pages/product/productCount.js: 장바구니 담기 숫자 함수 작성
@@ -436,3 +437,5 @@
 - src/component/assets/\_products.scss: 상품문의/상품후기 게시판 스타일링 마무리
 - src/component/assets/\_products-detail.scss: 상품문의/상품후기 게시판 스타일링 마무리
 - src/component/assets/\_typography.scss: 제목 type 및 list type 에셋 추가
+- src/pages/member/mypage.html: 마이페이지 마크업 추가
+- src/component/assets/\_mypage.scss: 마이페이지 스타일링 추가
