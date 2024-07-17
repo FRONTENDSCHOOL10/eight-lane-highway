@@ -402,6 +402,17 @@
 
 **최소현**
 
+- src/pages/cart/index.html 타이틀 변경
+- src/component/assets/\_cart.scss 로그인 상태 UI 반영 스타일링
+- src/pages/cart/index.html 로그인 버튼 클릭시 로그인 페이지 이동 기능 추가
+- src/pages/cart/main.js 로그인 상태 UI 반영 문제 개선
+- src/pages/cart/countedItem.js 전체수량 초기설정 오류 디버깅
+- src/pages/cart/hidePrice.js 할인율 0인 경우 원가 보이지 않게 조건처리
+- src/pages/cart/main.js 주석추가 및 오타수정
+- src/component/assets/\_cart.scss a태그 관련 구조 스타일링
+- src/pages/cart/main.js 장바구니 상품 a태그 추가, 상품 상세페이지 연결
+- src/pages/cart/delete.js 로컬스토리지 삭제관련 디버깅(선택삭제시 로컬스토리지에서 1개 이상 삭제안되는 오류 해결)
+
 **오성훈**
 
 - component/accodian/countAccodionItems.js: 각각의 카테고리에 해당하는 상품의 개수를 구하는 함수 구현
