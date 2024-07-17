@@ -127,7 +127,7 @@ function checkNavigation(className, swiper) {
     return async function () {
       const productLinks = getNodes(`${className} .visual__link`);
       async function handleClick(e, index) {
-        // e.preventDefault();
+        e.preventDefault();
         try {
           const productId = productIdList[index];
           recentProductsId = (await getStorage("recentProductId")) || [];
@@ -162,47 +162,56 @@ function checkNavigation(className, swiper) {
   // 템플릿 생성 함수
   async function renderAddShoppingCart(id) {
     const item = await pb.collection("products").getOne(id);
+    let changePrice =
+      item.discount === 0
+        ? item.price
+        : Math.floor((item.price * ((100 - item.discount) / 100)) / 10) * 10;
+    const changePriceTemplate =
+      item.discount === 0
+        ? `<span id="product__price">${changePrice}원</span>`
+        : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${item.price}원</span></div>`;
+
     const template = `
-      <section class="basket-container modal_popup">
-      <article class="basket-container__product__num__container">
-        <p>${item.name}</p>
-        <div class="basket-container__product__num__container__box">
-          <span id="product__price">${item.price}원</span>
-          <div class="price_counter">
-            <button type="button" id="minusBtn">
-              <img src="/images/minus-button-black.svg" alt="" />
-            </button>
-            <span id="product__num">1</span>
-            <button type="button" id="plusBtn">
-              <img src="/images/plus-button-black.svg" alt="" />
-            </button>
+        <section class="basket-container modal_popup">
+        <article class="basket-container__product__num__container">
+          <p>${item.name}</p>
+          <div class="basket-container__product__num__container__box">
+            ${changePriceTemplate}
+            <div class="price_counter">
+              <button type="button" id="minusBtn">
+                <img src="/images/minus-button-black.svg" alt="마이너스버튼" />
+              </button>
+              <span id="product__num">1</span>
+              <button type="button" id="plusBtn">
+                <img src="/images/plus-button-black.svg" alt="플러스버튼" />
+              </button>
+            </div>
           </div>
-        </div>
-      </article>
-      <article class="basket-container__price__container">
-        <div class="basket-container__price__container__sum">
-          <span>합계</span>
-          <span id="total">${item.price}원</span>
-        </div>
-        <div class="basket-container__price__container__bonus badge__group">
-          <p class="badge__accent">적립</p>
-          <span>구매시 5원 적립</span>
-        </div>
-      </article>
-      <ul class="basket-container__btn_container">
-        <li class="basket-container__btn_container__items">
-          <button type="button" class="button__stroke__gray button__large__basket cancel">
-            취소
-          </button>
-        </li>
-        <li class="basket-container__btn_container__items">
-          <button type='submit' class="button__fill button__large__basket add__cart">
-            장바구니 담기
-          </button>
-        </li>
-      </ul>
-    </section>
-  `;
+        </article>
+        <article class="basket-container__price__container">
+          <div class="basket-container__price__container__sum">
+            <span>합계</span>
+            <span id="total">${changePrice}원</span>
+          </div>
+          <div class="basket-container__price__container__bonus badge__group">
+            <p class="badge badge__accent">적립</p>
+            <span>구매시 5원 적립</span>
+          </div>
+        </article>
+        <ul class="basket-container__btn_container">
+          <li class="basket-container__btn_container__items">
+            <button type="button" class="button__stroke__gray button__large__basket cancel">
+              취소
+            </button>
+          </li>
+          <li class="basket-container__btn_container__items">
+            <button type='submit' class="button__fill button__large__basket add__cart">
+              장바구니 담기
+            </button>
+          </li>
+        </ul>
+      </section>
+    `;
     insertLast(popup, template);
 
     const counterButton = document.querySelector(".price_counter");
