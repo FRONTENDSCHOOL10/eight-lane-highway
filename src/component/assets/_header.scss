@@ -19,6 +19,10 @@ header {
 
   &__logo {
     grid-area: a;
+
+    a {
+      display: inline-block;
+    }
   }
 
   &__user-auth {
@@ -34,11 +38,11 @@ header {
       padding-bottom: 15px;
     }
 
-    .signup {
+    .register {
       color: $primaryColor;
     }
 
-    .signup::after,
+    .register::after,
     .login::after {
       content: "";
       @include size($w: 1px, $h: 13px);
