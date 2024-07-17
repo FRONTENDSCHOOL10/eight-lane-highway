@@ -29,6 +29,7 @@ input {
       @include input(1px, 24px, 24px);
       appearance: none;
       border-radius: 50%;
+      cursor: pointer;
 
       &:checked {
         background-color: $gray200;
@@ -38,6 +39,7 @@ input {
     &__checkbox {
       @include input(1px, 24px, 24px);
       @include input-color($gray200, transparent);
+      cursor: pointer;
       appearance: none;
       border-radius: 50%;
       background-image: url("/images/input-vector.svg");
