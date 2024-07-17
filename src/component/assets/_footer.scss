@@ -33,9 +33,9 @@ footer {
     }
 
     .customer-service-button {
+      @include size($w: 140px, $h: 40px);
       background-color: transparent;
       border: 1px solid $gray200;
-      @include size($w: 140px, $h: 40px);
       padding: 4px;
       cursor: pointer;
     }
@@ -130,14 +130,14 @@ footer {
     @include flexAll($fd: row, $jc: space-between, $at: stretch);
     margin: 0 auto;
     padding: 24px 0px 32px 0px;
-    border-top: 1px solid $gray200;
+    border-top: 1px solid $gray100;
 
     &-link {
+      @include flexAll($fd: row, $jc: center, $at: center);
       background-position: -5px -366px;
       background-repeat: no-repeat;
       background-image: url(/images/icon-footer.png);
       border: none;
-      @include flexAll($fd: row, $jc: center, $at: center);
 
       span {
         @include font($fs: 0.625rem, $fw: 400, $lh: 160%);

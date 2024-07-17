@@ -73,7 +73,7 @@ export function updateDeliveryCounts(items) {
   items.forEach((item) => {
     if (item.delivery === "샛별배송") {
       deliveryKinds["샛별"]++;
-    } else if (item.price >= 6900 && item.price <= 9900) {
+    } else if (item.delivery === "판매자배송") {
       deliveryKinds["판매자"]++;
     }
   });
