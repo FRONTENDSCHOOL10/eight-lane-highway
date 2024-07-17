@@ -42,4 +42,4 @@ export class addToCartBubble extends HTMLElement {
   }
 }
 
-customElements.define("add-to-cart-bubble", AddToCartBubble);
+customElements.define("add-to-cart-bubble", addToCartBubble);
