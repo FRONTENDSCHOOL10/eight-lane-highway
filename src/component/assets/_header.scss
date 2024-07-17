@@ -227,14 +227,11 @@ header {
         @include font($fs: 0.75rem, $fw: 600, $lh: 150%);
         border-radius: 4px;
         padding: 8px;
-        cursor: pointer;
-      }
-
-      .modal-login {
         border: 1px solid $primaryColor;
-        background-color: $white;
+        cursor: pointer;
         color: $primaryColor;
       }
+
       .modal-search-address {
         margin-left: 10px;
         background-color: $primaryColor;
@@ -536,6 +533,7 @@ header.is__scroll {
         @include size($w: 242px);
         background-color: rgb(247, 247, 247);
         border: 1px solid transparent;
+        padding: 6px 20px;
       }
 
       & input:focus {
@@ -546,8 +544,8 @@ header.is__scroll {
       & button {
         background-color: transparent;
         padding: 10px;
-        top: 10px;
-        right: 40px;
+        top: 4px;
+        right: 30px;
       }
     }
 
