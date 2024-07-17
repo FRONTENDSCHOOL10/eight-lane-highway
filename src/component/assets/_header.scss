@@ -149,6 +149,10 @@ header {
       }
     }
 
+    &:hover {
+      border-color: $blue500;
+    }
+
     &__button {
       @include absolute($t: 10px, $r: 10px);
       @include size($w: 19px, $h: 19px);

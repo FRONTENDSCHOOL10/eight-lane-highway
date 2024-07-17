@@ -393,12 +393,12 @@
 
 ## 2024-07-17
 
-
 **이희재**
 
 - src/component/product/product-slide.js: 디버깅완료
 - src/component/product/product-slide.js: 최근 본 상품 5개 이상시 가장 처음에 본 제품 삭제
 - src/component/topBanner/topBanner.js: 탑배너 마크업 및 디자인 기능 구현
+- src/component/cancel/cancel/js: 회원탈퇴 기능 구현
 
 **최소현**
 
