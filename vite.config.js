@@ -36,6 +36,7 @@ export default defineConfig({
         banner: resolve(__dirname, "src/component/banner/banner.html"),
         cart: resolve(__dirname, "src/pages/cart/index.html"),
         productList: resolve(__dirname, "src/pages/productList/index.html"),
+        mypage: resolve(__dirname, "src/pages/member/mypage.html"),
       },
     },
   },

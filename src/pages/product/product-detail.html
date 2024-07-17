@@ -12,7 +12,7 @@
     <section class="product__info">
       <aside class="">
         <div class="product__img__container">
-          <img src="" alt="상품 이미지" id="product__image" />
+          <img src="/" alt="상품 이미지" id="product__image" />
         </div>
       </aside>
       <div class="product__info__container">
@@ -124,6 +124,7 @@
             >
               장바구니 담기
             </button>
+            <add-to-cart-bubble></add-to-cart-bubble>
           </div>
         </article>
       </div>
@@ -131,14 +132,25 @@
     <section class="product__detail">
       <article>
         <ul class="product__detail__menu">
-          <li class="product__detail__menu__item is__clicked">상품 설명</li>
-          <li class="product__detail__menu__item">상세 정보</li>
-          <li class="product__detail__menu__item">후기(1,000)</li>
-          <li class="product__detail__menu__item">문의</li>
+          <li class="product__detail__menu__item is__clicked">
+            <button type="button" id="productDescriptionBtn">상품 설명</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productDetailBtn">상세 정보</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productReviewBtn">후기(1,000)</button>
+          </li>
+          <li class="product__detail__menu__item">
+            <button type="button" id="productQnABtn">문의</button>
+          </li>
         </ul>
       </article>
-      <article class="product__detail__info_container">
-        <img id="productDetailImage" />
+      <article
+        class="product__detail__info_container"
+        id="productDescriptionArticle"
+      >
+        <img src="/" alt="상품설명" id="productDetailImage" />
         <div class="product__detail__info_container_title">
           <span class="title__secondary">상품간략설명</span>
           <p class="title__product">상품이름</p>
@@ -152,11 +164,14 @@
             <span>Karly's Check Point</span>
             <hr />
           </article>
-          <img src="" alt="칼리의 체크포인트" id="productCheckPointImage" />
+          <img src="/" alt="칼리의 체크포인트" id="productCheckPointImage" />
         </div>
       </article>
-      <article class="product__detail__details_container">
-        <img src="" alt="상품 디테일 설명" id="productDetailInfoImage" />
+      <article
+        class="product__detail__details_container"
+        id="productDetailArticle"
+      >
+        <img src="/" alt="상품 디테일 설명" id="productDetailInfoImage" />
         <article class="product__detail__details_container__whyC">
           <p class="product__detail__details_container__whyC__title">
             WHY KARLY
@@ -222,25 +237,34 @@
       </article>
     </section>
     <section class="product__detail__board">
-      <div class="product__review__container">
+      <div class="product__review__container" id="productReviewArticle">
         <div class="product__review__text">
-          <h1>상품후기</h1>
+          <h1 class="title__board">상품후기</h1>
           <h5>글후기 50원 적립금 혜택이 있어요.</h5>
-          <ul>
+          <ul class="list__description">
             <li>
-              퍼플, 더퍼플은 2배 적립(100원) / 주간 베스트 후기로 선정 시
+              &nbsp;퍼플, 더퍼플은 2배 적립(100원) / 주간 베스트 후기로 선정 시
               5,000원 추가 적립
             </li>
-            <li>후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
+            <li>&nbsp;후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
             <li>
-              작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균
-              1~2일 소요)
+              &nbsp;작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준
+              평균 1~2일 소요)
             </li>
           </ul>
         </div>
         <button class="button__small button__fill" type="button">
           후기 작성하기
         </button>
+      </div>
+      <div class="data__container">
+        <p class="board__count">총 <span>0</span>개</p>
+        <div class="board__filter">
+          <ul>
+            <li><button type="button">추천순</button></li>
+            <li><button type="button">최근 등록순</button></li>
+          </ul>
+        </div>
       </div>
       <table class="product__info__table product__table__detail">
         <colgroup>
@@ -322,10 +346,10 @@
       </div>
     </section>
     <section class="product__detail__board">
-      <div class="product__review__container">
+      <div class="product__review__container" id="productQnaArticle">
         <div class="product__review__text">
-          <h1>상품문의</h1>
-          <ul>
+          <h1 class="title__board">상품문의</h1>
+          <ul class="list__description">
             <li>
               상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른
               글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.
@@ -340,14 +364,17 @@
           문의하기
         </button>
       </div>
-      <table class="product__info__table product__table__detail">
+      <table
+        class="product__info__table product__table__detail product__table__qna"
+      >
         <colgroup>
           <col style="width: 210px" />
           <col style="width: auto" />
         </colgroup>
         <tr>
           <td colspan="2">
-            <span class="badge">공지</span> 금주의 베스트 후기 안내
+            <span class="badge">공지</span> 판매(일시)중단 제품 안내 (22.11.10
+            업데이트)
           </td>
         </tr>
         <tr>

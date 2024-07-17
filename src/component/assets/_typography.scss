@@ -1,6 +1,10 @@
 h1 {
   @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
   color: $black;
+
+  &.title__board {
+    margin-bottom: 24px;
+  }
 }
 h2 {
   @include font($fw: 700, $fs: 1.375rem, $lh: 140%);
@@ -21,6 +25,24 @@ h3 {
   .price__emphasis {
     @include font($fw: 600, $fs: 1.75rem, $lh: 150%);
   }
+}
+h5 {
+  @include font($fw: 600, $fs: 1rem, $lh: 150%);
+}
+ul {
+  &.list__description {
+    li {
+      list-style-position: inside;
+      @include font($color: $gray500, $fw: 600, $fs: 0.75rem, $lh: 150%);
+
+      &::marker {
+        content: "• ";
+      }
+    }
+  }
+h4 {
+  @include font($color: $gray300, $fw: 400, $fs: 0.85rem, $lh: 150%);
+  margin-bottom: 0.75rem;
 }
 p {
   @include font($fw: 400, $fs: 0.75rem, $lh: 150%);

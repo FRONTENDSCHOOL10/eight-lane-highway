@@ -23,6 +23,14 @@
     }
   }
 
+  .price__wrappers {
+    #product__undiscount__price {
+      @include font($color: $gray400, $fs: 0.75rem, $fw: 400, $lh: 160%);
+      text-decoration: line-through;
+      padding-left: 0.2rem;
+    }
+  }
+
   // 가격 영역
 
   &__price__container {

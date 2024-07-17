@@ -12,13 +12,24 @@ console.log(button);
 // 템플릿 생성 함수
 async function renderAddShoppingCart(productId) {
   const productItem = await pb.collection("products").getOne(productId);
+  let changePrice =
+    productItem.discount === 0
+      ? productItem.price
+      : Math.floor(
+          (productItem.price * ((100 - productItem.discount) / 100)) / 10
+        ) * 10;
+
+  const changePriceTemplate =
+    productItem.discount === 0
+      ? `<span id="product__price">${changePrice}원</span>`
+      : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${productItem.price}원</span></div>`;
 
   const templete = `
       <section class="basket-container modal_popup">
       <article class="basket-container__product__num__container">
         <p>${productItem.name}</p>
         <div class="basket-container__product__num__container__box">
-          <span id="product__price">${productItem.price}원</span>
+          ${changePriceTemplate}
           <div class="price_counter">
             <button type="button" id="minusBtn">
               <img src="/images/minus-button-black.svg" alt="" />
@@ -33,10 +44,10 @@ async function renderAddShoppingCart(productId) {
       <article class="basket-container__price__container">
         <div class="basket-container__price__container__sum">
           <span>합계</span>
-          <span id="total">${productItem.price}원</span>
+          <span id="total">${changePrice}원</span>
         </div>
         <div class="basket-container__price__container__bonus badge__group">
-          <p class="badge__accent">적립</p>
+          <p class="badge badge__accent">적립</p>
           <span>구매시 5원 적립</span>
         </div>
       </article>
@@ -64,7 +75,7 @@ async function renderAddShoppingCart(productId) {
 
   counterButton.addEventListener(
     "click",
-    handleCounterProduct(countProductNum, productItem.price, totalProduct)
+    handleCounterProduct(countProductNum, changePrice, totalProduct)
   );
   cancelButton.addEventListener("click", closeCartPopUp);
   addCartButton.addEventListener("click", handleAddCart(productItem.id));

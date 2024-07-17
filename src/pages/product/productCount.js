@@ -1,5 +1,7 @@
 import PocketBase from "pocketbase";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
+import getPbImageURL from "/src/api/getPbImageURL";
+import { addToCartBubble } from "/src/pages/product/addToCartBubble.js";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 
@@ -76,7 +78,11 @@ export function handleAddCart(id) {
 
     setStorage("cartItems", cartItems);
 
-    // 팝업을 닫는 대신 로그를 남깁니다.
+    // 버블을 표시합니다.
+    const productData = await pb.collection("products").getOne(id);
+    const bubble = document.querySelector("add-to-cart-bubble");
+    bubble.show(getPbImageURL(productData), productData.name);
+
     console.log("Cart updated:", cartItems);
   };
 }
