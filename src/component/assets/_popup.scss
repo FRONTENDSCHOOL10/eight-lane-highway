@@ -1,5 +1,5 @@
 .pop-up-container {
-  @include size($w: 440px, $h: 636px);
+  @include size($w: 400px, $h: 576px);
   position: fixed;
   top: 50px;
   left: 50px;
@@ -13,19 +13,21 @@
   }
 
   .quick-link {
-    @include size($w: 440px, $h: 586px);
+    @include size($w: 400px, $h: 510px);
     @include absolute($t: 0, $l: 0);
     background-image: url("/images/kurly-popup.jpg");
+    background-size: cover;
+    background-position: center;
   }
 
   .button-container {
-    @include size($w: 440px, $h: 86px);
+    @include size($w: 400px);
     @include absolute($b: 0, $l: 0);
     display: flex;
 
     #hidePopup,
     #closePopup {
-      @include size($w: 50%, $h: 86px);
+      @include size($w: 50%, $h: 66px);
       background-color: $white;
       padding: 0;
       margin: 0;
