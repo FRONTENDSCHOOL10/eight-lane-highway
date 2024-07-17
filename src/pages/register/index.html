@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="/src/styles/style.scss" />
-    <script type="module" src="/src/pages/register/register.js"></script>
-    <script type="module" src="/src/pages/register/checkAll.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
   <body>
@@ -17,7 +15,8 @@
         action=""
         method="post"
         onsubmit="return sendit()"
-        id="registerForm">
+        id="registerForm"
+      >
         <p class="text__right">* 필수입력사항</p>
         <fieldset class="register__container">
           <label class="label__register label__medium">아이디</label>
@@ -26,12 +25,14 @@
             type="email"
             placeholder="아이디를 입력해주세요"
             id="idField"
-            required />
+            required
+          />
           <p class="register__result" id="idResultMessage"></p>
           <button
             class="button__stroke button__small"
             type="button"
-            id="idCheckDuplicateButton">
+            id="idCheckDuplicateButton"
+          >
             중복확인
           </button>
         </fieldset>
@@ -42,7 +43,8 @@
             type="password"
             placeholder="비밀번호를 입력해주세요"
             id="pwField"
-            required />
+            required
+          />
         </fieldset>
         <fieldset class="register__container">
           <label class="label__register label__medium">비밀번호 확인</label>
@@ -51,17 +53,22 @@
             type="password"
             placeholder="비밀번호를 한번 더 입력해주세요"
             id="pwCheckField"
-            required />
+            required
+          />
           <p id="passwordCheckMessage" class="register__result"></p>
         </fieldset>
-        <fieldset>
+        <fieldset class="register__container">
           <label class="label__register label__medium">이름</label>
           <input
             class="input__small input__default__text"
             type="text"
             placeholder="이름을 입력해주세요"
             id="nameField"
-            required />
+            required
+          />
+          <p class="warning__message" id="warningMessage">
+            이름은 한글로 작성해주세요.
+          </p>
         </fieldset>
         <fieldset class="register__container">
           <label class="label__register label__medium">이메일</label>
@@ -69,12 +76,14 @@
             class="input__small input__default__text"
             type="email"
             placeholder="예) marketkarly@karly.com"
-            id="emailField" />
+            id="emailField"
+          />
           <p class="register__result" id="emailResultMessage"></p>
           <button
             class="button__stroke button__small"
             type="button"
-            id="emailCheckDuplicateButton">
+            id="emailCheckDuplicateButton"
+          >
             중복확인
           </button>
         </fieldset>
@@ -86,7 +95,8 @@
             placeholder="숫자만 입력해주세요."
             id="phoneField"
             maxlength="12"
-            required />
+            required
+          />
           <button class="button__stroke button__small" type="button">
             인증번호 받기
           </button>
@@ -94,24 +104,33 @@
         <fieldset>
           <label class="label__register label__medium">주소</label>
           <div class="register__address__container">
-            <input type="text" id="sample6_postcode" placeholder="우편번호" />
-            <button
-              class="button__small button__stroke"
-              type="button"
-              onclick="sample6_execDaumPostcode()">
-              주소 검색
-            </button>
-            <br />
+            <div class="address__input">
+              <input
+                class="address__text"
+                type="text"
+                id="sample6_postcode"
+                placeholder="우편번호"
+              />
+              <button
+                class="button__small button__stroke"
+                type="button"
+                id="userAddressButton"
+              >
+                주소 검색
+              </button>
+            </div>
             <input
-              class="input__default__text"
+              class="input__default__text address__text"
               type="text"
               id="sample6_address"
-              placeholder="주소" /><br />
+              placeholder="주소"
+            /><br />
             <input
-              class="input__default__text"
+              class="input__default__text address__text"
               type="text"
               id="sample6_detailAddress"
-              placeholder="상세주소" />
+              placeholder="상세주소"
+            />
             <p>배송지에 따라 상품 정보가 달라질 수 있습니다.</p>
           </div>
         </fieldset>
@@ -123,19 +142,22 @@
             class="input__radio"
             type="radio"
             name="radioGender"
-            value="남자" />
+            value="남자"
+          />
           <label>남자</label>
           <input
             class="input__radio"
             type="radio"
             name="radioGender"
-            value="여자" />
+            value="여자"
+          />
           <label>여자</label>
           <input
             class="input__radio"
             type="radio"
             name="radioGender"
-            value="선택안함" />
+            value="선택안함"
+          />
           <label for="radioGender">선택안함</label>
         </fieldset>
         <fieldset>
@@ -145,7 +167,8 @@
             type="date"
             placeholder="YYYY / MM / DD"
             id="birthField"
-            required />
+            required
+          />
         </fieldset>
         <fieldset class="form__underline">
           <label class="label__register label__medium">추가입력 사항</label>
@@ -153,13 +176,15 @@
             class="input__radio"
             type="radio"
             name="radioAddInput"
-            value="친구초대" />
+            value="친구초대"
+          />
           <label for="radioAddInput">친구초대 추천인 아이디</label>
           <input
             class="input__radio"
             type="radio"
             name="radioAddInput"
-            value="참여 이벤트" />
+            value="참여 이벤트"
+          />
           <label for="radioAddInput">참여 이벤트명</label>
         </fieldset>
         <fieldset>
@@ -170,7 +195,8 @@
                 <input
                   class="input__checkbox"
                   type="checkbox"
-                  id="checkAllAgreement" />
+                  id="checkAllAgreement"
+                />
                 전체 동의합니다.
                 <p class="text__subscript">
                   선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를
@@ -184,7 +210,8 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  required />
+                  required
+                />
                 이용약관 동의 (필수)
               </label>
               <p class="text__primary__color">
@@ -199,7 +226,8 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  required />
+                  required
+                />
                 개인정보 수집・이용 동의 (필수)
               </label>
               <p class="text__primary__color">
@@ -216,7 +244,8 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  id="adAllow" />
+                  id="adAllow"
+                />
                 무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)
               </label>
               <p class="text__primary__color">
@@ -231,7 +260,8 @@
                   class="input__checkbox"
                   type="checkbox"
                   name="checkAgreement"
-                  required />
+                  required
+                />
                 본인은 만 14세 이상입니다. (필수)
               </label>
               <p class="text__primary__color">
@@ -251,8 +281,5 @@
     </section>
     <c-footer></c-footer>
   </body>
-  <script type="module" src="/src/pages/register/idCheck.js"></script>
-  <script type="module" src="/src/pages/register/emailCheck.js"></script>
-  <script type="module" src="/src/pages/register/passwordCheck.js"></script>
-  <script src="/src/pages/register/userAddress.js"></script>
+  <script type="module" src="/src/pages/register/register.js"></script>
 </html>

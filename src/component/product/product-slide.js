@@ -261,6 +261,21 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
     document.body.style.overflow = "visible";
   }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeSwiper(".product-slide1");
+    initializeSwiper(".product-slide2");
+  });
+
+  function initializeSwiper(className) {
+    const swiperContainer = document.querySelector(
+      `${className} .swiper-container`
+    );
+    if (swiperContainer) {
+      new CustomSwiper(className);
+    } else {
+      console.warn(`Swiper container for ${className} not found.`);
+    }
+  }
   function CustomSwiper(className) {
     const swiper = new Swiper(`${className} .swiper-container`, {
       slidesPerView: 4,
@@ -304,6 +319,4 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
       removeClass(prev, "is__hide");
     }
   }
-  const swiper1 = new CustomSwiper(".product-slide1");
-  const swiper2 = new CustomSwiper(".product-slide2");
 })();

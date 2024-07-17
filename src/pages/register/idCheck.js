@@ -37,9 +37,9 @@ class IdChecker {
 
     const isUnique = await this.isIdUnique(id);
     if (isUnique) {
-      this.updateMessage("사용 가능한 아이디입니다.", "green");
+      this.updateMessage("사용 가능한 아이디입니다.", "#3ef071");
     } else {
-      this.updateMessage("이미 사용중인 아이디입니다.", "red");
+      this.updateMessage("이미 사용중인 아이디입니다.", "#f03f40");
     }
   }
 
