@@ -95,9 +95,8 @@ header {
     &__item > a {
       background-color: transparent;
       border: none;
-      font-size: 1.25rem;
+      @include font($fs: 1.25rem, $color: #b5b5b5);
       cursor: pointer;
-      color: #b5b5b5;
 
       &:hover,
       &.is__active {
@@ -217,16 +216,16 @@ header {
       background-color: $white;
       z-index: 2;
       p {
-        margin-bottom: 16px;
         @include font($fs: 1rem, $fw: 600, $lh: 160%);
+        margin-bottom: 16px;
       }
       span {
         color: $primaryColor;
       }
 
       .modal-link {
-        border-radius: 4px;
         @include font($fs: 0.75rem, $fw: 600, $lh: 150%);
+        border-radius: 4px;
         padding: 8px;
         cursor: pointer;
       }
@@ -237,9 +236,9 @@ header {
         color: $primaryColor;
       }
       .modal-search-address {
+        margin-left: 10px;
         background-color: $primaryColor;
         color: $white;
-        margin-left: 10px;
       }
     }
 
@@ -296,7 +295,7 @@ header {
     &__item {
       > a {
         @include size($w: 180px);
-        @include font($fs: 1rem, $fw: 600, $lh: 150%);
+        @include font($fs: 0.825rem, $fw: 600, $lh: 150%);
         position: relative;
         display: inline-block;
         padding: 8px;
@@ -502,8 +501,9 @@ header.is__scroll {
   background-color: $white;
   z-index: 100;
   .nav {
-    padding: 10px;
-    grid-template-areas: "a b c d e f f g g";
+    @include size($w: 1050px);
+    padding: 0px;
+    grid-template-areas: "a a b c d e f f f f g g g";
     grid-template-columns: repeat(8, 1fr);
 
     .nav__logo,
@@ -516,6 +516,14 @@ header.is__scroll {
     .nav__product__category {
       grid-area: a;
       padding-right: 10px;
+
+      &::before {
+        top: 13px;
+      }
+    }
+
+    .nav__product__category button {
+      @include font($fs: 0.825rem, $fw: 600, $lh: 150%);
     }
 
     .nav__search-box {
@@ -558,6 +566,10 @@ header.is__scroll {
     }
     .benefits {
       grid-area: e;
+    }
+
+    .nav__menu__list {
+      @include font($fs: 0.825rem, $fw: 600, $lh: 150%);
     }
   }
 }
