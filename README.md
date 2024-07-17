@@ -417,3 +417,9 @@
 - src/pages/register/nameCheck.js: 영어 입력 방지 설정
 - src/pages/register/register.js: 스크립트 경로 수정, 이름 체크 모듈 불러오기
 - src/pages/register/userAddress.js: 스크립트 경로 수정
+- src/pages/product/addToCartBubble.js: 장바구니 담기 버블 리팩토링
+- src/pages/product/productCount.js: 장바구니 담기 숫자 함수 작성
+- src/pages/product/product-detail.html: HTML Validation 체크, 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_products.scss: 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_products-detail.scss: 상품문의/상품후기 게시판 스타일링 마무리
+- src/component/assets/\_typography.scss: 제목 type 및 list type 에셋 추가
