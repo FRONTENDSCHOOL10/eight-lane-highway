@@ -1,0 +1,36 @@
+.top-banner {
+  @include flexAll($at: center, $jc: center);
+  @include size($h: 30px);
+  background-color: $primaryColor;
+  overflow: hidden;
+  transition: margin 0.7s;
+
+  a {
+    text-decoration: none;
+    @include font($fs: 0.75rem, $fw: 400, $lh: 160%, $color: #f7f7f7);
+    margin-right: 15px;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+  }
+
+  strong {
+    @include font($fs: 0.75rem, $fw: 600, $lh: 150%, $color: #fff);
+  }
+
+  button {
+    @include size($w: 20px, $h: 20px);
+    border: none;
+    background-color: transparent;
+    background-image: url("/images/cancel.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
+
+.top-banner.is__hide {
+  margin-top: -30px;
+}

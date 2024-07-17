@@ -20,28 +20,24 @@
     }
   }
   .info {
-    @include flexAll($fd: column, $jc: flex-start, $at: stretch);
-    gap: 8px;
+    @include flexAll($fd: column, $jc: flex-start, $at: stretch, $gap: 8px);
     margin-top: 16px;
     &__product__title {
       @include font($fw: 400, $fs: 1rem, $lh: 160%);
     }
     &__sale__price {
+      margin-right: 5px;
       color: $accentColor;
     }
     &__product__price {
       @include font($fw: 600, $fs: 1.375rem, $lh: 150%);
     }
     &__product__original-price {
-      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
-
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%, $color: $gray400);
       text-decoration: line-through;
-      color: $gray400;
     }
     &__product__description {
-      @include font($fw: 400, $fs: 0.725rem, $lh: 160%);
-
-      color: $gray400;
+      @include font($fw: 400, $fs: 0.725rem, $lh: 160%, $color: $gray400);
     }
   }
   &__info {

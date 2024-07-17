@@ -311,7 +311,7 @@
 - src/component/assets/\_register.scss: 회원가입 스타일링
 - src/component/product/product-slide.js: 경로 수정
 
-  **이희재**
+**이희재**
 
 - src/component/footer/footer.js: footer안에 to-top버튼 추가
 - src/component/banner/banner.js: banner에 button, pagination 추가
@@ -343,6 +343,10 @@
 ## 2024-07-16
 
 **이희재**
+
+- src/component/product/product-slide.js: 디버깅
+- src/component/header/header.js: 로그인시 header ui 변경
+- src/component/header/header.js: 로그아웃 구현
 
 **최소현**
 
@@ -390,6 +394,11 @@
 ## 2024-07-17
 
 **이희재**
+
+- src/component/product/product-slide.js: 디버깅완료
+- src/component/product/product-slide.js: 최근 본 상품 5개 이상시 가장 처음에 본 제품 삭제
+- src/component/topBanner/topBanner.js: 탑배너 마크업 및 디자인 기능 구현
+
 **최소현**
 
 **오성훈**
