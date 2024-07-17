@@ -50,12 +50,14 @@ async function getCartAddedProductsNew() {
       type="checkbox"
       id="cartAddedSelect"
       class="cart__accordion__input"  name="accordion__input" />
-    <img src="${getPbImageURL(data)}" alt="${
+      <a href="/src/pages/product/product-detail.html?product=${data.id}">
+      <img src="${getPbImageURL(data)}" alt="${
         data.name
       }" class="cart__accordion__img" />
     <label for="cartAddedSelect" class="cart__accordion__name"
       >${data.name}</label
     >
+    </a>
     <div class="cart__accordion__count price_counter">
       <button type="button" class="minus-button">
         <img src="/images/minus-button-black.svg" alt="수량 감소 버튼" />
