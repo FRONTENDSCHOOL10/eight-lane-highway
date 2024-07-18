@@ -8,6 +8,9 @@ export class addToCartBubble extends HTMLElement {
     productBubble.className = "product__bubble";
     productBubble.innerHTML = `
       <style>
+        h3, p {
+          margin: 0;
+        }
         .product__bubble {
           position: absolute;
           top: 60px;
@@ -41,7 +44,7 @@ export class addToCartBubble extends HTMLElement {
           flex-direction: column;
           justify-content: center;
           text-align: left;
-          gap: 8px;
+          gap: 16px;
         }
         .bubble__text__container h3 {
           color: #a6a6a6;
