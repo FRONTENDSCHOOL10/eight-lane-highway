@@ -17,7 +17,7 @@ export function deleteSelected() {
       updateSumAllPrice();
       // 선택/전체 수량 업데이트
       updateSelectedCount();
-      //
+      //상품 없으면 해당 카테고리 띄우지 않기
       hideFoodType();
     });
   });
@@ -46,7 +46,7 @@ export function deleteItem() {
             updateSumAllPrice();
             // 선택/전체 수량 업데이트
             updateSelectedCount();
-            //
+            //상품 없으면 해당 카테고리 띄우지 않기
             hideFoodType();
           }
         }
