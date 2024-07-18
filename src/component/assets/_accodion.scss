@@ -1,3 +1,4 @@
+// 아코디언 전체 스타일링
 .accodian__menu {
   width: 260px;
 
@@ -27,6 +28,7 @@
   }
 }
 
+// 아코디언 클릭 시 보여지는 리스트 부분 스타일링
 .accodian__sub {
   margin: 20px 0px 4px;
   width: 100%;
@@ -70,11 +72,13 @@
   }
 }
 
+// 아코디언 클릭 시 동작 스타일
 .accodion_is__clicked {
   @include flexAll($fd: column, $at: center);
   border: none;
 }
 
+// 아코디언 클릭 시 svg에 애니메이션 추가
 .rotate {
   transform: rotate(180deg);
 }
