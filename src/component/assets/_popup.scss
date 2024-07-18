@@ -15,7 +15,7 @@
   .quick-link {
     @include size($w: 400px, $h: 510px);
     @include absolute($t: 0, $l: 0);
-    background-image: url("/images/kurly-popup.jpg");
+    background-image: url("/images/kurly-popup.webp");
     background-size: cover;
     background-position: center;
   }
