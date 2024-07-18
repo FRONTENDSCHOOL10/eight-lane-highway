@@ -1,4 +1,3 @@
-import PocketBase from "pocketbase";
 import "/main.js";
 import "/src/pages/register/checkAll.js";
 import "/src/pages/register/passwordCheck.js";
@@ -6,8 +5,7 @@ import "/src/pages/register/emailCheck.js";
 import "/src/pages/register/idCheck.js";
 import { sample6_execDaumPostcode } from "/src/pages/register/userAddress.js";
 import { setupNameCheck } from "/src/pages/register/nameCheck.js";
-
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
+import axios from "axios";
 
 document
   .getElementById("registerForm")
@@ -37,7 +35,7 @@ document
       "#sample6_detailAddress"
     ).value;
     const userAddress =
-      "(" + postCode + ")" + userDefaultAddress + detailAddress;
+      "(" + postCode + ") " + userDefaultAddress + " " + detailAddress;
 
     try {
       const data = {
@@ -54,13 +52,32 @@ document
         address: userAddress,
       };
 
-      const record = await pb.collection("users").create(data);
+      const response = await axios.post(
+        "https://eight-lane-highway.pockethost.io/api/collections/users/records",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       alert("회원가입 성공");
       window.location.href = "/src/pages/login/index.html";
     } catch (error) {
       console.error("Error:", error);
-      alert("회원가입 중 오류 발생: " + error.message);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+        console.error("Response headers:", error.response.headers);
+        alert("회원가입 중 오류 발생: " + JSON.stringify(error.response.data));
+      } else if (error.request) {
+        console.error("Request data:", error.request);
+        alert("회원가입 중 오류 발생: 서버로부터 응답을 받지 못했습니다.");
+      } else {
+        console.error("Error message:", error.message);
+        alert("회원가입 중 오류 발생: " + error.message);
+      }
     }
   });
 
