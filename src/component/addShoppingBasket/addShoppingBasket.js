@@ -84,6 +84,7 @@ async function renderAddShoppingCart(productId) {
     "click",
     handleCounterProduct(countProductNum, changePrice, totalProduct)
   );
+
   cancelButton.addEventListener("click", closeCartPopUp);
   addCartButton.addEventListener("click", handleAddCart(productItem));
 }

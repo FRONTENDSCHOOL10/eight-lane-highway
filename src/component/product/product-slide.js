@@ -11,8 +11,8 @@ import {
   closeCartPopUp,
 } from "/src/lib/index.js";
 
-import PocketBase from "pocketbase";
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
+import getPbImageURL from "/src/api/getPbImageURL.js";
+import pb from "/src/api/pocketbase.js";
 
 // 스와이퍼의 시작과 마지막을 체크
 
@@ -47,7 +47,7 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
   const slides = document.querySelectorAll(".visual__link");
   slides.forEach((item, index) => {
     item.addEventListener("click", (e) => {
-      e.preventDefault(); // remove
+      // e.preventDefault();
       handleClick(e, index);
       removeRecentProductsId(e);
     });
@@ -65,7 +65,8 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
       const url = new URLSearchParams(
         e.target.parentNode.previousElementSibling.href
       );
-      let id;
+      let id = "";
+      console.log(url);
       for (const [_, a] of url) id = a;
       openCartPopUp(id);
       renderAddShoppingCart(id);
@@ -83,11 +84,13 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
     const item = allData.find((item) => item.id === id);
     let changePrice =
       item.discount === 0
-        ? item.price
-        : Math.floor((item.price * ((100 - item.discount) / 100)) / 10) * 10;
+        ? item.price.toLocaleString()
+        : (
+            Math.floor((item.price * ((100 - item.discount) / 100)) / 10) * 10
+          ).toLocaleString();
     const changePriceTemplate =
       item.discount === 0
-        ? `<span id="product__price">${changePrice}원</span>`
+        ? `<span id="product__price">${changePrice.toLocaleString()}원</span>`
         : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${item.price}원</span></div>`;
 
     const template = `
@@ -142,7 +145,7 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
     handleAddCart(id);
     counterButton.addEventListener(
       "click",
-      handleCounterProduct(countProductNum, item.price, totalProduct)
+      handleCounterProduct(countProductNum, changePrice, totalProduct)
     );
     cancelButton.addEventListener("click", closeCartPopUp);
     addCartButton.addEventListener("click", handleAddCart(item.id));
@@ -151,13 +154,16 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
   // 상품 갯수 별 가격 증가 / 감소 함수
   function handleCounterProduct(countNode, price, resultNode) {
     return function (e) {
+      let result = parseInt(price.replace(/,/g, ""), 10);
       const target = e.target.closest("button");
       if (!target) return;
 
       if (target.id === "plusBtn") {
         countNode.textContent = parseInt(countNode.textContent) + 1;
-        resultNode.textContent =
-          parseInt(resultNode.textContent) + price + "원";
+        result =
+          parseInt(resultNode.textContent.replace(/,/g, ""), 10) +
+          parseInt(price.replace(/,/g, ""), 10);
+        resultNode.textContent = result.toLocaleString() + "원";
       } else if (target.id === "minusBtn") {
         if (parseInt(countNode.textContent) <= 0) {
           alert("상품 개수가 0보다 작으면 안됩니다!");
@@ -166,8 +172,10 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
           return;
         }
         countNode.textContent = parseInt(countNode.textContent) - 1;
-        resultNode.textContent =
-          parseInt(resultNode.textContent) - price + "원";
+        result =
+          parseInt(resultNode.textContent.replace(/,/g, ""), 10) -
+          parseInt(price.replace(/,/g, ""), 10);
+        resultNode.textContent = result.toLocaleString() + "원";
       }
     };
   }
@@ -176,6 +184,8 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
   function handleAddCart(id) {
     return async function (e) {
       e.preventDefault();
+      const products = allData.find((item) => item.id === id);
+
       let productNum = document.querySelector("#product__num").textContent;
       let cartItems = await getStorage("cartItems");
 
@@ -188,7 +198,16 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
         existedItems.quantity =
           parseInt(existedItems.quantity) + parseInt(productNum);
       } else {
-        cartItems.push({ productID: id, quantity: parseInt(productNum) });
+        cartItems.push({
+          productID: products.id,
+          quantity: parseInt(productNum),
+          name: products.name,
+          price: products.price,
+          discount: products.discount,
+          imgURL: getPbImageURL(products),
+          packaging: products.packaging,
+        });
+        // console.log(cartItems);
       }
 
       setStorage("cartItems", cartItems);
