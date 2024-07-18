@@ -20,7 +20,9 @@
       >
         <p class="text__right">* 필수입력사항</p>
         <fieldset class="register__container">
-          <label class="label__register label__medium">아이디</label>
+          <label class="label__register label__medium" for="idField">
+            아이디
+          </label>
           <input
             class="input__small input__default__text"
             type="email"
@@ -38,7 +40,9 @@
           </button>
         </fieldset>
         <fieldset>
-          <label class="label__register label__medium">비밀번호</label>
+          <label class="label__register label__medium" for="pwField">
+            비밀번호
+          </label>
           <input
             class="input__small input__default__text"
             type="password"
@@ -48,7 +52,9 @@
           />
         </fieldset>
         <fieldset class="register__container">
-          <label class="label__register label__medium">비밀번호 확인</label>
+          <label class="label__register label__medium" for="pwCheckField">
+            비밀번호 확인
+          </label>
           <input
             class="input__small input__default__text"
             type="password"
@@ -59,7 +65,9 @@
           <p id="passwordCheckMessage" class="register__result"></p>
         </fieldset>
         <fieldset class="register__container">
-          <label class="label__register label__medium">이름</label>
+          <label class="label__register label__medium" for="nameField">
+            이름
+          </label>
           <input
             class="input__small input__default__text"
             type="text"
@@ -72,7 +80,9 @@
           </p>
         </fieldset>
         <fieldset class="register__container">
-          <label class="label__register label__medium">이메일</label>
+          <label class="label__register label__medium" for="emailField">
+            이메일
+          </label>
           <input
             class="input__small input__default__text"
             type="email"
@@ -89,7 +99,9 @@
           </button>
         </fieldset>
         <fieldset>
-          <label class="label__register label__medium">휴대폰</label>
+          <label class="label__register label__medium" for="phoneField">
+            휴대폰
+          </label>
           <input
             class="input__small input__default__text"
             type="text"
@@ -106,12 +118,15 @@
           <label class="label__register label__medium">주소</label>
           <div class="register__address__container">
             <div class="address__input">
-              <input
-                class="address__text"
-                type="text"
-                id="sample6_postcode"
-                placeholder="우편번호"
-              />
+              <label>
+                <input
+                  class="address__text"
+                  type="text"
+                  id="sample6_postcode"
+                  placeholder="우편번호"
+                />
+                <span class="sr-only">우편번호</span>
+              </label>
               <button
                 class="button__small button__stroke"
                 type="button"
@@ -125,41 +140,52 @@
               type="text"
               id="sample6_address"
               placeholder="주소"
-            /><br />
+            />
+            <label for="sample6_address" class="sr-only">주소</label>
+            <br />
             <input
               class="input__default__text address__text"
               type="text"
               id="sample6_detailAddress"
               placeholder="상세주소"
             />
+            <label for="sample6_detailAddress" class="sr-only">상세주소</label>
             <p>배송지에 따라 상품 정보가 달라질 수 있습니다.</p>
           </div>
         </fieldset>
         <fieldset>
-          <label class="label__register label__medium" for="radioGender"
-            >성별</label
-          >
-          <input
-            class="input__radio"
-            type="radio"
-            name="radioGender"
-            value="남자"
-          />
-          <label>남자</label>
-          <input
-            class="input__radio"
-            type="radio"
-            name="radioGender"
-            value="여자"
-          />
-          <label>여자</label>
-          <input
-            class="input__radio"
-            type="radio"
-            name="radioGender"
-            value="선택안함"
-          />
-          <label for="radioGender">선택안함</label>
+          <label class="label__register label__medium" for="radioGender">
+            성별
+          </label>
+          <label for="male">
+            <input
+              class="input__radio"
+              type="radio"
+              name="radioGender"
+              value="남자"
+              id="male"
+            />
+            남자
+          </label>
+          <label for="female">
+            <input
+              class="input__radio"
+              type="radio"
+              name="radioGender"
+              value="여자"
+              id="female"
+            />여자
+          </label>
+          <label for="radioGender">
+            <input
+              class="input__radio"
+              type="radio"
+              name="radioGender"
+              value="선택안함"
+              id="noselect"
+            />
+            선택안함
+          </label>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">생년월일</label>
@@ -173,20 +199,27 @@
         </fieldset>
         <fieldset class="form__underline">
           <label class="label__register label__medium">추가입력 사항</label>
-          <input
-            class="input__radio"
-            type="radio"
-            name="radioAddInput"
-            value="친구초대"
-          />
-          <label for="radioAddInput">친구초대 추천인 아이디</label>
-          <input
-            class="input__radio"
-            type="radio"
-            name="radioAddInput"
-            value="참여 이벤트"
-          />
-          <label for="radioAddInput">참여 이벤트명</label>
+
+          <label for="radioAddInput" for="eventInvite">
+            <input
+              class="input__radio"
+              type="radio"
+              name="radioAddInput"
+              value="친구초대"
+              id="eventInvite"
+            />
+            친구초대 추천인 아이디
+          </label>
+          <label for="radioAddInput" for="eventJoin">
+            <input
+              class="input__radio"
+              type="radio"
+              name="radioAddInput"
+              value="참여 이벤트"
+              id="eventJoin"
+            />
+            참여 이벤트명
+          </label>
         </fieldset>
         <fieldset>
           <label class="label__register label__medium">이용약관동의</label>
