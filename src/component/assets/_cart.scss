@@ -275,7 +275,7 @@
 
 // 적립부분
 .point__container {
-  @include flexAll(row, flex-end, center, 4px);
+  @include flexAll(row, flex-end, center);
 
   // 뱃지 기존 스타일  border-radius 수정
   .point-badge {
