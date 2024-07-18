@@ -33,17 +33,20 @@ const itemsPerPage = 12;
 let productItem = [];
 let totalPages = 1;
 
+// 상품 아이템 받아오는 함수
 async function fetchProducts() {
   productItem = await pb.collection("products").getFullList();
-  totalPages = Math.ceil(productItem.length / itemsPerPage);
+  totalPages = Math.ceil(productItem.length / itemsPerPage); // 페이지네이션을 위해 전체 데이터에서 한 페이지당 아이템을 나눠 총 페이지 구함
   renderPaginationButtons();
   renderProductList();
 }
 
+// 헤더에서 각각의 상품 리스트 요소 클릭 시 제목 변경할 수 있도록 해주는 함수
 function renderTitleName() {
-  const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(location.search); // params로 페이지 이름 받음
   let titleName = params.get("title");
 
+  // 페이지가 영어로 되어있어 영어에 맞는 한글로 변환하기 위한 switch문 사용
   switch (titleName) {
     case "new":
       titleName = "신상품";
@@ -66,16 +69,18 @@ function renderTitleName() {
 
 renderTitleName();
 
+// 상품 리스트 랜더링 함수
 function renderProductList() {
   list.innerHTML = "";
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentPageItems = productItem.slice(startIndex, endIndex);
+  const startIndex = (currentPage - 1) * itemsPerPage; // 상품 페이지네이션을 위한 시작 인덱스
+  const endIndex = startIndex + itemsPerPage; // 상품 페이지네이션을 위한 마지막 인덱스
+  const currentPageItems = productItem.slice(startIndex, endIndex); // 현재 페이지에 들어갈 아이템을 구하기 위해 시작인덱스와 마지막 인덱스 사용
 
   currentPageItems.forEach((items) => {
-    const isKarlyOnly = JSON.parse(items.is_karlyOnly.toLowerCase());
+    const isKarlyOnly = JSON.parse(items.is_karlyOnly.toLowerCase()); // parse를 해야 true/false를 인식 아니면 문자열로 인식해 무조건 true가 나옴
     const isLimited = JSON.parse(items.is_limited.toLowerCase());
 
+    // 할인이 있으면 할인가와 할인율 그리고 원가를 아니면 그냥 원가만 보일수 있도록 조건 처리
     const discountSection =
       items.discount !== 0
         ? `<p class="info__product__price">
@@ -91,9 +96,13 @@ function renderProductList() {
         : `<p class="info__product__price">
             ${formatPrice(items.price)} 원
           </p>`;
+
+    // isKarlyOnly가 true면 배지를 넣을 수 있도록 아니면 그냥 비어있게 조건 처리
     const karlyOnlyBadge = isKarlyOnly
       ? `<p class="badge badge__karly">Karly Only</p>`
       : `<p></p>`;
+
+    // isLimited가 true면 배지를 넣을 수 있도록 아니면 그냥 비어있게 조건 처리
     const limitedBadge = isLimited
       ? `<p class="badge badge__text">한정수량</p>`
       : `<p></p>`;
@@ -131,6 +140,7 @@ function renderProductList() {
     insertLast(list, template);
   });
 
+  // add cart pop-up을 넣을 수 있도록 처리
   const addCartButtons = document.querySelectorAll(".visual__add-cart");
   addCartButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -143,6 +153,7 @@ function renderProductList() {
   totals.textContent = "";
   insertLast(totals, countTotal);
 
+  // 상품 숫자 넣기 위한 함수 호출
   updateCategoryCounts(productItem);
   updateBrandCounts(productItem);
   updatePriceCounts(productItem);
@@ -152,6 +163,7 @@ function renderProductList() {
   updateExeptionCounts(productItem);
 }
 
+// 페이지 버튼 랜더링 함수
 function renderPaginationButtons() {
   const pageContainer = document.querySelector(".page__container");
   pageContainer.textContent = "";
@@ -165,6 +177,7 @@ function renderPaginationButtons() {
     </li>
   `;
 
+  // 상품의 갯수 만큼 동적으로 숫자를 불러오기 위한 for문
   for (let i = 1; i <= totalPages; i++) {
     pageContainer.innerHTML += `
       <li class="page__item" aria-label="${i} 페이지 이동">
@@ -188,6 +201,7 @@ function renderPaginationButtons() {
   addPaginationEventListeners();
 }
 
+// 버튼 상태 함수
 function updateButtonStates() {
   const previousButton = document.querySelector(".previous-page");
   const nextButton = document.querySelector(".next-page");
@@ -214,18 +228,21 @@ function updateButtonStates() {
   });
 }
 
+// 페이지 버튼 이벤트 처리 함수
 function addPaginationEventListeners() {
   const firstButton = document.querySelector(".first-page");
   const previousButton = document.querySelector(".previous-page");
   const nextButton = document.querySelector(".next-page");
   const lastButton = document.querySelector(".last-page");
 
+  // 가장 이전 페이지로 이동하는 버튼
   firstButton.addEventListener("click", () => {
     currentPage = 1;
     renderProductList();
     renderPaginationButtons();
   });
 
+  // 이전 페이지로 이동하는 버튼
   previousButton.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
@@ -234,6 +251,7 @@ function addPaginationEventListeners() {
     }
   });
 
+  // 다음 페이지로 이동하는 버튼
   nextButton.addEventListener("click", () => {
     if (currentPage < totalPages) {
       currentPage++;
@@ -242,6 +260,7 @@ function addPaginationEventListeners() {
     }
   });
 
+  // 가장 마지막 페이지로 이동하는 버튼
   lastButton.addEventListener("click", () => {
     currentPage = totalPages;
     renderProductList();
@@ -261,6 +280,7 @@ document.addEventListener("click", (e) => {
 
 fetchProducts();
 
+// 상품 총 갯수 계산 함수
 function countTotalProduct(items) {
   let count = 0;
 
