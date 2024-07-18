@@ -304,7 +304,7 @@ class Header extends HTMLElement {
     };
 
     if (localStorage.getItem("auth")) {
-      const { isLogin, userInfo } = await getStorage("auth");
+      const { isLogin } = await getStorage("auth");
       if (isLogin) {
         this.register.innerHTML = `<a href="/src/pages/member/mypage.html" class="my-page">마이페이지</a>`;
         this.login.innerHTML = `<a href="/" class="logout">로그아웃</a>`;
@@ -325,17 +325,23 @@ class Header extends HTMLElement {
           if (confirm("정말 로그아웃 하실겁니까?")) {
             pb.authStore.clear();
             setStorage("auth", defaultAuthData);
-            location.reload();
+            window.location.href = "/index.html";
           }
         }
-        logout.addEventListener("click", logOut);
+        logout.addEventListener("click", (e) => {
+          e.preventDefault();
+          logOut();
+        });
         logout.addEventListener("keydown", (e) => {
           if (e.keyCode == 32) {
             e.preventDefault();
             logOut();
           }
         });
-        modalLogout.addEventListener("click", logOut);
+        modalLogout.addEventListener("click", (e) => {
+          e.preventDefault();
+          logOut();
+        });
         modalLogout.addEventListener("keydown", (e) => {
           if (e.keyCode == 32) {
             e.preventDefault();

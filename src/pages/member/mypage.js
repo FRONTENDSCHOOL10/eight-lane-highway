@@ -15,6 +15,9 @@ async function getUserData() {
 }
 
 getUserData();
+function formatDate(dateString) {
+  return dateString.split(" ")[0];
+}
 
 async function renderUserData() {
   const userData = await getUserData();
@@ -28,6 +31,9 @@ async function renderUserData() {
     created,
     adAllow,
   } = userData[0];
+
+  const formattedBirth = formatDate(birth);
+  const formattedCreated = formatDate(created);
 
   const template = `
   <div class="mypage__sub__container">
@@ -105,11 +111,11 @@ async function renderUserData() {
         </tr>
         <tr>
           <th>아이디</th>
-          <td>${userEmail}</td>
+          <td>${email}</td>
         </tr>
         <tr>
           <th>이메일</th>
-          <td>${email}</td>
+          <td>${userEmail}</td>
         </tr>
         <tr>
           <th>연락처</th>
@@ -121,11 +127,11 @@ async function renderUserData() {
         </tr>
         <tr>
           <th>생일</th>
-          <td>${birth}</td>
+          <td>${formattedBirth}</td>
         </tr>
         <tr>
           <th>가입일자</th>
-          <td>${created}</td>
+          <td>${formattedCreated}</td>
         </tr>
         <tr>
           <th>광고 수신 동의</th>
