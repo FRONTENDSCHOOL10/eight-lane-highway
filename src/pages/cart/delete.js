@@ -17,6 +17,8 @@ export function deleteSelected() {
       updateSumAllPrice();
       // 선택/전체 수량 업데이트
       updateSelectedCount();
+      //상품 없으면 해당 카테고리 띄우지 않기
+      hideFoodType();
     });
   });
 }
@@ -44,6 +46,8 @@ export function deleteItem() {
             updateSumAllPrice();
             // 선택/전체 수량 업데이트
             updateSelectedCount();
+            //상품 없으면 해당 카테고리 띄우지 않기
+            hideFoodType();
           }
         }
       });
@@ -85,4 +89,20 @@ async function removeLocalStorageItems(names) {
 
     setStorage("cartItems", filteredItems);
   }
+}
+
+// 상온,냉장,냉동 각 카테고리에 해당 하는 상품이 없을 경우 해당 UI 삭제하기
+export function hideFoodType() {
+  const foodItems = document.querySelectorAll(".food-type__item");
+
+  foodItems.forEach((foodItem) => {
+    // 각 food-type__item 요소 내에 cart__accordion 요소가 있는지 확인
+    const hasCartAccordion =
+      foodItem.querySelector(".cart__accordion") !== null;
+
+    // cart__accordion 요소가 있으면 해당 food-type__item 요소를 삭제
+    if (!hasCartAccordion) {
+      foodItem.remove();
+    }
+  });
 }
