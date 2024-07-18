@@ -8,7 +8,7 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
 async function getProductPrice(productId) {
   try {
     const record = await pb.collection("products").getOne(productId);
-    console.log("Product record:", record); // 데이터베이스에서 가져온 제품 정보 로그 출력
+    // console.log("Product record:", record); // 데이터베이스에서 가져온 제품 정보 로그 출력
     return record.price;
   } catch (error) {
     console.error("Failed to fetch product price:", error);
@@ -19,7 +19,7 @@ async function getProductPrice(productId) {
 function getProductIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("product");
-  console.log("Product ID from URL:", productId); // 콘솔에 제품 ID 출력
+  // console.log("Product ID from URL:", productId); // 콘솔에 제품 ID 출력
   return productId;
 }
 
@@ -46,9 +46,9 @@ function handleCounterProduct(countNode, price, resultNode) {
     const totalPrice = count * price;
     resultNode.textContent = totalPrice.toLocaleString();
 
-    console.log(
-      `Count: ${countNode.textContent}, Total Price: ${resultNode.textContent}`
-    );
+    // console.log(
+    //   `Count: ${countNode.textContent}, Total Price: ${resultNode.textContent}`
+    // );
   };
 }
 
@@ -67,7 +67,7 @@ export function handleAddCart(id) {
 
     let existedItems = cartItems.find((item) => item.productID === id);
 
-    console.log(existedItems);
+    // console.log(existedItems);
 
     if (existedItems) {
       existedItems.quantity =
@@ -83,7 +83,7 @@ export function handleAddCart(id) {
     const bubble = document.querySelector("add-to-cart-bubble");
     bubble.show(getPbImageURL(productData), productData.name);
 
-    console.log("Cart updated:", cartItems);
+    // console.log("Cart updated:", cartItems);
   };
 }
 
@@ -95,7 +95,7 @@ async function initializePage() {
 
   // 가격을 받아와서 이벤트 핸들러 설정
   getProductPrice(productId).then((price) => {
-    console.log(`Product Price: ${price}`);
+    // console.log(`Product Price: ${price}`);
 
     // 초기 총 가격 설정
     const initialPrice = parseInt(countNode.textContent) * price;

@@ -11,28 +11,29 @@ itemLists.forEach((item) => {
   item.addEventListener("click", handleClickedItems);
 });
 
+// 아코디언 토글 함수
 export function toggleTitle(e) {
   const titleElement = e.currentTarget;
 
-  const subMenu = titleElement.nextElementSibling;
+  const subMenu = titleElement.nextElementSibling; // 버튼 클릭 시 ul을 펼치게 하기 위해 버튼의 형제인 ul을 부르기 위해 사용
 
   const svgElement = titleElement.querySelector("img");
 
   if (!subMenu) return;
 
-  toggleClass(subMenu, "accodion_is__clicked");
-  svgElement.classList.toggle("rotate");
+  toggleClass(subMenu, "accodion_is__clicked"); // 버튼을 클릭하면 아코디언에 해당 클래스를 추가해 클래스를 넣다뺏다 할 수 있도록 토글
+  svgElement.classList.toggle("rotate"); // svg를 회전할 수 있도록 rotate 클래스 토글
 }
 
-export const selectedFilters = {
-  categories: [],
-  brands: [],
-  prices: [],
-  delivery: [],
-  types: [],
-  benefits: [],
-  exceptions: [],
-};
+// export const selectedFilters = {
+//   categories: [],
+//   brands: [],
+//   prices: [],
+//   delivery: [],
+//   types: [],
+//   benefits: [],
+//   exceptions: [],
+// };
 
 document.querySelectorAll(".input__checkbox").forEach((input) => {
   input.addEventListener("change", handleClickedItems);
