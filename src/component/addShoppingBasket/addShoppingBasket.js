@@ -7,24 +7,28 @@ const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 const popup = document.querySelector(".modal");
 const button = document.getElementById("button");
-console.log(button);
 
 // 템플릿 생성 함수
 async function renderAddShoppingCart(productId) {
   const productItem = await pb.collection("products").getOne(productId);
+
+  // const initialPrice = parseInt(countNode.textContent) * price;
+
   // 할인되는 것이 없으면 원가를 있으면 할인가를 계산하여 값을 넣도록 조건 처리
   let changePrice =
     productItem.discount === 0
-      ? productItem.price
-      : Math.floor(
-          (productItem.price * ((100 - productItem.discount) / 100)) / 10
-        ) * 10;
+      ? productItem.price.toLocaleString()
+      : (
+          Math.floor(
+            (productItem.price * ((100 - productItem.discount) / 100)) / 10
+          ) * 10
+        ).toLocaleString();
 
   // 할인이 있는 상품이면 할인 가격과 원 가격이 다 보이게 아니면 원 가격만 나타내도록 조건 처리
   const changePriceTemplate =
     productItem.discount === 0
-      ? `<span id="product__price">${changePrice}원</span>`
-      : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${productItem.price}원</span></div>`;
+      ? `<span id="product__price">${changePrice.toLocaleString()}원</span>`
+      : `<div class='price__wrappers'><span id="product__price">${changePrice.toLocaleString()}원</span><span id="product__undiscount__price">${productItem.price.toLocaleString()}원</span></div>`;
 
   const templete = `
       <section class="basket-container modal_popup">
@@ -86,13 +90,17 @@ async function renderAddShoppingCart(productId) {
 // 상품 갯수 별 가격 증가 / 감소 함수
 function handleCounterProduct(countNode, price, resultNode) {
   return function (e) {
+    let result = parseInt(price.replace(/,/g, ""), 10);
     const target = e.target.closest("button");
 
     if (!target) return;
 
     if (target.id === "plusBtn") {
       countNode.textContent = parseInt(countNode.textContent) + 1;
-      resultNode.textContent = parseInt(resultNode.textContent) + price + "원";
+      result =
+        parseInt(resultNode.textContent.replace(/,/g, ""), 10) +
+        parseInt(price.replace(/,/g, ""), 10);
+      resultNode.textContent = result.toLocaleString() + "원";
     } else if (target.id === "minusBtn") {
       if (parseInt(countNode.textContent) <= 0) {
         alert("상품 개수가 0보다 작으면 안됩니다!");
@@ -101,7 +109,10 @@ function handleCounterProduct(countNode, price, resultNode) {
         return;
       }
       countNode.textContent = parseInt(countNode.textContent) - 1;
-      resultNode.textContent = parseInt(resultNode.textContent) - price + "원";
+      result =
+        parseInt(resultNode.textContent.replace(/,/g, ""), 10) -
+        parseInt(price.replace(/,/g, ""), 10);
+      resultNode.textContent = result.toLocaleString() + "원";
     }
   };
 }
