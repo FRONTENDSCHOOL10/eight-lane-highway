@@ -31,7 +31,6 @@ const addressModal = shadowRoot.querySelector(
           isLogin: false,
           userInfo: { name: null },
         };
-        deleteAccountButton.style.display = "none";
         // UI 업데이트
         register.innerHTML = `<a href="/src/component/register/index.html" class="register">회원가입</a>`;
         login.innerHTML = `<a href="/src/component/login/index.html" class="login">로그인</a>`;
@@ -43,7 +42,7 @@ const addressModal = shadowRoot.querySelector(
             <a href="" class="modal-link modal-search-address"> 주소 검색 </a>`;
         // 인증 정보 저장
         await setStorage("auth", defaultAuthData);
-        location.reload();
+        window.location.href = "/index.html";
       } catch (error) {
         console.error("Failed to delete account:", error);
       }
