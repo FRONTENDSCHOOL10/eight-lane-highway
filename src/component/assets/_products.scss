@@ -132,6 +132,10 @@
     border-top: 1px solid $gray100;
     border-bottom: 1px solid $gray100;
 
+    &.product__allergic {
+      line-height: 160%;
+    }
+
     li {
       margin-left: 10px;
       line-height: 150%;
@@ -150,6 +154,9 @@
         border: 1px solid $gray200;
         align-items: center;
         gap: 8px;
+      }
+      &__price {
+        margin-top: 8px;
       }
     }
   }

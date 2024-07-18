@@ -1,13 +1,16 @@
-import PocketBase from "pocketbase";
+import axios from "axios";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
 import getPbImageURL from "/src/api/getPbImageURL";
 import { addToCartBubble } from "/src/pages/product/addToCartBubble.js";
 
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io");
+const baseURL = "https://eight-lane-highway.pockethost.io";
 
 async function getProductPrice(productId) {
   try {
-    const record = await pb.collection("products").getOne(productId);
+    const response = await axios.get(
+      `${baseURL}/api/collections/products/records/${productId}`
+    );
+    const record = response.data;
     // console.log("Product record:", record); // 데이터베이스에서 가져온 제품 정보 로그 출력
     return record.price;
   } catch (error) {
@@ -79,9 +82,16 @@ export function handleAddCart(id) {
     setStorage("cartItems", cartItems);
 
     // 버블을 표시합니다.
-    const productData = await pb.collection("products").getOne(id);
-    const bubble = document.querySelector("add-to-cart-bubble");
-    bubble.show(getPbImageURL(productData), productData.name);
+    try {
+      const response = await axios.get(
+        `${baseURL}/api/collections/products/records/${id}`
+      );
+      const productData = response.data;
+      const bubble = document.querySelector("add-to-cart-bubble");
+      bubble.show(getPbImageURL(productData), productData.name);
+    } catch (error) {
+      console.error("Failed to fetch product data:", error);
+    }
 
     // console.log("Cart updated:", cartItems);
   };
