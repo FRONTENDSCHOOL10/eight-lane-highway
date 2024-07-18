@@ -6,9 +6,7 @@ import {
   getStorage,
   setStorage,
 } from "/src/lib/index.js";
-import PocketBase from "pocketbase";
-
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
+import pb from "/src/api/pocketbase";
 const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = `
