@@ -24,23 +24,28 @@ export function countNumber() {
     const dataDiscount = valueTrimmed(priceDiscount) / count;
 
     minusButton.addEventListener("click", () => {
-      removeClass(minusImg, "is__deactivate");
       if (count > 1) {
-        removeClass(minusImg, "is__deactivate");
         count--;
         counterElement.textContent = count;
         priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
         priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
+
+        if (count <= 1) {
+          addClass(minusImg, "is__deactivate");
+        } else {
+          removeClass(minusImg, "is__deactivate");
+        }
       }
-      addClass(minusImg, "is__deactivate");
     });
 
     plusButton.addEventListener("click", () => {
       count++;
-      removeClass(minusImg, "is__deactivate");
       counterElement.textContent = count;
       priceValue.textContent = `${formatPrice(count * dataPrice)}원`;
       priceDiscount.textContent = `${formatPrice(count * dataDiscount)}원`;
+      if (count > 1) {
+        removeClass(minusImg, "is__deactivate");
+      }
     });
   });
 }
