@@ -39,7 +39,7 @@ const addressModal = shadowRoot.querySelector(
               <span>배송지를 등록하고</span><br />구매 가능한 상품을 확인하세요!
             </p>
             <a href="/" class="modal-link modal-login">로그인</a>
-            <a href="" class="modal-link modal-search-address"> 주소 검색 </a>`;
+            <a href="/" class="modal-link modal-search-address"> 주소 검색 </a>`;
         // 인증 정보 저장
         await setStorage("auth", defaultAuthData);
         window.location.href = "/index.html";
