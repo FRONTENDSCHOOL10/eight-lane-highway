@@ -23,33 +23,35 @@ export function deleteSelected() {
 
 // 선택항목 삭제 함수
 export function deleteItem() {
-  const deleteButton = document.querySelector(".checkbox__delete");
+  const deleteButtons = document.querySelectorAll(".checkbox__delete");
   const checkboxes = document.getElementsByName("accordion__input");
 
-  deleteButton.addEventListener("click", async () => {
-    // 배열만들어서 삭제할(체크된) 아이템 이름 추가
-    let itemsToDelete = [];
+  Array.from(deleteButtons).forEach((deleteButton) => {
+    deleteButton.addEventListener("click", async () => {
+      // 배열만들어서 삭제할(체크된) 아이템 이름 추가
+      let itemsToDelete = [];
 
-    Array.from(checkboxes).forEach((checkBox) => {
-      if (checkBox.checked) {
-        const item = checkBox.closest(".cart__accordion");
-        if (item) {
-          const value = item.querySelector(".cart__accordion__name");
-          // 체크된 아이템 이름 배열에 추가
-          itemsToDelete.push(value.textContent);
-          // 해당 아이템 태그 삭제
-          item.remove();
-          // 결제영역 가격 업데이트
-          updateSumAllPrice();
-          // 선택/전체 수량 업데이트
-          updateSelectedCount();
+      Array.from(checkboxes).forEach((checkBox) => {
+        if (checkBox.checked) {
+          const item = checkBox.closest(".cart__accordion");
+          if (item) {
+            const value = item.querySelector(".cart__accordion__name");
+            // 체크된 아이템 이름 배열에 추가
+            itemsToDelete.push(value.textContent);
+            // 해당 아이템 태그 삭제
+            item.remove();
+            // 결제영역 가격 업데이트
+            updateSumAllPrice();
+            // 선택/전체 수량 업데이트
+            updateSelectedCount();
+          }
         }
+      });
+
+      if (itemsToDelete.length > 0) {
+        await removeLocalStorageItems(itemsToDelete);
       }
     });
-
-    if (itemsToDelete.length > 0) {
-      await removeLocalStorageItems(itemsToDelete);
-    }
   });
 }
 

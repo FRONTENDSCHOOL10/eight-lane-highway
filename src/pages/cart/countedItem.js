@@ -5,6 +5,13 @@ export function updateSelectedCount() {
   const checkboxes = Array.from(
     document.querySelectorAll(".cart__accordion__input")
   );
+  // 전체 수량 0인경우 전체선택박스 체크해제
+  if (checkboxes.length === 0) {
+    const checkAll = document.querySelectorAll(".checkbox__check-all__box");
+    Array.from(checkAll).forEach((checkAll) => {
+      checkAll.checked = false;
+    });
+  }
   const checked = document.querySelectorAll(".checkbox__check-all__label");
   const selectedCount = checkboxes.filter(
     (checkbox) => checkbox.checked
