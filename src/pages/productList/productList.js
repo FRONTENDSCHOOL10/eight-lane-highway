@@ -114,7 +114,8 @@ function renderProductList() {
             <div class="visual">
               <p class="visual__link">
                 <img
-                  src="${getPbImageURL(items)}" />
+                  src="${getPbImageURL(items)}" 
+                  />
               </p>
               <button class="visual__add-cart"  data-product-id=${items.id}>
                 <img

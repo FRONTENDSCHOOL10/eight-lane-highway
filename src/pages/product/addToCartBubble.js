@@ -11,7 +11,7 @@ export class addToCartBubble extends HTMLElement {
     
     <div class="product__bubble">
       <div class="bubble__image__container">
-        <img id="productImg" />
+        <img id="productImg" src="" alt="상품 사진"/>
       </div>
       <div class="bubble__text__container">
         <h3 id="productName">상품이름</h3>
