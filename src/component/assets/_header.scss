@@ -95,7 +95,7 @@ header {
     &__item > a {
       background-color: transparent;
       border: none;
-      @include font($fs: 1.25rem, $color: #b5b5b5);
+      @include font($fs: 1.25rem, $color: $gray300);
       cursor: pointer;
 
       &:hover,
