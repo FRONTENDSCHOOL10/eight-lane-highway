@@ -16,8 +16,25 @@
   }
 
   .swiper-slide {
+    @include size($w: 250px);
     position: relative;
     max-width: 250px;
+  }
+
+  #seeAllProduct {
+    font-family: Pretendard;
+
+    a {
+      @include flexAll($fd: column, $at: center, $jc: center, $gap: 10px);
+      height: 66%;
+    }
+
+    img {
+      @include size($w: 45px, $h: 45px);
+      border: 1px solid $gray200;
+      border-radius: 50%;
+      padding: 10px;
+    }
   }
 
   .swiper-button-prev,
