@@ -28,6 +28,8 @@ import pb from "/src/api/pocketbase.js";
   const swiper1 = new CustomSwiper(".product-slide1");
   const swiper2 = new CustomSwiper(".product-slide2");
 
+  if (!swiper1 || !swiper2) return;
+
   await renderProductItem(".product-slide1", productsData);
   await renderProductItem(".product-slide2", specialProductsData);
 
