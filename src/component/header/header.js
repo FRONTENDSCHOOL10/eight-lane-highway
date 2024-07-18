@@ -46,10 +46,10 @@ headerTemplate.innerHTML = `
         </ul>
         <ul class="nav__page">
           <li class="nav__page__item market">
-            <a class="is__active">마켓칼리</a>
+            <a href="/index.html" class="is__active">마켓칼리</a>
           </li>
           <li class="nav__page__item beauty">
-            <a>뷰티칼리</a>
+            <a href="/">뷰티칼리</a>
           </li>
         </ul>
         <fieldset class="nav__search-box">
@@ -79,7 +79,7 @@ headerTemplate.innerHTML = `
                 class="modal-link modal-login">
                 로그인
               </a>
-              <a href="" class="modal-link modal-search-address"> 주소 검색 </a>
+              <a href="/" class="modal-link modal-search-address"> 주소 검색 </a>
             </dialog>
           </li>
           <li class="nav__user-service__item heart">
@@ -318,7 +318,7 @@ class Header extends HTMLElement {
                 class="modal-link modal-logout">
                 로그아웃
               </a>
-              <a href="" class="modal-link modal-search-address"> 주소 검색 </a>`;
+              <a href="/" class="modal-link modal-search-address"> 주소 검색 </a>`;
         const logout = this.header.querySelector(".logout");
         const modalLogout = this.header.querySelector(".modal-logout");
 
