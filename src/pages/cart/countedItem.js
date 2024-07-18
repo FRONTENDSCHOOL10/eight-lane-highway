@@ -1,4 +1,4 @@
-import { getNodes } from "../../lib";
+import { getNode, getNodes, insertLast } from "../../lib";
 
 // 선택수량 업데이트 함수
 export function updateSelectedCount() {
@@ -7,10 +7,7 @@ export function updateSelectedCount() {
   );
   // 전체 수량 0인경우 전체선택박스 체크해제
   if (checkboxes.length === 0) {
-    const checkAll = document.querySelectorAll(".checkbox__check-all__box");
-    Array.from(checkAll).forEach((checkAll) => {
-      checkAll.checked = false;
-    });
+    emptyCartRender();
   }
   const checked = document.querySelectorAll(".checkbox__check-all__label");
   const selectedCount = checkboxes.filter(
@@ -19,6 +16,21 @@ export function updateSelectedCount() {
   Array.from(checked).forEach((item) => {
     item.textContent = `전체선택 (${selectedCount}/${checkboxes.length})`;
   });
+}
+
+export function emptyCartRender() {
+  const itemContainer = getNode(".food-type__container");
+  const checkAll = document.querySelectorAll(".checkbox__check-all__box");
+  Array.from(checkAll).forEach((checkAll) => {
+    checkAll.checked = false;
+    checkAll.disabled = true;
+  });
+  const removeItem = getNodes(".food-type__item");
+  Array.from(removeItem).forEach((removeItem) => {
+    removeItem.remove();
+  });
+  const emptyCart = `<h3 class="food-type__container__empty title__secondary">장바구니에 담긴 상품이 없습니다.</h3>`;
+  insertLast(itemContainer, emptyCart);
 }
 
 // 전체 상품 갯수 랜더링 및 상품 선택시 선택된 상품 갯수 업데이트
@@ -38,3 +50,9 @@ export function countChange() {
     item.addEventListener("change", updateSelectedCount);
   });
 }
+
+// const emptyCart = `<h3 class="food-type__container__empty title__secondary">장바구니에 담긴 상품이 없습니다.</h3>`;
+// insertLast(getNode(".food-type__container"), emptyCart);
+// // AccordRoomTemp.closest("li").remove();
+// // AccordFrozen.closest("li").remove();
+// // AccordCold.closest("li").remove();

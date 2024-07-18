@@ -81,8 +81,12 @@
 // 냉동, 냉장, 상온 구분 영역
 .food-type {
   &__container {
-    @include flexColumn(end);
+    @include flexAll(column, center, center);
     padding: 0;
+
+    &__empty {
+      margin: 100px 0;
+    }
   }
 
   &__item {
