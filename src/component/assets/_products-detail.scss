@@ -194,14 +194,6 @@
 }
 
 .product__bubble {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  padding: 20px;
-  border: 1px solid $gray200;
-  background-color: $white;
-  z-index: 100;
-
   .bubble {
     &__image__container {
       width: 50px;

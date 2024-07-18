@@ -7,6 +7,17 @@ export class addToCartBubble extends HTMLElement {
     const productBubble = document.createElement("div");
     productBubble.className = "product__bubble";
     productBubble.innerHTML = `
+      <style>
+        .product__bubble {
+          position: absolute;
+          top: 60px;
+          right: 10px;
+          padding: 20px;
+          border: 1px solid #c4c4c4;
+          background-color: #fff;
+          z-index: 100;
+        }
+      </style>
       <link rel="stylesheet" href="/src/styles/style.scss" />
       <div class="bubble__image__container">
         <img id="productImg" src="/" alt="상품 사진"/>
