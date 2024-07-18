@@ -33,16 +33,17 @@ import pb from "/src/api/pocketbase.js";
 
   await renderProductItem(".product-slide1", productsData);
   await renderProductItem(".product-slide2", specialProductsData);
-  const seeAllProduct = `
-    <article class="swiper-slide product" id="seeAllProduct">
-    <a href="/src/pages/productList/index.html?title=best" >
-      <img src="/images/icon-arrow-right.svg" alt="전체보기 화살표" aria-hidden="true"/>
-      <span aria-label="전체보기">전체보기</span>
-    </a>
-  </article>
-  `;
-  insertLast(".product-slide1 .swiper-wrapper", seeAllProduct);
-  insertLast(".product-slide2 .swiper-wrapper", seeAllProduct);
+  // const seeAllProduct = `
+  //   <article class="swiper-slide product" id="seeAllProduct">
+  //   <a href="/src/pages/productList/index.html?title=best" >
+  //     <img src="/images/icon-arrow-right.svg" alt="전체보기 화살표" aria-hidden="true"/>
+  //     <span aria-label="전체보기">전체보기</span>
+  //   </a>
+  // </article>
+  // `;
+
+  // insertLast(".product-slide1 swiper-wrapper", seeAllProduct);
+  // insertLast(".product-slide2 swiper-wrapper", seeAllProduct);
   const localStorageItem = localStorage.getItem("recent");
 
   let data = localStorageItem ? JSON.parse(localStorageItem) : [];
@@ -101,7 +102,7 @@ import pb from "/src/api/pocketbase.js";
     const changePriceTemplate =
       item.discount === 0
         ? `<span id="product__price">${changePrice.toLocaleString()}원</span>`
-        : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${item.price}원</span></div>`;
+        : `<div class='price__wrappers'><span id="product__price">${changePrice.toLocaleString()}원</span><span id="product__undiscount__price">${item.price.toLocaleString()}원</span></div>`;
 
     const template = `
         <section class="basket-container modal_popup">

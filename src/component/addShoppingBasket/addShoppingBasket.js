@@ -1,5 +1,5 @@
 import PocketBase from "pocketbase";
-import { insertLast } from "/src/lib/dom/index";
+import { insertLast, getCartData } from "/src/lib/dom/index";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
 import { isArray } from "/src/lib/utils/type";
 import getPbImageURL from "/src/api/getPbImageURL";
@@ -152,8 +152,8 @@ export function handleAddCart(products) {
     }
 
     setStorage("cartItems", cartItems);
-
     closeCartPopUp(e);
+    getCartData();
   };
 }
 
