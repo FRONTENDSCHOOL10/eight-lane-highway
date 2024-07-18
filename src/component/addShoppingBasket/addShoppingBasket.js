@@ -10,8 +10,8 @@ const popup = document.querySelector(".modal");
 const button = document.getElementById("button");
 
 // 템플릿 생성 함수
-async function renderAddShoppingCart(productId, database) {
-  const productItem = await pb.collection(database).getOne(productId);
+async function renderAddShoppingCart(productId) {
+  const productItem = await pb.collection("products").getOne(productId);
 
   // const initialPrice = parseInt(countNode.textContent) * price;
 
@@ -158,11 +158,11 @@ export function handleAddCart(products) {
 }
 
 // 팝업 관련 함수
-export function openCartPopUp(productID, database) {
+export function openCartPopUp(productID) {
   return function (e) {
     e.preventDefault();
 
-    renderAddShoppingCart(productID, database);
+    renderAddShoppingCart(productID);
 
     popup.style.display = "flex";
     document.body.style.overflow = "hidden"; // 팝업 모달 여는 동안 스크롤 못하게 하도록 함
