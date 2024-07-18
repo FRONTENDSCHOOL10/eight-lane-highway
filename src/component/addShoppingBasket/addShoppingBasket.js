@@ -12,6 +12,7 @@ console.log(button);
 // 템플릿 생성 함수
 async function renderAddShoppingCart(productId) {
   const productItem = await pb.collection("products").getOne(productId);
+  // 할인되는 것이 없으면 원가를 있으면 할인가를 계산하여 값을 넣도록 조건 처리
   let changePrice =
     productItem.discount === 0
       ? productItem.price
@@ -19,6 +20,7 @@ async function renderAddShoppingCart(productId) {
           (productItem.price * ((100 - productItem.discount) / 100)) / 10
         ) * 10;
 
+  // 할인이 있는 상품이면 할인 가격과 원 가격이 다 보이게 아니면 원 가격만 나타내도록 조건 처리
   const changePriceTemplate =
     productItem.discount === 0
       ? `<span id="product__price">${changePrice}원</span>`
@@ -117,9 +119,7 @@ export function handleAddCart(id) {
       cartItems = [];
     }
 
-    let existedItems = cartItems.find((item) => item.productID === id);
-
-    console.log(existedItems);
+    let existedItems = cartItems.find((item) => item.productID === id); // 로컬에 같은 아이디 있는 상품이 있는지 확인
 
     if (existedItems) {
       existedItems.quantity =
