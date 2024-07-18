@@ -34,11 +34,11 @@ let productItem = [];
 let totalPages = 1;
 
 // 상품 아이템 받아오는 함수
-async function fetchProducts(database) {
-  productItem = await pb.collection(database).getFullList();
+async function fetchProducts() {
+  productItem = await pb.collection("products").getFullList();
   totalPages = Math.ceil(productItem.length / itemsPerPage); // 페이지네이션을 위해 전체 데이터에서 한 페이지당 아이템을 나눠 총 페이지 구함
   renderPaginationButtons();
-  renderProductList(database);
+  renderProductList();
 }
 
 // 헤더에서 각각의 상품 리스트 요소 클릭 시 제목 변경할 수 있도록 해주는 함수
@@ -50,19 +50,15 @@ function renderTitleName() {
   switch (titleName) {
     case "new":
       titleName = "신상품";
-      fetchProducts("specialProducts");
       break;
     case "best":
       titleName = "베스트";
-      fetchProducts("products");
       break;
     case "shopping":
       titleName = "알뜰쇼핑";
-      fetchProducts("products");
       break;
     case "benefits":
       titleName = "특가/혜택";
-      fetchProducts("products");
       break;
   }
 
@@ -74,7 +70,7 @@ function renderTitleName() {
 renderTitleName();
 
 // 상품 리스트 랜더링 함수
-function renderProductList(data) {
+function renderProductList() {
   list.innerHTML = "";
   const startIndex = (currentPage - 1) * itemsPerPage; // 상품 페이지네이션을 위한 시작 인덱스
   const endIndex = startIndex + itemsPerPage; // 상품 페이지네이션을 위한 마지막 인덱스
@@ -149,7 +145,7 @@ function renderProductList(data) {
   addCartButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const productId = e.currentTarget.getAttribute("data-product-id");
-      openCartPopUp(productId, data)(e);
+      openCartPopUp(productId)(e);
     });
   });
 
