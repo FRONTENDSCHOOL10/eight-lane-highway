@@ -9,6 +9,7 @@ import {
   isArray,
   openCartPopUp,
   closeCartPopUp,
+  getCartData,
 } from "/src/lib/index.js";
 
 import getPbImageURL from "/src/api/getPbImageURL.js";
@@ -49,7 +50,6 @@ import pb from "/src/api/pocketbase.js";
   const slides = document.querySelectorAll(".visual__link");
   slides.forEach((item, index) => {
     item.addEventListener("click", (e) => {
-      // e.preventDefault();
       handleClick(e, index);
       removeRecentProductsId(e);
     });
@@ -68,7 +68,6 @@ import pb from "/src/api/pocketbase.js";
         e.target.parentNode.previousElementSibling.href
       );
       let id = "";
-      console.log(url);
       for (const [_, a] of url) id = a;
       openCartPopUp(id);
       renderAddShoppingCart(id);
@@ -211,10 +210,9 @@ import pb from "/src/api/pocketbase.js";
         });
         // console.log(cartItems);
       }
-
       setStorage("cartItems", cartItems);
-
       closeCartPopUp(e);
+      getCartData();
     };
   }
 
@@ -223,3 +221,4 @@ import pb from "/src/api/pocketbase.js";
   // 팝업 닫기
   closeCartPopUp();
 })();
+getCartData();

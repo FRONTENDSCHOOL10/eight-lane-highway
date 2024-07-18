@@ -1,4 +1,4 @@
-import { checkNavigation } from "./checkNavigation";
+import { checkNavigation } from "/src/lib/index.js";
 
 export function CustomSwiper(className) {
   const swiper = new Swiper(`${className} .swiper-container`, {
