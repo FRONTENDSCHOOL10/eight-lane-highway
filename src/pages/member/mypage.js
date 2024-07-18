@@ -59,7 +59,7 @@ async function renderUserData() {
         <li>
           <a href="" id="cancelMember">
             <div class="icon__container">
-              <img src="/images/icon-order-list.svg" alt="" />
+              <img src="/images/icon-order-list.svg" alt="리스트 아이콘" />
             </div>
             <h3>회원 탈퇴</h3>
           </a>
@@ -67,7 +67,7 @@ async function renderUserData() {
         <li>
           <a href="">
             <div class="icon__container">
-              <img src="/images/icon-like-heart.svg" alt="" />
+              <img src="/images/icon-like-heart.svg" alt="리스트 아이콘" />
             </div>
             <h3>찜한 상품</h3>
           </a>
@@ -75,7 +75,7 @@ async function renderUserData() {
         <li>
           <a href="">
             <div class="icon__container">
-              <img src="/images/icon-coupon.svg" alt="" />
+              <img src="/images/icon-coupon.svg" alt="리스트 아이콘" />
             </div>
             <h3>상품 후기</h3>
           </a>
@@ -83,7 +83,7 @@ async function renderUserData() {
         <li>
           <a href="">
             <div class="icon__container">
-              <img src="/images/icon-product-qna.svg" alt="" />
+              <img src="/images/icon-product-qna.svg" alt="리스트 아이콘" />
             </div>
             <h3>상품 문의</h3>
           </a>

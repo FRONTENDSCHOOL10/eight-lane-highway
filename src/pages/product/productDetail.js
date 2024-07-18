@@ -11,7 +11,7 @@ const pbUrl = "https://eight-lane-highway.pockethost.io";
 function getProductIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("product");
-  console.log("Product ID from URL:", productId); // 콘솔에 제품 ID 출력
+  // console.log("Product ID from URL:", productId); // 콘솔에 제품 ID 출력
   return productId;
 }
 
@@ -22,7 +22,7 @@ async function fetchProductData(productId) {
       `${pbUrl}/api/collections/products/records/${productId}`
     );
     const data = response.data;
-    console.log("Fetched product data:", data); // 가져온 데이터 로그 출력
+    // console.log("Fetched product data:", data); // 가져온 데이터 로그 출력
     displayProductData(data);
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);

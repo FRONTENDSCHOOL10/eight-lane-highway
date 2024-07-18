@@ -81,8 +81,12 @@
 // 냉동, 냉장, 상온 구분 영역
 .food-type {
   &__container {
-    @include flexColumn(end);
+    @include flexAll(column, center, center);
     padding: 0;
+
+    &__empty {
+      margin: 100px 0;
+    }
   }
 
   &__item {
@@ -149,6 +153,15 @@
       @include font($darkBlack, 1rem, 600, 150%);
       @include flexAll(column, center, left, 0);
       z-index: -100;
+    }
+  }
+  &__count {
+    .minus-button {
+      img {
+        &.is__deactivate {
+          filter: brightness(4);
+        }
+      }
     }
   }
 

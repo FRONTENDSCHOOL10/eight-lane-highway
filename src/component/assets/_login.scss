@@ -13,6 +13,7 @@ body {
     @include font($color: $black, $fs: 1.357rem, $fw: 600, $lh: 150%);
   }
 
+  // 로그인 폼 관련 스타일링
   .login-form {
     @include flexAll(column, center, center);
     margin-top: 44px;
@@ -24,12 +25,14 @@ body {
       padding: 12px 20px;
     }
 
+    // 버튼이 마크업 상 아이디 비밀번호보다는 위에 있지만 보이는 순서를 변경하기 위해 order 1 부여
     button {
       order: 1;
       margin-top: 16px;
     }
   }
 
+  // 아이디 비밀번호 스타일링
   .search-containers {
     @include flexAll(row, right, center);
     width: 100%;
@@ -47,6 +50,7 @@ body {
     }
   }
 
+  // a 태그 버튼 스타일링
   .button__a {
     display: inline-block;
     align-content: center;

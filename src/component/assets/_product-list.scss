@@ -47,7 +47,11 @@
       @include flexAll();
       cursor: pointer;
       margin-top: 0;
-      @include font($color: $gray300, $fw: 600, $lh: 150%);
+      @include font($color: $gray300, $fs: 0.625rem, $fw: 400, $lh: 150%);
+    }
+
+    &__items:hover {
+      color: $black;
     }
   }
 

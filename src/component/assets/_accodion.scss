@@ -1,3 +1,4 @@
+// 아코디언 전체 스타일링
 .accodian__menu {
   width: 260px;
 
@@ -27,6 +28,7 @@
   }
 }
 
+// 아코디언 클릭 시 보여지는 리스트 부분 스타일링
 .accodian__sub {
   margin: 20px 0px 4px;
   width: 100%;
@@ -43,21 +45,21 @@
       @include flexAll($at: center, $gap: 5px);
 
       input {
-        @include size($w: 23px, $h: 23px);
+        @include size($w: 20px, $h: 20px);
       }
 
       label {
-        @include font($color: black, $fw: 400, $lh: 160%);
+        @include font($color: black, $fs: 0.75rem, $fw: 400, $lh: 160%);
       }
 
       span {
-        @include font($color: $gray300, $fs: 0.75rem, $fw: 400, $lh: 160%);
+        @include font($color: $gray300, $fs: 0.6rem, $fw: 400, $lh: 160%);
       }
     }
 
     &__info__more {
       width: 100%;
-      @include font($color: $gray300, $fs: 0.75rem, $fw: 600, $lh: 150%);
+      @include font($color: $gray300, $fs: 0.6rem, $fw: 600, $lh: 150%);
       @include flexAll($jc: center, $at: center);
       cursor: pointer;
     }
@@ -70,11 +72,13 @@
   }
 }
 
+// 아코디언 클릭 시 동작 스타일
 .accodion_is__clicked {
   @include flexAll($fd: column, $at: center);
   border: none;
 }
 
+// 아코디언 클릭 시 svg에 애니메이션 추가
 .rotate {
   transform: rotate(180deg);
 }
