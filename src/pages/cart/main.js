@@ -1,13 +1,11 @@
-import getPbImageURL from "/src/api/getPbImageURL";
-import pb from "/src/api/pocketbase";
+import "/src/component/footer/footer.js";
+import "/src/component/header/header.js";
 import {
   addClass,
   formatPrice,
   getNode,
-  getNodes,
   getStorage,
   insertAfter,
-  insertLast,
   toggleClass,
 } from "/src/lib";
 import { countChange, emptyCartRender } from "/src/pages/cart/countedItem";
@@ -17,15 +15,10 @@ import selectAll from "/src/pages/cart/selectAll";
 import { priceChange } from "/src/pages/cart/sumAllPrice";
 import { syncCheckBox } from "/src/pages/cart/syncCheckBox";
 import { countNumber } from "/src/pages/cart/updatePrice";
-import "/src/component/footer/footer.js";
-import "/src/component/header/header.js";
 
 const AccordCold = getNode("#foodTypeCold");
 const AccordFrozen = getNode("#foodTypeFrozen");
 const AccordRoomTemp = getNode("#foodTypeRoomTemp");
-const adressBox = getNode(".adress__container");
-const orderButton = getNode(".adress-payment__button");
-const foodTypeNav = getNode(".food-type__container");
 
 // 버튼 클릭시 아코디언 오픈
 function toggleHandler(e) {
@@ -33,12 +26,12 @@ function toggleHandler(e) {
   const toggleButton = target.closest(".food-type__button");
   if (!toggleButton) return;
   const accordion = toggleButton.closest(".food-type__item");
-  toggleClass(accordion, "is__show");
-  toggleClass(toggleButton, "is__active");
+  toggleClass(accordion, "is__hide");
+  toggleClass(toggleButton, "is__deactivate");
 }
-foodTypeNav.addEventListener("click", toggleHandler);
+getNode(".food-type__container").addEventListener("click", toggleHandler);
 
-// 로컬스토리지 저장된 상품정보 pb에서 랜더링
+// 로컬스토리지 저장된 상품정보 랜더링
 async function getCartAddedProductsNew() {
   if (await getStorage("cartItems")) {
     const product = await getStorage("cartItems");
@@ -121,6 +114,7 @@ async function getCartAddedProductsNew() {
 // 로그인 상태 => 고객 주소 o 주문하기버튼 o 적립관련 멘트 변경
 async function isLogin() {
   const auth = await getStorage("auth");
+  const adressBox = getNode(".adress__container");
 
   if (auth && auth.isLogin) {
     addClass(adressBox, "is__show");

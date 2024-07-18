@@ -90,16 +90,17 @@
   }
 
   &__item {
-    height: 62px;
+    height: auto;
     list-style: none;
     width: 100%;
     padding: 16px 0;
+
     overflow: hidden;
     border-bottom: 1px solid var(--black, #000);
 
     // 아코디언 버튼 클릭시 heigth auto 설정
-    &.is__show {
-      height: auto;
+    &.is__hide {
+      height: 62px;
     }
     &__container {
       @include flexAll(row, space-between, center, 0);
@@ -119,9 +120,9 @@
     border: none;
     background-color: inherit;
     @include size(22px, 22px);
-    background: url("/images/below.svg") no-repeat center/contain;
-    &.is__active {
-      background-image: url("/images/upper.svg");
+    background: url("/images/upper.svg") no-repeat center/contain;
+    &.is__deactivate {
+      background-image: url("/images/below.svg");
     }
   }
 }

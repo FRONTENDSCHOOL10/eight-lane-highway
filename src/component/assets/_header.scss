@@ -95,7 +95,7 @@ header {
     &__item > a {
       background-color: transparent;
       border: none;
-      @include font($fs: 1.25rem, $color: #b5b5b5);
+      @include font($fs: 1.25rem, $color: $gray300);
       cursor: pointer;
 
       &:hover,
@@ -155,7 +155,7 @@ header {
 
     &__button {
       @include absolute($t: 10px, $r: 10px);
-      @include size($w: 19px, $h: 19px);
+      @include size($w: 24px, $h: 24px);
       background-image: url("/images/icon-header.webp");
       background-repeat: no-repeat;
       background-position: -10px -98px;
@@ -505,7 +505,7 @@ header {
   }
   .delivery {
     grid-area: j;
-    border: 1px solid #d9d9d9;
+    border: 1px solid $gray300;
     border-radius: 16px;
     margin-left: auto;
     padding: 4px 8px;
