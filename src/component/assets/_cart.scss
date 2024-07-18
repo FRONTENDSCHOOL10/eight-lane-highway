@@ -151,6 +151,15 @@
       z-index: -100;
     }
   }
+  &__count {
+    .minus-button {
+      img {
+        &.is__deactivate {
+          filter: brightness(4);
+        }
+      }
+    }
+  }
 
   &__price {
     @include size(127px, 24px);
