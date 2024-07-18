@@ -17,8 +17,38 @@ export class addToCartBubble extends HTMLElement {
           background-color: #fff;
           z-index: 100;
         }
+        .product__bubble::after {
+          content: "";
+          position: absolute;
+          top: -13px;
+          right: 28px;
+          display: block;
+          width: 20px;
+          height: 17px;
+          background-image: url(/images/icon-bubble-tail.svg);
+        }
+        .bubble__image__container {
+          width: 50px;
+          background-color: #c4c4c4;
+          margin-right: 16px;
+        }
+        .bubble__image__container img {
+            width: 100%;
+            height: 100%;
+        }
+        .bubble__text__container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: left;
+          gap: 8px;
+        }
+        .bubble__text__container h3 {
+          color: #a6a6a6;
+          font-size: 12px;
+          font-weight: 600;
+        }
       </style>
-      <link rel="stylesheet" href="/src/styles/style.scss" />
       <div class="bubble__image__container">
         <img id="productImg" src="/" alt="상품 사진"/>
       </div>
