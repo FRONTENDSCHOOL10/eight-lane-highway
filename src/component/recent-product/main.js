@@ -31,27 +31,27 @@ if (recentContainer) {
 }
 
 // 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
-export async function getSavedRecentProduct() {
-  const upperArrow = getNode(".recent-product-container .swiper-button-prev");
-  const belowArrow = getNode(".recent-product-container .swiper-button-next");
-  const itemContainer = getNode(".recent-product-container .swiper-wrapper");
-  const recentProductsId = await getStorage("recentProductId");
+// export async function getSavedRecentProduct() {
+//   const upperArrow = getNode(".recent-product-container .swiper-button-prev");
+//   const belowArrow = getNode(".recent-product-container .swiper-button-next");
+//   const itemContainer = getNode(".recent-product-container .swiper-wrapper");
+//   const recentProductsId = await getStorage("recentProductId");
 
-  if (recentProductsId.length > 2) {
-    if (upperArrow) addClass(upperArrow, "is__active");
-    if (belowArrow) addClass(belowArrow, "is__active");
-  }
+//   if (recentProductsId.length > 2) {
+//     if (upperArrow) addClass(upperArrow, "is__active");
+//     if (belowArrow) addClass(belowArrow, "is__active");
+//   }
 
-  itemContainer.innerHTML = "";
-  for (const item of recentProductsId) {
-    try {
-      const template = `
-            <div class="swiper-slide">
-              <a href="/src/pages/product/product-detail.html?product=${item.id}" target="_blank" rel="noopener noreferrer">
-                <img src="${item.url}" alt="${item.name}" />
-              </a>
-            </div>`;
-      insertFirst(itemContainer, template);
-    } catch (error) {}
-  }
-}
+//   itemContainer.innerHTML = "";
+//   for (const item of recentProductsId) {
+//     try {
+//       const template = `
+//             <div class="swiper-slide">
+//               <a href="/src/pages/product/product-detail.html?product=${item.id}" target="_blank" rel="noopener noreferrer">
+//                 <img src="${item.url}" alt="${item.name}" />
+//               </a>
+//             </div>`;
+//       insertFirst(itemContainer, template);
+//     } catch (error) {}
+//   }
+// }
