@@ -48,6 +48,9 @@ export class addToCartBubble extends HTMLElement {
           font-size: 12px;
           font-weight: 600;
         }
+        .bubble__text__container p {
+          font-size: 12px;
+        }
       </style>
       <div class="bubble__image__container">
         <img id="productImg" src="/" alt="상품 사진"/>
