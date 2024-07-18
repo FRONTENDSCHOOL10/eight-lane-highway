@@ -45,21 +45,21 @@
       @include flexAll($at: center, $gap: 5px);
 
       input {
-        @include size($w: 23px, $h: 23px);
+        @include size($w: 20px, $h: 20px);
       }
 
       label {
-        @include font($color: black, $fw: 400, $lh: 160%);
+        @include font($color: black, $fs: 0.75rem, $fw: 400, $lh: 160%);
       }
 
       span {
-        @include font($color: $gray300, $fs: 0.75rem, $fw: 400, $lh: 160%);
+        @include font($color: $gray300, $fs: 0.6rem, $fw: 400, $lh: 160%);
       }
     }
 
     &__info__more {
       width: 100%;
-      @include font($color: $gray300, $fs: 0.75rem, $fw: 600, $lh: 150%);
+      @include font($color: $gray300, $fs: 0.6rem, $fw: 600, $lh: 150%);
       @include flexAll($jc: center, $at: center);
       cursor: pointer;
     }
