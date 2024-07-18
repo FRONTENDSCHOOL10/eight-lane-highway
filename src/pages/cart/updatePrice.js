@@ -23,6 +23,7 @@ export function countNumber() {
     const dataPrice = valueTrimmed(priceValue) / count;
     const dataDiscount = valueTrimmed(priceDiscount) / count;
 
+    // 마이너스 버튼 클릭시 조건에 따라 - 버튼 비활성화
     minusButton.addEventListener("click", () => {
       if (count > 1) {
         count--;
@@ -38,6 +39,7 @@ export function countNumber() {
       }
     });
 
+    // 플러스 버튼 클릭시 1이상인 경우 비활성화 해제
     plusButton.addEventListener("click", () => {
       count++;
       counterElement.textContent = count;
@@ -49,6 +51,3 @@ export function countNumber() {
     });
   });
 }
-
-// const minusImg = minusButton.querySelector("img");
-//     removeClass(minusButton.querySelector("img"), "is__deactivate");

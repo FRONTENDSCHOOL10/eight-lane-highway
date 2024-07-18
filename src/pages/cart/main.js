@@ -138,11 +138,3 @@ document.addEventListener(
   "DOMContentLoaded",
   syncCheckBox(".checkbox__check-all__box")
 );
-
-// function emptyCart() {
-//   const emptyCart = `<h3 class="food-type__container__empty title__secondary">장바구니에 담긴 상품이 없습니다.</h3>`;
-//   insertLast(foodTypeNav, emptyCart);
-//   AccordRoomTemp.closest("li").remove();
-//   AccordFrozen.closest("li").remove();
-//   AccordCold.closest("li").remove();
-// }

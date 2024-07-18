@@ -18,6 +18,7 @@ export function updateSelectedCount() {
   });
 }
 
+// 장바구니에 상품이 없을경우 '장바구니에 담긴 상품이 없습니다' 띄우는 함수
 export function emptyCartRender() {
   const itemContainer = getNode(".food-type__container");
   const checkAll = document.querySelectorAll(".checkbox__check-all__box");
@@ -50,9 +51,3 @@ export function countChange() {
     item.addEventListener("change", updateSelectedCount);
   });
 }
-
-// const emptyCart = `<h3 class="food-type__container__empty title__secondary">장바구니에 담긴 상품이 없습니다.</h3>`;
-// insertLast(getNode(".food-type__container"), emptyCart);
-// // AccordRoomTemp.closest("li").remove();
-// // AccordFrozen.closest("li").remove();
-// // AccordCold.closest("li").remove();
