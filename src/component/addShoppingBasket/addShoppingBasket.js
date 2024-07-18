@@ -2,6 +2,7 @@ import PocketBase from "pocketbase";
 import { insertLast } from "/src/lib/dom/index";
 import { setStorage, getStorage } from "/src/lib/utils/storage";
 import { isArray } from "/src/lib/utils/type";
+import getPbImageURL from "/src/api/getPbImageURL";
 
 const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
@@ -84,7 +85,7 @@ async function renderAddShoppingCart(productId) {
     handleCounterProduct(countProductNum, changePrice, totalProduct)
   );
   cancelButton.addEventListener("click", closeCartPopUp);
-  addCartButton.addEventListener("click", handleAddCart(productItem.id));
+  addCartButton.addEventListener("click", handleAddCart(productItem));
 }
 
 // 상품 갯수 별 가격 증가 / 감소 함수
@@ -118,8 +119,9 @@ function handleCounterProduct(countNode, price, resultNode) {
 }
 
 // 로컬스토리지에 장바구니 항목 추가 함수
-export function handleAddCart(id) {
+export function handleAddCart(products) {
   return async function (e) {
+    console.log(products);
     e.preventDefault();
 
     let productNum = document.querySelector("#product__num").textContent;
@@ -130,13 +132,22 @@ export function handleAddCart(id) {
       cartItems = [];
     }
 
-    let existedItems = cartItems.find((item) => item.productID === id); // 로컬에 같은 아이디 있는 상품이 있는지 확인
+    let existedItems = cartItems.find((item) => item.productID === products.id); // 로컬에 같은 아이디 있는 상품이 있는지 확인
 
     if (existedItems) {
       existedItems.quantity =
         parseInt(existedItems.quantity) + parseInt(productNum);
     } else {
-      cartItems.push({ productID: id, quantity: parseInt(productNum) });
+      cartItems.push({
+        productID: products.id,
+        quantity: parseInt(productNum),
+        name: products.name,
+        price: products.price,
+        discount: products.discount,
+        imgURL: getPbImageURL(products),
+        packaging: products.packaging,
+      });
+      console.log(cartItems);
     }
 
     setStorage("cartItems", cartItems);
