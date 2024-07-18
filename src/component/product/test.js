@@ -34,8 +34,7 @@ function checkNavigation(className, swiper) {
 
 (async function () {
   // 제품 ID 리스트
-  let productIdList = [];
-
+  let storageList = [];
   let productsData = await pb.collection("products");
   let specialProductsData = await pb.collection("specialProducts");
 
@@ -43,7 +42,12 @@ function checkNavigation(className, swiper) {
   async function renderProductItem(className, swiper, collectionName) {
     let productsData = await collectionName.getFullList();
     productsData.forEach((item) => {
-      productIdList.push(item.id);
+      storageList.push({
+        id: item.id,
+        url: getPbImageURL(item),
+        name: item.name,
+      });
+
       const discount = item.price * (item.discount * 0.01);
       const template = `
         <article class="swiper-slide product">
@@ -94,44 +98,45 @@ function checkNavigation(className, swiper) {
     swiper.update();
   }
   // add-cart에 각각 이벤트 추가
-  // function addCart(className) {
-  //   const addCart = getNodes(`${className} .visual__add-cart`);
-  //   addCart.forEach((addCartButton, index) => {
-  //     addCartButton.addEventListener("click", (e) => {
-  //       e.preventDefault();
-  //       openCartPopUp(productIdList[index]);
-  //     });
-  //   });
-  // }
+  function addCart(className) {
+    const addCart = getNodes(`${className} .visual__add-cart`);
+    addCart.forEach((addCartButton, index) => {
+      addCartButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        // openCartPopUp(storageList[index]);
+      });
+    });
+  }
 
-  let recentProductsId = await getStorage("recentProductId");
+  let recentProductsList = await getStorage("recentProductId");
   async function removeRecentProductsId() {
-    if (!recentProductsId) return;
+    if (!recentProductsList) return;
     // 최근 본 상품이 5개 초과일 경우, 가장 오래된 상품 하나를 삭제
-    if (recentProductsId.length > 5) {
-      recentProductsId.shift(); // 가장 오래된 상품 하나를 삭제
-      await setStorage("recentProductId", recentProductsId); // 수정된 목록을 저장
+    if (recentProductsList.length > 4) {
+      recentProductsList.shift(); // 가장 오래된 상품 하나를 삭제
+      await setStorage("recentProductId", recentProductsList); // 수정된 목록을 저장
     }
   }
-  function recentProducts(className, collectionName) {
+
+  function recentProducts(className) {
     return async function () {
       const productLinks = getNodes(`${className} .visual__link`);
       async function handleClick(e, index) {
         e.preventDefault();
         try {
-          const productId = productIdList[index];
-          recentProductsId = (await getStorage("recentProductId")) || [];
+          const productId = storageList[index];
+          recentProductsList = (await getStorage("recentProductId")) || [];
           // 이미 저장된 상품이 있다면 중복 체크 후 제거
-          const productIndex = recentProductsId.indexOf(productId);
-          if (productIndex !== -1) {
-            recentProductsId.splice(productIndex, 1);
-          }
+          recentProductsList.forEach((item) => {
+            if (item.id === productId.id) {
+              recentProductsList.splice(recentProductsList.indexOf(item), 1);
+            }
+          });
           // 최근 본 상품 목록에 상품 추가
-          recentProductsId.push(productId);
-          await setStorage("recentProductId", recentProductsId);
-          // 최신 데이터로 업데이트
-          await removeRecentProductsId(); // 오래된 상품 제거를 위한 비동기 호출
-          await getSavedRecentProduct(collectionName); // 최신 데이터를 가져오기 위한 비동기 호출
+          recentProductsList.push(productId);
+          await setStorage("recentProductId", recentProductsList);
+          getSavedRecentProduct(); // 최신 데이터로 업데이트
+          removeRecentProductsId(); // 오래된 상품 제거를 위한 비동기 호출
         } catch (error) {}
       }
       productLinks.forEach((productLink, index) => {
@@ -139,9 +144,6 @@ function checkNavigation(className, swiper) {
       });
     };
   }
-
-  await getSavedRecentProduct(productsData);
-  await getSavedRecentProduct(specialProductsData);
 
   /* -------------------------------------------------------------------------- */
   /*                                   장바구니 모달                             */
@@ -218,7 +220,7 @@ function checkNavigation(className, swiper) {
   //   addCartButton.addEventListener("click", handleAddCart(item.id));
   // }
 
-  // 상품 갯수 별 가격 증가 / 감소 함수
+  // // 상품 갯수 별 가격 증가 / 감소 함수
   // function handleCounterProduct(countNode, price, resultNode) {
   //   return function (e) {
   //     const target = e.target.closest("button");
@@ -301,7 +303,7 @@ function checkNavigation(className, swiper) {
         update: function () {
           recentProducts(className, collectionName)();
           checkNavigation(className, this);
-          // addCart(className);
+          addCart(className);
         },
       },
     });

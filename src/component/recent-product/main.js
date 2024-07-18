@@ -31,21 +31,11 @@ if (recentContainer) {
 }
 
 // 로컬스토리지에 저장된 id값으로 데이터베이스에서 이미지 불러오기
-export async function getSavedRecentProduct(collectionName) {
+export async function getSavedRecentProduct() {
   const upperArrow = getNode(".recent-product-container .swiper-button-prev");
   const belowArrow = getNode(".recent-product-container .swiper-button-next");
   const itemContainer = getNode(".recent-product-container .swiper-wrapper");
   const recentProductsId = await getStorage("recentProductId");
-  async function removeRecentProductsId() {
-    if (!recentProductsId) return;
-    // 최근 본 상품이 5개 초과일 경우, 가장 오래된 상품 하나를 삭제
-    if (recentProductsId.length > 5) {
-      recentProductsId.shift(); // 가장 오래된 상품 하나를 삭제
-      await setStorage("recentProductId", recentProductsId); // 수정된 목록을 저장
-    }
-  }
-
-  await removeRecentProductsId();
 
   if (recentProductsId.length > 2) {
     if (upperArrow) addClass(upperArrow, "is__active");
@@ -53,16 +43,12 @@ export async function getSavedRecentProduct(collectionName) {
   }
 
   itemContainer.innerHTML = "";
-  for (const id of recentProductsId) {
+  for (const item of recentProductsId) {
     try {
-      const item = await pb.collection(collectionName).getOne(id);
-      console.log(item);
       const template = `
             <div class="swiper-slide">
-              <a href="/src/pages/product/product-detail.html?product=${
-                item.id
-              }" target="_blank" rel="noopener noreferrer">
-                <img src="${getPbImageURL(item)}" alt="${item.name}" />
+              <a href="/src/pages/product/product-detail.html?product=${item.id}" target="_blank" rel="noopener noreferrer">
+                <img src="${item.url}" alt="${item.name}" />
               </a>
             </div>`;
       insertFirst(itemContainer, template);
