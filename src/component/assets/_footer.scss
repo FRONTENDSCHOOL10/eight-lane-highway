@@ -105,7 +105,7 @@ footer {
       display: inline-block;
       @include size($w: 30px, $h: 30px);
       background-repeat: no-repeat;
-      background-image: url(/images/icon-footer.png);
+      background-image: url(/images/icon-footer.webp);
     }
 
     .blog {
@@ -136,7 +136,7 @@ footer {
       @include flexAll($fd: row, $jc: center, $at: center);
       background-position: -5px -366px;
       background-repeat: no-repeat;
-      background-image: url(/images/icon-footer.png);
+      background-image: url(/images/icon-footer.webp);
       border: none;
 
       span {
@@ -176,7 +176,7 @@ footer {
     position: fixed;
     right: 30px;
     bottom: 30px;
-    background-image: url("/images/to-top.png");
+    background-image: url("/images/to-top.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

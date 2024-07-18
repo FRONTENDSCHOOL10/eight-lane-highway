@@ -1,8 +1,7 @@
 import "/main.js";
-
-import PocketBase from "pocketbase";
 import { getStorage, setStorage, insertLast } from "/src/lib/index.js";
-const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
+import pb from "/src/api/pocketbase";
+
 const shadowRoot = document.querySelector("c-header").shadowRoot;
 const register = shadowRoot.querySelector(".register");
 const login = shadowRoot.querySelector(".login");

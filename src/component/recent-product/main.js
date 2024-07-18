@@ -1,12 +1,12 @@
-import getPbImageURL from "../../api/getPbImageURL";
-import pb from "../../api/pocketbase";
+import getPbImageURL from "/src/api/getPbImageURL";
+import pb from "/src/api/pocketbase";
 import {
   getNode,
   insertFirst,
   getStorage,
   addClass,
   setStorage,
-} from "../../lib/index";
+} from "/src/lib/index";
 
 // 스와이퍼 생성
 const swiperContainer = document.querySelector(
@@ -37,42 +37,21 @@ export async function getSavedRecentProduct() {
   const itemContainer = getNode(".recent-product-container .swiper-wrapper");
   const recentProductsId = await getStorage("recentProductId");
 
-  async function removeRecentProductsId() {
-    if (!recentProductsId) return;
-    // 최근 본 상품이 5개 초과일 경우, 가장 오래된 상품 하나를 삭제
-    if (recentProductsId.length > 5) {
-      recentProductsId.shift(); // 가장 오래된 상품 하나를 삭제
-      await setStorage("recentProductId", recentProductsId); // 수정된 목록을 저장
-    }
+  if (recentProductsId.length > 2) {
+    if (upperArrow) addClass(upperArrow, "is__active");
+    if (belowArrow) addClass(belowArrow, "is__active");
   }
 
-  removeRecentProductsId();
-
-  if (recentProductsId) {
-    if (recentProductsId.length > 2) {
-      if (upperArrow) addClass(upperArrow, "is__active");
-      if (belowArrow) addClass(belowArrow, "is__active");
-    }
-
-    if (itemContainer) {
-      itemContainer.innerHTML = "";
-
-      for (const id of recentProductsId) {
-        const item = await pb.collection("products").getOne(id);
-        const template = `
-          <div class="swiper-slide">
-            <a href="/src/pages/product/product-detail.html?product=${
-              item.id
-            }" target="_blank" rel="noopener noreferrer">
-              <img src="${getPbImageURL(item)}" alt="${item.name}" />
-            </a>
-          </div>`;
-        insertFirst(itemContainer, template);
-      }
-    } else {
-      console.warn("Item container not found");
-    }
-  } else {
-    console.error("No recent product IDs found in storage");
+  itemContainer.innerHTML = "";
+  for (const item of recentProductsId) {
+    try {
+      const template = `
+            <div class="swiper-slide">
+              <a href="/src/pages/product/product-detail.html?product=${item.id}" target="_blank" rel="noopener noreferrer">
+                <img src="${item.url}" alt="${item.name}" />
+              </a>
+            </div>`;
+      insertFirst(itemContainer, template);
+    } catch (error) {}
   }
 }

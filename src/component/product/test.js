@@ -11,8 +11,8 @@ import {
   closeCartPopUp,
 } from "/src/lib/index.js";
 
-import getPbImageURL from "/src/api/getPbImageURL.js";
-import pb from "/src/api/pocketbase.js";
+import PocketBase from "pocketbase";
+const pb = new PocketBase("https://eight-lane-highway.pockethost.io/");
 
 // 스와이퍼의 시작과 마지막을 체크
 
@@ -27,8 +27,6 @@ import pb from "/src/api/pocketbase.js";
 
   const swiper1 = new CustomSwiper(".product-slide1");
   const swiper2 = new CustomSwiper(".product-slide2");
-
-  if (!swiper1 || !swiper2) return;
 
   await renderProductItem(".product-slide1", productsData);
   await renderProductItem(".product-slide2", specialProductsData);
@@ -49,7 +47,7 @@ import pb from "/src/api/pocketbase.js";
   const slides = document.querySelectorAll(".visual__link");
   slides.forEach((item, index) => {
     item.addEventListener("click", (e) => {
-      // e.preventDefault();
+      e.preventDefault(); // remove
       handleClick(e, index);
       removeRecentProductsId(e);
     });
@@ -67,8 +65,7 @@ import pb from "/src/api/pocketbase.js";
       const url = new URLSearchParams(
         e.target.parentNode.previousElementSibling.href
       );
-      let id = "";
-      console.log(url);
+      let id;
       for (const [_, a] of url) id = a;
       openCartPopUp(id);
       renderAddShoppingCart(id);
@@ -86,13 +83,11 @@ import pb from "/src/api/pocketbase.js";
     const item = allData.find((item) => item.id === id);
     let changePrice =
       item.discount === 0
-        ? item.price.toLocaleString()
-        : (
-            Math.floor((item.price * ((100 - item.discount) / 100)) / 10) * 10
-          ).toLocaleString();
+        ? item.price
+        : Math.floor((item.price * ((100 - item.discount) / 100)) / 10) * 10;
     const changePriceTemplate =
       item.discount === 0
-        ? `<span id="product__price">${changePrice.toLocaleString()}원</span>`
+        ? `<span id="product__price">${changePrice}원</span>`
         : `<div class='price__wrappers'><span id="product__price">${changePrice}원</span><span id="product__undiscount__price">${item.price}원</span></div>`;
 
     const template = `
@@ -147,7 +142,7 @@ import pb from "/src/api/pocketbase.js";
     handleAddCart(id);
     counterButton.addEventListener(
       "click",
-      handleCounterProduct(countProductNum, changePrice, totalProduct)
+      handleCounterProduct(countProductNum, item.price, totalProduct)
     );
     cancelButton.addEventListener("click", closeCartPopUp);
     addCartButton.addEventListener("click", handleAddCart(item.id));
@@ -156,16 +151,13 @@ import pb from "/src/api/pocketbase.js";
   // 상품 갯수 별 가격 증가 / 감소 함수
   function handleCounterProduct(countNode, price, resultNode) {
     return function (e) {
-      let result = parseInt(price.replace(/,/g, ""), 10);
       const target = e.target.closest("button");
       if (!target) return;
 
       if (target.id === "plusBtn") {
         countNode.textContent = parseInt(countNode.textContent) + 1;
-        result =
-          parseInt(resultNode.textContent.replace(/,/g, ""), 10) +
-          parseInt(price.replace(/,/g, ""), 10);
-        resultNode.textContent = result.toLocaleString() + "원";
+        resultNode.textContent =
+          parseInt(resultNode.textContent) + price + "원";
       } else if (target.id === "minusBtn") {
         if (parseInt(countNode.textContent) <= 0) {
           alert("상품 개수가 0보다 작으면 안됩니다!");
@@ -174,10 +166,8 @@ import pb from "/src/api/pocketbase.js";
           return;
         }
         countNode.textContent = parseInt(countNode.textContent) - 1;
-        result =
-          parseInt(resultNode.textContent.replace(/,/g, ""), 10) -
-          parseInt(price.replace(/,/g, ""), 10);
-        resultNode.textContent = result.toLocaleString() + "원";
+        resultNode.textContent =
+          parseInt(resultNode.textContent) - price + "원";
       }
     };
   }
@@ -186,8 +176,6 @@ import pb from "/src/api/pocketbase.js";
   function handleAddCart(id) {
     return async function (e) {
       e.preventDefault();
-      const products = allData.find((item) => item.id === id);
-
       let productNum = document.querySelector("#product__num").textContent;
       let cartItems = await getStorage("cartItems");
 
@@ -200,16 +188,7 @@ import pb from "/src/api/pocketbase.js";
         existedItems.quantity =
           parseInt(existedItems.quantity) + parseInt(productNum);
       } else {
-        cartItems.push({
-          productID: products.id,
-          quantity: parseInt(productNum),
-          name: products.name,
-          price: products.price,
-          discount: products.discount,
-          imgURL: getPbImageURL(products),
-          packaging: products.packaging,
-        });
-        // console.log(cartItems);
+        cartItems.push({ productID: id, quantity: parseInt(productNum) });
       }
 
       setStorage("cartItems", cartItems);
