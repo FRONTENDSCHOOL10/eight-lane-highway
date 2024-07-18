@@ -1,5 +1,11 @@
 import pb from "../../api/pocketbase";
-import { deleteStorage, getStorage, isArray, setStorage } from "../../lib";
+import {
+  deleteStorage,
+  getCartData,
+  getStorage,
+  isArray,
+  setStorage,
+} from "../../lib";
 import { updateSelectedCount } from "./countedItem";
 import { updateSumAllPrice } from "./sumAllPrice";
 
@@ -19,6 +25,7 @@ export function deleteSelected() {
       updateSelectedCount();
       //상품 없으면 해당 카테고리 띄우지 않기
       hideFoodType();
+      getCartData();
     });
   });
 }
@@ -48,6 +55,7 @@ export function deleteItem() {
             updateSelectedCount();
             //상품 없으면 해당 카테고리 띄우지 않기
             hideFoodType();
+            getCartData();
           }
         }
       });
@@ -86,9 +94,9 @@ async function removeLocalStorageItems(names) {
     const filteredItems = originItems.filter(
       (product) => product.productID !== deleteId
     );
-
     setStorage("cartItems", filteredItems);
   }
+  getCartData();
 }
 
 // 상온,냉장,냉동 각 카테고리에 해당 하는 상품이 없을 경우 해당 UI 삭제하기
