@@ -139,6 +139,7 @@
         height: 200px;
         border-radius: 9px;
         background-color: $gray070;
+        overflow: hidden;
 
         img {
           @include size(100%);
