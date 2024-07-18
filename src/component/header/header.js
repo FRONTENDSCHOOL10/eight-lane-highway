@@ -86,6 +86,7 @@ headerTemplate.innerHTML = `
           </li>
           <li class="nav__user-service__item cart">
             <a href="/src/pages/cart/index.html" aria-label="장바구니"></a>
+            <span aria-label="장바구니에 담긴 개수" id="cartCount"></span>
           </li>
         </ul>
         <div class="nav__product__category" aria-label="제품 카테고리">
@@ -294,6 +295,7 @@ class Header extends HTMLElement {
     }
     window.addEventListener("scroll", handleScroll.bind(this));
     this.handleLogout();
+    this.getCartData();
   }
   async handleLogout() {
     const defaultAuthData = {
@@ -348,6 +350,12 @@ class Header extends HTMLElement {
         });
       }
     }
+  }
+
+  async getCartData() {
+    const cartItems = await getStorage("cartItems");
+    this.cartCount = this.header.querySelector("#cartCount");
+    this.cartCount.innerHTML = cartItems.length;
   }
 }
 
