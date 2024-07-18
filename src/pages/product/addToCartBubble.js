@@ -44,7 +44,7 @@ export class addToCartBubble extends HTMLElement {
           flex-direction: column;
           justify-content: center;
           text-align: left;
-          gap: 16px;
+          gap: 12px;
         }
         .bubble__text__container h3 {
           color: #a6a6a6;
