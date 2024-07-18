@@ -155,7 +155,7 @@ header {
 
     &__button {
       @include absolute($t: 10px, $r: 10px);
-      @include size($w: 19px, $h: 19px);
+      @include size($w: 24px, $h: 24px);
       background-image: url("/images/icon-header.webp");
       background-repeat: no-repeat;
       background-position: -10px -98px;
