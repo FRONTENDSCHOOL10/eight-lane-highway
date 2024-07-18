@@ -9,7 +9,11 @@ import {
   toggleClass,
 } from "/src/lib";
 import { countChange, emptyCartRender } from "/src/pages/cart/countedItem";
-import { deleteItem, deleteSelected } from "/src/pages/cart/delete";
+import {
+  deleteItem,
+  deleteSelected,
+  hideFoodType,
+} from "/src/pages/cart/delete";
 import { hidePrice } from "/src/pages/cart/hidePrice";
 import selectAll from "/src/pages/cart/selectAll";
 import { priceChange } from "/src/pages/cart/sumAllPrice";
@@ -90,6 +94,9 @@ async function getCartAddedProductsNew() {
         }
       }
       // 장바구니 품목 랜더링 후 실행될 함수들
+
+      // 각 카테고리에 해당 상품 없을시 해당 카테고리 UI 삭제하기
+      hideFoodType();
       // 선택한 품목 동기화 위 아래
       new selectAll("#selectAll", "accordion__input");
       new selectAll("#selectAll2", "accordion__input");
