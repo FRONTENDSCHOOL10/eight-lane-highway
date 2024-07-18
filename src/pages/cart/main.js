@@ -1,5 +1,5 @@
-import getPbImageURL from "../../api/getPbImageURL";
-import pb from "../../api/pocketbase";
+import getPbImageURL from "/src/api/getPbImageURL";
+import pb from "/src/api/pocketbase";
 import {
   addClass,
   formatPrice,
@@ -9,14 +9,14 @@ import {
   insertAfter,
   insertLast,
   toggleClass,
-} from "../../lib";
-import { countChange, emptyCartRender } from "./countedItem";
-import { deleteItem, deleteSelected } from "./delete";
-import { hidePrice } from "./hidePrice";
-import selectAll from "./selectAll";
-import { priceChange } from "./sumAllPrice";
-import { syncCheckBox } from "./syncCheckBox";
-import { countNumber } from "./updatePrice";
+} from "/src/lib";
+import { countChange, emptyCartRender } from "/src/pages/cart/countedItem";
+import { deleteItem, deleteSelected } from "/src/pages/cart/delete";
+import { hidePrice } from "/src/pages/cart/hidePrice";
+import selectAll from "/src/pages/cart/selectAll";
+import { priceChange } from "/src/pages/cart/sumAllPrice";
+import { syncCheckBox } from "/src/pages/cart/syncCheckBox";
+import { countNumber } from "/src/pages/cart/updatePrice";
 import "/src/component/footer/footer.js";
 import "/src/component/header/header.js";
 
@@ -46,27 +46,28 @@ async function getCartAddedProductsNew() {
       emptyCartRender();
     } else {
       for (let item of product) {
-        const data = await pb.collection("products").getOne(item.productID);
-        const type = data.packaging.slice(0, 2);
-        const quantity = item.quantity;
+        const pack = item.packaging;
+        const type = pack.slice(0, 2);
         const templete = ` <div class="cart__accordion" >
       <input
       type="checkbox"
       id="cartAddedSelect"
       class="cart__accordion__input"  name="accordion__input" />
-      <a href="/src/pages/product/product-detail.html?product=${data.id}">
-      <img src="${getPbImageURL(data)}" alt="${
-          data.name
+      <a href="/src/pages/product/product-detail.html?product=${
+        item.productID
+      }">
+      <img src="${item.imgURL}" alt="${
+          item.name
         }" class="cart__accordion__img" />
     <label for="cartAddedSelect" class="cart__accordion__name"
-      >${data.name}</label
+      >${item.name}</label
     >
     </a>
     <div class="cart__accordion__count price_counter">
       <button type="button" class="minus-button">
         <img src="/images/minus-button-black.svg" alt="수량 감소 버튼" />
       </button>
-      <span class="counter">${quantity}</span>
+      <span class="counter">${item.quantity}</span>
       <button type="button" class="plus-button">
         <img src="/images/plus-button-black.svg" alt="수량 추가 버튼" />
       </button>
@@ -74,10 +75,10 @@ async function getCartAddedProductsNew() {
 
     <span class="cart__accordion__price">
     <span class="cart__accordion__price__discount">${formatPrice(
-      data.price * ((100 - data.discount) / 100) * quantity
+      item.price * ((100 - item.discount) / 100) * item.quantity
     )}원</span>
     <span class="cart__accordion__price__value">${formatPrice(
-      data.price * quantity
+      item.price * item.quantity
     )}원</span>
     </span>
     <button
