@@ -5,6 +5,7 @@ import {
   toggleClass,
   getStorage,
   setStorage,
+  getCartData,
 } from "/src/lib/index.js";
 import pb from "/src/api/pocketbase";
 const headerTemplate = document.createElement("template");
@@ -295,7 +296,7 @@ class Header extends HTMLElement {
     }
     window.addEventListener("scroll", handleScroll.bind(this));
     this.handleLogout();
-    this.getCartData();
+    getCartData();
   }
   async handleLogout() {
     const defaultAuthData = {
@@ -350,12 +351,6 @@ class Header extends HTMLElement {
         });
       }
     }
-  }
-
-  async getCartData() {
-    const cartItems = await getStorage("cartItems");
-    this.cartCount = this.header.querySelector("#cartCount");
-    this.cartCount.innerHTML = cartItems.length;
   }
 }
 

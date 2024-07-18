@@ -139,6 +139,10 @@
         height: 200px;
         border-radius: 9px;
         background-color: $gray070;
+
+        img {
+          @include size(100%);
+        }
       }
     }
     table {

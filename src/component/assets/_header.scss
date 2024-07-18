@@ -215,12 +215,16 @@ header {
         @include size($w: 17px, $h: 17px);
         @include absolute($t: 0px, $r: 0);
         @include flexAll($fd: row, $jc: center, $at: center);
-        @include font($fs: 0.7rem, $fw: 600, $lh: 150%, $color: $primaryColor);
+        @include font($fs: 0.7rem, $fw: 600, $lh: 150%, $color: $white);
+        display: none;
         text-align: center;
-        padding: 0px 4px;
-        background-color: $white;
-        border: 2px solid $primaryColor;
+        padding: 1px 4px 3px 4px;
+        background-color: $primaryColor;
         border-radius: 50%;
+      }
+
+      #cartCount.is__active {
+        display: block;
       }
     }
 
@@ -300,6 +304,15 @@ header {
       padding-right: 15px;
       background-color: $white;
       z-index: 100;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+        margin-right: 2px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $primaryColor;
+        border-radius: 4px;
+      }
 
       &.is__show {
         display: block;

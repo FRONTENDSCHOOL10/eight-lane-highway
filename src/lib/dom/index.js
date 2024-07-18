@@ -14,4 +14,5 @@ export * from "./removeRecentProducts.js";
 export * from "./recentProducts.js";
 export * from "./openCartPopUp.js";
 export * from "./closeCartPopUp.js";
+export * from "./getCartData.js";
 export { default as clearContents } from "./clearContents.js";
