@@ -33,7 +33,16 @@ import pb from "/src/api/pocketbase.js";
 
   await renderProductItem(".product-slide1", productsData);
   await renderProductItem(".product-slide2", specialProductsData);
-
+  const seeAllProduct = `
+    <article class="swiper-slide product" id="seeAllProduct">
+    <a href="/src/pages/productList/index.html?title=best" >
+      <img src="/images/icon-arrow-right.svg" alt="전체보기 화살표" aria-hidden="true"/>
+      <span aria-label="전체보기">전체보기</span>
+    </a>
+  </article>
+  `;
+  insertLast(".product-slide1 .swiper-wrapper", seeAllProduct);
+  insertLast(".product-slide2 .swiper-wrapper", seeAllProduct);
   const localStorageItem = localStorage.getItem("recent");
 
   let data = localStorageItem ? JSON.parse(localStorageItem) : [];

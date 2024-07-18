@@ -267,8 +267,9 @@ header {
   &__product__category {
     grid-area: e;
     position: relative;
-    padding: 10px 0 10px 24px;
+    padding: 16px 0 0px 24px;
     max-width: 100px;
+    height: 100%;
     border: none;
 
     button {
@@ -282,7 +283,7 @@ header {
     }
 
     &::before {
-      @include absolute($t: 14px, $l: 2px);
+      @include absolute($t: 20px, $l: 2px);
       @include size($w: 16px, $h: 14px);
       content: "";
       background-image: url("/images/icon-header.webp");
@@ -296,14 +297,14 @@ header {
     }
 
     &__list {
-      @include absolute($t: 40px, $l: 0px);
+      @include absolute($t: 56px, $l: 0px);
       display: none;
       border: 1px solid $black;
       max-height: 500px;
       overflow-x: hidden;
       padding-right: 15px;
       background-color: $white;
-      z-index: 100;
+      z-index: 100000;
 
       &::-webkit-scrollbar {
         width: 7px;
@@ -311,7 +312,6 @@ header {
       }
       &::-webkit-scrollbar-thumb {
         background-color: $primaryColor;
-        border-radius: 4px;
       }
 
       &.is__show {
@@ -544,14 +544,16 @@ header.is__scroll {
       padding-right: 10px;
 
       &::before {
-        top: 13px;
+        top: 18px;
       }
+    }
+    .nav__product__category__list {
+      top: 52px;
     }
 
     .nav__product__category button {
       @include font($fs: 0.825rem, $fw: 600, $lh: 150%);
     }
-
     .nav__search-box {
       grid-area: f;
       margin-left: -15px;
