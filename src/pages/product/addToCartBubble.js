@@ -4,19 +4,16 @@ export class addToCartBubble extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
 
     // Create the bubble container
-    const bubble = document.createElement("div");
-    bubble.className = "bubble";
-    bubble.innerHTML = `
-    <link rel="stylesheet" href="/src/styles/style.scss" />
-    
-    <div class="product__bubble">
+    const productBubble = document.createElement("div");
+    productBubble.className = "product__bubble";
+    productBubble.innerHTML = `
+      <link rel="stylesheet" href="/src/styles/style.scss" />
       <div class="bubble__image__container">
         <img id="productImg" src="" alt="상품 사진"/>
       </div>
       <div class="bubble__text__container">
         <h3 id="productName">상품이름</h3>
         <p>장바구니에 상품을 담았습니다.</p>
-      </div>
       </div>
     `;
     bubble.style.display = "none";
