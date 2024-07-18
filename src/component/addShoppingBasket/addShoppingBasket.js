@@ -39,11 +39,11 @@ async function renderAddShoppingCart(productId) {
           ${changePriceTemplate}
           <div class="price_counter">
             <button type="button" id="minusBtn">
-              <img src="/images/minus-button-black.svg" alt="" />
+              <img src="/images/minus-button-black.svg" alt="상품 빼기" />
             </button>
             <span id="product__num">1</span>
             <button type="button" id="plusBtn">
-              <img src="/images/plus-button-black.svg" alt="" />
+              <img src="/images/plus-button-black.svg" alt="상품 더하기" />
             </button>
           </div>
         </div>
@@ -84,6 +84,7 @@ async function renderAddShoppingCart(productId) {
     "click",
     handleCounterProduct(countProductNum, changePrice, totalProduct)
   );
+
   cancelButton.addEventListener("click", closeCartPopUp);
   addCartButton.addEventListener("click", handleAddCart(productItem));
 }
@@ -121,7 +122,7 @@ function handleCounterProduct(countNode, price, resultNode) {
 // 로컬스토리지에 장바구니 항목 추가 함수
 export function handleAddCart(products) {
   return async function (e) {
-    console.log(products);
+    // console.log(products);
     e.preventDefault();
 
     let productNum = document.querySelector("#product__num").textContent;
@@ -147,7 +148,7 @@ export function handleAddCart(products) {
         imgURL: getPbImageURL(products),
         packaging: products.packaging,
       });
-      console.log(cartItems);
+      // console.log(cartItems);
     }
 
     setStorage("cartItems", cartItems);

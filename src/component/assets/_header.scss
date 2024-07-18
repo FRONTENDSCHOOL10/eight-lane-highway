@@ -58,7 +58,7 @@ header {
         content: "";
         @include absolute($t: 4px, $r: -10px);
         @include size($w: 8px, $h: 8px);
-        background: url("/images/icon-header.png");
+        background: url("/images/icon-header.webp");
         background-position: -10px -8px;
         background-repeat: no-repeat;
       }
@@ -125,7 +125,7 @@ header {
         content: "";
         @include absolute($t: 0, $r: -10px);
         @include size($w: 8px, $h: 8px);
-        background: url("/images/icon-header.png");
+        background: url("/images/icon-header.webp");
         background-position: -10px -36px;
         background-repeat: no-repeat;
       }
@@ -156,7 +156,7 @@ header {
     &__button {
       @include absolute($t: 10px, $r: 10px);
       @include size($w: 19px, $h: 19px);
-      background-image: url("/images/icon-header.png");
+      background-image: url("/images/icon-header.webp");
       background-repeat: no-repeat;
       background-position: -10px -98px;
       border: none;
@@ -179,14 +179,14 @@ header {
       > button {
         display: inline-block;
         @include size($w: 100%, $h: 100%);
-        background-image: url("/images/icon-header.png");
+        background-image: url("/images/icon-header.webp");
         background-repeat: no-repeat;
         background-position-x: -10px;
       }
 
       > a:hover,
       > button:hover {
-        mask-image: url("/images/icon-header.png");
+        mask-image: url("/images/icon-header.webp");
         background-image: none;
         background-color: $primaryColor;
       }
@@ -209,6 +209,18 @@ header {
       }
       &:nth-child(3) a:hover {
         mask-position: -10px -193px;
+      }
+
+      #cartCount {
+        @include size($w: 17px, $h: 17px);
+        @include absolute($t: 0px, $r: 0);
+        @include flexAll($fd: row, $jc: center, $at: center);
+        @include font($fs: 0.7rem, $fw: 600, $lh: 150%, $color: $primaryColor);
+        text-align: center;
+        padding: 0px 4px;
+        background-color: $white;
+        border: 2px solid $primaryColor;
+        border-radius: 50%;
       }
     }
 
@@ -269,7 +281,7 @@ header {
       @include absolute($t: 14px, $l: 2px);
       @include size($w: 16px, $h: 14px);
       content: "";
-      background-image: url("/images/icon-header.png");
+      background-image: url("/images/icon-header.webp");
       background-repeat: no-repeat;
       background-position: -10px -64px;
     }

@@ -454,3 +454,9 @@
 - src/component/assets/\_products.scss: 상품문의/상품후기 게시판 스타일링 마무리
 - src/component/assets/\_products-detail.scss: 상품문의/상품후기 게시판 스타일링 마무리
 - src/component/assets/\_typography.scss: 제목 type 및 list type 에셋 추가
+
+## 2024-07-17
+
+**이희재**
+
+- src/component/product/product-slide.js: 생성자 함수로 추가 id값을 통해서 pb통신 줄이기 및 코드 리팩토링
