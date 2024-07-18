@@ -1,7 +1,7 @@
 import "/main.js";
 import { getStorage, setStorage, insertLast } from "/src/lib/index.js";
 import pb from "/src/api/pocketbase";
-
+import getPbImageURL from "/src/api/getPbImageURL";
 const shadowRoot = document.querySelector("c-header").shadowRoot;
 const register = shadowRoot.querySelector(".register");
 const login = shadowRoot.querySelector(".login");
@@ -20,19 +20,8 @@ function formatDate(dateString) {
 
 async function renderUserData() {
   const userData = await getUserData();
-  const {
-    name,
-    address,
-    birth,
-    email,
-    phoneNumber,
-    userEmail,
-    created,
-    adAllow,
-  } = userData[0];
-
-  const formattedBirth = formatDate(birth);
-  const formattedCreated = formatDate(created);
+  const formattedBirth = formatDate(userData[0].birth);
+  const formattedCreated = formatDate(userData[0].created);
 
   const template = `
   <div class="mypage__sub__container">
@@ -40,7 +29,7 @@ async function renderUserData() {
     <div class="profile__container">
       <div class="text__container">
         <h2 class="text__gradient"><span>반가워요!</span></h2>
-        <h2>${name}님</h2>
+        <h2>${userData[0].name}님</h2>
       </div>
       <div class="user__point">
         <div class="user__save__point">
@@ -96,7 +85,9 @@ async function renderUserData() {
     <div class="user__info">
       <div class="profile__detail">
         <div class="profile__image">
-          <img src="" alt="" />
+          <img src="${getPbImageURL(userData[0], "profilePhoto")}" alt="${
+    userData[0].name
+  } 사진" />
         </div>
       </div>
       <table>
@@ -106,23 +97,23 @@ async function renderUserData() {
         </colgroup>
         <tr>
           <th>이름</th>
-          <td>${name}</td>
+          <td>${userData[0].name}</td>
         </tr>
         <tr>
           <th>아이디</th>
-          <td>${email}</td>
+          <td>${userData[0].email}</td>
         </tr>
         <tr>
           <th>이메일</th>
-          <td>${userEmail}</td>
+          <td>${userData[0].userEmail}</td>
         </tr>
         <tr>
           <th>연락처</th>
-          <td>${phoneNumber}</td>
+          <td>${userData[0].phoneNumber}</td>
         </tr>
         <tr>
           <th>주소</th>
-          <td>${address}</td>
+          <td>${userData[0].address}</td>
         </tr>
         <tr>
           <th>생일</th>
@@ -134,7 +125,7 @@ async function renderUserData() {
         </tr>
         <tr>
           <th>광고 수신 동의</th>
-          <td>${adAllow ? "동의" : "거부"}</td>
+          <td>${userData[0].adAllow ? "동의" : "거부"}</td>
         </tr>
       </table>
     </div>
