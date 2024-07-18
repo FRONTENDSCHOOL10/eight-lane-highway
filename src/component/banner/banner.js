@@ -37,7 +37,7 @@ async function fetchBannerImages() {
       }
     );
     const data = authResponse.data;
-    console.log(data);
+    // console.log(data);
 
     const token = authResponse.data.token;
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
