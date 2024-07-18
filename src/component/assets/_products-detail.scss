@@ -195,19 +195,18 @@
 
 .product__bubble {
   position: absolute;
-  right: 10px;
   top: 60px;
-  display: inline-flex;
+  right: 10px;
   padding: 20px;
   border: 1px solid $gray200;
   background-color: $white;
-  flex-shrink: 0;
+  z-index: 100;
 
   .bubble {
     &__image__container {
-      width: 46px;
+      width: 50px;
       background-color: $gray200;
-      margin-right: 24px;
+      margin-right: 16px;
 
       img {
         width: 100%;
@@ -217,8 +216,13 @@
     &__text__container {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       text-align: left;
       gap: 8px;
+
+      h3 {
+        @include font($color: $gray300, $fs: 0.75rem, $fw: 600);
+      }
     }
   }
   &::after {
