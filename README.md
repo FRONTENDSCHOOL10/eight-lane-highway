@@ -474,3 +474,9 @@
 - src/pages/cart/delete.js 각 카테고리에 해당 상품 없을시 해당 카테고리 UI 삭제하기
 - src/pages/cart/main.js 카테고리 보이지 않는 함수 추가
 - src/component/assets/\_cart.scss 배송아이콘 이미지 webp로 수정
+
+## 2024-07-19
+
+**오성훈**
+
+- component/addShoppingBasket/addShoppingBasket.js: 접근성을 위해 키보드로 팝업 접근시 바로 접근할 수 있도록 변경
