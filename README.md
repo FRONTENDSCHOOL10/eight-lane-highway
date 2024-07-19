@@ -28,11 +28,13 @@
 <table>
 <tr><th style="text-align: center; ">주요 기능</th></tr>
 <tr><td>
+
 - 🔍 상품 검색 및 카테고리별 분류
 - 💄 추천 상품 및 프로모션 배너
 - 🛒 장바구니 및 결제 기능
-- 💁 고객센터 정보 제공
+- 💁 마이페이지 정보 제공
 - 📑 회원가입 및 로그인 기능
+
 </td></tr>
 <tr><th style="text-align: center; ">상세 기능</th></tr>
 <tr><th style="text-align: center; ">헤더(header)</th></tr>
