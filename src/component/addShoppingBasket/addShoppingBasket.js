@@ -74,6 +74,13 @@ async function renderAddShoppingCart(productId) {
   `;
   insertLast(popup, templete);
 
+  const focusableElements = popup.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (focusableElements.length > 0) {
+    focusableElements[0].focus();
+  }
+
   const counterButton = document.querySelector(".price_counter");
   const cancelButton = document.querySelector(".cancel");
   const addCartButton = document.querySelector(".add__cart");
