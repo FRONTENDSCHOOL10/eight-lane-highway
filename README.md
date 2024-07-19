@@ -455,7 +455,7 @@
 - src/component/assets/\_products-detail.scss: 상품문의/상품후기 게시판 스타일링 마무리
 - src/component/assets/\_typography.scss: 제목 type 및 list type 에셋 추가
 
-## 2024-07-17
+## 2024-07-18
 
 **이희재**
 
@@ -467,3 +467,10 @@
 - component/addShoppingBasket/addShoppingBasket.js: 가격에 콤마가 찍히지 않은 문제를 콤마가 찍히도록 변경
 - component/addShoppingBasket/addShoppingBasket.js: 로컬스토리지에 저장되는 상품 요소 변경
 - pages/productList/productList.js: img 태그에 각각의 사진의 이름을 alt로 넣도록 변경
+
+**최소현**
+
+- src/pages/cart/main.js 페이지 로드시 아코디언 열어두기 기본상태로 설정
+- src/pages/cart/delete.js 각 카테고리에 해당 상품 없을시 해당 카테고리 UI 삭제하기
+- src/pages/cart/main.js 카테고리 보이지 않는 함수 추가
+- src/component/assets/\_cart.scss 배송아이콘 이미지 webp로 수정
