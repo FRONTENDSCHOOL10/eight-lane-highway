@@ -126,7 +126,24 @@
 <hr />
 <hr />
 <br />
-<h3>🕶️ 팀원소개 🕶️</h3>
+<h3>🕹️ 테스트 계정 🕹️</h3>
+<h4>ID</h4>
+
+```
+test123@testing.com
+```
+
+<h4>PASSWORD</h4>
+
+```
+testing123
+```
+
+</code>
+<br />
+<hr />
+<hr />
+<br />
 <table>
 <tr>
 <td align="center">
@@ -191,6 +208,8 @@ INFP<br/>woolen_h@kakao.com<br/><a href="https://github.com/woolen-h">github.com
 
 <img src="https://img.shields.io/badge/Visual_Studio_Code-269FF0?style=flat">
 </div>
+
+<h3 align="center">♟️ 기술스택 ♟️</h3>
 
 ---
 
