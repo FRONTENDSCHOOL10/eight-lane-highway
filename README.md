@@ -2,7 +2,12 @@
 
 ## 8차선고속도로
 
+### [PPT](https://www.canva.com/design/DAGLSUPYoIk/x4zuN30pF3NvoKuvyP_5VQ/edit?ui=eyJIIjp7IkEiOnRydWV9fQ)
+
+### [배포사이트](https://eightlane-highway.netlify.app/)
+
 <div align="center" style="width: 600px;">
+  
 <h3>🎩 프로젝트 소개 🎩</h3>
 <table>
 <tr><th style="text-align: center; ">프로젝트 개요</th></tr>
@@ -21,8 +26,8 @@
 </table>
 <br />
 <hr />
-<hr />
 <br />
+
 <h3>🎥 프로젝트 기능 소개 🎥</h3>
 
 <table>
@@ -122,10 +127,7 @@
 - 장바구니 상품이 없는 경우 UI 변경</td></tr>
 </th></tr>
 </table>
-<br />
-<hr />
-<hr />
-<br />
+<br /><hr /><br />
 <h3>🕹️ 테스트 계정 🕹️</h3>
 <h4>ID</h4>
 
@@ -141,7 +143,6 @@ testing123
 
 </code>
 <br />
-<hr />
 <hr />
 <br />
 <table>
