@@ -27,7 +27,7 @@ export async function renderProductItem(className, collectionName) {
             }" class="visual__link">
               <img src="${getPbImageURL(item)}" alt="${item.name}" />
             </a>
-            <button type=button href="/" class="visual__add-cart" aria-label="장바구니 담기">
+            <button type="button" href="/" class="visual__add-cart" aria-label="장바구니 담기">
               <img src="https://eight-lane-highway.pockethost.io/api/files/gvvvhy46u0pq19y/ddn8bpfq6fsglu8/cart_sfurEEgmWu.svg" alt="장바구니 담기" />
             </button>
           </div>
