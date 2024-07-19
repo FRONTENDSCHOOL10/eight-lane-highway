@@ -1,4 +1,105 @@
-# 멋쟁이사자처럼 테킷 프론트엔드 스쿨 10기 8조 바닐라 프로젝트 저장소
+# 멋쟁이사자처럼 10기 Vanilla JS 프로젝트
+
+## 8차선고속도로
+
+<div align="center" style="width: 600px;">
+<h3>🎩 프로젝트 소개 🎩</h3>
+<table>
+<tr><th style="text-align: center; ">프로젝트 개요</th></tr>
+<tr><td>
+
+- 온라인 쇼핑몰 '마켓칼리'의 웹페이지를 클론 코딩합니다.
+
+</td></tr>
+<tr><th style="text-align: center; ">프로젝트 목표</th></tr>
+<tr><td>
+
+- HTML, SCSS, Vanilla JavaScript 등의 기술을 활용하여 실제 상용화된 웹페이지를 재현합니다.
+- Pocketbase 연동: 데이터베이스를 통해 CRUD에 대한 심화 학습을 진행합니다.
+- 협업 및 버전 관리: Git을 활용한 버전 관리와 협업 툴을 통해 팀 프로젝트를 진행합니다.
+</td></tr>
+<tr><th style="text-align: center; ">주요 기능</th></tr>
+<tr><td>
+
+- 🔍 상품 검색 및 카테고리별 분류
+- 💄 추천 상품 및 프로모션 배너
+- 🛒 장바구니 및 결제 기능
+- 💁 고객센터 정보 제공
+- 📑 회원가입 및 로그인 기능
+
+</td></tr>
+
+</table>
+<br>
+<h3>🕶️ 팀원소개 🕶️</h3>
+<table>
+<tr>
+<td align="center">
+<img src="https://github.com/FRONTENDSCHOOL10/eight-lane-highway/assets/124031772/d4de7938-009c-464f-8c1b-6b1a5836a4a5" alt="이희재 프로필">
+</td>
+<td align="center"><img src="https://github.com/FRONTENDSCHOOL10/eight-lane-highway/assets/124031772/85014cac-615c-4182-a49f-b4a2356e097f" alt="최소현 프로필">
+</td>
+<td align="center">
+<img src="https://github.com/FRONTENDSCHOOL10/eight-lane-highway/assets/124031772/03b92926-ffe0-4f41-a5b2-9e17e75030f7" alt="오성훈 프로필">
+</td>
+<td align="center"><img src="https://github.com/FRONTENDSCHOOL10/eight-lane-highway/assets/124031772/b0479ea7-42f5-4a96-8ce8-614864274faf" alt="김한울 프로필"></td>
+</tr>
+<tr>
+<td align="center" width="250px"><img src="https://img.shields.io/badge/LEE:HEE:JAE-004EEB?style=for-the-badge&logo=waze&logoColor=white">
+<br/>
+<details><summary><strong>Project Leader</strong></summary>
+ISTJ<br/>leeheejaelcode@gmail.com<br/><a href="https://github.com/leeheejaelcode">github.com/leeheejaelcode</a></td>
+</details>
+<td align="center" width="250px">
+<img src="https://img.shields.io/badge/CHOI:SO:HYEON-FA7118?style=for-the-badge&logo=bilibili&logoColor=white">
+<br/>
+<details>
+<summary>
+<strong>Project Assistant</strong>
+</summary>
+ISFJ<br/>chlthgus0901@naver.com<br/><a href="https://github.com/minimumchoi">github.com/minimumchoi</a>
+</details>
+</td>
+<td align="center" width="250px"><img src="https://img.shields.io/badge/OH:SEONG:HUN-9705EB?style=for-the-badge&logo=kuma&logoColor=white">
+<br/>
+<details>
+<summary>
+<strong>Project Assistant</strong>
+</summary>
+ISFJ<br/>osh8137@naver.com<br/><a href="https://github.com/castlehuni">github.com/castlehuni</a>
+</details>
+</td>
+<td align="center" width="250px">
+<img src="https://img.shields.io/badge/KIM:HAN:WOOL-F524A5?style=for-the-badge&logo=ethereum&logoColor=white">
+<br/>
+<details>
+<summary>
+<strong>Scrum Master</strong>
+</summary>
+INFP<br/>woolen_h@kakao.com<br/><a href="https://github.com/woolen-h">github.com/woolen-h</a>
+</details>
+</td>
+</tr>
+</table>
+<br>
+<h3 align="center">♟️ 기술스택 ♟️</h3>
+
+<strong>FRONTEND</strong>
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white">
+<img src="https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white">
+<img src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=flat&logo=JAVASCRIPT&logoColor=black">
+<img src="https://img.shields.io/badge/swiper-6332F6?style=flat&logo=swiper&logoColor=white">
+<br><br>
+
+<strong>TOOLS</strong>
+
+<img src="https://img.shields.io/badge/Visual_Studio_Code-269FF0?style=flat">
+</div>
+
+---
+
+---
 
 ## CHANGELOG
 
