@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from "/src/lib/index.js";
+import { getStorage, setStorage, getId, getUrl } from "/src/lib/index.js";
 
 // 최근 본 상품 리스트를 가져오는 함수
 async function getRecentProductsList() {
@@ -6,11 +6,9 @@ async function getRecentProductsList() {
 }
 
 // 최근 본 상품 ID를 제거하는 함수
-export async function removeRecentProductsId(e) {
-  const url = new URLSearchParams(e.target.closest("a").href);
-  let targetId;
-  for (const [_, a] of url) targetId = a;
-  let src = e.target.closest("img").src;
+export async function removeRecentProductsId(e, srcTarget) {
+  const targetId = getId(e.target.closest("a"));
+  const src = getUrl(srcTarget);
 
   let recentProductsList = await getRecentProductsList();
   if (!recentProductsList) return;

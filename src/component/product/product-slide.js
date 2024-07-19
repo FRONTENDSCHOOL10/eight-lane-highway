@@ -1,16 +1,20 @@
 import {
   setStorage,
-  CustomSwiper,
-  renderProductItem,
-  removeRecentProductsId,
-  recentProducts,
   insertLast,
   getStorage,
   isArray,
   openCartPopUp,
   closeCartPopUp,
   getCartData,
+  getId,
+  getUrl,
 } from "/src/lib/index.js";
+import {
+  CustomSwiper,
+  renderProductItem,
+  removeRecentProductsId,
+  recentProducts,
+} from "/src/pages/main/index.js";
 
 import getPbImageURL from "/src/api/getPbImageURL.js";
 import pb from "/src/api/pocketbase.js";
@@ -42,26 +46,30 @@ import pb from "/src/api/pocketbase.js";
   // </article>
   // `;
 
-  // insertLast(".product-slide1 swiper-wrapper", seeAllProduct);
-  // insertLast(".product-slide2 swiper-wrapper", seeAllProduct);
+  // insertLast(".product-slide1 .swiper-wrapper", seeAllProduct);
+  // insertLast(".product-slide2 .swiper-wrapper", seeAllProduct);
   const localStorageItem = localStorage.getItem("recent");
 
   let data = localStorageItem ? JSON.parse(localStorageItem) : [];
 
-  function handleClick(e) {
-    const url = new URLSearchParams(e.target.closest("a").href);
-    let id;
-    for (const [_, a] of url) id = a;
-    let src = e.target.closest("img").src;
-    data.push({ id, src });
-    setStorage("recent", data);
-  }
-
   const slides = document.querySelectorAll(".visual__link");
-  slides.forEach((item, index) => {
+  slides.forEach((item) => {
     item.addEventListener("click", (e) => {
-      handleClick(e, index);
-      removeRecentProductsId(e);
+      const id = getId(e.target.closest("a"));
+      const src = getUrl(e.target.closest("img"));
+      data.push({ id, src });
+      setStorage("recent", data);
+      removeRecentProductsId(e, e.target.closest("img"));
+    });
+
+    item.addEventListener("keydown", (e) => {
+      if (e.keyCode == 32) {
+        e.preventDefault();
+        e.target.click();
+        console.log(e.currentTarget.firstElementChild);
+        handleClick(e, e.currentTarget.firstElementChild);
+        removeRecentProductsId(e, e.currentTarget.firstElementChild);
+      }
     });
   });
 
@@ -74,13 +82,18 @@ import pb from "/src/api/pocketbase.js";
   cartButton.forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
-      const url = new URLSearchParams(
-        e.target.parentNode.previousElementSibling.href
-      );
-      let id = "";
-      for (const [_, a] of url) id = a;
+      const id = getId(e.target.parentNode.previousElementSibling);
       openCartPopUp(id);
       renderAddShoppingCart(id);
+    });
+
+    item.addEventListener("keydown", (e) => {
+      if (e.keyCode == 32) {
+        e.preventDefault();
+        const id = getId(e.target.parentNode.firstElementChild);
+        openCartPopUp(id);
+        renderAddShoppingCart(id);
+      }
     });
   });
 
@@ -146,6 +159,12 @@ import pb from "/src/api/pocketbase.js";
       </section>
     `;
     insertLast(popup, template);
+    const focusableElements = popup.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
 
     const counterButton = document.querySelector(".price_counter");
     const cancelButton = document.querySelector(".cancel");
@@ -218,7 +237,6 @@ import pb from "/src/api/pocketbase.js";
           imgURL: getPbImageURL(products),
           packaging: products.packaging,
         });
-        // console.log(cartItems);
       }
       setStorage("cartItems", cartItems);
       closeCartPopUp(e);
