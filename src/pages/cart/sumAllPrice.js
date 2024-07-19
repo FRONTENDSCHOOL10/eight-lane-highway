@@ -1,4 +1,10 @@
-import { formatPrice, getNode, getNodes } from "../../lib";
+import {
+  addClass,
+  formatPrice,
+  getNode,
+  getNodes,
+  removeClass,
+} from "/src/lib";
 
 // 수량 변경시 총액 변경
 export function updateSumAllPrice() {
@@ -44,9 +50,16 @@ export function updateSumAllPrice() {
   // 상품할인금액
   const discountResult = valueResult - estimatedPrice;
 
+  // 배송비 무료조건 요소선택
+  const freeShippingBox = document.querySelector(".price__free-shipping");
+  const freeShippingCondition = document.querySelector(
+    ".price__free-shipping__condition"
+  );
+
   // 합계 0일때 (선택했다가 취소하는 경우) 배송료 0원
   if (valueResult == 0) {
     document.querySelector(".price__group__delivery").textContent = `0 원`;
+    removeClass(freeShippingBox, "is__show");
   }
 
   // 상품금액
@@ -75,8 +88,14 @@ export function updateSumAllPrice() {
     document.querySelector(
       ".price__group__delivery"
     ).textContent = `+${formatPrice(3000)} 원`;
+    // 배송비 무료조건 띄우기
+    addClass(freeShippingBox, "is__show");
+    freeShippingCondition.textContent = `${formatPrice(
+      30000 - estimatedPrice
+    )}원`;
   } else {
     document.querySelector(".price__group__delivery").textContent = `0 원`;
+    removeClass(freeShippingBox, "is__show");
   }
 }
 
