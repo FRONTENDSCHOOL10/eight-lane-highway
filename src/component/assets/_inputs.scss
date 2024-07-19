@@ -27,6 +27,7 @@ input {
   &.input {
     &__radio {
       @include input(1px, 24px, 24px);
+      margin-right: 5px;
       appearance: none;
       border-radius: 50%;
       cursor: pointer;
