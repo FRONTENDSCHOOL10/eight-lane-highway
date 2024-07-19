@@ -74,12 +74,14 @@ headerTemplate.innerHTML = `
                 <span>배송지를 등록하고</span><br />구매 가능한 상품을
                 확인하세요!
               </p>
+              <div>
               <a
                 href="/src/pages/login/index.html"
                 class="modal-link modal-login">
                 로그인
               </a>
               <a href="/" class="modal-link modal-search-address"> 주소 검색 </a>
+              </div>
             </dialog>
           </li>
           <li class="nav__user-service__item heart">
@@ -305,20 +307,23 @@ class Header extends HTMLElement {
     };
 
     if (localStorage.getItem("auth")) {
-      const { isLogin } = await getStorage("auth");
+      const { isLogin, userInfo } = await getStorage("auth");
       if (isLogin) {
         this.register.innerHTML = `<a href="/src/pages/member/mypage.html" class="my-page">마이페이지</a>`;
         this.login.innerHTML = `<a href="/" class="logout">로그아웃</a>`;
         this.addressModal.innerHTML = `
+        <h3>현재 주소</h3>
           <p>
-            <span>배송지를 등록하고</span><br />구매 가능한 상품을 확인하세요!
+            ${userInfo.address}
           </p>
+          <div>
               <a
                 href="/"
                 class="modal-link modal-logout">
                 로그아웃
               </a>
-              <a href="/" class="modal-link modal-search-address"> 주소 검색 </a>`;
+              <a href="/" class="modal-link modal-search-address"> 배송지 변경</a>
+              </div>`;
         const logout = this.header.querySelector(".logout");
         const modalLogout = this.header.querySelector(".modal-logout");
 
