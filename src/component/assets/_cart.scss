@@ -266,6 +266,19 @@
   &__group {
     @include flexAll(row, space-between, center, 4px);
   }
+  // 배송비 무료조건
+  &__free-shipping {
+    @include font($primaryColor, 0.8rem, 500, 160%);
+    @include flexAll(row, right, center, 3px);
+    display: none;
+
+    &.is__show {
+      display: flex;
+    }
+    &__emphasis {
+      font-weight: 900;
+    }
+  }
 }
 
 // 결제 예정 금액

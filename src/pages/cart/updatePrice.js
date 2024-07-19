@@ -1,6 +1,5 @@
-import { formatPrice, removeClass } from "../../lib";
-import { valueTrimmed } from "./sumAllPrice";
-import { addClass } from "/src/lib/index.js";
+import { formatPrice, removeClass, addClass } from "/src/lib";
+import { valueTrimmed } from "/src/pages/cart/sumAllPrice";
 
 // 수량 변경 및 가격변경 함수
 export function countNumber() {

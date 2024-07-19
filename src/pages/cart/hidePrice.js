@@ -1,5 +1,5 @@
-import { addClass } from "../../lib";
-import { valueTrimmed } from "./sumAllPrice";
+import { addClass } from "/src/lib";
+import { valueTrimmed } from "/src/pages/cart/sumAllPrice";
 
 // 할인율 0인 상품 할인전 금액 노출 X (중복 반영 X)
 export function hidePrice() {
