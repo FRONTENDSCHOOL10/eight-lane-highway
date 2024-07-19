@@ -460,3 +460,10 @@
 **이희재**
 
 - src/component/product/product-slide.js: 생성자 함수로 추가 id값을 통해서 pb통신 줄이기 및 코드 리팩토링
+
+**오성훈**
+
+- pages/login/index.html, pages/productList/index.html: 타이틀 주어진 틀에 맞게 변경
+- component/addShoppingBasket/addShoppingBasket.js: 가격에 콤마가 찍히지 않은 문제를 콤마가 찍히도록 변경
+- component/addShoppingBasket/addShoppingBasket.js: 로컬스토리지에 저장되는 상품 요소 변경
+- pages/productList/productList.js: img 태그에 각각의 사진의 이름을 alt로 넣도록 변경
