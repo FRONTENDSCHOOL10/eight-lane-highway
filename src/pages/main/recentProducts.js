@@ -5,18 +5,9 @@ export async function recentProducts() {
     const recentSwiper = document.querySelector(
       ".recent-product-container .swiper-wrapper"
     );
-
-    if (!recentSwiper) {
-      console.warn("Recent products swiper wrapper not found.");
-      return;
-    }
-
     const data = await getStorage("recent");
 
-    if (!data || !Array.isArray(data)) {
-      console.error("No recent products data found or data is not an array.");
-      return;
-    }
+    if (!recentSwiper || !data) return;
 
     data.forEach(({ id, src }) => {
       const template = `
