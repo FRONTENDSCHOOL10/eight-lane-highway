@@ -1,13 +1,13 @@
-import pb from "../../api/pocketbase";
+import pb from "/src/api/pocketbase";
 import {
   deleteStorage,
   getCartData,
   getStorage,
   isArray,
   setStorage,
-} from "../../lib";
-import { updateSelectedCount } from "./countedItem";
-import { updateSumAllPrice } from "./sumAllPrice";
+} from "/src/lib";
+import { updateSelectedCount } from "/src/pages/cart/countedItem";
+import { updateSumAllPrice } from "/src/pages/cart/sumAllPrice";
 
 // 상품 개별 삭제 함수
 export function deleteSelected() {

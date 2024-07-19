@@ -1,4 +1,4 @@
-import { getNode, getNodes, insertLast } from "../../lib";
+import { getNode, getNodes, insertLast } from "/src/lib";
 
 // 선택수량 업데이트 함수
 export function updateSelectedCount() {
