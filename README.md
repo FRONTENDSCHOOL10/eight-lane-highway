@@ -480,3 +480,8 @@
 **오성훈**
 
 - component/addShoppingBasket/addShoppingBasket.js: 접근성을 위해 키보드로 팝업 접근시 바로 접근할 수 있도록 변경
+
+**이희재**
+
+- src/component/product/product-slide.js: 접근성을 위해 키보드로 접근 가능할 수 있도록 변경
+- 불필요한 파일과 함수 분리
