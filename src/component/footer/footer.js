@@ -16,7 +16,7 @@ footerTemplate.innerHTML = `
         <p class="customer-service-time">월~토요일 오전 7시 - 오후 6시</p>
       </article>
       <article class="footer__customer-service kakaotalk-inquiry">
-        <h4 class="sr-only">카카오톡 문의</h4>
+        <p class="sr-only">카카오톡 문의</p>
         <button class="customer-service-button">카카오톡 문의</button>
         <div>
           <p class="customer-service-time">
@@ -28,7 +28,7 @@ footerTemplate.innerHTML = `
         </div>
       </article>
       <article class="footer__customer-service">
-        <h4 class="sr-only">1:1 문의</h4>
+        <p class="sr-only">1:1 문의</p>
         <button class="customer-service-button one-on-one-inquiry">
           1:1 문의
         </button>
@@ -36,7 +36,7 @@ footerTemplate.innerHTML = `
         <p class="customer-service-time">일/공휴일 | 오전 7시 - 오후 1시</p>
       </article>
       <article class="footer__customer-service bulk-order-inquiry">
-        <h4 class="sr-only">대량 주문 문의</h4>
+        <p class="sr-only">대량 주문 문의</p>
         <button class="customer-service-button">대량주문 문의</button>
         <div>
           <p class="customer-service-time">
@@ -48,7 +48,7 @@ footerTemplate.innerHTML = `
         </div>
       </article>
       <article class="footer__customer-service non-member-inquiry">
-        <h4 class="sr-only">대량 주문 문의</h4>
+        <p class="sr-only">대량 주문 문의</p>
         <div>
           <p>비회원 문의 : <a href="/">help@karlycorp.com</a></p>
           <p>비회원 대량주문 문의 : <a href="/">help@karlycorp.com</a></p>
@@ -88,7 +88,7 @@ footerTemplate.innerHTML = `
     </article>
   </section>
   <article class="footer__disclaimer">
-    <h4 class="sr-only">칼리 인증 내역</h4>
+    <p class="sr-only">칼리 인증 내역</p>
     <a href="/" target="_blank" rel="noopener noreferrer" class="footer__disclaimer-link" aria-describedby="buttonSecurity">
       <span id="buttonSecurity">
           [인증범위] 마켓칼리 쇼핑몰 서비스 개발 운영<br />
